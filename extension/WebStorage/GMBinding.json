@@ -1,0 +1,33 @@
+[
+    {
+        "functionName": "webStorageFileExistsOnLocalStorage",
+        "functionArguments": [
+            "filepath"
+        ]
+    },
+    {
+        "functionName": "webStorageFileExistsOnServer",
+        "functionArguments": [
+            "filepath"
+        ]
+    },
+    {
+        "functionName": "webStorageLoadFromLocalStorage",
+        "functionArguments": [
+            "filepath"
+        ]
+    },
+    {
+        "functionName": "webStorageLoadFromServer",
+        "functionArguments": [
+            "filepath"
+        ]
+    },
+    {
+        "functionName": "webStorageSave",
+        "functionArguments": [
+            "filepath",
+            "data"
+        ]
+    }
+]

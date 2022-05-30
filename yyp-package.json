@@ -1,0 +1,14 @@
+{
+    "name": "Vidu",
+    "gmsVersion": "2.3.*",
+    "horizonToolkitSettings": {
+        "cli": {
+            "displayName": "visu",
+            "font": "Poison"
+        },
+        "paths": {
+            "modelPath": "api/model.json",
+            "yypPath": "yyp"        
+        }
+    }
+}

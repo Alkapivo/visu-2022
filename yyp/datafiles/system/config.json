@@ -1,0 +1,12 @@
+{
+    "data": [
+        {
+            "packageName": "com.devhorizon.spaaceloader",
+            "artifactName": "SpaaceLoader",
+            "context": "SpaaceLoader",
+            "scenes": [
+                "SceneGame"
+            ]
+        }
+    ]
+}

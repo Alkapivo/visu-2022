@@ -1,0 +1,11 @@
+{
+    "sprites": [],
+    "sounds": [],
+    "timelines": [
+        {
+            "name": "timeline",
+            "path": "timelines/timeline.json",
+            "options": {}
+        }
+    ]
+}

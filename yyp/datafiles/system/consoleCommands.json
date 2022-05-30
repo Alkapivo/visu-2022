@@ -1,0 +1,52 @@
+{
+    "data": [
+        {
+            "name": "clear",
+            "asset": "consoleCommandClear"
+        },
+        {
+            "name": "debug_overlay",
+            "asset": "consoleCommandDebugOverlay"
+        },
+        {
+            "name": "fullscreen",
+            "asset": "consoleCommandFullscreen"
+        },
+        {
+            "name": "get_working_directory",
+            "asset": "consoleCommandGetWorkingDirectory"
+        },
+        {
+            "name": "he",
+            "asset": "startupLogo"
+        },
+        {
+            "name": "list",
+            "asset": "consoleCommandList"
+        },
+        {
+            "name": "quit",
+            "asset": "consoleCommandQuit"
+        },
+        {
+            "name": "restart",
+            "asset": "consoleCommandRestart"
+        },
+        {
+            "name": "say",
+            "asset": "consoleCommandSay"
+        },
+        {
+            "name": "version",
+            "asset": "consoleCommandVersion"
+        },
+        {
+            "name": "set_global",
+            "asset": "consoleCommandSetGlobal"
+        },
+        {
+            "name": "spawn_shader",
+            "asset": "consoleCommandSpawnShaderEvent"
+        }
+    ]
+}

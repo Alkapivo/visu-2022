@@ -1,0 +1,14 @@
+{
+    "data": [
+        {
+            "name": "1920x900",
+            "realWidth": 1920,
+            "realHeight": 1200,
+            "guiWidth": 1920,
+            "guiHeight": 1200,
+            "viewWidth": 1920,
+            "viewHeight": 1200
+        }
+    ]
+}
+

@@ -1,0 +1,455 @@
+[
+    {
+        "name": "Boss",
+        "schema": {
+            "type": "BossType",
+            "state": "Map<String::any>",
+            "handler": "AssetScript"
+        },
+        "enums": [
+            "BossType"
+        ],
+        "primitives": [
+            "AssetScript",
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "BossEvent",
+        "schema": {
+            "type": "String"
+        },
+        "enums": [],
+        "primitives": [
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "BossStage",
+        "schema": {
+            "name": "String",
+            "timer": "Number",
+            "duration": "Number"
+        },
+        "enums": [],
+        "primitives": [
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "Bullet",
+        "schema": {
+            "gridElement": "GridElement",
+            "angle": "Number",
+            "speedValue": "Number",
+            "acceleration": "Number",
+            "producer": "Instance",
+            "collisionRadius": "Number"
+            
+        },
+        "enums": [],
+        "primitives": [
+            "Instance",
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "GameEvent",
+        "schema": {
+            "time": "Number",
+            "type": "String",
+            "entity": "any"
+        },
+        "enums": [],
+        "primitives": [
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "GridElement",
+        "schema": {
+            "position": "Position",
+            "sprite": "Sprite",
+            "info": "GridElementInfo"
+        },
+        "enums": [],
+        "primitives": [
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "GridElementInfo",
+        "schema": {
+            
+            "isVisible": "Boolean",
+            "type": "GridElementInfoType",
+            "color": "Color",
+            "text": "String"
+        },
+        "enums": [
+            "GridElementInfoType"
+        ],
+        "primitives": [
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "GridEvent",
+        "schema": {
+            "fields": "Map<String::any>"
+        },
+        "enums": [],
+        "primitives": [
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "JumbotronEvent",
+        "schema": {
+            "message": "String",
+            "handlerName": "String",
+            "duration": "Number"
+        },
+        "enums": [],
+        "primitives": [
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "ParticleEvent",
+        "schema": {
+            "particle": "String",
+            "fields": "Map<String::any>"
+        },
+        "enums": [],
+        "primitives": [
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "ParticleTask",
+        "schema": {
+            "particle": "ParticleEffect",
+            "particleSystem": "ParticleSystem",
+            "amount": "Integer",
+            "timer": "Number",
+            "emitterInterval": "Number",
+            "emitterTimer": "Number",
+            "duration": "Number",
+            "positionBegin": "Position",
+            "positionEnd": "Position"
+        },
+        "enums": [],
+        "primitives": [
+            "ParticleEffect",
+            "ParticleSystem",
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "SpaacePlayer",
+        "schema": {
+            "name": "String",
+            "gridElement": "GridElement",
+            "status": "PlayerStatus",
+            "state": "Map<String::any>",
+            "inputHandler": "Instance",
+            "horizontalSpeed": "Number",
+            "verticalSpeed": "Number",
+            "collisionRadius": "Number"
+            
+        },
+        "enums": [
+            "PlayerStatus"
+        ],
+        "primitives": [
+            "Instance",
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "PlayerEvent",
+        "schema": {
+            "fields": "Map<String::any>"
+        },
+        "enums": [],
+        "primitives": [
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "ShaderEvent",
+        "schema": {
+            "name": "String",
+            "duration": "Number",
+            "data": "Map<String::any>"
+        },
+        "enums": [],
+        "primitives": [
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "ShaderPipeline",
+        "schema": {
+            "pipe": "Stack<ShaderTask>",
+            "buffer": "Stack<ShaderTask>",
+            "limit": "Integer"
+            
+        },
+        "enums": [],
+        "primitives": [
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "ShaderTask",
+        "schema": {
+            "shader": "AssetShader",
+            "countdown": "Number",
+            "state": "Map<String::any>",
+            "alpha": "Number",
+            "cooldown": "Number"
+        },
+        "enums": [],
+        "primitives": [
+            "AssetShader",
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "Shroom",
+        "schema": {
+            "gridElement": "GridElement",
+            "radius": "Number",
+            "speedValue": "Number",
+            "state": "Map<String::any>",
+            "text": "Optional<String>",
+            "updateHandler": "AssetScript",
+            "bulletCollisionHandler": "Optional<AssetScript>",
+            "playerCollisionHandler": "Optional<AssetScript>"
+        },
+        "enums": [],
+        "primitives": [
+            "any",
+            "AssetScript",
+            "Boolean",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "ShroomEmitter",
+        "schema": {
+            "timer": "Number",
+            "positionBegin": "Position",
+            "positionEnd": "Position",
+            "duration": "Number",
+            "amount": "Integer",
+            "interval": "Number",
+            "templates": "ShroomTemplate[]"
+        },
+        "enums": [],
+        "primitives": [
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "ShroomEmitterEvent",
+        "schema": {
+            "duration": "Number",
+            "amount": "Number",
+            "interval": "Number",
+            "templates": "ShroomTemplate[]"
+        },
+        "enums": [],
+        "primitives": [
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "ShroomEvent",
+        "schema": {
+            "fields": "Map<String::any>"
+        },
+        "enums": [],
+        "primitives": [
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "ShroomTemplate",
+        "schema": {
+            "sprite": "Sprite",
+            "type": "Map<String::Object>",
+            "speedValues": "Number[]",
+            "texts": "Tuple[]"
+        },
+        "enums": [],
+        "primitives": [
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "Star",
+        "schema": {
+            "position": "Position",
+            "target": "Position",
+            "sprite": "Sprite",
+            "speedValue": "Number",
+            "scale": "Number",
+            "alpha": "Number"
+        },
+        "enums": [],
+        "primitives": [
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "Timeline",
+        "schema": {
+            "time": "Number",
+            "context": "Instance",
+            "stack": "Satck<GameEvent>"
+        },
+        "enums": [],
+        "primitives": [
+            "Instance",
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "TimelineEntry",
+        "schema": {
+            "time": "Number",
+            "events": "TimelineEvent[]"
+        },
+        "enums": [],
+        "primitives": [
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "TimelineEvent",
+        "schema": {
+            "type": "String",
+            "data": "Map<String::any>"
+        },
+        "enums": [],
+        "primitives": [
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    },
+    {
+        "name": "LyricsEvent",
+        "schema": {
+            "lyrics": "String[]",
+            "lifespan": "Number",
+            "duration": "Number"
+        },
+        "enums": [],
+        "primitives": [
+            "any",
+            "Boolean",
+            "Integer",
+            "Number",
+            "String"
+        ]
+    }
+]

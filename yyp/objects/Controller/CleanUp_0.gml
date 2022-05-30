@@ -1,0 +1,4 @@
+///@description cleanUp()
+
+	deregisterContext(this);
+	

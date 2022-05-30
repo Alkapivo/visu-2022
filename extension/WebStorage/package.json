@@ -1,0 +1,20 @@
+{
+	"name": "gm-webstorage",
+	"version": "1.0.0",
+	"description": "GameMaker JS extension.",
+	"main": "src/WebStorage.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "gulp",
+		"clean": "rm -rf ./build"
+	},
+	"keywords": [
+		"GameMaker"
+	],
+	"author": "Alkapivo",
+	"license": "MIT",
+	"devDependencies": {
+		"gulp": "^4.0.2",
+		"gulp-run": "^1.7.1"
+	}
+}

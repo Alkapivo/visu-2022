@@ -1,0 +1,24 @@
+{
+	"name": "gm-jsutil",
+	"version": "1.0.0",
+	"description": "GameMaker JS extension.",
+	"main": "src/JSUtil.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "gulp",
+		"clean": "rm -rf ./build"
+	},
+	"keywords": [
+		"GameMaker"
+	],
+	"author": "Alkapivo",
+	"license": "MIT",
+	"dependencies": {
+		"html2canvas": "^1.0.0-rc.5",
+		"mobile-detect": "^1.4.4"
+	},
+	"devDependencies": {
+		"gulp": "^4.0.2",
+		"gulp-run": "^1.7.1"
+	}
+}

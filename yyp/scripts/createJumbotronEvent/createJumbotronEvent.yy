@@ -1,0 +1,12 @@
+{
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "JumbotronEvent",
+    "path": "folders/src/com.devhorizon.spaaceloader/entity/JumbotronEvent.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "createJumbotronEvent",
+  "tags": [],
+  "resourceType": "GMScript",
+}

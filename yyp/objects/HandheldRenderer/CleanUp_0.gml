@@ -1,0 +1,6 @@
+///@description 
+
+	super();
+	
+	destroySurface(handheldSurface);
+	

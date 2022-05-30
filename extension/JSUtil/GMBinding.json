@@ -1,0 +1,36 @@
+[
+    {
+        "functionName": "jsUtilFBPixelEvent",
+        "functionArguments": [
+            "gameType", 
+            "eventName", 
+            "params"
+        ]
+    },
+    {
+        "functionName": "jsUtilGetCanvasSize",
+        "functionArguments": []
+    },
+    {
+        "functionName": "jsUtilGetCanvasOffsetX",
+        "functionArguments": []
+    },
+    {
+        "functionName": "jsUtilGetCanvasOffsetY",
+        "functionArguments": []
+    },
+    {
+        "functionName": "jsUtilIsFullscreen",
+        "functionArguments": []
+    },
+    {
+        "functionName": "jsUtilIsMobile",
+        "functionArguments": []
+    },
+    {
+        "functionName": "jsUtilSetCanvasVisibility",
+        "functionArguments": [
+            "visibility"
+        ]
+    }
+]
