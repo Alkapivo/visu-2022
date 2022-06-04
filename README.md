@@ -2,7 +2,7 @@
 
 Real time visualizer with simple gameplay. 
 
-### Requirements
+### Dependencies
 - [GMS:2.3](https://gamemaker.io/en/gamemaker)
 - [bash](https://gitforwindows.org/)
 - [node](https://nodejs.org/en/)
