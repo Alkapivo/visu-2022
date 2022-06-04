@@ -72,17 +72,25 @@
 			getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_SPACE)) || 
 			getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_Z))) : false;
 		
-		if (keyboardCheckAction) {
-			var bullets = getValueFromMap(playerState, "bullets", 0);
-			if (bullets > 0) || (0 == ziobro) {
-				playerState[? "bullets"] = bullets - 1;
-				spawnBullet(createPosition(
-						getPositionHorizontal(playerPosition), 
-						getPositionVertical(playerPosition)),
-					BulletProducer.PLAYER
-				);
-			}
+		var bulletsCooldown = getValueFromMap(playerState, "bulletsCooldown", 0);
+		if ((keyboardCheckAction)
+			 && (bulletsCooldown == 0)) {
+
+			bulletsCooldown = 9;
+			spawnBullet(createPosition(
+					getPositionHorizontal(playerPosition), 
+					getPositionVertical(playerPosition)),
+				BulletProducer.PLAYER
+			);
 		}
+		
+		if (bulletsCooldown > 0) {
+			bulletsCooldown = clamp(bulletsCooldown - applyDeltaTime(1), 0, MAX_NUMBER);
+		} else {
+			bulletsCooldown = 0;
+		}
+		
+		Core.Collections._Map.set(playerState, "bulletsCooldown", bulletsCooldown);
 		#endregion
 
 		#region Collision
@@ -127,6 +135,8 @@
 				}
 				
 				shroomState[? "status"] = "end";
+				shroomState[? "instantKill"] = true;
+				global.__deaths++;
 				continue;
 			}
 		}

@@ -76,7 +76,7 @@ function createMidiMatrixController(config) {
 			var map = midiController.keymapConfig;
 			var mapWidth = 8;
 			var mapHeight = 8;
-			var buttonSize = 16;
+			var buttonSize = 6;
 			var buttonMargin = 2;
 			var xStart = GuiWidth - (mapWidth * (buttonSize + buttonMargin)) - 32;
 			var yStart = GuiHeight - (mapHeight * (buttonSize + buttonMargin)) - 32;
@@ -216,7 +216,7 @@ function createEventsPlayer() {
 									}	
 								);
 								
-								
+								global.__launchapdEvents++
 							} catch (exception) {
 								logger(exception.message, LogType.ERROR);
 								printStackTrace();
@@ -299,18 +299,23 @@ function createEventsRecorder() {
 				var jsonEvents = Core.Collections._Map.get(jsonObject, "events");
 				if (jsonEvents != null) {
 					
+					
 					var eventsSize = Core.Collections._List.size(jsonEvents);
+					events = createArray(eventsSize);
 					for (var index = 0; index < eventsSize; index++) {
 						
 						var jsonEvent = Core.Collections._List.get(jsonEvents, index);
-						var asd = Core.Collections._Map.get(jsonEvent, "data");
+						var jsonEventData = Core.Collections._Map.get(jsonEvent, "data");
 						var entry = {
 							name: Core.Collections._Map.get(jsonEvent, "name"),
-							data: Core.Collections._Map.toStruct(Core.Collections._Map.get(jsonEvent, "data"))
+							data: {
+								log: "",
+								key: Core.Collections._Map.get(jsonEventData, "key"),
+								timestamp: Core.Collections._Map.get(jsonEventData, "timestamp")
+							}
 						}
-						events = Core.Collections._Array.push(events, entry);
+						events[index] = entry;
 					}
-					
 				}
 				
 				var audio = {

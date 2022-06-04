@@ -72,9 +72,14 @@
 								bulletPosition,
 								getBulletCollisionRadius(bullet) * playerBulletRadius);
 							if (isCollision) {
-								var shroomState = getShroomState(shroom);								
+								var shroomState = getShroomState(shroom);	
+								
+								var bulletTaken = shroomState[? "bulletTaken"];
 								shroomState[? "status"] = "end";
+								shroomState[? "dieTimerDuration"] = 1;
 								shroomState[? "isKilledByBullet"] = true;
+								shroomState[? "bulletTaken"] = bulletTaken + 1;
+								global.__score++;
 							}
 						}
 					}

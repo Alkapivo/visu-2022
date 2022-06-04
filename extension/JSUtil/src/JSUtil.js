@@ -9,7 +9,7 @@ global.jsUtilGetCanvasOffsetY = getCanvasOffsetY;
 global.jsUtilIsFullscreen = isFullscreen;
 global.jsUtilIsMobile = isMobile;
 global.jsUtilSetCanvasVisibility = setCanvasVisibility
-
+global.jsUtilBootComplete = bootComplete
 /**
  * @GMFunctionName jsUtilFBPixelEvent 
  */
@@ -90,6 +90,29 @@ function setCanvasVisibility(visiblity) {
     } else {
         gmCanvas.style.visiblity = visiblity == "true" ? "visible" : "hidden";
     }
+}
+
+/**
+ * @GMFunctionName jsUtilBootComplete
+ * @param {String} visiblity - booleanString
+ */
+function bootComplete() {
+    console.debug(getFormattedLog("[JSUtil]", "bootComplete"));
+
+    const INVISIBLE_CSS_CLASS = "invisible";
+    const LOADING_CSS_CLASS = "pending";
+    
+    try {
+        document.getElementById("play-button").classList.remove(LOADING_CSS_CLASS);
+        document.getElementById("play-button").disabled = false;
+        document.getElementById("section-game-container").classList.remove(INVISIBLE_CSS_CLASS);
+        document.getElementById("section-info-container").classList.add(INVISIBLE_CSS_CLASS);
+    } catch (exception) {
+        console.error(exception);
+    }
+    
+
+    return "boot complete";
 }
 
 function getFormattedLog(...log) {

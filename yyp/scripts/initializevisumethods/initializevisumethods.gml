@@ -124,6 +124,11 @@ function initializeVisuGlobals() {
 	///@todo Remove
 	global.bulletAsset = asset_sprite_joystick_pointer;
 	sprite_set_speed(global.bulletAsset, 10, spritespeed_framespersecond);
+	
+	global.__lyrics = [];
+	
+	global.__deaths = 0;
+	global.__score = 0;
 }
 
 function initializeVisuMacros() {

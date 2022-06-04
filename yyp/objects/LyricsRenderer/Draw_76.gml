@@ -24,7 +24,7 @@
 		var repeatSize = 1;//choose(1, 2, 3, 5, 8, 13, 21);
 		var length = getListSize(lyricsPipeline)
 		var textHorizontalLength = textVerticalMargin + length * textHeight;
-		var textVerticalLength = global.guiHeight - (2 * textVerticalMargin);
+		var textVerticalLength = 180;
 		var color = colors[round(random(array_length_1d(colors) - 1))];
 		
 		gpuSetSurfaceTarget(lyricsSurface);
@@ -47,9 +47,9 @@
 					if (index >= length - 1) {
 						durationTimer = incrementTimer(durationTimer, duration, 1 / GAME_FPS);
 						if (durationTimer == 0.0) {
-							var lgt = array_length_1d(lyrics);
+							var lgt = getArrayLength(global.__lyrics);
 							if (index < lgt - 2) {
-								var task = [ lyrics[index + 1], 0];
+								var task = [ global.__lyrics[index + 1], 0];
 								ds_list_add(lyricsPipeline, task);
 							}
 						}

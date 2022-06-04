@@ -85,10 +85,10 @@
 	separatorFrameFrequency = 0.11;
 	
 	///@type {Color}
-	colorPrimaryLines = colorHashToColor("#ed0c48");
+	colorPrimaryLines = colorHashToColor("#9d23ad");
 	
 	///@type {Color}
-	colorSecondaryLines = colorHashToColor("#c42570");
+	colorSecondaryLines = colorHashToColor("#a31049");
 	
 	///@type {Color}
 	colorGridBackground = c_black;
@@ -666,7 +666,7 @@
 					var equation = (gridAngle * 2.0) * power(verticalPosition, 2) - gridAngle + 1.0;
 			
 					var tempSimpleSpriteScale = position[1] + 0.5;
-					var scaleFactor = 0.6;
+					var scaleFactor = 0.9;
 					var simpleSpriteScale = min(1.0, max(1 + scaleFactor - position[1], 0.0));
 					
 					if (isFlat) {
@@ -687,66 +687,6 @@
 						);
 					}
 	
-					#endregion
-	
-					#region Draw Markers
-					var drawMarker = false; // spriteAsset != asset_sprite_bod2_player;
-					if (drawMarker) {
-						var markerPadding = 0;
-						var spriteWidth = sprite_get_width(spriteAsset);
-						var spriteHeight = sprite_get_height(spriteAsset);
-						var spriteXOffset = sprite_get_xoffset(spriteAsset);
-						var spriteYOffset = sprite_get_yoffset(spriteAsset);
-						var spriteXPosition = targetXBegin + ((targetXEnd - targetXBegin) / 2.0);
-						var spriteYPosition = targetYEnd;
-				
-						var gridElementInfo = getGridElementInfo(gridElement);
-						var markerSprite = getGridElementInfoColor(gridElementInfo) == c_lime ? markerGood : markerBad;
-						// Top-left
-						drawSprite(
-							markerSprite,
-							spriteXPosition - (spriteXOffset * spriteScale) - markerPadding,
-							spriteYPosition - (spriteYOffset * spriteScale) - markerPadding,
-							1.0,
-							1.0,
-							1.0,
-							0
-						);
-			
-						// Top-right
-						drawSprite(
-							markerSprite,
-							spriteXPosition + (spriteXOffset * spriteScale) + markerPadding,
-							spriteYPosition - (spriteYOffset * spriteScale) - markerPadding,
-							1.0,
-							1.0,
-							1.0,
-							270
-						);
-			
-						// Bottom-left
-						drawSprite(
-							markerSprite,
-							spriteXPosition - (spriteXOffset * spriteScale) - markerPadding,
-							spriteYPosition + (spriteYOffset * spriteScale) + markerPadding,
-							1.0,
-							1.0,
-							1.0,
-							90
-						);
-			
-						// Bottom-right
-						drawSprite(
-							markerSprite,
-							spriteXPosition + (spriteXOffset * spriteScale) + markerPadding,
-							spriteYPosition + (spriteYOffset * spriteScale) + markerPadding,
-							1.0,
-							1.0,
-							1.0,
-							180
-						);
-				
-					}
 					#endregion
 				}
 				gpu_set_blendmode(bm_normal);

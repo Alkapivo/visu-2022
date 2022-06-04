@@ -30,6 +30,7 @@
         {"externalName":"jsUtilGetCanvasSize","kind":5,"help":"jsUtilGetCanvasSize()","hidden":false,"returnType":1,"argCount":0,"args":[],"resourceVersion":"1.0","name":"jsUtilGetCanvasSize","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"jsUtilGetCanvasOffsetX","kind":5,"help":"jsUtilGetCanvasOffsetX","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"jsUtilGetCanvasOffsetX","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"jsUtilGetCanvasOffsetY","kind":5,"help":"jsUtilGetCanvasOffsetY","hidden":false,"returnType":1,"argCount":0,"args":[],"resourceVersion":"1.0","name":"jsUtilGetCanvasOffsetY","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"","kind":5,"help":"","hidden":false,"returnType":1,"argCount":0,"args":[],"resourceVersion":"1.0","name":"jsUtilBootComplete","tags":[],"resourceType":"GMExtensionFunction",},
       ],"constants":[],"ProxyFiles":[],"copyToTargets":32,"order":[
         {"name":"jsUtilFBPixelEvent","path":"extensions/JSUtil/JSUtil.yy",},
         {"name":"jsUtilIsFullscreen","path":"extensions/JSUtil/JSUtil.yy",},
@@ -38,6 +39,7 @@
         {"name":"jsUtilGetCanvasSize","path":"extensions/JSUtil/JSUtil.yy",},
         {"name":"jsUtilGetCanvasOffsetX","path":"extensions/JSUtil/JSUtil.yy",},
         {"name":"jsUtilGetCanvasOffsetY","path":"extensions/JSUtil/JSUtil.yy",},
+        {"name":"jsUtilBootComplete","path":"extensions/JSUtil/JSUtil.yy",},
       ],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
   ],
   "classname": "",

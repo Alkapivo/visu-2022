@@ -55,134 +55,54 @@
 				break;
 			case "end":
 			
-				#region Initialize
-				var endSpriteSet = getValueFromMap(shroomState, "endSpriteSet", false);
-				if (!endSpriteSet) {
-					
-					#region Fields
-					var shroomTypeName = "good";
-					var shroomRandomShader = true;
-					var shroomShaderTemplatesNames = [];
-					var shroomShaderTemplates = [];
-					#endregion
-					
-					#region Resolve type
-					switch (shroomTypeName) {
-						case "good":
-							var positions = fetchGridElementParticlePositions(shroomGridElement, shroomPosition);
-							var particleTask = createParticleTask(
-								"particle_score",
-								ParticleSystems.FOREGROUND,
-								10,
-								0.0,
-								0.4,
-								0.05,
-								0.0,
-								positions[0],
-								positions[1]);
-							sendParticleTask(particleTask);
-							break;
-						case "default":
-						case "bad":
-							var positions = fetchGridElementParticlePositions(shroomGridElement, shroomPosition);
-							var particleTask = createParticleTask(
-								"particle_explosion",
-								ParticleSystems.FOREGROUND,
-								20,
-								0.0,
-								0.4,
-								0.4,
-								0.0,
-								positions[0],
-								positions[1]);
-							sendParticleTask(particleTask);
-							var gridRenderer = getGridRenderer();
-							
-							var isKilledByBullet = getValueFromMap(shroomState, "isKilledByBullet", false);
-							if (isOptionalPresent(gridRenderer)) {
-								var shroomTypeShake = getValueFromMap(shroomType, "shake", (isKilledByBullet ? 4 : 1) * (pi * 6));
-								gridRenderer.cameraShake = shroomTypeShake;
-							}
-							break;
-					}
-					#endregion
-					
-					#region Resolve shader
-					var shaderEventTemplate = undefined;
-					if (shroomRandomShader) {
-						
-						var templateName = getRandomValueFromArray(getMapKeys(shroomShaderEventTemplates));
-						var shaderEventTemplate = shroomShaderEventTemplates[? templateName];
-					} else {
-						var shroomShaderTemplatesSize= getArrayLength(shroomShaderTemplates);
-						var shroomShaderTemplatesNamesSize = getArrayLength(shroomShaderTemplatesNames);
-						var choosenIndex = floor(random(shroomShaderTemplatesSize + shroomShaderTemplatesNamesSize));
-						if (shroomShaderTemplatesSize > 0) || (shroomShaderTemplatesNamesSize > 0) {
-							if (choosenIndex < shroomShaderTemplatesSize) {
-								shaderEventTemplate = shroomShaderTemplates[choosenIndex];
-							} else {
-								var templateName = shroomShaderTemplatesNames[choosenIndex - shroomShaderTemplatesSize];	
-								shaderEventTemplate = shroomShaderEventTemplates[? templateName];
-							}
-						}
-					}
-					
-					#region Send Shader Event
-					/*
-					var isKilledByBullet = getValueFromMap(shroomState, "isKilledByBullet", false)
-					if ((!isUndefined(shaderEventTemplate)) && (!isKilledByBullet)) {
-						var shaderEvent = shaderEventTemplate;
-						var shaderName = "shader" + getShaderEventName(shaderEvent);
-						var shaderAsset = getShader(shaderName);
-						var shaderIsCompiled = true; //isUndefined(shaderAsset) ? false : shader_is_compiled(shaderAsset);
-						logger("shaderAsset: {0} isCompiled: {1}", LogType.INFO, shaderAsset, shaderIsCompiled);
-						
-						if ((shaderAsset != null) && 
-							(shaderIsCompiled)) {
-							
-							var duration = getShaderEventDuration(shaderEvent);
-							var state = cloneMap(getShaderEventData(shaderEvent))   ;
-							var shaderTask = createShaderTask(shaderAsset, duration, state, 0.0, 0.7);
-							var pipeline = isDataStructure(state, Map) ? getValueFromMap(state, "pipeline", "main") : "main";
-							sendShaderTaskToShaderPipeline(shaderTask, pipeline);
-						} else {
-							logger("Cannot dispatch ShaderEvent: shader \"{0}\" wasn't {1}", LogType.WARNING,
-								shaderName, shaderAsset == null ? "found" : "compiled");
-						}
-					}
-					*/
-					#endregion
-					
-					#endregion
+				var instantKill = getValueFromMap(shroomState, "instantKill", false);
+				if (instantKill) {
 				
-					#region State persistence
-					shroomState[? "endSpriteSet"] = true;
-					#endregion
+					destroyShrooms = pushArray(destroyShrooms, index);
+					break;
 				}
-				#endregion
-				
+			
+				var dieTimer = getValueFromMap(shroomState, "dieTimer", 0);
+				var dieTimerDuration = getValueFromMap(shroomState, "dieTimerDuration", 0);
+				var bulletTaken = shroomState[? "bulletTaken"]
+				dieTimer = incrementTimer(dieTimer, dieTimerDuration);
+				if ((timerFinished(dieTimer)) ||
+					(bulletTaken > 3)) {
+					
+					if (bulletTaken > 3) {
+						
+						destroyShrooms = pushArray(destroyShrooms, index);
+						break;
+					} else {
+					
+						setInMap(shroomState, "status", "run");
+					}
+				}
+				shroomState[? "dieTimer"] = dieTimer;
+			
 				#region Movement
+				var speedValue = getShroomSpeedValue(shroom) / (bulletTaken + 1.5);
+				var gridSpeed = getInstanceVariable(getGridRenderer(), "separatorSpeed");
+				speedValue = speedValue * (gridSpeed / 0.005);
+				
 				var movedVerticalPosition = fetchMovedVerticalPositionOnGrid(
 					getPositionVertical(shroomPosition), 
-					-1 * getShroomSpeedValue(shroom) * 0.5);
+	 				speedValue);
 				setPositionVertical(shroomPosition, movedVerticalPosition);
-								
-				if ((movedVerticalPosition >= 0.0) &&
+				
+				var horizontalSpeed = getValueFromMap(shroomState, "horizontalSpeed", choose(1, -1) * (random(6.66) / 1000));
+				var movedHorizontalPosition = getPositionHorizontal(shroomPosition) + applyDeltaTime(horizontalSpeed);
+				setPositionHorizontal(shroomPosition, movedHorizontalPosition);
+				
+				if ((movedVerticalPosition >= -1.5) &&
 					(movedVerticalPosition <= 1.5)) {
-					//sendGridElementRenderRequest(shroomGridElement);
+						
+					sendGridElementRenderRequest(shroomGridElement);
 				} else {
 					destroyShrooms = pushArray(destroyShrooms, index);
 				}
 				#endregion
-				
-				var dieTimer = getValueFromMap(shroomState, "dieTimer", 0);
-				dieTimer = incrementTimer(dieTimer, 0.6 * GAME_FPS);
-				if (dieTimer == 0.0) {
-					destroyShrooms = pushArray(destroyShrooms, index);
-					break;
-				}
-				shroomState[? "dieTimer"] = dieTimer;
-				
+							
 				break;
 		}
 

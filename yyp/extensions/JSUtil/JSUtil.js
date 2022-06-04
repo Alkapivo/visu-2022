@@ -8040,7 +8040,7 @@ define(function () {
     }
 })());
 },{}],3:[function(require,module,exports){
-(function (global){
+(function (global){(function (){
 const MobileDetect = require('mobile-detect');
 const html2canvas = require('html2canvas');
 
@@ -8052,7 +8052,7 @@ global.jsUtilGetCanvasOffsetY = getCanvasOffsetY;
 global.jsUtilIsFullscreen = isFullscreen;
 global.jsUtilIsMobile = isMobile;
 global.jsUtilSetCanvasVisibility = setCanvasVisibility
-
+global.jsUtilBootComplete = bootComplete
 /**
  * @GMFunctionName jsUtilFBPixelEvent 
  */
@@ -8135,13 +8135,36 @@ function setCanvasVisibility(visiblity) {
     }
 }
 
+/**
+ * @GMFunctionName jsUtilBootComplete
+ * @param {String} visiblity - booleanString
+ */
+function bootComplete() {
+    console.debug(getFormattedLog("[JSUtil]", "bootComplete"));
+
+    const INVISIBLE_CSS_CLASS = "invisible";
+    const LOADING_CSS_CLASS = "pending";
+    
+    try {
+        document.getElementById("play-button").classList.remove(LOADING_CSS_CLASS);
+        document.getElementById("play-button").disabled = false;
+        document.getElementById("section-game-container").classList.remove(INVISIBLE_CSS_CLASS);
+        document.getElementById("section-info-container").classList.add(INVISIBLE_CSS_CLASS);
+    } catch (exception) {
+        console.error(exception);
+    }
+    
+
+    return "boot complete";
+}
+
 function getFormattedLog(...log) {
     const tempDate = new Date().toISOString().split("T")
     const date = `${tempDate[0]} ${tempDate[1].split(".")[0]}`
     
     return date + " " + "INFO    " + log.join(" ");
 }
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"html2canvas":1,"mobile-detect":2}]},{},[3])(3)
 });
 function jsUtilFBPixelEvent(gameType, eventName, params) {
@@ -8164,4 +8187,7 @@ function jsUtilIsMobile() {
 }
 function jsUtilSetCanvasVisibility(visibility) {
    return global.jsUtilSetCanvasVisibility(visibility);
+}
+function jsUtilBootComplete() {
+   return global.jsUtilBootComplete();
 }

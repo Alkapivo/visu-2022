@@ -6,13 +6,6 @@
 	
 	gpu_set_texfilter(true);
 	
-	if (getCurrentConfig() == "debug") {
-	
-		logger("0x40", LogType.DEBUG);
-	}
-	
-	
-	
 	guardSurface(id, applicationSurface, "applicationSurface", global.guiWidth, global.guiHeight, true);
 	guardSurface(id, screenSurface, "screenSurface", screenWidth, screenHeight, true);
 	guardSurface(id, guiSurface, "guiSurface", screenWidth, screenHeight, true);
@@ -506,7 +499,7 @@
 	#region Render applicationSurface
 	//gpuSetShader(shaderAbberation);
 
-	bktglitch_activate();
+	bktglitch_activate(GuiWidth, GuiHeight);
 	__bktgtlich_pass_uniforms_from_ui();
 	/*
 	// Quickly setting all parameters at once using a preset
@@ -576,9 +569,9 @@
 	if (isStruct(currentRecording)) {
 		
 		draw_rectangle_color(
-			0.0 + 64,
-			RealHeight - 64 - 32,
-			0.0 + 64 + 32,
+			0.0 + 32,
+			RealHeight - 32 - 24,
+			0.0 + 32 + 24,
 			RealHeight - 32,
 			c_red,
 			c_red,
@@ -586,6 +579,12 @@
 			c_red,
 			false
 		)
+	} else {
+	
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_bottom);
+		draw_set_font(font_ibm_ps2thin4);
+		renderText(stringParams("Killed shrooms:  {0}\nShould died:     {1}\nActive shaders:  {2}\nExecuted events: {3}", global.__score, global.__deaths, shaderPipeCurrentSize, global.__launchapdEvents), 32, RealHeight - 32);
 	}
 	
 	if (!global.isGameplayStarted) {
@@ -604,12 +603,14 @@
 		draw_set_alpha(1.0);
 		
 		var text = stringParams(
-			"{0}\n\n{1}   {2}",
-			">_Carpenter Brut - Turbo Killer",
+			"{0}\n\n{1}       {2}\n\n{3}\n{4}",
+			"Carpenter Brut - Turbo Killer",
 			"MOUSE CLICK TO",
 			getRandomValueFromArray([
 				"play    ", " play   ", "  play  ", "   play ", "    play"
-			])
+			]),
+			"MOVE:          ARROWS OR WSAD",
+			"SHOOT:            SPAACE OR Z"
 		);
 		draw_text(
 			(RealWidth / 2.0) + irandom(2), 

@@ -87,7 +87,22 @@ function logger() {
 	
 		print(log);
 	
-
-
-
+	
+		
+		if ((globalVariableExists("lyricsRendererContext"))
+			&& (caller == "Anonymous" || caller == undefined)) {
+			
+			var lyricsRenderer = getLyricsRenderer();
+			if (isOptionalPresent(lyricsRenderer)) {
+				
+				pushArray(
+					global.__lyrics, 
+					stringParams(
+						"{0}{1}", 
+						choose("", " ", "  ", "   "), 
+						string_upper(message)
+					)
+				);
+			}
+		}
 }

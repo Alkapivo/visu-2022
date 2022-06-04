@@ -15,8 +15,8 @@ function defaultResizeStrategy() {
 	
 	var guiWidth = 0;
 	var guiHeight = 0;
-	var guiMinWidth = getPropertyReal("renderer.gui.minWidth", 1024);
-	var guiMinHeight = getPropertyReal("renderer.gui.minHeight", 768);
+	var guiMinWidth = getPropertyReal("renderer.gui.minWidth", 800);
+	var guiMinHeight = getPropertyReal("renderer.gui.minHeight", 600);
 	var guiMaxWidth = getPropertyReal("renderer.gui.maxWidth", 2560);
 	var guiMaxHeight = getPropertyReal("renderer.gui.maxHeight", 1600);
 	var guiPixelScale = 1.0;
@@ -25,8 +25,8 @@ function defaultResizeStrategy() {
 	var viewHeight = 0;
 	var viewMinWidth = getPropertyReal("renderer.view.minWidth", guiMinWidth);
 	var viewMinHeight = getPropertyReal("renderer.view.minHeight", guiMinHeight);
-	var viewMaxWidth = getPropertyReal("renderer.view.maxWidth", 1024);
-	var viewMaxHeight = getPropertyReal("renderer.view.maxHeight", 720);
+	var viewMaxWidth = getPropertyReal("renderer.view.maxWidth", 800);
+	var viewMaxHeight = getPropertyReal("renderer.view.maxHeight", 600);
 	var viewPixelScale = 1.0;
 	/*
 	var settings = findInRepositoryById(getSettingsRepository(), "view");

@@ -33,27 +33,27 @@ function initializeGlobals() {
 	global.isFullscreen = false;
 	
 	///@type {Integer}	
-	global.realWidth = 1024;
+	global.realWidth = 1280;
 	#macro RealWidth global.realWidth
 	
 	///@type {Integer}
-	global.realHeight = 768;
+	global.realHeight = 720;
 	#macro RealHeight global.realHeight
 	
 	///@type {Integer}	
-	global.guiWidth = 1024;
+	global.guiWidth = 1280;
 	#macro GuiWidth global.guiWidth
 	
 	///@type {Integer}
-	global.guiHeight = 768;
+	global.guiHeight = 720;
 	#macro GuiHeight global.guiHeight
 	
 	///@type {Integer}
-	global.viewWidth = 1024;
+	global.viewWidth = 1280;
 	#macro ViewWidth global.viewWidth
 	
 	///@type {Integer}
-	global.viewHeight = 768;
+	global.viewHeight = 720;
 	#macro ViewHeight global.viewHeight
 			
 	///@type {Boolean}
@@ -337,7 +337,7 @@ function initializeGlobals() {
 	
 	if (!isEntity(matchingResolution, Resolution)) {
 	
-		matchingResolution = getValueFromArray(SupportedResolutions, 0, createResolution("1024s768", 1024, 768, 1024, 768, 1024, 768));
+		matchingResolution = getValueFromArray(SupportedResolutions, 0, createResolution("1280x720", 1280, 720, 1280, 720, 1280, 720));
 	}
 	
 	MatchingResolution = matchingResolution;
@@ -431,6 +431,9 @@ function initializeGlobals() {
 		_Map: {
 			get: function(map, key) {
 				return getFromMap(map, key);
+			},
+			set: function(map, key, value) {
+				setInMap(map, key, value)	
 			},
 			clone: function(map) {
 				return cloneMap(map);

@@ -32,5 +32,9 @@
         "functionArguments": [
             "visibility"
         ]
+    },
+    {
+        "functionName": "jsUtilBootComplete",
+        "functionArguments": []
     }
 ]

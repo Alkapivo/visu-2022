@@ -30,7 +30,7 @@ function spawnShroom(argument0, argument1) {
 		var typeColor = type[? "name"] == "good" ? c_lime : c_red;
 		var shroomGridElementInfo = createGridElementInfo(
 			true,
-			getTupleKey(text),
+			1.0,
 			getTupleValue(text),
 			typeColor);
 	
@@ -42,7 +42,7 @@ function spawnShroom(argument0, argument1) {
 		
 		var radius = fetchCollisionRadiusFromSprite(getGridElementSprite(gridElement));
 		var speedValue = getRandomValueFromArray(getShroomTemplateSpeedValues(shroomTemplate));
-		var state = createMap();
+		var state = createMap(createTuple("bulletTaken", 0));
 		var text = createEmptyOptional();
 		var updateHandler = function() {
 			

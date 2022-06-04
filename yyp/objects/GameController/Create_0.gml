@@ -3,6 +3,9 @@
 	#macro TIANANMEN_SQUARE null
 
 	global.isGameplayStarted = false;
+	global.__deaths = 0;
+	global.__score = 0;
+	global.__launchapdEvents = 0;
 
 	super();
 	registerSceneController(this);
@@ -76,9 +79,14 @@
 			            keyboardMapping: [ "4", "5" ],
 			            pressed: function(button, key) {
 							
-							var topLinePosition = 0.0;
-							logger("Set top-line position: {0}%", LogType.INFO, ceil(topLinePosition * 100));
-							setTopLinePositionTarget(topLinePosition);
+							var topLineWidth = 0.40;
+							var bottomLineWidth = 0.40;
+							logger("Set topLineWidth: {0}. bottomLineWidth: {1}", LogType.INFO, topLineWidth, bottomLineWidth);
+							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "topLineWidth", topLineWidth, 0.001, 1, 0)
+							sendFieldModifierTask(fieldModifierTask);
+							
+							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "bottomLineWidth", bottomLineWidth, 0.001, 1, 0)
+							sendFieldModifierTask(fieldModifierTask);
 			            }
 			        }
 			    ),
@@ -241,9 +249,14 @@
 			            keyboardMapping: [ "1", "6"],
 			            pressed: function () {
 							
-							var topLinePosition = 0.5;
-							logger("Set top-line position: {0}%", LogType.INFO, ceil(topLinePosition * 100));
-							setTopLinePositionTarget(topLinePosition);
+							var topLineWidth = 0.0;
+							var bottomLineWidth = 1.0;
+							logger("Set topLineWidth: {0}. bottomLineWidth: {1}", LogType.INFO, topLineWidth, bottomLineWidth);
+							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "topLineWidth", topLineWidth, 0.001, 1, 0)
+							sendFieldModifierTask(fieldModifierTask);
+							
+							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "bottomLineWidth", bottomLineWidth, 0.001, 1, 0)
+							sendFieldModifierTask(fieldModifierTask);
 			            }
 			        }
 			    ),
@@ -253,9 +266,14 @@
 			            keyboardMapping: [ "2", "6"],
 			            pressed: function () {
 							
-							var topLinePosition = 1.0;
-							logger("Set top-line position: {0}%", LogType.INFO, ceil(topLinePosition * 100));
-							setTopLinePositionTarget(topLinePosition);
+							var topLineWidth = 0.3;
+							var bottomLineWidth = 0.9;
+							logger("Set topLineWidth: {0}. bottomLineWidth: {1}", LogType.INFO, topLineWidth, bottomLineWidth);
+							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "topLineWidth", topLineWidth, 0.001, 1, 0)
+							sendFieldModifierTask(fieldModifierTask);
+							
+							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "bottomLineWidth", bottomLineWidth, 0.001, 1, 0)
+							sendFieldModifierTask(fieldModifierTask);
 			            }
 			        }
 			    ),
@@ -265,10 +283,14 @@
 			            keyboardMapping: [ "3", "6" ],
 			            pressed: function () {
 							
-							var previousFactor = getTopLinePositionFactor();
-							var nextFactor = fetchNextValueFromSortedAscendingArray(global.topLinePositionFactorValues, previousFactor);
-							logger("Update topLinePositionFactor factor: from {0} to {1}", LogType.INFO, previousFactor, nextFactor);
-							setTopLinePositionFactor(nextFactor);
+							var topLineWidth = 0.70;
+							var bottomLineWidth = 0.76;
+							logger("Set topLineWidth: {0}. bottomLineWidth: {1}", LogType.INFO, topLineWidth, bottomLineWidth);
+							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "topLineWidth", topLineWidth, 0.001, 1, 0)
+							sendFieldModifierTask(fieldModifierTask);
+							
+							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "bottomLineWidth", bottomLineWidth, 0.001, 1, 0)
+							sendFieldModifierTask(fieldModifierTask);
 			            }
 			        }
 			    ),
@@ -278,10 +300,14 @@
 			            keyboardMapping: [ "4", "6" ],
 			            pressed: function () {
 							
-							var previousFactor = getTopLinePositionFactor();
-							var nextFactor = fetchPreviousValueFromSortedAscendingArray(global.topLinePositionFactorValues, previousFactor);
-							logger("Update topLinePositionFactor factor: from {0} to {1}", LogType.INFO, previousFactor, nextFactor);
-							setTopLinePositionFactor(nextFactor);
+							var topLineWidth = 1.0;
+							var bottomLineWidth = 1.0;
+							logger("Set topLineWidth: {0}. bottomLineWidth: {1}", LogType.INFO, topLineWidth, bottomLineWidth);
+							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "topLineWidth", topLineWidth, 0.001, 1, 0)
+							sendFieldModifierTask(fieldModifierTask);
+							
+							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "bottomLineWidth", bottomLineWidth, 0.001, 1, 0)
+							sendFieldModifierTask(fieldModifierTask);
 			            }
 			        }
 			    ),
@@ -976,6 +1002,9 @@
 	);
 	#endregion
 
+	///@type {String}
+	baseRecording = Core.File.read({ path: "data", filename: "carpenter_brut_05.json", withDialog: false });
+	
 ///@private:
 
 	///@type {Number} in seconds
@@ -998,5 +1027,7 @@
 	inject(BulletManager);
 	inject(ShroomEmitterManager);
 	inject(GameRenderer);
+	
+	jsUtilBootComplete(); // hide loading div
 	#endregion	
 	

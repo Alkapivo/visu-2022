@@ -1,9 +1,11 @@
-## Requirement
+## horizon-core extensions
 
 - Extension should produce `./dist/${EXTENSION_NAME}-bundle.js`.
 - GMBinding.json is required.
 - export functions for GMBinding in main .js as global, ex: `global.functionName = functionName`.
-- `npm install --global gulp`
+
+### Dependencies
+- `npm install --global gulp-cli`
 - `npm install --global browserify`
 
 ## Deploy to YYP

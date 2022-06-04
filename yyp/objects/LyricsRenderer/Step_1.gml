@@ -13,12 +13,14 @@
 	}
 
 	var lyricsTaskPipelineSize = getStackSize(lyricsTaskPipeline);
+	/*
 	if (lyricsTaskPipelineSize > 0) {
 		lifespan = 0;
 		duration = 0;
 		enableLyricsRenderer = false;	
 		clearList(lyricsPipeline);	
 	}
+	*/
 	
 	if (!lain01) {
 	
@@ -27,7 +29,7 @@
 			lyricsTaskPipeline,
 			createLyricsEvent(
 				global.__lyrics,
-				2048, 
+				4096, 
 				0.11
 			)
 		);

@@ -10,9 +10,9 @@ function jumbotronScoreboardHandler(argument0) {
 		if (isOptionalPresent(inputHandler)) {
 			var options = getValueFromMap(state, "options", 
 				createList(
-					createTuple(asset_jumbotron_scoreboard_icon_restart, jumbotronScoreboardOptionRestart),
-					createTuple(asset_jumbotron_scoreboard_icon_share, jumbotronScoreboardOptionShare),
-					createTuple(asset_jumbotron_scoreboard_icon_youtube, jumbotronScoreboardOptionYoutube)
+					createTuple(asset_texture_empty, jumbotronScoreboardOptionRestart),
+					createTuple(asset_texture_empty, jumbotronScoreboardOptionShare),
+					createTuple(asset_texture_empty, jumbotronScoreboardOptionYoutube)
 				)
 			);
 			var gameFinished = getValueFromMap(state, "gameFinished", false);
@@ -23,8 +23,8 @@ function jumbotronScoreboardHandler(argument0) {
 		
 			var optionsSize = getListSize(options);
 			var pointer = getValueFromMap(state, "pointer", 0);			
-			var elementWidth = sprite_get_width(asset_jumbotron_scoreboard_icon_restart);
-			var elementHeight = sprite_get_height(asset_jumbotron_scoreboard_icon_restart);
+			var elementWidth = sprite_get_width(asset_texture_empty);
+			var elementHeight = sprite_get_height(asset_texture_empty);
 			var elementMargin = 12;
 			var orientation = ScreenOrientation.VERTICAL;
 			var cooldown = getValueFromMap(state, "cooldown", 0.0);

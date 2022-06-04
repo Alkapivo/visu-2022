@@ -6,6 +6,7 @@
 
 	#region ShaderTaskPipeline
 	var shaderPipelinesNamesSize = getListSize(shaderPipelinesNames);
+	shaderPipeCurrentSize = 0;
 	for (var index = 0; index < shaderPipelinesNamesSize; index++) {
 		var shaderPipelineName = shaderPipelinesNames[| index];
 		var shaderPipeline = shaderPipelines[? shaderPipelineName];
@@ -21,6 +22,7 @@
 			
 			var task = popStack(pipe);
 			shaderLimitCounter++;
+			shaderPipeCurrentSize++;
 			if (shaderLimitCounter > shaderLimit) {
 			
 				logger("[NullDispatcher<ShaderTask>] Shader limit reached. { limit: {0}, pipeSize: {1} }", LogType.WARNING, shaderLimit, shaderLimitCounter);

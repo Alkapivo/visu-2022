@@ -11,10 +11,19 @@
 	gpuSetSurfaceTarget(gameSurface);
 	var gridRenderer = getGridRenderer();
 	draw_clear_alpha(gridRenderer.colorGridBackground, 1.0);
-		
-	
-	renderTexture(background, RealWidth / 2.0, RealHeight / 2.0, RealWidth / getTextureWidth(background), RealWidth / getTextureWidth(background), 1.0, 0.33);
-		
+
+	var backgroundScale = RealWidth > RealHeight ? RealWidth / getTextureWidth(background) : RealHeight / getTextureHeight(background);
+
+	renderTexture(
+		background, 
+		RealWidth / 2.0, 
+		RealHeight / 2.0, 
+		0,
+		backgroundScale, 
+		backgroundScale, 
+		0.4
+	);
+
 	#region Render stars particles
 		
 	if (gridRenderer != null) {
@@ -202,7 +211,7 @@
 				gpuSetSurfaceTarget(gameSurface);
 				drawSurface(shaderSurface, 0, 0, 1.0, 1.0, 0.0, alpha, c_white, [ 0.5, 0.5 ]);
 					
-				if (pipeSize > 2) {
+				if (pipeSize > 3) {
 						
 					var gridRendererSurface = getGridRendererSurface();
 					gpu_set_blendmode(bm_normal);

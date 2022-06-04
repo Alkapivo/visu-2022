@@ -118,6 +118,8 @@
 	
 	///@type {Number}
 	mouseYPosition = 0.0;
+	
+	shaderPipeCurrentSize = 0.0;
 	#endregion
 	
 	#region Shaders initialization

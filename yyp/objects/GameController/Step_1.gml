@@ -182,7 +182,7 @@
 				
 				var eventsPlayer = getGameController().midiMatrixController.eventsPlayer;
 				var eventsRecorder = getGameController().midiMatrixController.eventsRecorder;
-				var text = Core.File.read({ path: "data", filename: "carpenter_brut_03.json", withDialog: false });
+				var text = getGameController().baseRecording;
 				var eventsRecording = eventsRecorder.parseRecording(eventsRecorder, text);
 				eventsPlayer.play(eventsPlayer, eventsRecording);
 				
