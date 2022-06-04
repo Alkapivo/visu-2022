@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "getter",
-    "path": "folders/src/com.devhorizon.spaaceloader/entity/GameEvent/getter.yy",
+    "path": "folders/src/com.devhorizon.visu/entity/GameEvent/getter.yy",
   },
   "resourceVersion": "1.0",
   "name": "getGameEventTime",

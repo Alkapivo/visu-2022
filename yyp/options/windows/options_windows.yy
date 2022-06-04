@@ -2,11 +2,11 @@
   "ConfigValues": {
     "prod": {"option_windows_version":"0.5.4.1","option_windows_resize_window":"true","option_windows_start_fullscreen":"false","option_windows_borderless":"false","option_windows_display_name":"visu","option_windows_disable_sandbox":"true","option_windows_description_info":"","option_windows_product_info":"visu",},
   },
-  "option_windows_display_name": "Spaace",
+  "option_windows_display_name": "Visu",
   "option_windows_executable_name": "${project_name}.exe",
   "option_windows_version": "1.0.0.0",
   "option_windows_company_info": "devHorizon",
-  "option_windows_product_info": "Spaace",
+  "option_windows_product_info": "Visu",
   "option_windows_copyright_info": "",
   "option_windows_description_info": "A GameMaker Studio 2 Game",
   "option_windows_display_cursor": false,

@@ -1,6 +1,6 @@
 {
   "ConfigValues": {
-    "prod": {"textureGroupId":"{\"name\":\"texturegroup_spaace\",\"path\":\"texturegroups/texturegroup_spaace\"}",},
+    "prod": {"textureGroupId":"{\"name\":\"texturegroup_visu\",\"path\":\"texturegroups/texturegroup_visu\"}",},
   },
   "bboxMode": 0,
   "collisionKind": 1,
@@ -28,10 +28,10 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"7c26bab5-22af-43b0-8993-7ab066acc4db","path":"sprites/asset_sprite_spaceship/asset_sprite_spaceship.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"7c26bab5-22af-43b0-8993-7ab066acc4db","path":"sprites/asset_sprite_spaceship/asset_sprite_spaceship.yy",},"LayerId":{"name":"aee946b2-6cfa-405f-9d3c-8d5cb660bab4","path":"sprites/asset_sprite_spaceship/asset_sprite_spaceship.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"7c26bab5-22af-43b0-8993-7ab066acc4db","path":"sprites/asset_sprite_spaceship/asset_sprite_spaceship.yy",},"LayerId":{"name":"3ae8baeb-f52e-43fa-9a7d-5df49d128a95","path":"sprites/asset_sprite_spaceship/asset_sprite_spaceship.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"7c26bab5-22af-43b0-8993-7ab066acc4db","path":"sprites/asset_sprite_spaceship/asset_sprite_spaceship.yy",},"LayerId":{"name":"1b6952b7-d23b-413d-8f81-9b52c4eede8b","path":"sprites/asset_sprite_spaceship/asset_sprite_spaceship.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"7c26bab5-22af-43b0-8993-7ab066acc4db","path":"sprites/asset_sprite_spaceship/asset_sprite_spaceship.yy",},"LayerId":{"name":"51ec2a37-dc0a-477a-a3bc-9b0b1e244621","path":"sprites/asset_sprite_spaceship/asset_sprite_spaceship.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-        {"FrameId":{"name":"7c26bab5-22af-43b0-8993-7ab066acc4db","path":"sprites/asset_sprite_spaceship/asset_sprite_spaceship.yy",},"LayerId":{"name":"3ae8baeb-f52e-43fa-9a7d-5df49d128a95","path":"sprites/asset_sprite_spaceship/asset_sprite_spaceship.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"7c26bab5-22af-43b0-8993-7ab066acc4db","path":"sprites/asset_sprite_spaceship/asset_sprite_spaceship.yy",},"LayerId":{"name":"aee946b2-6cfa-405f-9d3c-8d5cb660bab4","path":"sprites/asset_sprite_spaceship/asset_sprite_spaceship.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"asset_sprite_spaceship","path":"sprites/asset_sprite_spaceship/asset_sprite_spaceship.yy",},"resourceVersion":"1.0","name":"7c26bab5-22af-43b0-8993-7ab066acc4db","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
@@ -79,7 +79,7 @@
   "nineSlice": null,
   "parent": {
     "name": "texture",
-    "path": "folders/asset/alkapivo.github.io/visu/texture.yy",
+    "path": "folders/asset/com.devhorizon.core/visu/texture.yy",
   },
   "resourceVersion": "1.0",
   "name": "asset_sprite_spaceship",

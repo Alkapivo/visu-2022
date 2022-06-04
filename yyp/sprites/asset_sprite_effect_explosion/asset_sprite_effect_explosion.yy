@@ -1,6 +1,6 @@
 {
   "ConfigValues": {
-    "prod": {"textureGroupId":"{\"name\":\"texturegroup_spaace\",\"path\":\"texturegroups/texturegroup_spaace\"}",},
+    "prod": {"textureGroupId":"{\"name\":\"texturegroup_visu\",\"path\":\"texturegroups/texturegroup_visu\"}",},
   },
   "bboxMode": 0,
   "collisionKind": 1,
@@ -105,7 +105,7 @@
   "nineSlice": null,
   "parent": {
     "name": "effect",
-    "path": "folders/asset/alkapivo.github.io/visu/texture/effect.yy",
+    "path": "folders/asset/com.devhorizon.core/visu/texture/effect.yy",
   },
   "resourceVersion": "1.0",
   "name": "asset_sprite_effect_explosion",

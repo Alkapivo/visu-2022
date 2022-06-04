@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "ShroomType",
-    "path": "folders/src/com.devhorizon.spaaceloader/enum/ShroomType.yy",
+    "path": "folders/src/com.devhorizon.visu/enum/ShroomType.yy",
   },
   "resourceVersion": "1.0",
   "name": "parseShroomTypeEnumToString",

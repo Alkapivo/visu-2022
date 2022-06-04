@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "TimelineEntry",
-    "path": "folders/src/com.devhorizon.spaaceloader/entity/TimelineEntry.yy",
+    "path": "folders/src/com.devhorizon.visu/entity/TimelineEntry.yy",
   },
   "resourceVersion": "1.0",
   "name": "createTimelineEntry",

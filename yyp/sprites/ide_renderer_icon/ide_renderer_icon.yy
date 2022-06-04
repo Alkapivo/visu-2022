@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "IDE",
-    "path": "folders/asset/alkapivo.github.io/core/texture/IDE.yy",
+    "path": "folders/asset/com.devhorizon.core/core/texture/IDE.yy",
   },
   "resourceVersion": "1.0",
   "name": "ide_renderer_icon",

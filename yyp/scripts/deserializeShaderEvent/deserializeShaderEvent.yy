@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "ShaderEvent",
-    "path": "folders/src/com.devhorizon.spaaceloader/entity/ShaderEvent.yy",
+    "path": "folders/src/com.devhorizon.visu/entity/ShaderEvent.yy",
   },
   "resourceVersion": "1.0",
   "name": "deserializeShaderEvent",

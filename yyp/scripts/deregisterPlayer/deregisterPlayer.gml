@@ -9,14 +9,14 @@ function deregisterPlayer(argument0) {
 		var index = findValueInList(players, player);
 	
 		if (index == null) {
-			logger("Cannot deregister player {0}", LogType.ERROR, getSpaacePlayerName(player));
+			logger("Cannot deregister player {0}", LogType.ERROR, getVisuPlayerName(player));
 			return;
 		}
 	
 		deleteFromList(players, index);
 		reduceList(players, undefined); // guard
 	
-		logger("Player {0} deregistered", LogType.INFO, getSpaacePlayerName(player));
+		logger("Player {0} deregistered", LogType.INFO, getVisuPlayerName(player));
 	
 
 

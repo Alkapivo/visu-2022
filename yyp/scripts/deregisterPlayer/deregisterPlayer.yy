@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "PlayerManagerMethods",
-    "path": "folders/src/com.devhorizon.spaaceloader/manager/PlayerManager/PlayerManagerMethods.yy",
+    "path": "folders/src/com.devhorizon.visu/manager/PlayerManager/PlayerManagerMethods.yy",
   },
   "resourceVersion": "1.0",
   "name": "deregisterPlayer",

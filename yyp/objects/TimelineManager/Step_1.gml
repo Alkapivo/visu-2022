@@ -125,7 +125,7 @@
 							var playersSize = getListSize(players);
 							if (playersSize == 0) {
 							
-								spawnSpaacePlayer("main", createInputHandler(KeyboardInputHandler));
+								spawnVisuPlayer("main", createInputHandler(KeyboardInputHandler));
 								players = fetchPlayers();
 								playersSize = getListSize(players);
 							}
@@ -139,13 +139,13 @@
 									if (spriteIndex != null) {
 										var sprite = createSprite(spriteIndex, 0, 1.0, 1.0, 1.0, 0.0, c_white);
 										var gridElement = createGridElement(
-											cloneArray(getGridElementPosition(getSpaacePlayerGridElement(player))),
+											cloneArray(getGridElementPosition(getVisuPlayerGridElement(player))),
 											sprite,
-											cloneArray(getGridElementInfo(getSpaacePlayerGridElement(player))));
-										setSpaacePlayerGridElement(player, gridElement);
+											cloneArray(getGridElementInfo(getVisuPlayerGridElement(player))));
+										setVisuPlayerGridElement(player, gridElement);
 											
 										var collisionRadius = fetchCollisionRadiusFromSprite(sprite);
-										setSpaacePlayerCollisionRadius(player, collisionRadius);
+										setVisuPlayerCollisionRadius(player, collisionRadius);
 									}
 								}
 								#endregion

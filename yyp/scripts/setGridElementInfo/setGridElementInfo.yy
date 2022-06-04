@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "setter",
-    "path": "folders/src/com.devhorizon.spaaceloader/entity/GridElement/setter.yy",
+    "path": "folders/src/com.devhorizon.visu/entity/GridElement/setter.yy",
   },
   "resourceVersion": "1.0",
   "name": "setGridElementInfo",

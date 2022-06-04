@@ -11,7 +11,10 @@ function print() {
 		stringBuilder += (index == 0 ? "" : " ") + message;
 	}
 	
-	if (global.isLoggerEnabled) {
-		show_debug_message(stringBuilder);
+	if (globalVariableExists("isLoggerEnabled")) {
+		if (global.isLoggerEnabled) {
+			
+			show_debug_message(stringBuilder);
+		}	
 	}
 }

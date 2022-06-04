@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
@@ -32,7 +33,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "GameController",
-    "path": "folders/src/com.devhorizon.spaaceloader/controller/GameController.yy",
+    "path": "folders/src/com.devhorizon.visu/controller/GameController.yy",
   },
   "resourceVersion": "1.0",
   "name": "GameController",

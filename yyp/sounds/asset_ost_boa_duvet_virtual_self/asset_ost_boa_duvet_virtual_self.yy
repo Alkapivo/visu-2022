@@ -15,7 +15,7 @@
   "duration": 209.0057,
   "parent": {
     "name": "ost",
-    "path": "folders/asset/alkapivo.github.io/visu/ost.yy",
+    "path": "folders/asset/com.devhorizon.core/visu/ost.yy",
   },
   "resourceVersion": "1.0",
   "name": "asset_ost_boa_duvet_virtual_self",

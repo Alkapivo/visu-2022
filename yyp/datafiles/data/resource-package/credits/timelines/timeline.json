@@ -2986,7 +2986,7 @@
             {
                 "type": "BossEvent",
                 "data": {
-                    "type": "bugz"
+                    "type": "visu"
                 }
             },
             {

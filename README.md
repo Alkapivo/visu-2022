@@ -1,8 +1,8 @@
-# spaace-loader
+# visu-loader
 
 ## Summary
 
-|Name    |spaace-loader                         |
+|Name    |visu-loader                         |
 |--------|--------------------------------------|
 |Genre   |Shoot 'em up, Bullet hell, Rythm game.|
 |Platform|HTML5                                 |

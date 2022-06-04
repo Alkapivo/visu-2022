@@ -1,9 +1,9 @@
 {
     "data": [
         {
-            "packageName": "com.devhorizon.spaaceloader",
-            "artifactName": "SpaaceLoader",
-            "context": "SpaaceLoader",
+            "packageName": "com.devhorizon.visu",
+            "artifactName": "Visu",
+            "context": "Visu",
             "scenes": [
                 "SceneGame"
             ]

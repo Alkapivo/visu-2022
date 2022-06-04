@@ -181,7 +181,7 @@
 	#region HUD: Draw bullets 
 	var player = findPlayerByIndex(0);
 	if (player != null && hudVisible) {
-		var playerState = getSpaacePlayerState(player);
+		var playerState = getVisuPlayerState(player);
 		var bullets = getValueFromMap(playerState, "bullets", 0);
 		var bulletSprite = global.bulletAsset;
 		var bulletSpriteWidth = sprite_get_width(bulletSprite);

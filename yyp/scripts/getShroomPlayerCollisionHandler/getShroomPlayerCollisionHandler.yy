@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "getter",
-    "path": "folders/src/com.devhorizon.spaaceloader/entity/Shroom/getter.yy",
+    "path": "folders/src/com.devhorizon.visu/entity/Shroom/getter.yy",
   },
   "resourceVersion": "1.0",
   "name": "getShroomPlayerCollisionHandler",
