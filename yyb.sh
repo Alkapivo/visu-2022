@@ -1,14 +1,3 @@
-# Check dependencies
-if ! [ -x "$(command -v npm)" ]; then
-  echo 'Error: node is not installed.' >&2
-  exit 1
-fi
-
-if ! [ -x "$(command -v git)" ]; then
-  echo 'Error: git is not installed.' >&2
-  exit 1
-fi
-
 GAME_DIST_HOME=~/projects/devhorizon/visu/dist/web/visu
 GAME_WEB_HOME=~/projects/devhorizon/Alkapivo\.github\.io/visu
 GAME_NAME=$(cat ./yyp-package.json | jq -r '.name')
