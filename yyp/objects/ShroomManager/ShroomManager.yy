@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
@@ -32,7 +33,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "ShroomManager",
-    "path": "folders/src/com.devhorizon.spaaceloader/manager/ShroomManager.yy",
+    "path": "folders/src/com.devhorizon.visu/manager/ShroomManager.yy",
   },
   "resourceVersion": "1.0",
   "name": "ShroomManager",

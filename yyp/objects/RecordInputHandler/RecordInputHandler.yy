@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": {
     "name": "ide_input_handler",
     "path": "sprites/ide_input_handler/ide_input_handler.yy",

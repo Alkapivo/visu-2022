@@ -8,11 +8,11 @@ function parseBossTypeStringToEnum(argument0) {
 	
 		var bossType = null;
 		switch (bossTypeString) {
-			case "bugz":
-				bossType = BossType.BUGZ;
+			case "visu":
+				bossType = BossType.VISU;
 				break;
-			case "dzban":
-				bossType = BossType.DZBAN;
+			case "mid":
+				bossType = BossType.MID;
 				break;
 		}
 	

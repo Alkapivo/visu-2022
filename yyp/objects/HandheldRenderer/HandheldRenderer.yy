@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
@@ -34,7 +35,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "HandheldRenderer",
-    "path": "folders/src/com.devhorizon.spaaceloader/renderer/HandheldRenderer.yy",
+    "path": "folders/src/com.devhorizon.visu/renderer/HandheldRenderer.yy",
   },
   "resourceVersion": "1.0",
   "name": "HandheldRenderer",

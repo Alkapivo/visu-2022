@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "HandheldRendererMethods",
-    "path": "folders/src/com.devhorizon.spaaceloader/renderer/HandheldRenderer/HandheldRendererMethods.yy",
+    "path": "folders/src/com.devhorizon.visu/renderer/HandheldRenderer/HandheldRendererMethods.yy",
   },
   "resourceVersion": "1.0",
   "name": "createHandheldRenderer",

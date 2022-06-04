@@ -24,8 +24,8 @@
 		if ((isOptionalPresent(inputHandler)) && 
 			(instanceOf(inputHandler, TouchInputHandler))) {
 			
-			///@spaace-todo
-			spawnSpaacePlayer("main", inputHandler);
+			///@visu-todo
+			spawnVisuPlayer("main", inputHandler);
 		} else {
 			
 			throwException(
@@ -38,7 +38,7 @@
 		}
 	} else {
 		
-		///@spaace-todo
-		spawnSpaacePlayer("main", createInputHandler(KeyboardInputHandler));
+		///@visu-todo
+		spawnVisuPlayer("main", createInputHandler(KeyboardInputHandler));
 	}
 	#endregion

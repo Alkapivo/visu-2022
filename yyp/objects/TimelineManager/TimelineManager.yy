@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
@@ -32,7 +33,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "TimelineManager",
-    "path": "folders/src/com.devhorizon.spaaceloader/manager/TimelineManager.yy",
+    "path": "folders/src/com.devhorizon.visu/manager/TimelineManager.yy",
   },
   "resourceVersion": "1.0",
   "name": "TimelineManager",

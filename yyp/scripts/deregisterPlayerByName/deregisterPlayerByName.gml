@@ -10,7 +10,7 @@ function deregisterPlayerByName(argument0) {
 		var foundIndex = null;
 		for (var index = 0; index < getListSize(players); index++) {
 			var player = players[| index];
-			if (playerName == getSpaacePlayerName(player)) {
+			if (playerName == getVisuPlayerName(player)) {
 				foundIndex = index;
 				break;
 			}

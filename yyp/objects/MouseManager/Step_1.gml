@@ -50,7 +50,7 @@
 			
 			var type = getMouseActionType(mouseAction);
 			if (type == MouseActionType_LEFT_DROP) {
-				setMouseCursorTexture(fetchMeatMouseCursor(), cursor);
+				setMouseCursorTexture(fetchMouseCursor(), cursor);
 			}
 		}
 	}

@@ -7,10 +7,10 @@
 	var shrooms = fetchShrooms();
 	for (var index = 0; index < playersSize; index++) {
 		var player = players[| index];
-		var playerState = getSpaacePlayerState(player);
-		var playerGridElement = getSpaacePlayerGridElement(player);
+		var playerState = getVisuPlayerState(player);
+		var playerGridElement = getVisuPlayerGridElement(player);
 		var playerPosition = getGridElementPosition(playerGridElement);
-		var inputHandler = getSpaacePlayerInputHandler(player);
+		var inputHandler = getVisuPlayerInputHandler(player);
 		
 		#region Movement
 		
@@ -48,23 +48,23 @@
 		var horizontalFriction = getValueFromMap(playerState, "horizontalFriction", 0.001);
 		var horizontalMaxSpeed = getValueFromMap(playerState, "horizontalMaxSpeed", 0.01);
 		var horizontalSpeed = ((keyboardCheckLeft) || (keyboardCheckRight)) ?
-			getSpaacePlayerHorizontalSpeed(player) + (keyboardCheckLeft ? -1 : 1) * (getValueFromMap(playerState, "horizontalAcceleration", 0.005) * getDeltaTimeValue()) :
-			((abs(getSpaacePlayerHorizontalSpeed(player)) - horizontalFriction < 0) ? 0 : getSpaacePlayerHorizontalSpeed(player) - sign(getSpaacePlayerHorizontalSpeed(player)) * horizontalFriction);
+			getVisuPlayerHorizontalSpeed(player) + (keyboardCheckLeft ? -1 : 1) * (getValueFromMap(playerState, "horizontalAcceleration", 0.005) * getDeltaTimeValue()) :
+			((abs(getVisuPlayerHorizontalSpeed(player)) - horizontalFriction < 0) ? 0 : getVisuPlayerHorizontalSpeed(player) - sign(getVisuPlayerHorizontalSpeed(player)) * horizontalFriction);
 		horizontalSpeed = sign(horizontalSpeed) * clamp(abs(horizontalSpeed), 0, horizontalMaxSpeed);
 		var horizontalPosition = clamp(getPositionHorizontal(playerPosition) + horizontalSpeed, 0.0, 1.0);
 		setPositionHorizontal(playerPosition, horizontalPosition);
-		setSpaacePlayerHorizontalSpeed(player, horizontalSpeed);
+		setVisuPlayerHorizontalSpeed(player, horizontalSpeed);
 		
 		var veticalProjectionScale = fetchVerticalProjectionScale(playerPosition[1]);
 		var verticalFriction = getValueFromMap(playerState, "verticalFriction", 0.001) * veticalProjectionScale; 
 		var verticalMaxSpeed = getValueFromMap(playerState, "verticalMaxSpeed", 0.01) * veticalProjectionScale; 
 		var verticalSpeed = ((keyboardCheckUp) || (keyboardCheckDown)) ?
-			getSpaacePlayerVerticalSpeed(player) + (keyboardCheckUp ? -1 : 1) * (getValueFromMap(playerState, "verticalAcceleration", 0.005) * veticalProjectionScale * getDeltaTimeValue()) :
-			((abs(getSpaacePlayerVerticalSpeed(player)) - verticalFriction < 0) ? 0 : getSpaacePlayerVerticalSpeed(player) - sign(getSpaacePlayerVerticalSpeed(player)) * verticalFriction);
+			getVisuPlayerVerticalSpeed(player) + (keyboardCheckUp ? -1 : 1) * (getValueFromMap(playerState, "verticalAcceleration", 0.005) * veticalProjectionScale * getDeltaTimeValue()) :
+			((abs(getVisuPlayerVerticalSpeed(player)) - verticalFriction < 0) ? 0 : getVisuPlayerVerticalSpeed(player) - sign(getVisuPlayerVerticalSpeed(player)) * verticalFriction);
 		verticalSpeed = sign(verticalSpeed) * clamp(abs(verticalSpeed), 0, verticalMaxSpeed);
 		var verticalPosition = clamp(getPositionVertical(playerPosition) + verticalSpeed, 0.0, 1.0);
 		setPositionVertical(playerPosition, clamp(verticalPosition, 0.1, 1.0));
-		setSpaacePlayerVerticalSpeed(player, verticalSpeed);
+		setVisuPlayerVerticalSpeed(player, verticalSpeed);
 		#endregion
 		
 		#region Shooting
@@ -96,7 +96,7 @@
 				shroomGridElementPosition,
 				getShroomRadius(shroom),
 				playerPosition,
-				getSpaacePlayerCollisionRadius(player));
+				getVisuPlayerCollisionRadius(player));
 			
 			// TODO refactor types, delegate to handlers
 			if (isCollision) {

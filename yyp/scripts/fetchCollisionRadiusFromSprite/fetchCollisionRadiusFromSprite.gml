@@ -8,7 +8,7 @@ function fetchCollisionRadiusFromSprite(argument0) {
 		var spriteAsset = getSpriteAssetIndex(sprite);
 		var dimension = getSpriteAssetWidth(spriteAsset);//min(getSpriteAssetWidth(spriteAsset), getSpriteAssetHeight(spriteAsset));
 	
-	#region hackYeah @bugz Tutaj mozesz sie pobawic z hakami na kolizje ;)
+	#region hackYeah @visu Tutaj mozesz sie pobawic z hakami na kolizje ;)
 		var zeroCollision = arrayContain(
 			[],
 			spriteAsset

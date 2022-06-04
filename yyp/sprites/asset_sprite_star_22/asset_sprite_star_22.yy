@@ -17,8 +17,8 @@
   "width": 100,
   "height": 86,
   "textureGroupId": {
-    "name": "texturegroup_spaace",
-    "path": "texturegroups/texturegroup_spaace",
+    "name": "texturegroup_visu",
+    "path": "texturegroups/texturegroup_visu",
   },
   "swatchColours": null,
   "gridX": 0,
@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "background",
-    "path": "folders/asset/alkapivo.github.io/visu/texture/background.yy",
+    "path": "folders/asset/com.devhorizon.core/visu/texture/background.yy",
   },
   "resourceVersion": "1.0",
   "name": "asset_sprite_star_22",

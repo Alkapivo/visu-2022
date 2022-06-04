@@ -386,7 +386,7 @@
   "nineSlice": null,
   "parent": {
     "name": "texture",
-    "path": "folders/asset/alkapivo.github.io/visu/texture.yy",
+    "path": "folders/asset/com.devhorizon.core/visu/texture.yy",
   },
   "resourceVersion": "1.0",
   "name": "asset_texture_felis_catus_01",

@@ -1,8 +1,8 @@
 {
   "ConfigValues": {
-    "prod": {"option_html5_version":"0.5.0.6","option_html5_browser_title":"visu",},
+    "prod": {"option_html5_version":"0.5.0.7","option_html5_browser_title":"visu","option_html5_foldername":"visu","option_html5_icon":"fav.ico","option_html5_usesplash":"true","option_html5_splash_png":"splash.png","option_html5_usebuiltinfont":"true","option_html5_usebuiltinparticles":"true",},
   },
-  "option_html5_browser_title": "Spaace",
+  "option_html5_browser_title": "Visu",
   "option_html5_version": "1.0.0.0",
   "option_html5_foldername": "game",
   "option_html5_outputname": "index.html",

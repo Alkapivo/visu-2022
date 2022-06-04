@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "GameplayRecordManagerMethods",
-    "path": "folders/src/com.devhorizon.spaaceloader/manager/GameplayRecordManager/GameplayRecordManagerMethods.yy",
+    "path": "folders/src/com.devhorizon.visu/manager/GameplayRecordManager/GameplayRecordManagerMethods.yy",
   },
   "resourceVersion": "1.0",
   "name": "getRunningRecordings",

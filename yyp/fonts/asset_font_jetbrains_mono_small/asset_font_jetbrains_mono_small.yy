@@ -247,7 +247,7 @@
   "maintainGms1Font": false,
   "parent": {
     "name": "font",
-    "path": "folders/asset/alkapivo.github.io/core/font.yy",
+    "path": "folders/asset/com.devhorizon.core/core/font.yy",
   },
   "resourceVersion": "1.0",
   "name": "asset_font_jetbrains_mono_small",

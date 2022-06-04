@@ -48,7 +48,7 @@
   },
   "parent": {
     "name": "scene",
-    "path": "folders/asset/com.devhorizon.spaacerap/scene.yy",
+    "path": "folders/asset/com.devhorizon.visurap/scene.yy",
   },
   "resourceVersion": "1.0",
   "name": "SceneCredits",

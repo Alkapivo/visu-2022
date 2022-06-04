@@ -191,7 +191,7 @@
         ]
     },
     {
-        "name": "SpaacePlayer",
+        "name": "VisuPlayer",
         "schema": {
             "name": "String",
             "gridElement": "GridElement",

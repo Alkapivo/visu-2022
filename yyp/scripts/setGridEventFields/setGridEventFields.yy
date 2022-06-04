@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "setter",
-    "path": "folders/src/com.devhorizon.spaaceloader/entity/GridEvent/setter.yy",
+    "path": "folders/src/com.devhorizon.visu/entity/GridEvent/setter.yy",
   },
   "resourceVersion": "1.0",
   "name": "setGridEventFields",
