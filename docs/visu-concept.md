@@ -1,4 +1,4 @@
-# Midbooze visualizer
+# Visu
 
 The visualiser consists of 4 elements: **Grid**, **Events**, **Timeline** and **MIDIController**.
 
