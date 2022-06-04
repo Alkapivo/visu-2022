@@ -1,25 +1,15 @@
-# visu-loader
+# visu
 
-## Summary
-
-|Name    |visu-loader                         |
-|--------|--------------------------------------|
-|Genre   |Shoot 'em up, Bullet hell, Rythm game.|
-|Platform|HTML5                                 |
-|Engine  |GMS:2 with framework `horizon-core`   |
-|Version |0.0.100                               |
-
-## Build
+Real time visualizer with simple gameplay. 
 
 ### Requirements
 - [bash](https://gitforwindows.org/)
-- [node](https://nodejs.org/en/) (`choco install nodejs-lts`)
-- [jq]() (`choco install jq`)
-- [gamemaker-rubber]() (`npm i -g gamemaker-rubber`)
-- (Optional) add yyb.sh as alias to your `.bashrc`
+- [node](https://nodejs.org/en/)
+- [jq](https://stedolan.github.io/jq/download/)
+- [gamemaker-rubber](https://www.npmjs.com/package/gamemaker-rubber)
+- Optional: novation launchpad
 
-### Run
+## Build
 ```bash
-yyb install
+yyb build
 ```
-`yyb` can be run with `clean` and `install` arguments.
