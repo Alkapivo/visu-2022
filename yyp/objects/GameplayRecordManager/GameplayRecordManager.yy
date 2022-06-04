@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
@@ -32,7 +33,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "GameplayRecordManager",
-    "path": "folders/src/com.devhorizon.spaaceloader/manager/GameplayRecordManager.yy",
+    "path": "folders/src/com.devhorizon.visu/manager/GameplayRecordManager.yy",
   },
   "resourceVersion": "1.0",
   "name": "GameplayRecordManager",

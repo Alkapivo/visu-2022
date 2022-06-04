@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
@@ -33,7 +34,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "LyricsRenderer",
-    "path": "folders/src/com.devhorizon.spaaceloader/renderer/LyricsRenderer.yy",
+    "path": "folders/src/com.devhorizon.visu/renderer/LyricsRenderer.yy",
   },
   "resourceVersion": "1.0",
   "name": "LyricsRenderer",

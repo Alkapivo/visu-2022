@@ -2,10 +2,10 @@
   "ConfigValues": {
     "prod": {"option_mac_version":"0.9.91",},
   },
-  "option_mac_display_name": "Spaace",
+  "option_mac_display_name": "Visu",
   "option_mac_app_id": "com.company.game",
   "option_mac_version": "1.0.0.0",
-  "option_mac_output_dir": "~/spaace-loader",
+  "option_mac_output_dir": "~/visu-loader",
   "option_mac_team_id": "",
   "option_mac_signing_identity": "Developer ID Application:",
   "option_mac_copyright": "",

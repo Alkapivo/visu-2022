@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
@@ -33,7 +34,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "BossManager",
-    "path": "folders/src/com.devhorizon.spaaceloader/manager/BossManager.yy",
+    "path": "folders/src/com.devhorizon.visu/manager/BossManager.yy",
   },
   "resourceVersion": "1.0",
   "name": "BossManager",

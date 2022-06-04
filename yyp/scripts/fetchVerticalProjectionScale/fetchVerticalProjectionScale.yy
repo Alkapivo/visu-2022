@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "GridRendererMethods",
-    "path": "folders/src/com.devhorizon.spaaceloader/renderer/GridRenderer/GridRendererMethods.yy",
+    "path": "folders/src/com.devhorizon.visu/renderer/GridRenderer/GridRendererMethods.yy",
   },
   "resourceVersion": "1.0",
   "name": "fetchVerticalProjectionScale",

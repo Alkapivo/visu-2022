@@ -28,10 +28,10 @@
 				var playersSize = getListSize(players);
 				for (var playerIndex = 0; playerIndex < playersSize; playerIndex++) {
 					var player = players[| playerIndex];
-					var playerGridElement = getSpaacePlayerGridElement(player);
+					var playerGridElement = getVisuPlayerGridElement(player);
 					var isCollision = checkCirclesCollision(
 						getGridElementPosition(playerGridElement),
-						getSpaacePlayerCollisionRadius(playerGridElement),
+						getVisuPlayerCollisionRadius(playerGridElement),
 						bulletPosition,
 						getBulletCollisionRadius(bullet));
 					if (isCollision) {

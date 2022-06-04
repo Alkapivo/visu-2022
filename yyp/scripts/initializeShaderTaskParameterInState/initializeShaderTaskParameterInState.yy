@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "util",
-    "path": "folders/src/com.devhorizon.spaaceloader/renderer/GameRenderer/GameRendererMethods/util.yy",
+    "path": "folders/src/com.devhorizon.visu/renderer/GameRenderer/GameRendererMethods/util.yy",
   },
   "resourceVersion": "1.0",
   "name": "initializeShaderTaskParameterInState",

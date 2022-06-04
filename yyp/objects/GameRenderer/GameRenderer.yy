@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
@@ -36,7 +37,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "GameRenderer",
-    "path": "folders/src/com.devhorizon.spaaceloader/renderer/GameRenderer.yy",
+    "path": "folders/src/com.devhorizon.visu/renderer/GameRenderer.yy",
   },
   "resourceVersion": "1.0",
   "name": "GameRenderer",

@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
@@ -32,7 +33,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "ShroomEmitterManager",
-    "path": "folders/src/com.devhorizon.spaaceloader/manager/ShroomEmitterManager.yy",
+    "path": "folders/src/com.devhorizon.visu/manager/ShroomEmitterManager.yy",
   },
   "resourceVersion": "1.0",
   "name": "ShroomEmitterManager",

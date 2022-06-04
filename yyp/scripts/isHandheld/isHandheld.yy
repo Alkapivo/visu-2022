@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "system",
-    "path": "folders/src/com.devhorizon.spaaceloader/system.yy",
+    "path": "folders/src/com.devhorizon.visu/system.yy",
   },
   "resourceVersion": "1.0",
   "name": "isHandheld",

@@ -227,7 +227,7 @@
   "maintainGms1Font": false,
   "parent": {
     "name": "RetroPack",
-    "path": "folders/asset/alkapivo.github.io/core/font/RetroPack.yy",
+    "path": "folders/asset/com.devhorizon.core/core/font/RetroPack.yy",
   },
   "resourceVersion": "1.0",
   "name": "font_tandy_tv2y",

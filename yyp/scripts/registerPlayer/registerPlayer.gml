@@ -11,7 +11,7 @@ function registerPlayer(argument0) {
 		reduceList(players, null); // guard
 	
 		logger("Player {0} registered with index {1}", LogType.INFO, 
-			getSpaacePlayerName(player), getListSize(players) - 1);
+			getVisuPlayerName(player), getListSize(players) - 1);
 	
 
 

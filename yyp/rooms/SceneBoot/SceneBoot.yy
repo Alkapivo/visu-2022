@@ -46,7 +46,7 @@
   },
   "parent": {
     "name": "scene",
-    "path": "folders/asset/alkapivo.github.io/core/scene.yy",
+    "path": "folders/asset/com.devhorizon.core/core/scene.yy",
   },
   "resourceVersion": "1.0",
   "name": "SceneBoot",

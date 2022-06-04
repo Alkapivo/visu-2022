@@ -198,7 +198,7 @@ function consoleCommandSay(parameters) {
 ///@param {String[]} parameters
 function consoleCommandVersion(parameters) {
 	
-	var log = "com.devhorizon.spaace-loader::" + GM_version + 
+	var log = "com.devhorizon.visu-loader::" + GM_version + 
 		" | GMS runtime v" + GM_runtime_version + 
 		" | Build date " + date_datetime_string(GM_build_date);
 				

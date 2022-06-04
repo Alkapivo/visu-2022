@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "getter",
-    "path": "folders/src/com.devhorizon.spaaceloader/entity/BossStage/getter.yy",
+    "path": "folders/src/com.devhorizon.visu/entity/BossStage/getter.yy",
   },
   "resourceVersion": "1.0",
   "name": "getBossStageDuration",
