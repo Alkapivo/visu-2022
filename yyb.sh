@@ -16,7 +16,11 @@ if [[ "$*" == *clear* ]]; then
 fi
 
 if [[ "$*" == *build* ]]; then
-    mkdir -p ./target
+    mkdir -p ./dist/android
+    mkdir -p ./dist/macos
+    mkdir -p ./dist/ubuntu
+    mkdir -p ./dist/web
+    mkdir -p ./dist/windows
     GAME_NAME=$(cat ./yyp-package.json | jq -r '.name')
     echo Start building ${GAME_NAME} project
     build=$(cat ./yyp/options/windows/options_windows.yy | jq '.option_windows_version | .build')
