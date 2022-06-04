@@ -3,6 +3,7 @@
 Real time visualizer with simple gameplay. 
 
 ### Requirements
+- [GMS:2.3](https://gamemaker.io/en/gamemaker)
 - [bash](https://gitforwindows.org/)
 - [node](https://nodejs.org/en/)
 - [jq](https://stedolan.github.io/jq/download/)
@@ -11,5 +12,5 @@ Real time visualizer with simple gameplay.
 
 ## Build
 ```bash
-yyb build
+./yyb.sh build
 ```
