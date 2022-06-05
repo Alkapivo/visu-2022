@@ -42,7 +42,7 @@
 		lyrics = pushArray(lyrics, "");
 		lifespan = getLyricsEventLifespan(lyricsTask);
 		duration = getLyricsEventDuration(lyricsTask);
-		alpha = 0.7;
+		alpha = 0.8;
 		enableLyricsRenderer = true;
 		addToList(lyricsPipeline, [ lyrics[index], 0 ]);
 		destroyLyricsEvent(lyricsTask);

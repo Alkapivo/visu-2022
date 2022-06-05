@@ -171,6 +171,8 @@
 	///@type {Boolean}
 	isFlat = false;
 
+	applyHenerum();
+
 	#endregion
 	
 	#region Grid Event templates

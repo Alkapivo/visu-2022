@@ -4,51 +4,51 @@ function package_carpenter_brut_turbo_killer() {
 		texturePackages: [
 			{
 				name: "shroom_01", 
-				texture: asset_texture_carpenter_brut_turbo_killer_1		
+				texture: getGridRenderer().shroom_texture_01		
 			},
 			{
 				name: "shroom_02", 
-				texture: asset_texture_carpenter_brut_turbo_killer_2		
+				texture: getGridRenderer().shroom_texture_02		
 			},
 			{
 				name: "shroom_03", 
-				texture: asset_texture_carpenter_brut_turbo_killer_3		
+				texture: getGridRenderer().shroom_texture_03		
 			},
 			{
 				name: "shroom_04", 
-				texture: asset_texture_carpenter_brut_turbo_killer_4		
+				texture: getGridRenderer().shroom_texture_04		
 			},
 			{
 				name: "shroom_05", 
-				texture: asset_texture_carpenter_brut_turbo_killer_5		
+				texture: getGridRenderer().shroom_texture_05		
 			},
 			{
 				name: "shroom_06", 
-				texture: asset_texture_carpenter_brut_turbo_killer_6		
+				texture: getGridRenderer().shroom_texture_06		
 			},
 			{
 				name: "shroom_07", 
-				texture: asset_texture_carpenter_brut_turbo_killer_7		
+				texture: getGridRenderer().shroom_texture_07		
 			},
 			{
 				name: "shroom_08", 
-				texture: asset_texture_carpenter_brut_turbo_killer_8		
+				texture: getGridRenderer().shroom_texture_08		
 			},
 			{
 				name: "background_01", 
-				texture: asset_texture_carpenter_brut_turbo_killer_bkg_1		
+				texture: getGridRenderer().background_texture_01		
 			},
 			{
 				name: "background_02", 
-				texture: asset_texture_carpenter_brut_turbo_killer_bkg_2		
+				texture: getGridRenderer().background_texture_02		
 			},
 			{
 				name: "background_03", 
-				texture: asset_texture_carpenter_brut_turbo_killer_bkg_3		
+				texture: getGridRenderer().background_texture_03		
 			},
 			{
 				name: "background_04", 
-				texture: asset_texture_carpenter_brut_turbo_killer_bkg_4		
+				texture: getGridRenderer().background_texture_04		
 			}
 		]
 	}

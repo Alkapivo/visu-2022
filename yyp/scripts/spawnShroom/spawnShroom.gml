@@ -59,6 +59,8 @@ function spawnShroom(argument0, argument1) {
 			logger("///@todo playerCollisionHandler implement", LogType.DEBUG);
 		}
 		
+		state[? "horizontalSpeed"] = argument_count > 2 ? argument[2] : 0;
+		
 		var shroom = createShroom(
 			gridElement,
 			radius,

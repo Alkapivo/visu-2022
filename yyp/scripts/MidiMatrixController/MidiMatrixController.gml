@@ -240,7 +240,7 @@ function createEventsRecorder() {
 				timer: 0.0,
 				events: [],
 				audio: {
-					name: getAssetName(asset_ost_boa_duvet_virtual_self, AssetSound), ///@todo mockup
+					name: getAssetName(asset_ost_visu_main, AssetSound), ///@todo mockup
 					trackPosition: 0.00
 				},
 				layout: {
@@ -250,7 +250,7 @@ function createEventsRecorder() {
 			};
 			eventsRecorder.setCurrentRecording(eventsRecorder, currentRecording)
 			audio_stop_all();
-			audio_play_sound(asset_ost_boa_duvet_virtual_self, 100, false);
+			audio_play_sound(asset_ost_visu_main, 100, false);
 			
 			logger(
 				"Created new recording: { audio.trackPosition: {0}, layout.name: {1} }", LogType.INFO, 
@@ -320,7 +320,7 @@ function createEventsRecorder() {
 				
 				var audio = {
 					trackPosition: 0,
-					name: "asset_ost_boa_duvet_virtual_self"
+					name: "asset_ost_visu_main"
 				}
 				
 				var jsonAudio = Core.Collections._Map.get(jsonObject, "audio");
@@ -527,4 +527,33 @@ function shroomButton(texture, speedValue) {
 			])
 		)
 	);
+}
+
+function spawnVisuShroom(config) {
+
+	var texture = config.texture;
+	var position = config.position;
+	var horizontalSpeed = config.horizontalSpeed;
+	var verticalSpeed = config.verticalSpeed;
+	
+	var shroomTemplate = createShroomTemplate(
+		createSprite(
+			texture, 
+			irandom(sprite_get_number(texture)), 
+			1.0, 
+			1.0, 
+			1.0, 
+			0.0, 
+			c_white
+		),
+		createMap(),
+		[
+			verticalSpeed
+		],
+		[ 
+			createTuple(GridElementInfoType.RAINBOW, colorHashToColor("#00ff00ff"))
+		]
+	);
+	
+	spawnShroom(shroomTemplate, position, horizontalSpeed);
 }
