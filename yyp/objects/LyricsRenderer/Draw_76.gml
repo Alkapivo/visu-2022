@@ -21,12 +21,11 @@
 	
 	if (enableLyricsRenderer) {
 	
-		var repeatSize = 1;//choose(1, 2, 3, 5, 8, 13, 21);
+		var repeatSize = 1;
 		var length = getListSize(lyricsPipeline)
 		var textHorizontalLength = textVerticalMargin + length * textHeight;
 		var textVerticalLength = 180;
-		var color = colors[round(random(array_length_1d(colors) - 1))];
-		
+
 		gpuSetSurfaceTarget(lyricsSurface);
 		drawClear(COLOR_TRANSPARENT);
 		gpuSetShader(shaderAbberation);
@@ -55,14 +54,14 @@
 						}
 					}
 				} else {
-					position = position + irandom(5);
-					sourceCode[@ 1] = sourceCode[@ 1] + irandom(5);
+					position = position + irandom(2);
+					sourceCode[@ 1] = sourceCode[@ 1] + irandom(2);
 				}
 		
 				var text = string_copy(line, 0, position);
 				var textYPosition = textVerticalMargin + index * textHeight;
 				var offset = textHorizontalLength > textVerticalLength ? textHorizontalLength - textVerticalLength : 0
-				var luck = choose(0, 0, 0, 1);
+				var luck = choose(0, 0, 1);
 				if (luck == 1) {
 					var shakeX = random(2);
 					var shakeY = random(2);

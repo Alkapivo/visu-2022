@@ -186,8 +186,8 @@
 				var eventsRecording = eventsRecorder.parseRecording(eventsRecorder, text);
 				eventsPlayer.play(eventsPlayer, eventsRecording);
 				
-				var package = package_carpenter_brut_turbo_killer();
-				Core.PackageManager.applyPackage(package);
+				//var package = package_carpenter_brut_turbo_killer();
+				//Core.PackageManager.applyPackage(package);
 				
 			} catch (exception) {
 			

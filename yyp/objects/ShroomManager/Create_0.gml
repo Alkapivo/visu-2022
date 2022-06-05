@@ -2,6 +2,9 @@
 
 	super();
 	
+	global.shroomVisuSpawnHorizontalRange = createTuple(0.0, 1.0);
+	global.shroomVisuSpawnSpeedRange = createPosition(0.005, 0.01);
+	
 	#region Fields
 ///@public:
 

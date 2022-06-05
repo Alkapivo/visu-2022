@@ -603,14 +603,15 @@
 		draw_set_alpha(1.0);
 		
 		var text = stringParams(
-			"{0}\n\n{1}       {2}\n\n{3}\n{4}",
-			"Carpenter Brut - Turbo Killer",
+			"{0}\n{1}\n\n{2}       {3}\n\n{4}\n{5}",
+			"    Lets revisit our time    ",
+			 " kedy_selma (feat. Henerum) ",
 			"MOUSE CLICK TO",
 			getRandomValueFromArray([
 				"play    ", " play   ", "  play  ", "   play ", "    play"
 			]),
 			"MOVE:          ARROWS OR WSAD",
-			"SHOOT:            SPAACE OR Z"
+			"SHOOT:             SPACE OR Z"
 		);
 		draw_text(
 			(RealWidth / 2.0) + irandom(2), 
