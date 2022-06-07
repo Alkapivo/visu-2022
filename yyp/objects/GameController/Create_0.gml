@@ -18,7 +18,7 @@
 	///@type {Struct<MidiMatrixController>}
 	#region
 	
-		global.isGameplayStarted = false;
+	global.isGameplayStarted = false;
 	global.__deaths = 0;
 	global.__score = 0;
 	global.__launchapdEvents = 0;
@@ -93,7 +93,7 @@
 			            pressed: function () {
 							
 							var previousFactor = getScreensFactor();
-							var screenFactor = 0.0008;
+							var screenFactor = 0.001;
 							logger("Set screens factor: {0}", LogType.INFO, previousFactor, screenFactor);
 							setScreensFactor(screenFactor);	
 			            }
@@ -107,7 +107,7 @@
 			            pressed: function () {
 							
 							var previousFactor = getScreensFactor();
-							var screenFactor = 0.006;
+							var screenFactor = 0.004;
 							logger("Set screens factor: {0}", LogType.INFO, previousFactor, screenFactor);
 							setScreensFactor(screenFactor);
 			            }
@@ -121,7 +121,7 @@
 			            pressed: function () {
 							
 							var previousFactor = getScreensFactor();
-							var screenFactor = 0.06;
+							var screenFactor = 0.04;
 							logger("Set screens factor: {0}", LogType.INFO, previousFactor, screenFactor);
 							setScreensFactor(screenFactor);
 			            }
@@ -135,7 +135,7 @@
 			            pressed: function () {
 
 							var previousFactor = getScreensFactor();
-							var screenFactor = 0.3;
+							var screenFactor = 0.1;
 							logger("Set screens factor: {0}", LogType.INFO, previousFactor, screenFactor);
 							setScreensFactor(screenFactor);
 			            }
@@ -730,7 +730,7 @@
 								texture: getGridRenderer().shroom_texture_02,
 								position: createPosition(
 									(from + irandom(to - from)) / 100.0,
-									0.011
+									0.003
 								),
 								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
 								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
@@ -759,7 +759,7 @@
 								texture: getGridRenderer().shroom_texture_03,
 								position: createPosition(
 									(from + irandom(to - from)) / 100.0,
-									0.011
+									0.003
 								),
 								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
 								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
@@ -788,7 +788,7 @@
 								texture: getGridRenderer().shroom_texture_04,
 								position: createPosition(
 									(from + irandom(to - from)) / 100.0,
-									0.011
+									0.003
 								),
 								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
 								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
@@ -939,7 +939,7 @@
 			            keyboardMapping: [ "S", "8" ],
 			            pressed: function () {
 
-							global.shroomVisuSpawnSpeedRange = createPosition(0.0006, 0.001);
+							global.shroomVisuSpawnSpeedRange = createPosition(0.0006, 0.002);
 							logger("Update spawn speed");
 			            }
 			        }
@@ -950,7 +950,7 @@
 			            keyboardMapping: [ "D", "8" ],
 			            pressed: function () {
 							
-							global.shroomVisuSpawnSpeedRange = createPosition(0.001, 0.011);
+							global.shroomVisuSpawnSpeedRange = createPosition(0.002, 0.016);
 							logger("Update spawn speed");
 			            }
 			        }
@@ -980,7 +980,7 @@
 								texture: getGridRenderer().shroom_texture_05,
 								position: createPosition(
 									(from + irandom(to - from)) / 100.0,
-									0.011
+									0.003
 								),
 								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
 								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
@@ -1009,7 +1009,7 @@
 								texture: getGridRenderer().shroom_texture_06,
 								position: createPosition(
 									(from + irandom(to - from)) / 100.0,
-									0.011
+									0.003
 								),
 								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
 								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
@@ -1038,7 +1038,7 @@
 								texture: getGridRenderer().shroom_texture_07,
 								position: createPosition(
 									(from + irandom(to - from)) / 100.0,
-									0.011
+									0.003
 								),
 								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
 								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
@@ -1067,7 +1067,7 @@
 								texture: getGridRenderer().shroom_texture_08,
 								position: createPosition(
 									(from + irandom(to - from)) / 100.0,
-									0.011
+									0.003
 								),
 								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
 								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
@@ -1088,7 +1088,7 @@
 	#endregion
 
 	///@type {String}
-	var base = "henerum_05.json";
+	var base = "henerum_09.json";
 	baseRecording = Core.File.read({ path: "data", filename: base, withDialog: false });
 	
 ///@private:

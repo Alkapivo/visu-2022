@@ -357,6 +357,7 @@ function initializeGlobals() {
 	
 	#endregion
 	
+	global.__soundInstanceId = null;
 	
 	global.__core_JSON = {
 	

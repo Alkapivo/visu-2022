@@ -100,7 +100,7 @@
 	secondaryLinesWidth = 5.0;
 	
 	///@type {Number} degrees
-	angle = 0.0;
+	angle = 360.0 * 6;
 	
 	///@type {Number}
 	angleFactor = 1.0;
