@@ -43,7 +43,6 @@
 				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_DOWN)) || 
 				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_S))) : false;
 		}
-		///@todo Inverted for ballada-o-dojrzalosci-2
 			
 		var horizontalFriction = getValueFromMap(playerState, "horizontalFriction", 0.001);
 		var horizontalMaxSpeed = getValueFromMap(playerState, "horizontalMaxSpeed", 0.01);
