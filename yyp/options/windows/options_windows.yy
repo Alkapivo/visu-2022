@@ -1,6 +1,6 @@
 {
   "ConfigValues": {
-    "prod": {"option_windows_version":"0.5.4.1","option_windows_resize_window":"true","option_windows_start_fullscreen":"false","option_windows_borderless":"false","option_windows_display_name":"visu","option_windows_disable_sandbox":"true","option_windows_description_info":"","option_windows_product_info":"visu",},
+    "prod": {"option_windows_version":"0.5.0.8","option_windows_resize_window":"true","option_windows_start_fullscreen":"false","option_windows_borderless":"false","option_windows_display_name":"visu","option_windows_disable_sandbox":"false","option_windows_description_info":"https://alkapivo.github.io","option_windows_product_info":"visu","option_windows_save_location":"1",},
   },
   "option_windows_display_name": "Visu",
   "option_windows_executable_name": "${project_name}.exe",

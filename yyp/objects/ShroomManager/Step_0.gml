@@ -67,9 +67,9 @@
 				var bulletTaken = shroomState[? "bulletTaken"]
 				dieTimer = incrementTimer(dieTimer, dieTimerDuration);
 				if ((timerFinished(dieTimer)) ||
-					(bulletTaken > 3)) {
+					(bulletTaken > 0)) { //3
 					
-					if (bulletTaken > 3) {
+					if (bulletTaken > 0) { //3
 						
 						destroyShrooms = pushArray(destroyShrooms, index);
 						break;

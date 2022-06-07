@@ -53,8 +53,8 @@ function createMidiMatrixController(config) {
 					var currentRecording = midiController.eventsRecorder.getCurrentRecording(midiController.eventsRecorder);
 					if (isStruct(currentRecording)) {
 						
-						if ((key != "5x7") &&
-							(key != "6x7")) {
+						if ((key != "6x0") &&
+							(key != "7x0")) {
 						
 							midiController.eventsRecorder.registerEvent(
 								midiController.eventsRecorder, { 

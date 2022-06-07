@@ -2,8 +2,8 @@ function applyHenerum() {
 
 	var gridRenderer = getGridRenderer();
 	
-	gridRenderer.xScale = 0.88;
-	gridRenderer.yScale = 0.88;
+	gridRenderer.xScale = 1.07;
+	gridRenderer.yScale = 1.07;
 	gridRenderer.colorPrimaryLines = colorHashToColor("#f9ff21");
 	gridRenderer.colorSecondaryLines = colorHashToColor("#d60b3a");
 	gridRenderer.colorGridWheelTopLeft = colorHashToColor("#f9ff21");

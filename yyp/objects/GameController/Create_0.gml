@@ -2,12 +2,8 @@
 
 	#macro TIANANMEN_SQUARE null
 
-	global.isGameplayStarted = false;
-	global.__deaths = 0;
-	global.__score = 0;
-	global.__launchapdEvents = 0;
-
 	super();
+	
 	registerSceneController(this);
 	
 	#region Fields
@@ -21,6 +17,11 @@
 	
 	///@type {Struct<MidiMatrixController>}
 	#region
+	
+		global.isGameplayStarted = false;
+	global.__deaths = 0;
+	global.__score = 0;
+	global.__launchapdEvents = 0;
 	
 	function buttonIsEnabled(button) {
 		
@@ -1087,7 +1088,7 @@
 	#endregion
 
 	///@type {String}
-	var base = "base.json";//"carpenter_brut_05.json";
+	var base = "henerum_05.json";
 	baseRecording = Core.File.read({ path: "data", filename: base, withDialog: false });
 	
 ///@private:
