@@ -171,7 +171,7 @@
 	///@type {Boolean}
 	isFlat = false;
 
-	applyHenerum();
+	applySelma();
 
 	#endregion
 	

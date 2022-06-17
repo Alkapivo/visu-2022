@@ -131,56 +131,18 @@ function initializeVisuGlobals() {
 	
 	global.__lyrics = [
 		"                                                                                            ",
-		"Leave your things behind, lets revisit the times                                              ",
-		"                                                       ",
-		"When we would sit and watch the midnight skies                                              ",
-		"                                                            ",
-		"Painted in pale amber light polution                                              ",
-		"                                                                  ",
-		"Together we could've found a solution                                              ",
-		"                                                                        ",
-		"I blame me for not connecting the wiring                                              ",
-		"                                                    ",
-		"Fr the thigns I should've been feeling                                              ",
-		"                                                                  ",
-		"I wish it all unraveled differently                                              ",
-		"                                                  ",
-		"I know I've hurt you but it was unwillingly                                              ",
-		"                                                   ",
-		"No love can fix what I've done                                              ",
-		"                                                ",
-		"All affections are now gone                                              ",
-		"                                                                       ",
-		"Our memories are left to linger                                              ",
-		"                                                                           ",
-		"Rotting hopes there to blister                                              ",
-		"                                                                ",
-		"Our days were what got me through                                              ",
-		"                                                               ",
-		"So I'm thankful I still remember you                                              ",
-		"                                                                  ",
-		"                                                                                                            ",
-		"And when i think im done loving you                                              ",
-		"                                                 ",
-		"You'r scent                                                                        ",
-		"                                                                            ",
-		"It brings me back when                                              ",
-		"                                                                             ",
-		"We were a singular two                                                             ",
-		"                                                              ",
-		"                                                               ",
-		"                                              ",
-		"                                              ",
-		"                                                                ",
 		"                                                                 ",
-		"                                              ",
-		"                                              ",
-		"                                              ",
-		"                                                                 "
+		"                                              "
 ];
 	
 	global.__deaths = 0;
 	global.__score = 0;
+	
+	global.__GameplayTypes = [
+		"platformer",
+		"bullethell"
+	]
+	#macro GameplayTypes global.__GameplayTypes
 }
 
 function initializeVisuMacros() {

@@ -604,8 +604,8 @@
 		
 		var text = stringParams(
 			"{0}\n{1}\n\n{2}       {3}\n\n{4}\n{5}",
-			"    Lets revisit our time    ",
-			 " kedy_selma (feat. Henerum) ",
+			"        Distant Memory       ",
+			"           Midbooze          ",
 			"MOUSE CLICK TO",
 			getRandomValueFromArray([
 				"play    ", " play   ", "  play  ", "   play ", "    play"

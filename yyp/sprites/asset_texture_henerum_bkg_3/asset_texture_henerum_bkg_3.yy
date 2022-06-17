@@ -72,8 +72,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "henerum",
-    "path": "folders/asset/henerum.yy",
+    "name": "selma-henerum-alkapivo",
+    "path": "folders/asset/selma-henerum-alkapivo.yy",
   },
   "resourceVersion": "1.0",
   "name": "asset_texture_henerum_bkg_3",

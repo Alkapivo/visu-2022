@@ -16,7 +16,7 @@
 		
 		var pipeSize = getStackSize(pipe);
 		
-		var shaderLimit = 16;
+		var shaderLimit = 64;
 		var shaderLimitCounter = 0;
 		for (var taskIndex = 0; taskIndex < pipeSize; taskIndex++) {
 			

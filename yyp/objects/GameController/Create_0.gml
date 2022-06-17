@@ -345,9 +345,17 @@
 			            keyboardMapping: [ "E", "6" ],
 			            pressed: function () {
 
+							/*
 							var swingGrid = getInstanceVariable(getGridRenderer(), "swingGrid");
 							logger("Set swingGrid: {0}", LogType.INFO, swingGrid ? "true" : "false");
 							setInstanceVariable(getGridRenderer(), "swingGrid", !(swingGrid == true));
+							*/
+							
+							var gameplayType = getPlayerManager().gameplayType;
+							gameplayType = gameplayType == "bullethell"
+								? "platformer"
+								: "bullethell";
+							setInstanceVariable(getPlayerManager(), "gameplayType", gameplayType);
 			            }
 			        }
 			    ),
@@ -1088,7 +1096,7 @@
 	#endregion
 
 	///@type {String}
-	var base = "henerum_09.json";
+	var base = "platformer_test.json";
 	baseRecording = Core.File.read({ path: "data", filename: base, withDialog: false });
 	
 ///@private:
