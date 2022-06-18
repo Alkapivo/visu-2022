@@ -1096,7 +1096,7 @@
 	#endregion
 
 	///@type {String}
-	var base = "platformer_test.json";
+	var base = getPropertyString("base-timeline", "base.json");
 	baseRecording = Core.File.read({ path: "data", filename: base, withDialog: false });
 	
 ///@private:

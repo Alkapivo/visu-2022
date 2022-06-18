@@ -44,5 +44,8 @@
 	"system.loadingIntentEventPipeline.dispatcherLimit": 1,
 	"system.systemEventPipeline.dispatcherLimit": 1,
 	"touchInputHandler.virtualJoystick.angleMargin": 12,
-	"virtualJoystick.deadzonessd": 0.33
+	"virtualJoystick.deadzonessd": 0.33,
+
+	"base-timeline": "base.json",
+	"base-timeline-function": "applySelma"
 }

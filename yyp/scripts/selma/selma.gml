@@ -2,6 +2,8 @@ function applySelma() {
 
 	var gridRenderer = getGridRenderer();
 	
+	gridRenderer.colorGridBackground = colorHashToGMColor("#ffffff");
+	
 	gridRenderer.xScale = 1.07;
 	gridRenderer.yScale = 1.07;
 	gridRenderer.colorPrimaryLines = colorHashToColor("#f9ff21");
@@ -22,7 +24,7 @@ function applySelma() {
 	gridRenderer.background_texture_02 = asset_texture_henerum_bkg_2;
 	gridRenderer.background_texture_03 = asset_texture_henerum_bkg_3;
 	gridRenderer.background_texture_04 = asset_texture_henerum_bkg_4;
-	gridRenderer.background_color_01 = colorHashToGMColor("#000000");
+	gridRenderer.background_color_01 = colorHashToGMColor("#ffffff");
 	gridRenderer.background_color_02 = colorHashToGMColor("#e6d95e");
 	gridRenderer.background_color_03 = colorHashToGMColor("#450e1c");
 	gridRenderer.background_color_04 = colorHashToGMColor("#b01988");

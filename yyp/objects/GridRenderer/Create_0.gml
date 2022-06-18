@@ -171,8 +171,21 @@
 	///@type {Boolean}
 	isFlat = false;
 
-	applySelma();
-
+	try {
+		
+		var functionName = getPropertyString("base-timeline-function", "applySelma");
+		var baseTimelineFunction = getAssetIndex(
+			functionName,
+			AssetScript
+		);
+		
+		logger("Load \"{0}\" base function", LogType.INFO, functionName);
+		baseTimelineFunction();
+	} catch (exception) {
+		
+		logger("{0}", LogType.ERROR, exception.message);
+		printStackTrace();
+	}
 	#endregion
 	
 	#region Grid Event templates

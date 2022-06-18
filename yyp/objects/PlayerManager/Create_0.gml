@@ -63,14 +63,16 @@
 			setVisuPlayerHorizontalSpeed(player, horizontalSpeed);
 		
 			var veticalProjectionScale = fetchVerticalProjectionScale(playerPosition[1]);
+			var verticalPositionMin = 0.01;
+			var verticalPositionMax = 0.87;
 			var verticalFriction = getValueFromMap(playerState, "verticalFriction", 0.001) * veticalProjectionScale; 
 			var verticalMaxSpeed = getValueFromMap(playerState, "verticalMaxSpeed", 0.01) * veticalProjectionScale; 
 			var verticalSpeed = ((keyboardCheckUp) || (keyboardCheckDown)) ?
 				getVisuPlayerVerticalSpeed(player) + (keyboardCheckUp ? -1 : 1) * (getValueFromMap(playerState, "verticalAcceleration", 0.005) * veticalProjectionScale * getDeltaTimeValue()) :
 				((abs(getVisuPlayerVerticalSpeed(player)) - verticalFriction < 0) ? 0 : getVisuPlayerVerticalSpeed(player) - sign(getVisuPlayerVerticalSpeed(player)) * verticalFriction);
 			verticalSpeed = sign(verticalSpeed) * clamp(abs(verticalSpeed), 0, verticalMaxSpeed);
-			var verticalPosition = clamp(getPositionVertical(playerPosition) + verticalSpeed, 0.0, 1.0);
-			setPositionVertical(playerPosition, clamp(verticalPosition, 0.1, 1.0));
+			var verticalPosition = clamp(getPositionVertical(playerPosition) + verticalSpeed, verticalPositionMin, verticalPositionMax);
+			setPositionVertical(playerPosition, verticalPosition);
 			setVisuPlayerVerticalSpeed(player, verticalSpeed);
 			#endregion
 		
@@ -162,9 +164,11 @@
 			var jumpFactor = 0.029;
 			verticalSpeed += gravityFactor;
 			verticalSpeed = sign(verticalSpeed) * clamp(abs(verticalSpeed), 0.0, verticalSpeedMax);
-			verticalPosition = clamp(verticalPosition + verticalSpeed, 0.1, 0.9);
-			verticalSpeed = verticalPosition == 0.1 ? 0.0 : verticalSpeed;
-			verticalSpeed = verticalPosition == 0.9 ? 0.0 : verticalSpeed;
+			var verticalPositionMin = -0.12;
+			var verticalPositionMax = 0.87;
+			verticalPosition = clamp(verticalPosition + verticalSpeed, verticalPositionMin, verticalPositionMax);
+			verticalSpeed = verticalPosition == verticalPositionMin ? 0.0 : verticalSpeed;
+			verticalSpeed = verticalPosition == verticalPositionMax ? 0.0 : verticalSpeed;
 			setVisuPlayerVerticalSpeed(player, verticalSpeed);
 			setPositionVertical(playerPosition, verticalPosition);
 			
@@ -174,16 +178,29 @@
 			
 			
 			if ((keyboardCheckAction)
-				&& (verticalPosition >= 0.9)) {
+				&& (verticalPosition >= verticalPositionMax)) {
 
-				setVisuPlayerVerticalSpeed(player, -1.0 * jumpFactor);
+				setVisuPlayerVerticalSpeed(player, -jumpFactor);
+				Core.Collections._Map.set(playerState, "doubleJump", true);
+				Core.Collections._Map.set(playerState, "doubleJumpReleased", false);
 			}
 			
-			if ((!keyboardCheckAction)
-				&& (verticalSpeed <= -0.1)) {
+			var doubleJump = Core.Collections._Map.get(playerState, "doubleJump");
+			var doubleJumpReleased = Core.Collections._Map.get(playerState, "doubleJumpReleased");
+			if (doubleJump) {
+			
+				if (keyboardCheckAction) {
 				
-				setVisuPlayerVerticalSpeed(player, -0.1);
+					if (doubleJumpReleased) {
+					
+						setVisuPlayerVerticalSpeed(player, -jumpFactor);
+						setInMap(playerState, "doubleJump", false);
+					}
+				} else {
 				
+					doubleJumpReleased = true;
+					Core.Collections._Map.set(playerState, "doubleJumpReleased", doubleJumpReleased);
+				}
 			}
 			
 			var isCollision = false;
@@ -198,7 +215,15 @@
 					playerPosition,
 					getVisuPlayerCollisionRadius(player));
 				
-				if ((verticalSpeed > -0.01) 
+				if ((verticalSpeed < -0.85)
+					&& (isCollision)) {
+					
+					var shroomState = getShroomState(shroom);
+					Core.Collections._Map.set(shroomState, "status", "end");
+					Core.Collections._Map.set(shroomState, "instantKill", true);
+				}
+					
+				if ((verticalSpeed > -0.10) 
 					&& (keyboardCheckAction)
 					&& (isCollision)) {
 				
@@ -207,6 +232,8 @@
 					Core.Collections._Map.set(shroomState, "instantKill", true);
 					
 					setVisuPlayerVerticalSpeed(player, -1.0 * jumpFactor);
+					Core.Collections._Map.set(playerState, "doubleJump", true);
+					Core.Collections._Map.set(playerState, "doubleJumpReleased", false);
 					continue;
 				}
 			}
