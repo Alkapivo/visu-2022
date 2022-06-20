@@ -82,7 +82,7 @@
 	separatorSpeed = 0.005;
 	
 	///@type {Number} unit is Hz
-	separatorFrameFrequency = 0.11;
+	separatorFrameFrequency = 0.33;
 	
 	///@type {Color}
 	colorPrimaryLines = colorHashToColor("#9d23ad");
@@ -100,7 +100,7 @@
 	secondaryLinesWidth = 5.0;
 	
 	///@type {Number} degrees
-	angle = 0.0;
+	angle = 360.0 * 6;
 	
 	///@type {Number}
 	angleFactor = 1.0;
@@ -323,7 +323,7 @@
 	]
 
 	firstBlendPointer = 1;
-	secondBlendPointer = 5;
+	secondBlendPointer = 3;
 	blendModesLength = getArrayLength(blendModes);
 	
 	gridEventPipelineDispatcher = method(this, function(pipeline) {
@@ -598,6 +598,7 @@
 		
 			if (enableGridElementsRendering) {
 			
+				/*
 				if (keyboard_check_pressed(ord("I"))) {
 					firstBlendPointer = clamp(firstBlendPointer + 1, 0, blendModesLength - 1);
 					logger("firstBlendPointer {0}", LogType.DEBUG, firstBlendPointer);
@@ -615,6 +616,7 @@
 					secondBlendPointer = clamp(secondBlendPointer - 1, 0, blendModesLength - 1);
 					logger("secondBlendPointer {0}", LogType.DEBUG, secondBlendPointer);
 				}
+				*/
 				gpu_set_blendmode_ext(blendModes[firstBlendPointer], blendModes[secondBlendPointer]);
 				var dimension = max(viewWidth, viewHeight);
 				var gridElementPipelineSize = getPriorityQueueSize(gridElementPipeline);

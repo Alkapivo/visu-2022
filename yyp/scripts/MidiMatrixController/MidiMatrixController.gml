@@ -53,8 +53,8 @@ function createMidiMatrixController(config) {
 					var currentRecording = midiController.eventsRecorder.getCurrentRecording(midiController.eventsRecorder);
 					if (isStruct(currentRecording)) {
 						
-						if ((key != "5x7") &&
-							(key != "6x7")) {
+						if ((key != "6x0") &&
+							(key != "7x0")) {
 						
 							midiController.eventsRecorder.registerEvent(
 								midiController.eventsRecorder, { 
@@ -170,6 +170,7 @@ function createEventsPlayer() {
 					
 					audio_stop_all();
 					var soundInstanceId = audio_play_sound(sound, 100, false);
+					global.__soundInstanceId = soundInstanceId;
 					audio_sound_set_track_position(soundInstanceId, trackPosition);
 				}
 				
@@ -185,6 +186,22 @@ function createEventsPlayer() {
 				
 				//print("PLAYING");
 				recording.timer = incrementTimer(recording.timer, recording.duration);
+				try {
+					
+					var soundInstanceId = global.__soundInstanceId;
+					if ((isAudio(soundInstanceId))
+						&& (audio_is_playing(soundInstanceId))) {
+				
+						var audioPosition = audio_sound_get_track_position(global.__soundInstanceId);
+						if (audioPosition > 0.0) {
+							recording.timer = audioPosition;
+						}
+					}
+				} catch (exception) {
+				
+					logger("Unable to sync with played audio. {0}", LogType.ERROR, exception.message);
+				}
+				
 				if (timerFinished(recording.timer)) {
 					
 					eventsPlayer.recording = null;	

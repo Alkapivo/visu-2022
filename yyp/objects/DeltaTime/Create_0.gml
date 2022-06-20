@@ -12,7 +12,7 @@
     global.deltaTime = 0;
 	
 	///@type {Number}
-    minFps = 10;
+    minFps = 2;
 	
 ///@private:
 

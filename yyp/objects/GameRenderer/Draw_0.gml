@@ -214,15 +214,15 @@
 				if (pipeSize > 3) {
 						
 					var gridRendererSurface = getGridRendererSurface();
-					gpu_set_blendmode(bm_normal);
+					gpu_set_blendmode(bm_add);
 					renderSurface(
 						gridRendererSurface, 
 						xCameraShake + (mouseXPosition - (GuiWidth / 2.0)),
 						yCameraShake + (mouseYPosition - (GuiHeight / 2.0)),
 						getGridRendererXScale(),
 						getGridRendererYScale(), 
-						0,//getGridRendererAngle() + gridRenderer.angleSwing, 
-						0.3,
+						getGridRendererAngle() + gridRenderer.angleSwing, 
+						0.2,
 						c_white,
 						createPosition(0.5, 0.5)
 					);

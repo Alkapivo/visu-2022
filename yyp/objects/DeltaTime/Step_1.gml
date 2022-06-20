@@ -14,4 +14,4 @@
 		deltaTimeRestored = false;	
 	}
 	
-	global.deltaTime = clamp(deltaTime * GAME_FPS, 1.0, 2.5);
+	global.deltaTime = clamp(deltaTime * GAME_FPS, 1.0, 5.0);
