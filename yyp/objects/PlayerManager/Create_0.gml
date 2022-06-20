@@ -10,7 +10,7 @@
 	players = createList();
 	
 	///@type {String<GameplayTypes>}
-	gameplayType = "platformer";
+	gameplayType = "bullethell";
 	
 ///@private:
 
@@ -24,6 +24,9 @@
 	debugMouseSpeed = 0.1;
 	#endregion
 	
+	jumpFactor = getPropertyReal("player.jumpFactor", 0.029);
+	gravityFactor = getPropertyReal("player.gravityFactor", 0.0011);
+
 	GMObject = {
 		create: method(this, function() {
 			
@@ -130,7 +133,6 @@
 			var inputHandler = getVisuPlayerInputHandler(player);
 			var shrooms = getShroomManager().shrooms;
 			
-			#region Movement
 			var keyboardCheckRight = inputHandler != null ? (
 				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_RIGHT)) || 
 				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_D))) : false;
@@ -160,9 +162,9 @@
 			var verticalPosition = getPositionVertical(playerPosition);
 			var verticalSpeed = getVisuPlayerVerticalSpeed(player);
 			var verticalSpeedMax = 1.0;
-			var gravityFactor = applyDeltaTime(0.0012);
+			var _gravityFactor = applyDeltaTime(gravityFactor);
 			var jumpFactor = 0.029;
-			verticalSpeed += gravityFactor;
+			verticalSpeed += _gravityFactor;
 			verticalSpeed = sign(verticalSpeed) * clamp(abs(verticalSpeed), 0.0, verticalSpeedMax);
 			var verticalPositionMin = -0.12;
 			var verticalPositionMax = 0.87;
@@ -209,36 +211,53 @@
 				var shroom = shrooms[| shroomIndex];
 				var shroomGridElement = getShroomGridElement(shroom);
 				var shroomGridElementPosition = getGridElementPosition(shroomGridElement);
-				isCollision = (shroomGridElementPosition[1] < playerPosition[1]) && checkCirclesCollision( //@todo replace arrays with getters
+				isCollision = checkCirclesCollision(
 					shroomGridElementPosition,
 					getShroomRadius(shroom),
 					playerPosition,
-					getVisuPlayerCollisionRadius(player));
+					getVisuPlayerCollisionRadius(player)
+				);
 				
 				if ((verticalSpeed < -0.85)
 					&& (isCollision)) {
 					
+					///@todo shroom.kill();
 					var shroomState = getShroomState(shroom);
 					Core.Collections._Map.set(shroomState, "status", "end");
 					Core.Collections._Map.set(shroomState, "instantKill", true);
 				}
-					
-				if ((verticalSpeed > -0.10) 
-					&& (keyboardCheckAction)
-					&& (isCollision)) {
 				
+				if ((verticalSpeed >= 0.0)
+					&& (isCollision)) {
+					
+					///@todo shroom.kill();
 					var shroomState = getShroomState(shroom);
 					Core.Collections._Map.set(shroomState, "status", "end");
 					Core.Collections._Map.set(shroomState, "instantKill", true);
 					
+					///@todo player.jump(factor);
+					setVisuPlayerVerticalSpeed(player, -1.0 * (jumpFactor)); ///@todo remove magic number
+					Core.Collections._Map.set(playerState, "doubleJump", true);
+					Core.Collections._Map.set(playerState, "doubleJumpReleased", false);
+				}
+				
+				if ((verticalSpeed > -0.10) 
+					&& (keyboardCheckAction)
+					&& (isCollision)) {
+				
+					///@todo shroom.kill();
+					var shroomState = getShroomState(shroom);
+					Core.Collections._Map.set(shroomState, "status", "end");
+					Core.Collections._Map.set(shroomState, "instantKill", true);
+					
+					///@todo player.jump(factor);
 					setVisuPlayerVerticalSpeed(player, -1.0 * jumpFactor);
 					Core.Collections._Map.set(playerState, "doubleJump", true);
 					Core.Collections._Map.set(playerState, "doubleJumpReleased", false);
 					continue;
 				}
 			}
-			#endregion
-			
+
 			sendGridElementRenderRequest(playerGridElement);
 		}),
 		update: method(this, function() {

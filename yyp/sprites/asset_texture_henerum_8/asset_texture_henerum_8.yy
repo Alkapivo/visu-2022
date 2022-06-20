@@ -11,14 +11,14 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 449,
+  "bbox_right": 255,
   "bbox_top": 0,
-  "bbox_bottom": 149,
+  "bbox_bottom": 255,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 450,
-  "height": 150,
+  "width": 256,
+  "height": 256,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -27,18 +27,18 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"168b9496-5cbf-4e4e-98ea-d453a3968fbe","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"168b9496-5cbf-4e4e-98ea-d453a3968fbe","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"LayerId":{"name":"1ac9a939-2a39-4b37-95c8-2f10f3b268c9","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"asset_texture_henerum_8","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","name":"168b9496-5cbf-4e4e-98ea-d453a3968fbe","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"35462d27-9723-4f54-8231-7bf681c5b7d9","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"35462d27-9723-4f54-8231-7bf681c5b7d9","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"LayerId":{"name":"1ac9a939-2a39-4b37-95c8-2f10f3b268c9","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"asset_texture_henerum_8","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","name":"35462d27-9723-4f54-8231-7bf681c5b7d9","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"70b1724a-e430-401e-b8af-e536359f055b","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"70b1724a-e430-401e-b8af-e536359f055b","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"LayerId":{"name":"1ac9a939-2a39-4b37-95c8-2f10f3b268c9","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"asset_texture_henerum_8","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","name":"70b1724a-e430-401e-b8af-e536359f055b","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"cef27144-afa0-4b66-b9ce-067696c7a210","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"cef27144-afa0-4b66-b9ce-067696c7a210","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"LayerId":{"name":"1ac9a939-2a39-4b37-95c8-2f10f3b268c9","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"asset_texture_henerum_8","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","name":"cef27144-afa0-4b66-b9ce-067696c7a210","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"128ee65a-df41-4806-a885-b0634a934758","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"128ee65a-df41-4806-a885-b0634a934758","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"LayerId":{"name":"3370d2c4-5854-4074-b304-67258f54ef24","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"asset_texture_henerum_8","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","name":"128ee65a-df41-4806-a885-b0634a934758","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"9c137ae2-6309-4fb0-a428-9c2f952f8409","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"9c137ae2-6309-4fb0-a428-9c2f952f8409","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"LayerId":{"name":"3370d2c4-5854-4074-b304-67258f54ef24","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"asset_texture_henerum_8","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","name":"9c137ae2-6309-4fb0-a428-9c2f952f8409","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"489a192b-b384-4604-a67e-0a5ef0d9503a","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"489a192b-b384-4604-a67e-0a5ef0d9503a","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"LayerId":{"name":"3370d2c4-5854-4074-b304-67258f54ef24","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"asset_texture_henerum_8","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","name":"489a192b-b384-4604-a67e-0a5ef0d9503a","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"cd9c1197-71ef-4575-9fde-03434f33c2a3","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"cd9c1197-71ef-4575-9fde-03434f33c2a3","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"LayerId":{"name":"3370d2c4-5854-4074-b304-67258f54ef24","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"asset_texture_henerum_8","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","name":"cd9c1197-71ef-4575-9fde-03434f33c2a3","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"asset_texture_henerum_8","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},
@@ -53,10 +53,10 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"d9d6dd03-d6a6-4456-8f19-934646ba2e15","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"168b9496-5cbf-4e4e-98ea-d453a3968fbe","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"527ffb22-ef7d-4081-8b5f-47b09ac7402e","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"35462d27-9723-4f54-8231-7bf681c5b7d9","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"252b6e58-0c88-44b7-b399-d53c3575813a","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"70b1724a-e430-401e-b8af-e536359f055b","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"807a716f-59f2-45bf-86f0-a53ce7073516","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"cef27144-afa0-4b66-b9ce-067696c7a210","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"f648e85b-d0ea-43de-8618-c9f43ff9d554","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"128ee65a-df41-4806-a885-b0634a934758","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"5bad103c-b9aa-400e-8130-1a7be294778f","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"9c137ae2-6309-4fb0-a428-9c2f952f8409","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"187232e0-f83f-4a69-842b-011a12c41a78","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"489a192b-b384-4604-a67e-0a5ef0d9503a","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"b0bd4e3c-09ed-437f-91df-5292281a002d","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"cd9c1197-71ef-4575-9fde-03434f33c2a3","path":"sprites/asset_texture_henerum_8/asset_texture_henerum_8.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -80,12 +80,12 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"1ac9a939-2a39-4b37-95c8-2f10f3b268c9","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"3370d2c4-5854-4074-b304-67258f54ef24","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
-    "name": "selma-henerum-alkapivo",
-    "path": "folders/asset/selma-henerum-alkapivo.yy",
+    "name": "midbooze-distant-memory",
+    "path": "folders/asset/midbooze-distant-memory.yy",
   },
   "resourceVersion": "1.0",
   "name": "asset_texture_henerum_8",

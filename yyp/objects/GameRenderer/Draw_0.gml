@@ -32,6 +32,21 @@
 			
 		switch (starsRenderType) {
 			case StarsRenderTypes.POINT:
+			
+				var invertedColorGridBackground = c_black;
+				var colorGridBackground = getInstanceVariable(
+					getGridRenderer(), 
+					"colorGridBackground"
+				);
+
+				if (isNumber(colorGridBackground)) { // in gamemaker color is a number :)
+	
+					var red = clamp(255 - color_get_red(colorGridBackground), 0, 255);
+					var green = clamp(255 - color_get_green(colorGridBackground), 0, 255);
+					var blue = clamp(255 - color_get_blue(colorGridBackground), 0, 255);
+					var invertedColorGridBackground = make_color_rgb(red, green, blue);
+				}
+			
 				var intersectPosition = getLinesIntersectionPosition(
 					[ gridRenderer.topLinePosition - (gridRenderer.topLineWidth * 0.5), gridRenderer.offsetTop ], 
 					[ 0.5 - (gridRenderer.bottomLineWidth * 0.5), 1.0 - gridRenderer.offsetBottom ],
@@ -79,7 +94,7 @@
 						starSize,
 						starSize,
 						0,
-						c_white,
+						invertedColorGridBackground,
 						starAlpha
 					);
 							

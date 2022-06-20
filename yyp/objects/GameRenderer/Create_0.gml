@@ -8,6 +8,8 @@
 	
 	#region Fields
 ///@public:
+
+	bpmController = createBPMController({ bpm: 120 });
 	
 	///@type {Optional<JumbotronEvent>}
 	jumbotronEvent = null;

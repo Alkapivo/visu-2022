@@ -11,14 +11,14 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 1919,
+  "bbox_right": 1023,
   "bbox_top": 0,
-  "bbox_bottom": 1079,
+  "bbox_bottom": 1023,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 1920,
-  "height": 1080,
+  "width": 1024,
+  "height": 1024,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -27,9 +27,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"c9ea3ae3-d92e-4a6d-b812-a27174cd6af3","path":"sprites/asset_texture_henerum_bkg_2/asset_texture_henerum_bkg_2.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"c9ea3ae3-d92e-4a6d-b812-a27174cd6af3","path":"sprites/asset_texture_henerum_bkg_2/asset_texture_henerum_bkg_2.yy",},"LayerId":{"name":"dfca7f8c-0385-4851-be1b-080a7565721e","path":"sprites/asset_texture_henerum_bkg_2/asset_texture_henerum_bkg_2.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"asset_texture_henerum_bkg_2","path":"sprites/asset_texture_henerum_bkg_2/asset_texture_henerum_bkg_2.yy",},"resourceVersion":"1.0","name":"c9ea3ae3-d92e-4a6d-b812-a27174cd6af3","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"d596a81a-d056-4335-ad2f-4aaf04e313d0","path":"sprites/asset_texture_henerum_bkg_2/asset_texture_henerum_bkg_2.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"d596a81a-d056-4335-ad2f-4aaf04e313d0","path":"sprites/asset_texture_henerum_bkg_2/asset_texture_henerum_bkg_2.yy",},"LayerId":{"name":"93976f74-bd3e-468a-838f-0b50b3b587e9","path":"sprites/asset_texture_henerum_bkg_2/asset_texture_henerum_bkg_2.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"asset_texture_henerum_bkg_2","path":"sprites/asset_texture_henerum_bkg_2/asset_texture_henerum_bkg_2.yy",},"resourceVersion":"1.0","name":"d596a81a-d056-4335-ad2f-4aaf04e313d0","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"asset_texture_henerum_bkg_2","path":"sprites/asset_texture_henerum_bkg_2/asset_texture_henerum_bkg_2.yy",},
@@ -44,7 +44,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"809e5754-68f0-4308-9235-1cf1eaf0bcb2","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c9ea3ae3-d92e-4a6d-b812-a27174cd6af3","path":"sprites/asset_texture_henerum_bkg_2/asset_texture_henerum_bkg_2.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"5e1e96f7-829e-4c99-9f6f-8bd000858227","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d596a81a-d056-4335-ad2f-4aaf04e313d0","path":"sprites/asset_texture_henerum_bkg_2/asset_texture_henerum_bkg_2.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -57,8 +57,8 @@
     "backdropHeight": 768,
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
-    "xorigin": 960,
-    "yorigin": 540,
+    "xorigin": 512,
+    "yorigin": 512,
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"asset_texture_henerum_bkg_2","path":"sprites/asset_texture_henerum_bkg_2/asset_texture_henerum_bkg_2.yy",},
@@ -68,12 +68,12 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"dfca7f8c-0385-4851-be1b-080a7565721e","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"93976f74-bd3e-468a-838f-0b50b3b587e9","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
-    "name": "selma-henerum-alkapivo",
-    "path": "folders/asset/selma-henerum-alkapivo.yy",
+    "name": "midbooze-distant-memory",
+    "path": "folders/asset/midbooze-distant-memory.yy",
   },
   "resourceVersion": "1.0",
   "name": "asset_texture_henerum_bkg_2",

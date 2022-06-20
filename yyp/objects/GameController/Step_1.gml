@@ -175,7 +175,22 @@
 	
 	if (global.isGameplayStarted) {
 		
-		if (!isOSTResolved) {
+		if (isOSTResolved) {
+		
+			if (enableReplay) {
+				
+				var eventsPlayer = getGameController().midiMatrixController.eventsPlayer;
+				var eventsRecorder = getGameController().midiMatrixController.eventsRecorder;
+				
+				if ((!isOptionalPresent(eventsPlayer.recording))
+					&& (!isOptionalPresent(eventsRecorder.getCurrentRecording(eventsRecorder)))) {
+					
+					var text = getGameController().baseRecording;
+					var eventsRecording = eventsRecorder.parseRecording(eventsRecorder, text);
+					eventsPlayer.play(eventsPlayer, eventsRecording);	
+				}	
+			}
+		} else {
 		
 			isOSTResolved = true;
 			try {

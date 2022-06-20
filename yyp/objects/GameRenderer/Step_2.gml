@@ -72,3 +72,4 @@
 	}
 	#endregion
 
+	this.bpmController.update(this.bpmController);

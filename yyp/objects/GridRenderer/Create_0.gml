@@ -173,7 +173,7 @@
 
 	try {
 		
-		var functionName = getPropertyString("base-timeline-function", "applySelma");
+		var functionName = getPropertyString("base-timeline-function", "visuTrackDefaultHandler");
 		var baseTimelineFunction = getAssetIndex(
 			functionName,
 			AssetScript

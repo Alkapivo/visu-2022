@@ -9,6 +9,8 @@
 	#region Fields
 ///@public:
 
+	enableReplay = getPropertyBoolean("GameController.enableReplay", false);
+
 	///@type {?InputHandler}
 	inputHandler = createInputHandler(isHandheld() ? TouchInputHandler : KeyboardInputHandler);
 
@@ -356,6 +358,18 @@
 								? "platformer"
 								: "bullethell";
 							setInstanceVariable(getPlayerManager(), "gameplayType", gameplayType);
+							
+							var jumbotronEvent = createJumbotronEvent(
+								stringParams(
+									"GAMEPLAY\n\n>> {0} -<<\n\n--------\n",
+									string_upper(gameplayType)
+								),
+								"message",
+								1.66
+							);
+							var gameRenderer = getGameRenderer();
+							gameRenderer.jumbotronEvent = jumbotronEvent;
+							gameRenderer.jumbotronEventTimer = 0.0;
 			            }
 			        }
 			    ),
@@ -657,7 +671,8 @@
 			            keyboardMapping: [ "A", "7" ],
 			            pressed: function () {
 
-							global.shroomVisuSpawnHorizontalRange = createTuple(0.0, 0.25);
+							var spawnMargin = 0.10;
+							global.shroomVisuSpawnHorizontalRange = createTuple(0.0 + spawnMargin, 0.25 - spawnMargin);
 							logger("Update spawn position");
 			            }
 			        }
@@ -668,7 +683,8 @@
 			            keyboardMapping: [ "S", "7" ],
 			            pressed: function () {
 
-							global.shroomVisuSpawnHorizontalRange = createTuple(0.25, 0.5);
+							var spawnMargin = 0.10;
+							global.shroomVisuSpawnHorizontalRange = createTuple(0.25 + spawnMargin, 0.5 - spawnMargin);
 							logger("Update spawn position");
 			            }
 			        }
@@ -679,7 +695,8 @@
 			            keyboardMapping: [ "D", "7" ],
 			            pressed: function () {
 
-							global.shroomVisuSpawnHorizontalRange = createTuple(0.5, 0.75);
+							var spawnMargin = 0.10;
+							global.shroomVisuSpawnHorizontalRange = createTuple(0.5 + spawnMargin, 0.75 - spawnMargin);
 							logger("Update spawn position");
 			            }
 			        }
@@ -690,7 +707,8 @@
 			            keyboardMapping: [ "F", "7" ],
 			            pressed: function () {
 
-							global.shroomVisuSpawnHorizontalRange = createTuple(0.75, 1.0);
+							var spawnMargin = 0.10;
+							global.shroomVisuSpawnHorizontalRange = createTuple(0.75 + spawnMargin, 1.0 - spawnMargin);
 							logger("Update spawn position");							
 			            }
 			        }
@@ -947,7 +965,7 @@
 			            keyboardMapping: [ "S", "8" ],
 			            pressed: function () {
 
-							global.shroomVisuSpawnSpeedRange = createPosition(0.0006, 0.002);
+							global.shroomVisuSpawnSpeedRange = createPosition(0.002, 0.003);
 							logger("Update spawn speed");
 			            }
 			        }
@@ -958,7 +976,7 @@
 			            keyboardMapping: [ "D", "8" ],
 			            pressed: function () {
 							
-							global.shroomVisuSpawnSpeedRange = createPosition(0.002, 0.016);
+							global.shroomVisuSpawnSpeedRange = createPosition(0.006, 0.007);
 							logger("Update spawn speed");
 			            }
 			        }
