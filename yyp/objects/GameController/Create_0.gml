@@ -965,11 +965,7 @@
 			            keyboardMapping: [ "S", "8" ],
 			            pressed: function () {
 
-<<<<<<< HEAD
 							global.shroomVisuSpawnSpeedRange = createPosition(0.002, 0.003);
-=======
-							global.shroomVisuSpawnSpeedRange = createPosition(0.0006, 0.002);
->>>>>>> main
 							logger("Update spawn speed");
 			            }
 			        }
@@ -980,11 +976,7 @@
 			            keyboardMapping: [ "D", "8" ],
 			            pressed: function () {
 							
-<<<<<<< HEAD
 							global.shroomVisuSpawnSpeedRange = createPosition(0.006, 0.007);
-=======
-							global.shroomVisuSpawnSpeedRange = createPosition(0.002, 0.016);
->>>>>>> main
 							logger("Update spawn speed");
 			            }
 			        }
