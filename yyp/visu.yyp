@@ -2895,7 +2895,6 @@
     {"CopyToMask":-1,"filePath":"datafiles/data","resourceVersion":"1.0","name":"henerum_08.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/data","resourceVersion":"1.0","name":"henerum_09.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/data","resourceVersion":"1.0","name":"log-remover.out","resourceType":"GMIncludedFile",},
-    {"CopyToMask":-1,"filePath":"datafiles/data","resourceVersion":"1.0","name":"henerum_shader_64.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/data","resourceVersion":"1.0","name":"platformer_test.json","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
