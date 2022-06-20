@@ -252,7 +252,7 @@
 	#region Draw to jumbotronSurface
 	gpuSetSurfaceTarget(jumbotronSurface);
 	if (jumbotronEvent != null) {
-		drawClear([ 0.8, 0.0, 0.3, 0.5]); // TODO getJumbotronEventBackgroundColor
+		drawClear([ 0.77, 0.0, 0.21, 0.6]); // TODO getJumbotronEventBackgroundColor
 		var jumbotronHandlerName = getJumbotronEventHandlerName(jumbotronEvent)
 		switch (jumbotronHandlerName) {
 			case "message":
@@ -261,12 +261,12 @@
 				var positionX = 0.5 * screenWidth;
 				var positionY = 0.5 * screenHeight;
 				var fontSize = screenWidth > 600 ? FontSize.LARGE : FontSize.MEDIUM;
-				var font = global.jetbrainsmonoBold[fontSize];
+				var font = asset_font_jetbrains_mono_small9
 				draw_set_font(font);
 				draw_set_halign(fa_middle);
 				draw_set_valign(fa_center);
 				
-				var text = wordwrapString(getJumbotronEventMessage(jumbotronEvent), screenWidth * 0.8, "\n", 1);
+				var text = getJumbotronEventMessage(jumbotronEvent);
 				var fontColorTopLeft = c_white;
 				var fontColorTopRight= gridColor;
 				var fontColorBottomRight = c_white;
@@ -339,12 +339,10 @@
 		}
 
 		var duration = getJumbotronEventDuration(jumbotronEvent);
-		if (duration != -1) && (jumbotronHandlerName != "scoreboard") {
-			jumbotronEventTimer = incrementTimer(jumbotronEventTimer, duration, 1 / GAME_FPS);
-			if (jumbotronEventTimer == 0.0) {
-				jumbotronEventTimer = 0.0;
-				jumbotronEvent = null;
-			}
+		jumbotronEventTimer = incrementTimer(jumbotronEventTimer, duration);
+		if (timerFinished(jumbotronEventTimer)) {
+			jumbotronEventTimer = 0.0;
+			jumbotronEvent = createEmptyOptional();
 		}
 	} else {
 		drawClear(COLOR_TRANSPARENT);	
@@ -604,8 +602,8 @@
 		
 		var text = stringParams(
 			"{0}\n{1}\n\n{2}       {3}\n\n{4}\n{5}",
-			"    Lets revisit our time    ",
-			 " kedy_selma (feat. Henerum) ",
+			"        Distant Memory       ",
+			"           Midbooze          ",
 			"MOUSE CLICK TO",
 			getRandomValueFromArray([
 				"play    ", " play   ", "  play  ", "   play ", "    play"
@@ -623,3 +621,4 @@
 		draw_set_alpha(__alpha);
 	}
 	
+	this.bpmController.render(this.bpmController);

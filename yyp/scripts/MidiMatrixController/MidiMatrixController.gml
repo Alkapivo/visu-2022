@@ -185,7 +185,6 @@ function createEventsPlayer() {
 			if (isStruct(recording)) {
 				
 				//print("PLAYING");
-				recording.timer = incrementTimer(recording.timer, recording.duration);
 				try {
 					
 					var soundInstanceId = global.__soundInstanceId;
@@ -201,6 +200,7 @@ function createEventsPlayer() {
 				
 					logger("Unable to sync with played audio. {0}", LogType.ERROR, exception.message);
 				}
+				recording.timer = incrementTimer(recording.timer, recording.duration);
 				
 				if (timerFinished(recording.timer)) {
 					

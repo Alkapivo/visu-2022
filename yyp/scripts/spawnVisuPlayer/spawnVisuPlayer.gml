@@ -2,7 +2,7 @@
 ///@param {?InputHandler} inputHandler
 function spawnVisuPlayer(name, inputHandler) {
 
-	var position = createPosition(0.5, 0.77);
+	var position = createPosition(0.5, 0.75);
 	var spriteIndex = asset_sprite_spaceship;
 	sprite_set_speed(spriteIndex, 10, spritespeed_framespersecond);
 	var sprite = createSprite(spriteIndex, 0, 1.0, 1.0, 1.0, 0.0, c_white);

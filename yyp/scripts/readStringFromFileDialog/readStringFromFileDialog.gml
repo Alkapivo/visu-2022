@@ -3,13 +3,9 @@
 ///@param {String} [filename=""]
 ///@param {String} [extension=""]
 ///@return {Optional<String>} data;
-function readStringFromFileDialog() {
+function readStringFromFileDialog(filename, extension) {
 
-		// TODO Check if FileSaver.js is required
-
-		var filename = argument_count > 0 ? argument[0] : "";
-		var extension = argument_count > 1 ? argument[1] : "";
-
+	try {
 		var finalPath = get_open_filename("|*." + string(extension), string(filename));
 		var file = file_text_open_read(finalPath);
 		if (file == -1) {
@@ -30,8 +26,10 @@ function readStringFromFileDialog() {
 			getStringFileSizeAsFormattedString(data));
 
 		return data;
-	
-
-
-
+	} catch (exception) {
+		
+		logger("{0}", LogType.ERROR, exception.message);
+		printStackTrace();
+			
+	}
 }

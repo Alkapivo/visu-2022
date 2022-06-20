@@ -13,6 +13,7 @@ function incrementTimer() {
 	
 		value += incrementBy * getDeltaTimeValue();
 		return value >= maxValue ? 0.0 : value;
+		
 	
 	
 

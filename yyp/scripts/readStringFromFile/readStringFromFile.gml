@@ -4,15 +4,12 @@
 ///@param {String} filename 
 ///@param {StorageType} [storageType=StorageType.LOCAL] - used only for HTML5
 ///@return {Optional<String>} data;
-function readStringFromFile() {
+function readStringFromFile(path, filename) {
 
-		///checkArgumentCount(2, argument_count, readStringFromFile);
-
-		var path = string(argument[0]);
-		var filename = string(argument[1]);
+	try {
+		
 		var finalPath = path + "/" + filename;
 		var storageType = argument_count > 2 ? argument[2] : StorageType.LOCAL;
-	
 		if (isHtml5()) {
 			switch (storageType) {
 				case StorageType.LOCAL:
@@ -98,8 +95,10 @@ function readStringFromFile() {
 				
 			return data;
 		}
-	
-
-
-
+	} catch (exception) {
+		
+		logger("{0}", LogType.ERROR, exception.message);
+		printStackTrace();
+			
+	}
 }
