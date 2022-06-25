@@ -64,7 +64,7 @@
 			var horizontalPosition = clamp(getPositionHorizontal(playerPosition) + horizontalSpeed, 0.0, 1.0);
 			setPositionHorizontal(playerPosition, horizontalPosition);
 			setVisuPlayerHorizontalSpeed(player, horizontalSpeed);
-		
+      
 			var veticalProjectionScale = fetchVerticalProjectionScale(playerPosition[1]);
 			var verticalPositionMin = 0.01;
 			var verticalPositionMax = 0.87;
