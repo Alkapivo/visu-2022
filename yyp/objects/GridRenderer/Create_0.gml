@@ -173,6 +173,10 @@
 
 	try {
 		
+		logger("Load \"{0}\" function", LogType.INFO, "visu-default-timeline");
+		visuTrackDefaultHandler();
+		
+		
 		var functionName = getPropertyString("base-timeline-function", "visuTrackDefaultHandler");
 		var baseTimelineFunction = getAssetIndex(
 			functionName,
