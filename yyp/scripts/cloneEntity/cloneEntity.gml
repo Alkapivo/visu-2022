@@ -23,9 +23,10 @@ function cloneEntity(entity) {
 				}
 			}
 		}
-	} catch (ex) {
+	} catch (exception) {
 		
-		var asd = "";
+		logger("{0}", LogType.ERROR, exception.message);
+		printStackTrace();
 		
 	}
 	

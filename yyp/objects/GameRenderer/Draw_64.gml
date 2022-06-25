@@ -621,4 +621,4 @@
 		draw_set_alpha(__alpha);
 	}
 	
-	this.bpmController.render(this.bpmController);
+	//this.bpmController.render(this.bpmController);

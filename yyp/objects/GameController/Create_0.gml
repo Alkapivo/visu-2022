@@ -361,11 +361,11 @@
 							
 							var jumbotronEvent = createJumbotronEvent(
 								stringParams(
-									"GAMEPLAY\n\n>> {0} -<<\n\n--------\n",
+									"  GAME  \n\n>> {0} -<<\n\n--------\n",
 									string_upper(gameplayType)
 								),
 								"message",
-								1.66
+								2.66
 							);
 							var gameRenderer = getGameRenderer();
 							gameRenderer.jumbotronEvent = jumbotronEvent;
@@ -511,7 +511,7 @@
 
 			                var shaderEvent = createShaderEvent(
 								"Mosaic",
-								5.6,
+								2.6,
 								createMap(
 									createTuple("amount", [ 96, 1024, 0.8, 0.002 ])
 								)
@@ -530,7 +530,7 @@
 
 			                var shaderEvent = createShaderEvent(
 								"LED",
-								5.2,
+								2.2,
 								createMap(
 									[ "brightness", 1.0 ],
 									[ "ledSize",  [ 32, 128, 0.01 ] ]
@@ -549,7 +549,7 @@
 
 							var shaderEvent = createShaderEvent(
 								"LED",
-								5.2,
+								2.2,
 								createMap(
 									[ "brightness", 1.0 ],
 									[ "ledSize", [ 128, 32, 0.01 ] ]
@@ -568,7 +568,7 @@
 
 							var shaderEvent = createShaderEvent(
 								"Magnify",
-								6.2,
+								2.2,
 								createMap(
 									[ "positionX", [ 0.5 ] ],
 									[ "positionY", [ 0.5 ] ],
@@ -590,7 +590,7 @@
 
 							var shaderEvent = createShaderEvent(
 								"Ripple",
-								6.8,
+								2.8,
 								createMap(
 									[ "positionX", 0.5 ],
 						            [ "positionY", 0.5 ],
@@ -613,7 +613,7 @@
 
 							var shaderEvent = createShaderEvent(
 								"Wave",
-								4.9,
+								2.9,
 								createMap(
 									[ "amount", [ 15, 25, 0.05 ] ],
 									[ "distortion", [ 30, 45, 0.05 ] ],
@@ -634,7 +634,7 @@
 
 							var shaderEvent = createShaderEvent(
 								"Thermal",
-								4.4,
+								2.4,
 								createMap()
 							);
 							logger("Sending shaderEvent: {0}", LogType.INFO, getShaderEventName(shaderEvent));
@@ -650,7 +650,7 @@
 
 							var shaderEvent = createShaderEvent(
 								"Ripple",
-								6.8,
+								3.8,
 								createMap(
 									[ "positionX", 0.5 ],
 						            [ "positionY", [ 0.3, 0.8, 0.002 ] ],

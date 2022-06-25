@@ -64,7 +64,7 @@
 			var horizontalPosition = clamp(getPositionHorizontal(playerPosition) + horizontalSpeed, 0.0, 1.0);
 			setPositionHorizontal(playerPosition, horizontalPosition);
 			setVisuPlayerHorizontalSpeed(player, horizontalSpeed);
-		
+      
 			var veticalProjectionScale = fetchVerticalProjectionScale(playerPosition[1]);
 			var verticalPositionMin = 0.01;
 			var verticalPositionMax = 0.87;
@@ -132,25 +132,29 @@
 			var playerPosition = getGridElementPosition(playerGridElement);
 			var inputHandler = getVisuPlayerInputHandler(player);
 			var shrooms = getShroomManager().shrooms;
-			
-			var keyboardCheckRight = inputHandler != null ? (
-				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_RIGHT)) || 
-				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_D))) : false;
-			var keyboardCheckLeft = inputHandler != null ? (
-				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_LEFT)) || 
-				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_A))) : false;
-			var keyboardCheckUp = inputHandler != null ? (
-				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_UP)) || 
-				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_W))) : false;
-			var keyboardCheckDown = inputHandler != null ? (
-				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_DOWN)) || 
-				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_S))) : false;
-				
+			var input = {
+				keyboardCheckRight: inputHandler != null ? (
+					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_RIGHT)) || 
+					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_D))) : false,
+				keyboardCheckLeft: inputHandler != null ? (
+					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_LEFT)) || 
+					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_A))) : false,
+				keyboardCheckUp: inputHandler != null ? (
+					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_UP)) || 
+					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_W))) : false,
+				keyboardCheckDown: inputHandler != null ? (
+					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_DOWN)) || 
+					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_S))) : false,
+				keyboardCheckAction: inputHandler != null ? (
+					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_UP)) || 
+					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_SPACE))) : false			
+			}
+					
 			var horizontalPosition = getPositionHorizontal(playerPosition);
 			var horizontalFriction = getValueFromMap(playerState, "horizontalFriction", 0.001);
 			var horizontalMaxSpeed = getValueFromMap(playerState, "horizontalMaxSpeed", 0.01);
-			var horizontalSpeed = ((keyboardCheckLeft) || (keyboardCheckRight)) ?
-				getVisuPlayerHorizontalSpeed(player) + (keyboardCheckLeft ? -1 : 1) * (getValueFromMap(playerState, "horizontalAcceleration", 0.005) * getDeltaTimeValue()) :
+			var horizontalSpeed = ((input.keyboardCheckLeft) || (input.keyboardCheckRight)) ?
+				getVisuPlayerHorizontalSpeed(player) + (input.keyboardCheckLeft ? -1 : 1) * (getValueFromMap(playerState, "horizontalAcceleration", 0.005) * getDeltaTimeValue()) :
 				((abs(getVisuPlayerHorizontalSpeed(player)) - horizontalFriction < 0) ? 0 : getVisuPlayerHorizontalSpeed(player) - sign(getVisuPlayerHorizontalSpeed(player)) * horizontalFriction);
 			horizontalSpeed = sign(horizontalSpeed) * clamp(abs(horizontalSpeed), 0, horizontalMaxSpeed);
 			var horizontalPosition = clamp(getPositionHorizontal(playerPosition) + horizontalSpeed, 0.0, 1.0);
@@ -163,7 +167,7 @@
 			var verticalSpeed = getVisuPlayerVerticalSpeed(player);
 			var verticalSpeedMax = 1.0;
 			var _gravityFactor = applyDeltaTime(gravityFactor);
-			var jumpFactor = 0.029;
+			
 			verticalSpeed += _gravityFactor;
 			verticalSpeed = sign(verticalSpeed) * clamp(abs(verticalSpeed), 0.0, verticalSpeedMax);
 			var verticalPositionMin = -0.12;
@@ -172,14 +176,15 @@
 			verticalSpeed = verticalPosition == verticalPositionMin ? 0.0 : verticalSpeed;
 			verticalSpeed = verticalPosition == verticalPositionMax ? 0.0 : verticalSpeed;
 			setVisuPlayerVerticalSpeed(player, verticalSpeed);
-			setPositionVertical(playerPosition, verticalPosition);
-			
-			var keyboardCheckAction = inputHandler != null ? (
-				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_UP)) || 
-				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_SPACE))) : false;
 			
 			
-			if ((keyboardCheckAction)
+			var movedVerticalPosition = fetchMovedVerticalPositionOnGrid(
+				verticalPosition, 
+	 			verticalSpeed
+			);
+			setPositionVertical(playerPosition, movedVerticalPosition);
+			
+			if ((input.keyboardCheckAction)
 				&& (verticalPosition >= verticalPositionMax)) {
 
 				setVisuPlayerVerticalSpeed(player, -jumpFactor);
@@ -191,7 +196,7 @@
 			var doubleJumpReleased = Core.Collections._Map.get(playerState, "doubleJumpReleased");
 			if (doubleJump) {
 			
-				if (keyboardCheckAction) {
+				if (input.keyboardCheckAction) {
 				
 					if (doubleJumpReleased) {
 					
@@ -217,45 +222,91 @@
 					playerPosition,
 					getVisuPlayerCollisionRadius(player)
 				);
-				
-				if ((verticalSpeed < -0.85)
-					&& (isCollision)) {
+		
 					
-					///@todo shroom.kill();
-					var shroomState = getShroomState(shroom);
-					Core.Collections._Map.set(shroomState, "status", "end");
-					Core.Collections._Map.set(shroomState, "instantKill", true);
-				}
+				//if ((verticalSpeed < -0.85)
+				//	&& (isCollision)) {
+					
+				//	///@todo shroom.kill();
+				//	var shroomState = getShroomState(shroom);
+				//	Core.Collections._Map.set(shroomState, "status", "end");
+				//	Core.Collections._Map.set(shroomState, "instantKill", true);
+				//}
 				
 				if ((verticalSpeed >= 0.0)
 					&& (isCollision)) {
+		
+					var killAndDoubleJump = function(player, shroom, playerState, jumpFactor) {
+						///@todo shroom.kill();
+						var shroomState = getShroomState(shroom);
+						Core.Collections._Map.set(shroomState, "status", "end");
+						Core.Collections._Map.set(shroomState, "instantKill", true);
 					
-					///@todo shroom.kill();
-					var shroomState = getShroomState(shroom);
-					Core.Collections._Map.set(shroomState, "status", "end");
-					Core.Collections._Map.set(shroomState, "instantKill", true);
+						///@todo player.jump(factor);
+						setVisuPlayerVerticalSpeed(player, -1.0 * (jumpFactor)); ///@todo remove magic number
+						Core.Collections._Map.set(playerState, "doubleJump", true);
+						Core.Collections._Map.set(playerState, "doubleJumpReleased", false);
+					}
 					
-					///@todo player.jump(factor);
-					setVisuPlayerVerticalSpeed(player, -1.0 * (jumpFactor)); ///@todo remove magic number
-					Core.Collections._Map.set(playerState, "doubleJump", true);
-					Core.Collections._Map.set(playerState, "doubleJumpReleased", false);
+					var stayOnShroom = function(player, shroom, playerState, jumpFactor, input) {
+						
+						var playerGridElement = getVisuPlayerGridElement(player);
+						var playerPosition = getGridElementPosition(playerGridElement)
+						var speedValue = getShroomSpeedValue(shroom);
+						var gridSpeed = getInstanceVariable(getGridRenderer(), "separatorSpeed");
+						speedValue = speedValue * (gridSpeed / 0.005);
+									
+						setVisuPlayerVerticalSpeed(player, 0.0);					
+						
+						var calcVerticalPosition = getPositionVertical(playerPosition)
+							+ ((getPositionVertical(getGridElementPosition(getShroomGridElement(shroom))) - getPositionVertical(playerPosition))
+								/ 1.33)
+						//calcVerticalPosition = getPositionVertical(playerPosition);
+						var movedVerticalPosition = fetchMovedVerticalPositionOnGrid(
+							calcVerticalPosition,
+				 			speedValue 
+						);
+						//movedVerticalPosition = getPositionVertical(playerPosition) + applyDeltaTime(speedValue / 2.0);
+						setPositionVertical(playerPosition, movedVerticalPosition);
+						
+						if (input.keyboardCheckAction) {
+							///@todo shroom.kill();
+							var shroomState = getShroomState(shroom);
+							Core.Collections._Map.set(shroomState, "status", "end");
+							Core.Collections._Map.set(shroomState, "instantKill", true);
+					
+							///@todo player.jump(factor);
+							setVisuPlayerVerticalSpeed(player, -1.0 * jumpFactor);
+							Core.Collections._Map.set(playerState, "doubleJump", true);
+							Core.Collections._Map.set(playerState, "doubleJumpReleased", false);
+							
+						}
+					}
+					
+					//killAndDoubleJump(player, shroom, playerState, jumpFactor);
+					stayOnShroom(player, shroom, playerState, jumpFactor, input);
 				}
 				
-				if ((verticalSpeed > -0.10) 
-					&& (keyboardCheckAction)
-					&& (isCollision)) {
-				
-					///@todo shroom.kill();
-					var shroomState = getShroomState(shroom);
-					Core.Collections._Map.set(shroomState, "status", "end");
-					Core.Collections._Map.set(shroomState, "instantKill", true);
+				if (!isCollision) {
 					
-					///@todo player.jump(factor);
-					setVisuPlayerVerticalSpeed(player, -1.0 * jumpFactor);
-					Core.Collections._Map.set(playerState, "doubleJump", true);
-					Core.Collections._Map.set(playerState, "doubleJumpReleased", false);
-					continue;
+					Core.Collections._Map.get(playerState, "lastPosition", null);
 				}
+				
+				//if ((verticalSpeed > -0.10) 
+				//	&& (input.keyboardCheckAction)
+				//	&& (isCollision)) {
+				
+				//	///@todo shroom.kill();
+				//	var shroomState = getShroomState(shroom);
+				//	Core.Collections._Map.set(shroomState, "status", "end");
+				//	Core.Collections._Map.set(shroomState, "instantKill", true);
+					
+				//	///@todo player.jump(factor);
+				//	setVisuPlayerVerticalSpeed(player, -1.0 * jumpFactor);
+				//	Core.Collections._Map.set(playerState, "doubleJump", true);
+				//	Core.Collections._Map.set(playerState, "doubleJumpReleased", false);
+				//	continue;
+				//}
 			}
 
 			sendGridElementRenderRequest(playerGridElement);

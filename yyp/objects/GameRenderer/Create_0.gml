@@ -9,7 +9,8 @@
 	#region Fields
 ///@public:
 
-	bpmController = createBPMController({ bpm: 120 });
+	var __bpm = getPropertyReal("base-timeline.bpm", GAME_FPS) * 2;
+	bpmController = createBPMController({ bpm: __bpm });
 	
 	///@type {Optional<JumbotronEvent>}
 	jumbotronEvent = null;
