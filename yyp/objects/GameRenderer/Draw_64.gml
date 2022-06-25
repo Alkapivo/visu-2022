@@ -602,8 +602,9 @@
 		
 		var text = stringParams(
 			"{0}\n{1}\n\n{2}       {3}\n\n{4}\n{5}",
-			"        Distant Memory       ",
-			"           Midbooze          ",
+			"EPILEPSY,MY BEAUTIFUL,EPILEPSY",
+			"         eldon_nadie          ",
+
 			"MOUSE CLICK TO",
 			getRandomValueFromArray([
 				"play    ", " play   ", "  play  ", "   play ", "    play"
@@ -621,4 +622,4 @@
 		draw_set_alpha(__alpha);
 	}
 	
-	this.bpmController.render(this.bpmController);
+	//this.bpmController.render(this.bpmController);

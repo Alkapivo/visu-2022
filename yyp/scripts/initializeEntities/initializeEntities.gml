@@ -233,7 +233,7 @@ function initializeEntities() {
 	global.entityClassNames[? GenericEvent] = "GenericEvent";
 	
 
-	#macro GenericTask 100206
+	#macro GenericTask 100288 //@cloneEntityBug
 	global.entityPrototypes[? GenericTask] = 3;
 	global.entityClassNames[? GenericTask] = "GenericTask";
 	

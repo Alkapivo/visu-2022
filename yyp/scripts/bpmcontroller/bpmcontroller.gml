@@ -15,21 +15,23 @@ function createBPMController(config) {
 		},
 		update: function(context) {
 		
-			var timer = context.state.bpmTimer
-			var duration = GAME_FPS / context.state.bpm
-			timer += applyDeltaTime(FRAME_MS);
-			if (timer >= duration) {
+			if (global.isGameplayStarted) {
+				var timer = context.state.bpmTimer
+				var duration = GAME_FPS / context.state.bpm
+				timer += applyDeltaTime(FRAME_MS);
+				if (timer >= duration) {
 			
-				timer = timer - duration;
+					timer = timer - duration;
 				
-				var eventPointer = context.state.eventPointer + 1;
-				if (eventPointer > Core.Collections._Array.size(context.state.events) - 1) {
+					var eventPointer = context.state.eventPointer + 1;
+					if (eventPointer > Core.Collections._Array.size(context.state.events) - 1) {
 				
-					eventPointer = 0;
+						eventPointer = 0;
+					}
+					context.state.eventPointer = eventPointer;
 				}
-				context.state.eventPointer = eventPointer;
+				context.state.bpmTimer = timer;
 			}
-			context.state.bpmTimer = timer;
 		},
 		render: function(context) {
 		
