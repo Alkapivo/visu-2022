@@ -895,7 +895,15 @@
 							logger("Set colorGridBackground to: {0}", LogType.INFO, gmColorToColorHash(color));
 							setInstanceVariable(getGridRenderer(), "colorGridBackground", color);
 							setInstanceVariable(getGameRenderer(), "background", getRandomValueFromArray([
-								getGridRenderer().background_texture_01
+								createSprite(
+									getGridRenderer().background_texture_01, 
+									irandom(sprite_get_number(getGridRenderer().background_texture_01)), 
+									1.0, 
+									1.0, 
+									1.0, 
+									0.0, 
+									c_white
+								)
 							]));
 			            }
 			        }
@@ -910,7 +918,15 @@
 							logger("Set colorGridBackground to: {0}", LogType.INFO, gmColorToColorHash(color));
 							setInstanceVariable(getGridRenderer(), "colorGridBackground", color);
 							setInstanceVariable(getGameRenderer(), "background", getRandomValueFromArray([
-								getGridRenderer().background_texture_02
+								createSprite(
+									getGridRenderer().background_texture_02, 
+									irandom(sprite_get_number(getGridRenderer().background_texture_02)), 
+									1.0, 
+									1.0, 
+									1.0, 
+									0.0, 
+									c_white
+								)
 							]));
 							
 							
@@ -928,7 +944,15 @@
 							logger("Set colorGridBackground to: {0}", LogType.INFO, gmColorToColorHash(color));
 							setInstanceVariable(getGridRenderer(), "colorGridBackground", color);
 							setInstanceVariable(getGameRenderer(), "background", getRandomValueFromArray([
-								getGridRenderer().background_texture_03
+								createSprite(
+									getGridRenderer().background_texture_03, 
+									irandom(sprite_get_number(getGridRenderer().background_texture_03)), 
+									1.0, 
+									1.0, 
+									1.0, 
+									0.0, 
+									c_white
+								)
 							]));
 			            }
 			        }
@@ -943,7 +967,15 @@
 							logger("Set colorGridBackground to: {0}", LogType.INFO, gmColorToColorHash(color));
 							setInstanceVariable(getGridRenderer(), "colorGridBackground", color);
 							setInstanceVariable(getGameRenderer(), "background", getRandomValueFromArray([
-								getGridRenderer().background_texture_04
+								createSprite(
+									getGridRenderer().background_texture_04, 
+									irandom(sprite_get_number(getGridRenderer().background_texture_04)), 
+									1.0, 
+									1.0, 
+									1.0, 
+									0.0, 
+									c_white
+								)
 							]));
 			            }
 			        }

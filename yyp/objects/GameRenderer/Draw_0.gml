@@ -12,16 +12,20 @@
 	var gridRenderer = getGridRenderer();
 	draw_clear_alpha(gridRenderer.colorGridBackground, 1.0);
 
-	var backgroundScale = RealWidth > RealHeight ? RealWidth / getTextureWidth(background) : RealHeight / getTextureHeight(background);
+	var backgroundScale = RealWidth > RealHeight 
+		? RealWidth / getTextureWidth(getSpriteAssetIndex(background)) 
+		: RealHeight / getTextureHeight(getSpriteAssetIndex(background)
+	);
 
-	renderTexture(
-		background, 
-		RealWidth / 2.0, 
-		RealHeight / 2.0, 
-		0,
-		backgroundScale, 
-		backgroundScale, 
-		0.4
+	drawSprite(
+		background,
+		RealWidth / 2.0,
+		RealHeight / 2.0,
+		backgroundScale,
+		backgroundScale,
+		0.6,
+		0.0,
+		c_white
 	);
 
 	#region Render stars particles

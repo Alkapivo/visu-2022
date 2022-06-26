@@ -40,7 +40,9 @@ function visuTrackDefaultHandler() {
 	gridRenderer.xScale = getPropertyReal("gridRenderer.xScale", 1.07);
 	gridRenderer.yScale = getPropertyReal("gridRenderer.yScale", 1.07);
 	gridRenderer.primaryLinesWidth = getPropertyReal("gridRenderer.primaryLinesWidth", 2);
+	gridRenderer.secondaryLinesWidth = getPropertyReal("gridRenderer.secondaryLinesWidth", 2);
 	gridRenderer.channels = getPropertyReal("gridRenderer.channels", 4);
+	gridRenderer.gridWireframeSurfaceAlpha = getPropertyReal("gridRenderer.gridWireframeSurfaceAlpha", 1.0);
 
 	gridRenderer.shroom_texture_01 = getAssetIndex(getPropertyString("gridRenderer.shroom_texture_01", "asset_texture_visu_shroom_01"), asset_texture_empty);
 	gridRenderer.shroom_texture_02 = getAssetIndex(getPropertyString("gridRenderer.shroom_texture_02", "asset_texture_visu_shroom_02"), asset_texture_empty);

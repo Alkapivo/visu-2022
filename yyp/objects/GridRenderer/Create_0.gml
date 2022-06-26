@@ -1,8 +1,6 @@
 
 ///@description create()
 
-
-
 	global.screensFactorValues = [ 0.001, 0.002, 0.003, 0.05, 1 ];
 	global.topLinePositionFactorValues = [ 0.001, 0.002, 0.003, 0.05, 1 ];
 	global.bottomLinePositionFactorValues = [ 0.001, 0.002, 0.003, 0.05, 1 ];
@@ -40,6 +38,9 @@
 	
 	///@type {Surface}
 	gridWireframeSurface = createSurface(ViewWidth, ViewHeight, false);
+	
+	///@type {Number}
+	gridWireframeSurfaceAlpha = 1.0;
 
 	///@type {Surface}
 	gridElementSurface = createSurface(ViewWidth, ViewHeight, false);
@@ -450,7 +451,7 @@
 		var gridAngleLeft = gridHeight / (lineTopXCenter - ((viewWidth - pixelBottomLineWidth) * 0.5) - (pixelTopLineWidth * 0.5));
 		var gridAngleRight = gridHeight / (viewWidth - lineTopXCenter - ((viewWidth - pixelBottomLineWidth) * 0.5) - (pixelTopLineWidth * 0.5));
 		
-		#region Surface Target: gridWireframeSurface	
+		#region Surface Target: gridWireframeSurface
 		guardSurface(this, gridWireframeSurface, "gridWireframeSurface", viewWidth, viewHeight, false);
 		gpuSetSurfaceTarget(gridWireframeSurface);
 		if (isGridFrameCleaned) {
@@ -489,14 +490,14 @@
 					pixelOffsetTop,
 					lineBottomXBegin + index * bottomChannelWidth,
 					viewHeight - pixelOffsetBottom,
-					secondaryLinesWidth);
+					primaryLinesWidth);
 			}
 			drawLine(
 				lineTopXEnd,
 				pixelOffsetTop,
 				lineBottomXEnd,
 				viewHeight - pixelOffsetBottom,
-				secondaryLinesWidth);
+				primaryLinesWidth);
 			#endregion
 
 			#region Separators
@@ -535,7 +536,8 @@
 								pixelSeparator,
 								lineTopXCenter + ((pixelSeparator - pixelOffsetTop) / gridAngleRight) + (pixelTopLineWidth * 0.5),
 								pixelSeparator,
-								isGridFrameCleaned ? secondaryLinesWidth : 8.0);
+								secondaryLinesWidth
+							);
 						}	
 					}
 				}
@@ -565,12 +567,12 @@
 				gpuSetShaderUniformFloat(shaderWaveUniformDistortion, wavePulseDistortion);
 				gpuSetShaderUniformFloat(shaderWaveUniformSpeed, wavePulseSpeed);
 				gpuSetShaderUniformFloat(shaderWaveUniformTime, global.gameplayTimePrecise);
-				drawSurface(gridWireframeSurface, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0); // alpha
+				renderSurface(gridWireframeSurface, 0.0, 0.0, 1.0, 1.0, 0.0, gridWireframeSurfaceAlpha);
 			gpuResetShader();
 		} else {
-				
+			
 			drawClear(COLOR_TRANSPARENT);
-			drawSurface(gridWireframeSurface, 0.0, 0.0);
+			renderSurface(gridWireframeSurface, 0.0, 0.0, 1.0, 1.0, 0.0, gridWireframeSurfaceAlpha);
 		}
 		
 		gpuResetSurfaceTarget();

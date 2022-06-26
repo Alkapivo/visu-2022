@@ -602,7 +602,7 @@
 		
 		var text = stringParams(
 			"{0}\n{1}\n\n{2}       {3}\n\n{4}\n{5}",
-			"        Distant Memory       ",
+			"         Public Agony        ",
 			"           Midbooze          ",
 			"MOUSE CLICK TO",
 			getRandomValueFromArray([

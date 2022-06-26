@@ -212,4 +212,4 @@
 	}
 	#endregion
 
-	background = asset_texture_empty;
+	background = createSprite(asset_texture_empty, 0, 1.0, 1.0, 1.0, 0.0, c_white);
