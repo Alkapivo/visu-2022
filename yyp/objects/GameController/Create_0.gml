@@ -590,7 +590,7 @@
 
 							var shaderEvent = createShaderEvent(
 								"Ripple",
-								2.8,
+								7.8,
 								createMap(
 									[ "positionX", 0.5 ],
 						            [ "positionY", 0.5 ],
@@ -613,7 +613,7 @@
 
 							var shaderEvent = createShaderEvent(
 								"Wave",
-								2.9,
+								7.9,
 								createMap(
 									[ "amount", [ 15, 25, 0.05 ] ],
 									[ "distortion", [ 30, 45, 0.05 ] ],
@@ -634,7 +634,7 @@
 
 							var shaderEvent = createShaderEvent(
 								"Thermal",
-								2.4,
+								7.4,
 								createMap()
 							);
 							logger("Sending shaderEvent: {0}", LogType.INFO, getShaderEventName(shaderEvent));

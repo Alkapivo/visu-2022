@@ -26,21 +26,99 @@ function __bktgtlich_ui_init() {
 		limit[_id, 1] = _max; 
 	}
 
-	__bktgtlich_setup_property(prop.intensity, 0.3, "intensity", bktglitch_set_intensity, 0, 0.8);
-	__bktgtlich_setup_property(prop.lineShift, 0.004, "lineShift", bktglitch_set_line_shift, 0, 0.02);
-	__bktgtlich_setup_property(prop.lineResolution, 1,  "lineResolution", bktglitch_set_line_resolution, 0, 2);
-	__bktgtlich_setup_property(prop.lineVertShift, 0, "lineVertShift", bktglitch_set_line_vertical_shift, 0, 0.5);
-	__bktgtlich_setup_property(prop.lineSpeed, 0.01, "lineSpeed", bktglitch_set_line_speed, 0, 0.3);
-	__bktgtlich_setup_property(prop.jumbleness, 0.2, "jumbleness", bktglitch_set_jumbleness, 0, 0.6);
-	__bktgtlich_setup_property(prop.jumbleResolution, .2, "jumbleResolution", bktglitch_set_jumble_resolution, 0, 1);
-	__bktgtlich_setup_property(prop.jumbleShift, 0.15, "jumbleShift", bktglitch_set_jumble_shift, 0, 0.5);
-	__bktgtlich_setup_property(prop.jumbleSpeed, 1.0, "jumbleSpeed", bktglitch_set_jumble_speed, 0, 5);
-	__bktgtlich_setup_property(prop.channelShift, 0.004, "channelShift", bktglitch_set_channel_shift, 0, .05);
-	__bktgtlich_setup_property(prop.dispersion, 0.0025, "dispersion", bktglitch_set_channel_dispersion, 0, 0.05);
-	__bktgtlich_setup_property(prop.noiseLevel,  0.5, "noiseLevel", bktglitch_set_noise_level, 0, 0.6);
-	__bktgtlich_setup_property(prop.lineDrift, 0.1,  "lineDrift", bktglitch_set_line_drift, 0, 0.3);
-	__bktgtlich_setup_property(prop.shakiness, 0.5,  "shakiness", bktglitch_set_shakiness, 0, 2);
-	__bktgtlich_setup_property(prop.rngSeed, 0,  "rngSeed", bktglitch_set_rng_seed, 0, 1);
+    var config = {
+        lineSpeed: {
+            minValue: 0.0,
+            maxValue: 0.07,
+            defValue: 0.0
+        },
+        lineShift: {
+            minValue: 0.0,
+            maxValue: 0.05,
+            defValue: 0
+        },
+        lineResolution: {
+            minValue: 0.0,
+            maxValue: 3.0,
+            defValue: 0
+        },
+        lineVertShift: {
+            minValue: 0.0,
+            maxValue: 1.0,
+            defValue: 0.0
+        },
+        lineDrift: {
+            minValue: 0.0,
+            maxValue: 0,
+            defValue: 0
+        },
+        jumbleSpeed: {
+            minValue: 0,
+            maxValue: 0,
+            defValue: 0
+        },
+        jumbleShift: {
+            minValue: 0,
+            maxValue: 0,
+            defValue: 0
+        },
+        jumbleResolution: {
+            minValue: 0,
+            maxValue: 0,
+            defValue: 0
+        },
+        jumbleness: {
+            minValue: 0,
+            maxValue: 0,
+            defValue: 0
+        },
+        dispersion: {
+            minValue: 0,
+            maxValue: 0,
+            defValue: 0
+        },
+        channelShift: {
+            minValue: 0,
+            maxValue: 0,
+            defValue: 0
+        },
+        noiseLevel: {
+            minValue: 0,
+            maxValue: 0,
+            defValue: 0
+        },
+        shakiness: {
+            minValue: 0,
+            maxValue: 0,
+            defValue: 0
+        },
+        rngSeed: {
+            minValue: 0,
+            maxValue: 0,
+            defValue: 0
+        },
+        intensity: {
+            minValue: 0.0,
+            maxValue: 0.1,
+            defValue: 0.1
+        }
+    }
+
+	__bktgtlich_setup_property(prop.lineSpeed, config.lineSpeed.defValue, "lineSpeed", bktglitch_set_line_speed, config.lineSpeed.minValue, config.lineSpeed.maxValue);
+	__bktgtlich_setup_property(prop.lineShift, config.lineShift.defValue, "lineShift", bktglitch_set_line_shift, config.lineShift.minValue, config.lineShift.maxValue);
+	__bktgtlich_setup_property(prop.lineResolution, config.lineResolution.defValue,  "lineResolution", bktglitch_set_line_resolution, config.lineResolution.minValue, config.lineResolution.maxValue);
+	__bktgtlich_setup_property(prop.lineVertShift, config.lineVertShift.defValue, "lineVertShift", bktglitch_set_line_vertical_shift, config.lineVertShift.minValue, config.lineVertShift.maxValue);
+	__bktgtlich_setup_property(prop.lineDrift, config.lineDrift.defValue,  "lineDrift", bktglitch_set_line_drift, config.lineDrift.minValue, config.lineDrift.maxValue);
+	__bktgtlich_setup_property(prop.jumbleSpeed, config.jumbleSpeed.defValue, "jumbleSpeed", bktglitch_set_jumble_speed, config.jumbleSpeed.minValue, config.jumbleSpeed.maxValue);
+	__bktgtlich_setup_property(prop.jumbleShift, config.jumbleShift.defValue, "jumbleShift", bktglitch_set_jumble_shift, config.jumbleShift.minValue, config.jumbleShift.maxValue);
+	__bktgtlich_setup_property(prop.jumbleResolution, config.jumbleResolution.defValue, "jumbleResolution", bktglitch_set_jumble_resolution, config.jumbleResolution.minValue, config.jumbleResolution.maxValue);
+	__bktgtlich_setup_property(prop.jumbleness, config.jumbleness.defValue, "jumbleness", bktglitch_set_jumbleness, config.jumbleness.minValue, config.jumbleness.maxValue);
+	__bktgtlich_setup_property(prop.dispersion, config.dispersion.defValue, "dispersion", bktglitch_set_channel_dispersion, config.dispersion.minValue, config.dispersion.maxValue);
+	__bktgtlich_setup_property(prop.channelShift, config.channelShift.defValue, "channelShift", bktglitch_set_channel_shift, config.channelShift.minValue, config.channelShift.maxValue);
+	__bktgtlich_setup_property(prop.noiseLevel, config.noiseLevel.defValue, "noiseLevel", bktglitch_set_noise_level, config.noiseLevel.minValue, config.noiseLevel.maxValue);
+	__bktgtlich_setup_property(prop.shakiness, config.shakiness.defValue,  "shakiness", bktglitch_set_shakiness, config.shakiness.minValue, config.shakiness.maxValue);
+	__bktgtlich_setup_property(prop.rngSeed, config.rngSeed.defValue,  "rngSeed", bktglitch_set_rng_seed, config.rngSeed.minValue, config.rngSeed.maxValue);
+	__bktgtlich_setup_property(prop.intensity, config.intensity.defValue,  "intensity", bktglitch_set_intensity, config.intensity.minValue, config.intensity.maxValue);
 
 	logoSeed = random(1);
 	headerIntensity = 0;
@@ -215,44 +293,16 @@ function __bktgtlich_ui_init() {
 		    for (var i = 0; i < array_length_1d(attr); i++){
 		        if (i != prop.intensity){
 		            valTo[i]  = random_range(limit[i, 0], limit[i, 1]); 
+					print(limit[i, 0], limit[i, 1], valTo[i]);
 		        }
 		    }   
 		}
 
+		var factor = 0.039;
 		for (var i = 0; i < array_length_1d(attr); i++){
-		    attr[i] += (valTo[i] - attr[i]) * .25;
+		    attr[i] += (valTo[i] - attr[i]) * factor;
 		}  
-
-		/*
-		if (keyboard_check_pressed(ord("L"))) {
-		    var _str = @"
-bktglitch_set_intensity(" + string_format(attr[prop.intensity], 0, 6)  + ");" + @"
-bktglitch_set_line_shift(" + string_format(attr[prop.lineShift], 0, 6)  + ");" + @"
-bktglitch_set_line_speed(" + string_format(attr[prop.lineSpeed], 0, 6)  + ");" + @"
-bktglitch_set_line_resolution(" + string_format(attr[prop.lineResolution], 0, 6)  + ");" + @"
-bktglitch_set_line_drift(" + string_format(attr[prop.lineDrift], 0, 6)  + ");" + @"
-bktglitch_set_line_vertical_shift(" + string_format(attr[prop.lineVertShift], 0, 6)  + ");" + @"
-bktglitch_set_noise_level(" + string_format(attr[prop.noiseLevel], 0, 6)  + ");" + @"
-bktglitch_set_jumbleness(" + string_format(attr[prop.jumbleness], 0, 6)  + ");" + @"
-bktglitch_set_jumble_speed(" + string_format(attr[prop.jumbleSpeed], 0, 6)  + ");" + @"
-bktglitch_set_jumble_resolution(" + string_format(attr[prop.jumbleResolution], 0, 6)  + ");" + @"
-bktglitch_set_jumble_shift(" + string_format(attr[prop.jumbleShift], 0, 6)  + ");" + @"
-bktglitch_set_channel_shift(" + string_format(attr[prop.channelShift], 0, 6)  + ");" + @"
-bktglitch_set_channel_dispersion(" + string_format(attr[prop.dispersion], 0, 6)  + ");" + @"
-bktglitch_set_shakiness(" + string_format(attr[prop.shakiness], 0, 6)  + ");" + @"
-bktglitch_set_rng_seed(" + string_format(attr[prop.rngSeed], 0, 6)  + @");
-////// Alternatively:
-bktglitch_config(" + string_format(attr[prop.lineShift], 0, 6) + ", " + string_format(attr[prop.lineSpeed], 0, 6) + ", " + string_format(attr[prop.lineResolution], 0, 6) + ", " + string_format(attr[prop.lineDrift], 0, 6) + ", " +  string_format(attr[prop.lineVertShift], 0, 6) + ", " + string_format(attr[prop.jumbleness], 0, 6) + ", " + string_format(attr[prop.jumbleSpeed], 0, 6) + ", " + string_format(attr[prop.jumbleResolution], 0, 6) + ", " + string_format(attr[prop.jumbleShift], 0, 6) + ", " + string_format(attr[prop.noiseLevel], 0, 6) + ", " + string_format(attr[prop.channelShift], 0, 6) + ", " + string_format(attr[prop.dispersion], 0, 6) + ", " + string_format(attr[prop.shakiness], 0, 6) + ", " + string_format(attr[prop.intensity], 0, 6) + ", " + string_format(attr[prop.rngSeed], 0, 6) +
-			");";     
-
-		    if (os_browser == browser_not_a_browser) {
-		        clipboard_set_text(_str);
-		        show_message("The current configuration has been copied into your clipboard.");
-		    } else {
-		        get_string("Copy and paste this into your code.", _str);
-		    }
-		}
-		*/
+		
 	}
 
 	function __bktgtlich_ui_alarm() {

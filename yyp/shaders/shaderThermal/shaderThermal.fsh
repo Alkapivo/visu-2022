@@ -12,9 +12,9 @@
 		float luminescence = (outputPixel.r + outputPixel.g + outputPixel.b) / 3.0;
 		
 		mat3 colors = mat3(
-			0.0, 1.0, 1.0,
-			0.0, 1.0, 0.0,
-			1.0, 0.0, 1.0);
+			0.7, 0.0, 0.3,
+			0.3, 0.1, 0.0,
+			0.2, 0.5, 1.0);
 			
 		vec3 firstMix = luminescence < 0.5 ? colors[0] : colors[1];
 		vec3 secondMix = luminescence < 0.5 ? colors[1] : colors[2];

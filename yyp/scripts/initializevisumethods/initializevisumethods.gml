@@ -147,7 +147,7 @@ function initializeVisuGlobals() {
 
 function initializeVisuMacros() {
 
-	#macro BASE_SCALE_RESOLUTION 1024
+	#macro BASE_SCALE_RESOLUTION 2048
 }
 
 function initializeVisuManagers() {
