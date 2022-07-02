@@ -6,14 +6,10 @@ Shroom behaviour ideas:
  - `platformer`: after killing shroom it can come back to live after short period of time (variable: duration)
  - `platformer`: landing on shroom can trigger respawnj event
  - `platformer`: collision with shroom can trigger respawn event
- - `platformer`: shroom can change its direction and speed when player will land or collide on it
+ - `platformer`: shroom can change its direction and speed when the player will land or collide on it
 
 
-
-
-	Core.Collections._Map.set(shroomState, "verticalSpeed", verticalSpeed);
-	
-	getValueFromStruct(config.features, "
-Core.Collections._Map.set(shroomState, "isShooting", getValueFromStruct(config.features, "isShooting", false));
-Core.Collections._Map.set(shroomState, "bulletFollowPlayer", getValueFromStruct(config.features, "bulletFollowPlayer", false));
-Core.Collections._Map.set(shroomState, "slideAwayAfterLanding", getValueFromStruct(config.features, "slideAwayAfterLanding", false));
+0.5.19
+ - `bullethell`: when shift is pressed then player is in focus mode (touhou)
+ - `bullethell`: shroom behaviour added: shoot precisely at the player
+ - `platformer`: shroom behaviour added: shroom begins to move horizontally when the player lands on it
