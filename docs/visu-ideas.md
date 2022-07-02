@@ -7,9 +7,3 @@ Shroom behaviour ideas:
  - `platformer`: landing on shroom can trigger respawnj event
  - `platformer`: collision with shroom can trigger respawn event
  - `platformer`: shroom can change its direction and speed when the player will land or collide on it
-
-
-0.5.19
- - `bullethell`: when shift is pressed then player is in focus mode (touhou)
- - `bullethell`: shroom behaviour added: shoot precisely at the player
- - `platformer`: shroom behaviour added: shroom begins to move horizontally when the player lands on it
