@@ -46,9 +46,9 @@
 	"touchInputHandler.virtualJoystick.angleMargin": 12,
 	"virtualJoystick.deadzonessd": 0.33,
 
-	"base-timeline": "eldon_2.json",
+	"base-timeline": "base.json",
 	"base-timeline-function": null,
-	"GameController.enableReplay": true,
+	"GameController.enableReplay": false,
 	"player.jumpFactor": 0.01797,
 	"player.gravityFactor": 0.00112,
 	"player.horizontalFriction": 3.1,
