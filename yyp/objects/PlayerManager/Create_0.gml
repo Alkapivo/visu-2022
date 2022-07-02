@@ -54,6 +54,7 @@
 				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_DOWN)) || 
 				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_S))) : false;
 			var keyboardCheckBomb = getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_X));
+			var keyboardCheckSlow = getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_SHIFT));
 			
 			var horizontalFriction = getValueFromMap(playerState, "horizontalFriction", 0.001);
 			var horizontalMaxSpeed = getValueFromMap(playerState, "horizontalMaxSpeed", 0.01);
@@ -61,6 +62,10 @@
 				getVisuPlayerHorizontalSpeed(player) + (keyboardCheckLeft ? -1 : 1) * (getValueFromMap(playerState, "horizontalAcceleration", 0.005) * getDeltaTimeValue()) :
 				((abs(getVisuPlayerHorizontalSpeed(player)) - horizontalFriction < 0) ? 0 : getVisuPlayerHorizontalSpeed(player) - sign(getVisuPlayerHorizontalSpeed(player)) * horizontalFriction);
 			horizontalSpeed = sign(horizontalSpeed) * clamp(abs(horizontalSpeed), 0, horizontalMaxSpeed);
+			horizontalSpeed = keyboardCheckSlow == true
+				? horizontalSpeed * 0.67
+				: horizontalSpeed;
+			
 			var horizontalPosition = clamp(getPositionHorizontal(playerPosition) + horizontalSpeed, 0.0, 1.0);
 			setPositionHorizontal(playerPosition, horizontalPosition);
 			setVisuPlayerHorizontalSpeed(player, horizontalSpeed);
@@ -74,6 +79,9 @@
 				getVisuPlayerVerticalSpeed(player) + (keyboardCheckUp ? -1 : 1) * (getValueFromMap(playerState, "verticalAcceleration", 0.005) * veticalProjectionScale * getDeltaTimeValue()) :
 				((abs(getVisuPlayerVerticalSpeed(player)) - verticalFriction < 0) ? 0 : getVisuPlayerVerticalSpeed(player) - sign(getVisuPlayerVerticalSpeed(player)) * verticalFriction);
 			verticalSpeed = sign(verticalSpeed) * clamp(abs(verticalSpeed), 0, verticalMaxSpeed);
+			var verticalSpeed = keyboardCheckSlow == true
+				? verticalSpeed * 0.69 
+				: verticalSpeed;
 			var verticalPosition = clamp(getPositionVertical(playerPosition) + verticalSpeed, verticalPositionMin, verticalPositionMax);
 			setPositionVertical(playerPosition, verticalPosition);
 			setVisuPlayerVerticalSpeed(player, verticalSpeed);
@@ -277,15 +285,19 @@
 						setVisuPlayerVerticalSpeed(player, 0.0);
 						Core.Collections._Map.set(playerState, "landedOnShroom", true);
 						
+						Core.Collections._Map.set(getShroomState(shroom), "playerLanded", true);
+						
+						var shroomHorizontalSpeed = Core.Collections._Map.get(getShroomState(shroom), "horizontalSpeed");
+						var movedHorizontalPosition = getPositionHorizontal(playerPosition) + applyDeltaTime(shroomHorizontalSpeed);
+						setPositionHorizontal(playerPosition, movedHorizontalPosition);
+						
 						var calcVerticalPosition = getPositionVertical(playerPosition)
 							+ ((getPositionVertical(getGridElementPosition(getShroomGridElement(shroom))) - getPositionVertical(playerPosition))
 								/ 1.33)
-						//calcVerticalPosition = getPositionVertical(playerPosition);
 						var movedVerticalPosition = fetchMovedVerticalPositionOnGrid(
 							calcVerticalPosition,
 				 			speedValue 
 						);
-						//movedVerticalPosition = getPositionVertical(playerPosition) + applyDeltaTime(speedValue / 2.0);
 						setPositionVertical(playerPosition, movedVerticalPosition);
 						
 						if (input.keyboardCheckAction) {
@@ -337,7 +349,7 @@
 				}
 			}
 			
-			if (keyboard_check_pressed(ord("C"))) {
+			if (keyboard_check_pressed(ord("N"))) {
 			
 				this.gameplayType = this.gameplayType == "bullethell"
 					? "platformer"

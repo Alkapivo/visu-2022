@@ -733,6 +733,11 @@
 								),
 								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
 								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
+								features: {
+									isShooting: true,
+									bulletFollowPlayer: false,
+									slideAwayAfterLanding: false,
+								}
 							}
 							
 							logger("Spawn shroom: { x: {0}, y: {1}  }", LogType.INFO, 
@@ -762,6 +767,11 @@
 								),
 								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
 								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
+								features: {
+									isShooting: false,
+									bulletFollowPlayer: false,
+									slideAwayAfterLanding: false,
+								}
 							}
 							
 							logger("Spawn shroom: { x: {0}, y: {1}  }", LogType.INFO, 
@@ -791,6 +801,11 @@
 								),
 								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
 								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
+								features: {
+									isShooting: false,
+									bulletFollowPlayer: false,
+									slideAwayAfterLanding: false,
+								}
 							}
 							
 							logger("Spawn shroom: { x: {0}, y: {1}  }", LogType.INFO, 
@@ -820,6 +835,11 @@
 								),
 								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
 								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
+								features: {
+									isShooting: false,
+									bulletFollowPlayer: false,
+									slideAwayAfterLanding: true,
+								}
 							}
 							
 							logger("Spawn shroom: { x: {0}, y: {1}  }", LogType.INFO, 
@@ -1044,6 +1064,11 @@
 								),
 								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
 								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
+								features: {
+									isShooting: true,
+									bulletFollowPlayer: true,
+									slideAwayAfterLanding: false,
+								}
 							}
 							
 							logger("Spawn shroom: { x: {0}, y: {1}  }", LogType.INFO, 
@@ -1073,6 +1098,11 @@
 								),
 								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
 								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
+								features: {
+									isShooting: true,
+									bulletFollowPlayer: false,
+									slideAwayAfterLanding: false,
+								}
 							}
 							
 							logger("Spawn shroom: { x: {0}, y: {1}  }", LogType.INFO, 
@@ -1102,6 +1132,11 @@
 								),
 								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
 								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
+								features: {
+									isShooting: true,
+									bulletFollowPlayer: false,
+									slideAwayAfterLanding: true,
+								}
 							}
 							
 							logger("Spawn shroom: { x: {0}, y: {1}  }", LogType.INFO, 
@@ -1131,6 +1166,11 @@
 								),
 								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
 								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
+								features: {
+									isShooting: true,
+									bulletFollowPlayer: true,
+									slideAwayAfterLanding: true,
+								}
 							}
 							
 							logger("Spawn shroom: { x: {0}, y: {1}  }", LogType.INFO, 

@@ -2,11 +2,8 @@
 ///@description Shroom spawner.
 ///@param {ShroomTemplate} shroomTemplate
 ///@param {Position} position
-function spawnShroom(argument0, argument1) {
+function spawnShroom(shroomTemplate, shroomPosition, horizontalSpeed, shroomState) {
 
-		var shroomTemplate = argument0;
-		var shroomPosition = argument1;
-	
 		var type = cloneMap(getShroomTemplateType(shroomTemplate));
 		var shaderTemplates = type[? "shaderTemplates"];
 		if (!isUndefined(shaderTemplates)) {
@@ -42,7 +39,8 @@ function spawnShroom(argument0, argument1) {
 		
 		var radius = fetchCollisionRadiusFromSprite(getGridElementSprite(gridElement));
 		var speedValue = getRandomValueFromArray(getShroomTemplateSpeedValues(shroomTemplate));
-		var state = createMap(createTuple("bulletTaken", 0));
+		var state = shroomState;
+		
 		var text = createEmptyOptional();
 		var updateHandler = function() {
 			

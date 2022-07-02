@@ -6,6 +6,22 @@ function getStructVariable(struct, fieldName) {
     return isStruct(struct) ? variable_struct_get(struct, fieldName) : createEmptyOptional();
 }
 
+function getValueFromStruct(struct, fieldName, defaultValue) {
+	
+	if (isStruct(struct)) {
+		
+		if (!structVariableExists(struct, fieldName)) {
+		
+			struct[$ fieldName] = defaultValue;
+		}
+		
+		return struct[$ fieldName];
+	} else {
+	
+		return defaultValue;
+	}
+}
+
 ///@param {T?Struct} struct
 ///@return {Optional<String[]>} names
 function getStructVariableNames(struct) {

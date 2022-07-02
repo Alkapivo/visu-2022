@@ -612,8 +612,8 @@
 		draw_set_alpha(1.0);
 		
 		// length 30
-		var title =		"        Vanished Thecn       ";
-		var subtitle =	"          Eldon Nadie        ";
+		var title =		"           Midbooze          ";
+		var subtitle =	"        Distant Memory       ";
 		
 		var text = stringParams(
 			"{0}\n{1}\n\n{2}        {3}\n\n{4}\n{5}",

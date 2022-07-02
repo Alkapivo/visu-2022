@@ -37,8 +37,7 @@
 					getPositionVertical(shroomPosition), 
 	 				speedValue);
 				setPositionVertical(shroomPosition, movedVerticalPosition);
-				
-				
+								
 				var horizontalSpeed = getValueFromMap(shroomState, "horizontalSpeed", choose(1, -1) * (random(6.66) / 1000));
 				var movedHorizontalPosition = getPositionHorizontal(shroomPosition) + applyDeltaTime(horizontalSpeed);
 				setPositionHorizontal(shroomPosition, movedHorizontalPosition);
@@ -51,34 +50,91 @@
 					destroyShrooms = pushArray(destroyShrooms, index);
 				}
 				#endregion
-				
-				
+						
 				if (getPlayerManager().gameplayType == "bullethell") {
 				
-					var isShooting = getValueFromMap(shroomState, "isShooting", choose(true, false));
+					var isShooting = getValueFromMap(shroomState, "isShooting", false);
 					Core.Collections._Map.set(shroomState, "isShooting", isShooting);
 					if (isShooting) {
 						
 						var bulletTimer = getValueFromMap(shroomState, "bulletTimer", 0);
-						var bulletTimerDuration = getValueFromMap(shroomState, "bulletTimerDuration", 0.27);
+						var bulletTimerDuration = getValueFromMap(shroomState, "bulletTimerDuration", choose(0.27, 0.30, 0.33));
 						bulletTimer = incrementTimer(bulletTimer, bulletTimerDuration);
 						if (timerFinished(bulletTimer)) {
 					
-							spawnBullet(
-								createPosition(
-									getPositionHorizontal(shroomPosition),
-									getPositionVertical(shroomPosition)
-								), 
-								BulletProducer.SHROOM, 
-								270 + (choose(1, -1) * random(7)), 
-								createSprite(asset_texture_bullet_shroom_01, 0, 1.0, 1.0, 1.0, 0.0, c_white),
-								0.01, 
-								0.001
-							);
+							var shootDummyBullet = function(shroomState, shroomPosition) {
+								
+								var bulletAngleRange = getValueFromMap(shroomState, "bulletAngleRange", choose(7, 8, 9, 10));
+								var bulletSpeed = getValueFromMap(shroomState, "bulletSpeed", choose(0.009, 0.01));
+								spawnBullet(
+									createPosition(
+										getPositionHorizontal(shroomPosition),
+										getPositionVertical(shroomPosition)
+									), 
+									BulletProducer.SHROOM, 
+									270 + (choose(1, -1) * random(bulletAngleRange)), 
+									createSprite(asset_texture_bullet_shroom_01, 0, 1.0, 1.0, 1.0, 0.0, c_white),
+									bulletSpeed, 
+									0.0008
+								);
+							}
+							
+							var shootBulletThatWillFollowPlayer = function(shroomState, shroomPosition) {
+							
+								if (getPositionVertical(shroomPosition) < 0.77) {
+									
+									var playerPosition = getGridElementPosition(getVisuPlayerGridElement(fetchPlayers()[| 0]));
+									var bulletSpeed = getValueFromMap(shroomState, "bulletSpeed", choose(0.009, 0.01));
+									spawnBullet(
+										createPosition(
+											getPositionHorizontal(shroomPosition),
+											getPositionVertical(shroomPosition)
+										), 
+										BulletProducer.SHROOM, 
+										180 + getAngleBetweenPoints(playerPosition, shroomPosition), 
+										createSprite(asset_texture_bullet_shroom_01, 0, 1.0, 1.0, 1.0, 0.0, c_white),
+										bulletSpeed, 
+										0.0008
+									);
+								}
+							}
+					
+							var bulletFollowPlayer = getValueFromMap(shroomState, "bulletFollowPlayer", false) == true;
+							if (bulletFollowPlayer) {
+								
+								shootBulletThatWillFollowPlayer(shroomState, shroomPosition);
+							} else {
+								
+								shootDummyBullet(shroomState, shroomPosition);
+							}
 						}
 				
 						Core.Collections._Map.set(shroomState, "bulletTimer", bulletTimer);
 					}
+				}
+				
+				if (getPlayerManager().gameplayType == "platformer") {
+				
+					var isSlidingAwayAfterLanding = function(shroom) {
+						
+						var shroomState = getShroomState(shroom);
+						var isFeatureEnabled = getValueFromMap(shroomState, "slideAwayAfterLanding", false) == true;
+						if (isFeatureEnabled) {
+							
+							var playerLanded = Core.Collections._Map.get(shroomState, "playerLanded") == true;
+							if (playerLanded) {
+						
+								var horizontalPosition = getPositionHorizontal(getGridElementPosition(getShroomGridElement(shroom)));
+								var horizontalDirection = horizontalPosition < 0.5 ? 1 : -1;
+								
+								Core.Collections._Map.set(shroomState, "slideAwayAfterLanding", false);
+								Core.Collections._Map.set(shroomState, "horizontalSpeed", getShroomSpeedValue(shroom) * 0.75 * horizontalDirection);
+								setShroomSpeedValue(shroom, getShroomSpeedValue(shroom) * 0.66);
+							}
+						}
+					}
+					
+					isSlidingAwayAfterLanding(shroom, shroomState, speedValue);
 				}
 				break;
 			case "end":

@@ -96,7 +96,11 @@
 		#endregion
 		
 		if (!isAnyCollision) {
-			if ((positionY > 1.5) || (positionY < -0.5)) {
+			if ((positionY > 1.5) 
+				|| (positionY < -0.5)
+				|| (positionX < -0.5)
+				|| (positionX > 1.5)) {
+
 				destroyBullets = pushArray(destroyBullets, index);
 			} else {
 				
