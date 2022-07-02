@@ -920,6 +920,14 @@
 	});
 	
 	#endregion
+	/*
+	class GridRenderer extends Renderer {
+		
+		prerender: function() { ... },
+		updateBegin: function() { ... },
+		render: function() { ... }
+	}
+	*/
 	
 	
 	

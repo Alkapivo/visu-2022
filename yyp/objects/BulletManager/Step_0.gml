@@ -31,11 +31,14 @@
 					var playerGridElement = getVisuPlayerGridElement(player);
 					var isCollision = checkCirclesCollision(
 						getGridElementPosition(playerGridElement),
-						getVisuPlayerCollisionRadius(playerGridElement),
+						getVisuPlayerCollisionRadius(player),
 						bulletPosition,
-						getBulletCollisionRadius(bullet));
+						getBulletCollisionRadius(bullet)
+					);
+						
 					if (isCollision) {
-						logger("TODO Shroom Bullet collide with Player. Dispatch something!", LogType.INFO);
+						
+						respawnVisuPlayer();
 						isAnyCollision = true;
 						break;	
 					}

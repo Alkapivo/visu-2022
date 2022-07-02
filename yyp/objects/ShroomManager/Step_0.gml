@@ -52,8 +52,38 @@
 				}
 				#endregion
 				
+				
+				if (getPlayerManager().gameplayType == "bullethell") {
+				
+					var isShooting = getValueFromMap(shroomState, "isShooting", choose(true, false));
+					Core.Collections._Map.set(shroomState, "isShooting", isShooting);
+					if (isShooting) {
+						
+						var bulletTimer = getValueFromMap(shroomState, "bulletTimer", 0);
+						var bulletTimerDuration = getValueFromMap(shroomState, "bulletTimerDuration", 0.27);
+						bulletTimer = incrementTimer(bulletTimer, bulletTimerDuration);
+						if (timerFinished(bulletTimer)) {
+					
+							spawnBullet(
+								createPosition(
+									getPositionHorizontal(shroomPosition),
+									getPositionVertical(shroomPosition)
+								), 
+								BulletProducer.SHROOM, 
+								270 + (choose(1, -1) * random(7)), 
+								createSprite(asset_texture_bullet_shroom_01, 0, 1.0, 1.0, 1.0, 0.0, c_white),
+								0.01, 
+								0.001
+							);
+						}
+				
+						Core.Collections._Map.set(shroomState, "bulletTimer", bulletTimer);
+					}
+				}
 				break;
 			case "end":
+			
+				getGameController().gameplayData.shroomCounter++;
 			
 				var instantKill = getValueFromMap(shroomState, "instantKill", false);
 				if (instantKill) {

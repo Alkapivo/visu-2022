@@ -23,7 +23,7 @@
 		RealHeight / 2.0,
 		backgroundScale,
 		backgroundScale,
-		0.6,
+		0.75,
 		0.0,
 		c_white
 	);
@@ -230,7 +230,7 @@
 				gpuSetSurfaceTarget(gameSurface);
 				drawSurface(shaderSurface, 0, 0, 1.0, 1.0, 0.0, alpha, c_white, [ 0.5, 0.5 ]);
 					
-				if (pipeSize > 3) {
+				if (pipeSize > 2) {
 						
 					var gridRendererSurface = getGridRendererSurface();
 					gpu_set_blendmode(bm_add);
@@ -252,6 +252,7 @@
 				pushStack(buffer, task);	
 			}
 		}
+		
 			
 		// Push buffer to pipe
 		var bufferSize = getStackSize(buffer);

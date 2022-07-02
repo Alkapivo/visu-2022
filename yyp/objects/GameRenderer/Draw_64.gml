@@ -252,7 +252,7 @@
 	#region Draw to jumbotronSurface
 	gpuSetSurfaceTarget(jumbotronSurface);
 	if (jumbotronEvent != null) {
-		drawClear([ 0.77, 0.0, 0.21, 0.6]); // TODO getJumbotronEventBackgroundColor
+		drawClear([ 0.77, 0.0, 0.21, 0.4]); // TODO getJumbotronEventBackgroundColor
 		var jumbotronHandlerName = getJumbotronEventHandlerName(jumbotronEvent)
 		switch (jumbotronHandlerName) {
 			case "message":
@@ -582,7 +582,18 @@
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_bottom);
 		draw_set_font(font_ibm_ps2thin4);
-		renderText(stringParams("Killed shrooms:  {0}\nShould died:     {1}\nActive shaders:  {2}\nExecuted events: {3}", global.__score, global.__deaths, shaderPipeCurrentSize, global.__launchapdEvents), 32, RealHeight - 32);
+		var gameplayData = getGameController().gameplayData;
+		var text = stringParams(
+			"Shroom counter:    {0}\n" +
+			"Respawn counter:   {1}\n" +
+			"Active shaders:    {2}\n",
+			gameplayData.shroomCounter,
+			gameplayData.respawnCounter,
+			this.shaderPipeCurrentSize
+		);
+		renderText(text,  32, RealHeight - 32);
+		
+		//renderText(stringParams("Killed shrooms:  {0}\nShould died:     {1}\nActive shaders:  {2}\nExecuted events: {3}", global.__score, global.__deaths, shaderPipeCurrentSize, global.__launchapdEvents), 32, RealHeight - 32);
 	}
 	
 	if (!global.isGameplayStarted) {
@@ -600,16 +611,20 @@
 		draw_set_color(choose(c_white, c_white, c_white, c_white, c_white, c_white, c_fuchsia));
 		draw_set_alpha(1.0);
 		
+		// length 30
+		var title =		"        Vanished Thecn       ";
+		var subtitle =	"          Eldon Nadie        ";
+		
 		var text = stringParams(
-			"{0}\n{1}\n\n{2}       {3}\n\n{4}\n{5}",
-			"         Public Agony        ",
-			"           Midbooze          ",
+			"{0}\n{1}\n\n{2}        {3}\n\n{4}\n{5}",
+			title,
+			subtitle,
 			"MOUSE CLICK TO",
 			getRandomValueFromArray([
 				"play    ", " play   ", "  play  ", "   play ", "    play"
 			]),
-			"MOVE:          ARROWS OR WSAD",
-			"SHOOT:             SPACE OR Z"
+			"MOVE:           ARROWS OR WSAD",
+			"SHOOT/JUMP:         SPACE OR Z"
 		);
 		draw_text(
 			(RealWidth / 2.0) + irandom(2), 

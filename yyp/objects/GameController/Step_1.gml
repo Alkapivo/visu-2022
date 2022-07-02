@@ -187,7 +187,8 @@
 					
 					var text = getGameController().baseRecording;
 					var eventsRecording = eventsRecorder.parseRecording(eventsRecorder, text);
-					eventsPlayer.play(eventsPlayer, eventsRecording);	
+					eventsPlayer.play(eventsPlayer, eventsRecording);
+					visuTrackDefaultHandler();
 				}	
 			}
 		} else {
@@ -214,6 +215,11 @@
 		if (keyboard_check_pressed(ord("B"))) {
 		
 			debugSpawnShroom();
+		}
+		
+		if (!timerFinished(this.godMode)) {
+		
+			this.godMode = incrementTimer(this.godMode, this.godModeDuration);
 		}
 	}
 	

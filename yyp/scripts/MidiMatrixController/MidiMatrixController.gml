@@ -76,7 +76,7 @@ function createMidiMatrixController(config) {
 			var map = midiController.keymapConfig;
 			var mapWidth = 8;
 			var mapHeight = 8;
-			var buttonSize = 6;
+			var buttonSize = 8;
 			var buttonMargin = 2;
 			var xStart = GuiWidth - (mapWidth * (buttonSize + buttonMargin)) - 32;
 			var yStart = GuiHeight - (mapHeight * (buttonSize + buttonMargin)) - 32;

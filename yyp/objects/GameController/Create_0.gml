@@ -361,7 +361,7 @@
 							
 							var jumbotronEvent = createJumbotronEvent(
 								stringParams(
-									"  GAME  \n\n>> {0} -<<\n\n--------\n",
+									"  GAME  \n\n>> {0} <<\n\n--------\n",
 									string_upper(gameplayType)
 								),
 								"message",
@@ -370,6 +370,8 @@
 							var gameRenderer = getGameRenderer();
 							gameRenderer.jumbotronEvent = jumbotronEvent;
 							gameRenderer.jumbotronEventTimer = 0.0;
+							
+							getGameController().godMode = incrementTimer(getGameController().godMode, getGameController().godModeDuration);
 			            }
 			        }
 			    ),
@@ -390,8 +392,8 @@
 			            keyboardMapping: [ "A", "6" ],
 			            pressed: function () {
 
-							var topLineWidth = 0.33;
-							var bottomLineWidth = 0.34;
+							var topLineWidth = 0.44;
+							var bottomLineWidth = 0.46;
 							logger("Set topLineWidth: {0}. bottomLineWidth: {1}", LogType.INFO, topLineWidth, bottomLineWidth);
 							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "topLineWidth", topLineWidth, 0.001, 1, 0)
 							sendFieldModifierTask(fieldModifierTask);
@@ -407,8 +409,8 @@
 			            keyboardMapping: [ "S", "6" ],
 			            pressed: function () {
 							
-							var topLineWidth = 0.0;
-							var bottomLineWidth = 1.0;
+							var topLineWidth = 0.55;
+							var bottomLineWidth = 0.68;
 							logger("Set topLineWidth: {0}. bottomLineWidth: {1}", LogType.INFO, topLineWidth, bottomLineWidth);
 							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "topLineWidth", topLineWidth, 0.001, 1, 0)
 							sendFieldModifierTask(fieldModifierTask);
@@ -424,8 +426,8 @@
 			            keyboardMapping: [ "D", "6" ],
 			            pressed: function () {
 
-							var topLineWidth = 0.56;
-							var bottomLineWidth = 0.72;
+							var topLineWidth = 0.7;
+							var bottomLineWidth = 0.9;
 							logger("Set topLineWidth: {0}. bottomLineWidth: {1}", LogType.INFO, topLineWidth, bottomLineWidth);
 							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "topLineWidth", topLineWidth, 0.001, 1, 0)
 							sendFieldModifierTask(fieldModifierTask);
@@ -1149,6 +1151,18 @@
 	var base = getPropertyString("base-timeline", "base.json");
 	baseRecording = Core.File.read({ path: "data", filename: base, withDialog: false });
 	
+	///@type {Struct} 
+	gameplayData = {
+		shroomCounter: 0,
+		respawnCounter: 0,
+	}
+	
+	///@type {Timer}
+	godMode = 0.0;
+	
+	///@type {Number}
+	godModeDuration = 3.0;
+	
 ///@private:
 
 	///@type {Number} in seconds
@@ -1166,9 +1180,9 @@
 	inject(LyricsRenderer);
 	inject(GridRenderer);
 	inject(HandheldRenderer);
-	inject(PlayerManager);
 	inject(ShroomManager);
 	inject(BulletManager);
+	inject(PlayerManager);
 	inject(ShroomEmitterManager);
 	inject(GameRenderer);
 	

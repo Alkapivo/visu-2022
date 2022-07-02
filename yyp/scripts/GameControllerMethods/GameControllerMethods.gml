@@ -1,3 +1,24 @@
+function respawnVisuPlayer() {
+
+	var gameController = getGameController();
+	if (timerFinished(gameController.godMode)) {
+		
+		gameController.gameplayData.respawnCounter++;
+		gameController.godMode = incrementTimer(gameController.godMode, gameController.godModeDuration);
+		
+		var jumbotronEvent = createJumbotronEvent(
+			stringParams("RESPAWN\nPLAYER"
+			),
+			"message",
+			0.7
+		);
+		
+		var gameRenderer = getGameRenderer();
+		gameRenderer.jumbotronEvent = jumbotronEvent;
+		gameRenderer.jumbotronEventTimer = 0.0;
+	}
+}
+
 ///@return {Optional<GameController>} gameController
 function getGameController() {
 

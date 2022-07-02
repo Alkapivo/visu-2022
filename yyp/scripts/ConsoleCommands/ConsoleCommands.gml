@@ -223,3 +223,4 @@ function consoleCommandSetGlobal(parameters) {
 	setGlobalVariable(globalName, value);
 	logger("global.{0}: {1}", LogType.INFO, globalName, value); 
 }
+

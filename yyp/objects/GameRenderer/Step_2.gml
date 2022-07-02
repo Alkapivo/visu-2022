@@ -16,7 +16,7 @@
 		
 		var pipeSize = getStackSize(pipe);
 		
-		var shaderLimit = 64;
+		var shaderLimit = 20;
 		var shaderLimitCounter = 0;
 		for (var taskIndex = 0; taskIndex < pipeSize; taskIndex++) {
 			
@@ -41,7 +41,7 @@
 			
 			var alpha = getShaderTaskAlpha(task);
 			if (alpha < 1) {
-				alpha = clamp(alpha + (0.07 * getDeltaTimeValue()), 0.0, 1.0);
+				alpha = clamp(alpha + applyDeltaTime(0.07), 0.0, 1.0);
 				setShaderTaskAlpha(task, alpha);
 			}
 			

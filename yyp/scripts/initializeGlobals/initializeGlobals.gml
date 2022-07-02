@@ -111,7 +111,8 @@ function initializeGlobals() {
 		KeyboardKeyType.KEY_D,
 		KeyboardKeyType.KEY_SPACE,
 		KeyboardKeyType.KEY_Z,
-		KeyboardKeyType.KEY_E
+		KeyboardKeyType.KEY_E,
+		KeyboardKeyType.KEY_X
 	]
 	
 	///@type {Map<String::AssetRoom>}
