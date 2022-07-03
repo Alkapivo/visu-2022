@@ -1189,7 +1189,8 @@
 
 	///@type {String}
 	var base = getPropertyString("base-timeline", "base.json");
-	baseRecording = Core.File.read({ path: "data", filename: base, withDialog: false });
+	//baseRecording = Core.File.read({ path: "data", filename: base, withDialog: false });
+	baseRecording = midboozeDistantMemory();
 	
 	///@type {Struct} 
 	gameplayData = {

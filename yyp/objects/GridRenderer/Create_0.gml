@@ -344,6 +344,8 @@
 	secondBlendPointer = 3;
 	blendModesLength = getArrayLength(blendModes);
 	
+	playerGridElement = null;
+	
 	gridEventPipelineDispatcher = method(this, function(pipeline) {
 		
 		for (var gridEvent = getPipelineFirstElement(pipeline);
@@ -636,12 +638,17 @@
 					logger("secondBlendPointer {0}", LogType.DEBUG, secondBlendPointer);
 				}
 				*/
+				var restoreBlendMode = false;
 				gpu_set_blendmode_ext(blendModes[firstBlendPointer], blendModes[secondBlendPointer]);
 				var dimension = max(viewWidth, viewHeight);
 				var gridElementPipelineSize = getPriorityQueueSize(gridElementPipeline);
 				for (var index = 0; index < gridElementPipelineSize; index++) {
 		
 					var gridElement = popMinPriorityQueue(gridElementPipeline);
+					
+					if (restoreBlendMode) {
+						gpu_set_blendmode_ext(blendModes[firstBlendPointer], blendModes[secondBlendPointer]);
+					}
 						
 					#region Calculate GridElement Coordinates
 					var position = getGridElementPosition(gridElement);
@@ -656,6 +663,11 @@
 					var pixelSpriteHeight = getSpriteAssetHeight(spriteAsset);
 					var spriteWidth = pixelSpriteWidth / BASE_SCALE_RESOLUTION;
 					var spriteHeight = pixelSpriteHeight / BASE_SCALE_RESOLUTION;
+					
+					if (spriteAsset == asset_sprite_spaceship) {
+						restoreBlendMode = true;
+						gpu_set_blendmode(bm_normal)
+					}
 		
 					var verticalProjectionPowerFactor = clamp(gridAngle, 0.0, 1.0)		
 					var targetScaleFactor = power(position[1], verticalProjectionPowerFactor);
@@ -692,6 +704,18 @@
 					var scaleFactor = 0.9;
 					var simpleSpriteScale = min(1.0, max(1 + scaleFactor - position[1], 0.0));
 					
+					if (restoreBlendMode) {
+						renderTexture(
+							asset_texture_spaceship_glow,
+							targetXBegin + ((targetXEnd - targetXBegin) / 2.0),
+							targetYEnd,
+							0,
+							simpleSpriteScale,
+							simpleSpriteScale,
+							1.0
+						);
+					}
+					
 					if (isFlat) {
 					
 						drawSprite(
@@ -709,7 +733,6 @@
 							1.0
 						);
 					}
-	
 					#endregion
 				}
 				gpu_set_blendmode(bm_normal);
