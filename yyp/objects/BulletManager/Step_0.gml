@@ -31,7 +31,7 @@
 					var playerGridElement = getVisuPlayerGridElement(player);
 					var isCollision = checkCirclesCollision(
 						getGridElementPosition(playerGridElement),
-						getVisuPlayerCollisionRadius(player),
+						getVisuPlayerCollisionRadius(player) * 0.81,
 						bulletPosition,
 						getBulletCollisionRadius(bullet)
 					);

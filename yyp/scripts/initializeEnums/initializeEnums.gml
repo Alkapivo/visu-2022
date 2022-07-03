@@ -97,7 +97,8 @@ function initializeEnums() {
 			KEY_SPACE = vk_space,
 			KEY_Z = ord("Z"),
 			KEY_E = ord("E"),
-			KEY_X = ord("X")
+			KEY_X = ord("X"),
+			KEY_SHIFT = vk_shift
 		}
 	
 		enum VirtualJoystickState {

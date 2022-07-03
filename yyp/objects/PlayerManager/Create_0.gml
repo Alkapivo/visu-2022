@@ -224,13 +224,6 @@
 			);
 			setPositionVertical(playerPosition, movedVerticalPosition);
 			
-			var landedOnShroom = Core.Collections._Map.get(playerState, "landedOnShroom") == true;
-			if ((landedOnShroom)
-				&& (movedVerticalPosition >= verticalPositionMax)) {
-				
-				Core.Collections._Map.set(playerState, "landedOnShroom", false)
-				respawnVisuPlayer();
-			}
 			
 			if ((input.keyboardCheckAction)
 				&& (verticalPosition >= verticalPositionMax)) {
@@ -332,6 +325,15 @@
 				}
 			}
 
+			var landedOnShroom = Core.Collections._Map.get(playerState, "landedOnShroom") == true;
+			if ((movedVerticalPosition >= verticalPositionMax)
+				&& (!isCollision)
+				&& (landedOnShroom)) {
+				
+				Core.Collections._Map.set(playerState, "landedOnShroom", false)
+				respawnVisuPlayer();
+			}
+			
 			sendGridElementRenderRequest(playerGridElement);
 		}),
 		update: method(this, function() {
