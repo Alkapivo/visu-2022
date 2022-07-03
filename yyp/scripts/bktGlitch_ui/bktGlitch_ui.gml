@@ -34,7 +34,7 @@ function __bktgtlich_ui_init() {
         },
         lineShift: {
             minValue: 0.0,
-            maxValue: 0.05,
+            maxValue: 0.03,
             defValue: 0
         },
         lineResolution: {
@@ -99,8 +99,8 @@ function __bktgtlich_ui_init() {
         },
         intensity: {
             minValue: 0.0,
-            maxValue: 0.1,
-            defValue: 0.1
+            maxValue: 0.07,
+            defValue: 0.05
         }
     }
 
@@ -298,7 +298,7 @@ function __bktgtlich_ui_init() {
 		    }   
 		}
 
-		var factor = 0.039;
+		var factor = 0.023;
 		for (var i = 0; i < array_length_1d(attr); i++){
 		    attr[i] += (valTo[i] - attr[i]) * factor;
 		}  

@@ -553,6 +553,12 @@ function spawnVisuShroom(config) {
 	var horizontalSpeed = config.horizontalSpeed;
 	var verticalSpeed = config.verticalSpeed;
 	
+	var shroomState = createMap();
+	Core.Collections._Map.set(shroomState, "bulletTaken", 0);
+	Core.Collections._Map.set(shroomState, "isShooting", getValueFromStruct(config.features, "isShooting", false));
+	Core.Collections._Map.set(shroomState, "bulletFollowPlayer", getValueFromStruct(config.features, "bulletFollowPlayer", false));
+	Core.Collections._Map.set(shroomState, "slideAwayAfterLanding", getValueFromStruct(config.features, "slideAwayAfterLanding", false));
+	
 	var shroomTemplate = createShroomTemplate(
 		createSprite(
 			texture, 
@@ -564,13 +570,9 @@ function spawnVisuShroom(config) {
 			c_white
 		),
 		createMap(),
-		[
-			verticalSpeed
-		],
-		[ 
-			createTuple(GridElementInfoType.RAINBOW, colorHashToColor("#00ff00ff"))
-		]
+		[ verticalSpeed ],
+		[ createTuple(GridElementInfoType.RAINBOW, colorHashToColor("#00ff00ff")) ]
 	);
 	
-	spawnShroom(shroomTemplate, position, horizontalSpeed);
+	spawnShroom(shroomTemplate, position, horizontalSpeed, shroomState);
 }
