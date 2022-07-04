@@ -1,6 +1,5 @@
 # visu
-
-Real time visualizer with simple gameplay. 
+Real time visualizer with simple bullethell and platformer gameplay.
 
 ### Dependencies
 - [GMS:2.3](https://gamemaker.io/en/gamemaker)
