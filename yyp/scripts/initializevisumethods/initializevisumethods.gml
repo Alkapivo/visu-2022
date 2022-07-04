@@ -143,11 +143,14 @@ function initializeVisuGlobals() {
 		"bullethell"
 	]
 	#macro GameplayTypes global.__GameplayTypes
+	
+	global.__baseScaleResolution = 1280;
+	#macro BASE_SCALE_RESOLUTION global.__baseScaleResolution
 }
 
 function initializeVisuMacros() {
 
-	#macro BASE_SCALE_RESOLUTION 1536
+	
 }
 
 function initializeVisuManagers() {

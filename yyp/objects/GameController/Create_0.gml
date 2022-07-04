@@ -359,6 +359,10 @@
 								: "bullethell";
 							setInstanceVariable(getPlayerManager(), "gameplayType", gameplayType);
 							
+							global.__baseScaleResolution = gameplayType == "bullethell"
+								? 2048
+								: 1280
+							
 							var jumbotronEvent = createJumbotronEvent(
 								stringParams(
 									"  GAME  \n\n>> {0} <<\n\n--------\n",
@@ -1188,10 +1192,14 @@
 	#endregion
 
 	///@type {String}
-	var base = getPropertyString("base-timeline", "base.json");
-	//baseRecording = Core.File.read({ path: "data", filename: base, withDialog: false });
-	baseRecording = midboozeDistantMemory();
-	
+	baseRecording = "{}";
+	if (isHtml5()) {
+		baseRecording = html5EmbeddedTrackJson();
+	} else {
+		var base = getPropertyString("base-timeline", "base.json");
+		baseRecording = Core.File.read({ path: "data", filename: base, withDialog: false });
+	}
+
 	///@type {Struct} 
 	gameplayData = {
 		shroomCounter: 0,
