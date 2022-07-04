@@ -523,34 +523,6 @@
 	//gpuResetShader();
 	#endregion
 	
-	/*
-	var appliedTemplates = getInstanceVariable(this, "__appliedTemplates");
-	if (isArray(appliedTemplates)) {
-		
-		draw_set_font(font_ibm_ps2thin4);
-		draw_set_halign(fa_left);
-		draw_set_valign(fa_top);
-		for (var index = 0; index < getArrayLength(appliedTemplates); index++) {
-			
-			var text = appliedTemplates[index];
-			if (isString(text)) {
-				
-				renderText(text, 36, 20 + (index * string_height("|")));
-			}
-		}
-	}
-	
-	var currentTemplate = getInstanceVariable(this, "__currentTemplate");
-	if (isString(currentTemplate)) {
-	
-		draw_set_font(font_ibm_ps2thin4);
-		draw_set_halign(fa_right);
-		draw_set_valign(fa_top);
-		renderText(currentTemplate, RealWidth - 36, 20);
-	}
-	
-	*/
-	
 	var midiMatrixController = getInstanceVariable(getGameController(), "midiMatrixController");
 	if (isStruct(midiMatrixController)) {
 	
@@ -560,7 +532,6 @@
 			renderSurface(surface);
 		}
 	}
-	
 	
 	var midiController = getGameController().midiMatrixController;
 	var currentRecording = midiController.eventsRecorder.getCurrentRecording(midiController.eventsRecorder);
@@ -592,8 +563,48 @@
 			this.shaderPipeCurrentSize
 		);
 		renderText(text,  32, RealHeight - 32);
+	}
+	
+	if (global.isGameplayStarted) {
 		
-		//renderText(stringParams("Killed shrooms:  {0}\nShould died:     {1}\nActive shaders:  {2}\nExecuted events: {3}", global.__score, global.__deaths, shaderPipeCurrentSize, global.__launchapdEvents), 32, RealHeight - 32);
+		var recording = getGameController()
+			.midiMatrixController
+			.eventsPlayer
+			.recording;
+		
+		if (isStruct(recording)) {
+				
+			var soundInstanceId = global.__soundInstanceId;
+			if (isAudio(soundInstanceId)) {
+			
+				var currentLength = recording.timer;
+				var audioLength = audio_sound_length(soundInstanceId);
+				
+				var barLength = (GuiWidth / 3);
+				
+				draw_set_color(c_white);
+				draw_set_alpha(0.4);
+				drawLine(
+					(GuiWidth / 2) - (barLength / 2),
+					GuiHeight - 32,
+					(GuiWidth / 2) + (barLength / 2),
+					GuiHeight - 32,
+					1
+				);
+				
+				draw_set_alpha(0.7);
+				draw_set_color(c_fuchsia);
+				drawLine(
+					(GuiWidth / 2) - (barLength / 2),
+					GuiHeight - 35,
+					(GuiWidth / 2) - (barLength / 2) + (barLength * (currentLength / audioLength)),
+					GuiHeight - 35,
+					4
+				);
+				
+				draw_set_alpha(1);
+			}
+		}
 	}
 	
 	if (!global.isGameplayStarted) {
