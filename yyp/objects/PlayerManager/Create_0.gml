@@ -146,15 +146,18 @@
 				getGridRenderer().cameraShake = 64;
 				clearList(getShroomManager().shrooms);
 				
+				var gameController = getGameController();
+				gameController.godMode = incrementTimer(gameController.godMode, gameController.godModeDuration);
+				
 				var shaderEvent = createShaderEvent(
 					"Magnify",
 					bombTimerDuration,
 					createMap(
 						[ "positionX", [ 0.5 ] ],
 						[ "positionY", [ 0.5 ] ],
-						[ "radius", [ 0.05, 0.70, 0.007 ] ],
-						[ "minZoom", [ 0.10, 0.30, 0.002 ] ],
-						[ "maxZoom", [ 0.30, 0.8, 0.002] ]
+						[ "radius", [ 0.06, 0.70, 0.007 ] ],
+						[ "minZoom", [ 0.16, 0.41, 0.002 ] ],
+						[ "maxZoom", [ 0.41, 0.8, 0.002] ]
 					)
 				);
 				logger("Sending shaderEvent: {0}", LogType.INFO, getShaderEventName(shaderEvent));

@@ -57,8 +57,8 @@
 					Core.Collections._Map.set(shroomState, "isShooting", isShooting);
 					if (isShooting) {
 						
-						var bulletTimer = getValueFromMap(shroomState, "bulletTimer", 0);
 						var bulletTimerDuration = getValueFromMap(shroomState, "bulletTimerDuration", choose(0.40, 0.50, 0.70));
+						var bulletTimer = getValueFromMap(shroomState, "bulletTimer", bulletTimerDuration);
 						bulletTimer = incrementTimer(bulletTimer, bulletTimerDuration);
 						if (timerFinished(bulletTimer)) {
 					

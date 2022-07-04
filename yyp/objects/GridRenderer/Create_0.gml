@@ -906,12 +906,12 @@
 			}
 		}
 		var acc = 0.005;
-		gamemakerAfter20YearsIntroducedFunctionKeyword(this, "topLineWidth", "T", 1.0 * acc, true);
-		gamemakerAfter20YearsIntroducedFunctionKeyword(this, "topLineWidth", "G", -1.0 * acc, true);
-		gamemakerAfter20YearsIntroducedFunctionKeyword(this, "bottomLineWidth", "Y", 1.0 * acc, true);
-		gamemakerAfter20YearsIntroducedFunctionKeyword(this, "bottomLineWidth", "H", -1.0 * acc, true);
-		gamemakerAfter20YearsIntroducedFunctionKeyword(this, "angle", "U", 1.0, false);
-		gamemakerAfter20YearsIntroducedFunctionKeyword(this, "angle", "J", -1.0, false);
+		//gamemakerAfter20YearsIntroducedFunctionKeyword(this, "topLineWidth", "T", 1.0 * acc, true);
+		//gamemakerAfter20YearsIntroducedFunctionKeyword(this, "topLineWidth", "G", -1.0 * acc, true);
+		//gamemakerAfter20YearsIntroducedFunctionKeyword(this, "bottomLineWidth", "Y", 1.0 * acc, true);
+		//gamemakerAfter20YearsIntroducedFunctionKeyword(this, "bottomLineWidth", "H", -1.0 * acc, true);
+		//gamemakerAfter20YearsIntroducedFunctionKeyword(this, "angle", "U", 1.0, false);
+		//gamemakerAfter20YearsIntroducedFunctionKeyword(this, "angle", "J", -1.0, false);
 		#endregion
 	});
 	
