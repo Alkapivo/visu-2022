@@ -3,16 +3,8 @@
         "page": 0.0,
         "name": "novation-launchpad"
     },
-    "timer": 2.0001,
+    "timer": 0.0001,
     "events": [
-        {
-            "data": {
-                "log": "2022-05-26 15:49:34 INFO    [Anonymous] Set colorGridBackground to: #0B0F10",
-                "key": "4x4",
-                "timestamp": 0.45221166666666662292684009116783
-            },
-            "name": "MidiControllerButtonEvent"
-        }
     ],
     "audio": {
         "trackPosition": 0.0,

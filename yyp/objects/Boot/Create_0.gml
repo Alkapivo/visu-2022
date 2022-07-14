@@ -7,19 +7,13 @@
 	#region Boot
 	randomize();
 	
-	if (isHtml5()) {
-		///@deprecated gms2.3 tj_init_js();
-		//jsUtilSetCanvasVisibility("true");
-	} else {
-		///@deprecated gms2.3 tj_init_gml();	
-	}
-	
 	///@type {Map<Class<?Entity>::Integer>}
 	global.entityPrototypes = createMap();
 	
 	///@type {Map<Class<?Entity>::Integer>}
 	global.entityClassNames = createMap();
 	
+	///@type {JsonDecoderType}
 	global.jsonDecoderType = JsonDecoderType.TJSON;
 	
 	#region Initialization scripts
@@ -58,6 +52,8 @@
 		);
 		exit;
 	}
+	
+	
 	
 	var packages = getPackageConfigsData(packageConfigs);
 	for (var index = 0; index < getArrayLength(packages); index++) {

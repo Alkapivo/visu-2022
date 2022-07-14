@@ -369,7 +369,7 @@
 							
 							var jumbotronEvent = createJumbotronEvent(
 								stringParams(
-									"  GAME  \n\n>> {0} <<\n\n--------\n",
+									" GAMEMODE\n\n>> {0} <<\n\n----------\n",
 									string_upper(gameplayType)
 								),
 								"message",
@@ -602,11 +602,11 @@
 
 							var shaderEvent = createShaderEvent(
 								"Ripple",
-								7.8,
+								10.0,
 								createMap(
 									[ "positionX", 0.5 ],
 						            [ "positionY", 0.5 ],
-						            [ "amount", [ 1, 160, 0.2 ] ],
+						            [ "amount", [ 100, 1000, 0.2 ] ],
 						            [ "distortion", 40, 600, 0.16 ],
 						            [ "speed", [ 2, 10, 0.001 ] ],
 						            [ "time", [ 0, 1000, 0.1 ] ]
