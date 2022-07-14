@@ -5,6 +5,7 @@
 	global.topLinePositionFactorValues = [ 0.001, 0.002, 0.003, 0.05, 1 ];
 	global.bottomLinePositionFactorValues = [ 0.001, 0.002, 0.003, 0.05, 1 ];
 
+
 	#macro DEFAULT_FIELD_MODIFIER_DURATION 1.0
 
 	registerContext(this);

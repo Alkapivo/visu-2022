@@ -565,7 +565,29 @@
 				gameplayData.respawnCounter,
 				this.shaderPipeCurrentSize
 			);
-			renderText(text,  32, RealHeight - 32);
+			
+			var gameplayType = getPlayerManager().gameplayType;
+			var controls = "";
+			if (gameplayType == "bullethell") {
+			
+				controls = 
+					"shoot:           Z / SPACE" + "\n" +
+					"slow movement:   SHIFT" + "\n" +
+					"use bomb:        X" + "\n" +
+					"gamemode:        " + gameplayType + "\n" +
+					"change gamemode: N" + "\n" +
+					"random shader:   B" + "\n";
+				
+			} else if (gameplayType == "platformer") {
+			
+				controls = 
+					"jump:            ARROW UP / SPACE" + "\n" +
+					"gamemode:        " + gameplayType + "\n" +
+					"change gamemode: N" + "\n" +
+					"random shader:   B" + "\n";
+			}
+			
+			renderTextOutline(controls, 32, RealHeight - 32, c_white, c_black);
 		}
 
 		var recording = midiController.eventsPlayer.recording;
@@ -606,7 +628,7 @@
 					? stringParams("0{0}", seconds) 
 					: seconds
 				
-				renderText(stringParams("{0}:{1}", minutes,seconds), (GuiWidth / 2) - (barLength / 2), GuiHeight - 32);
+				renderTextOutline(stringParams("{0}:{1}", minutes,seconds), (GuiWidth / 2) - (barLength / 2), GuiHeight - 32, c_white, c_black);
 				
 				draw_set_alpha(0.7);
 				draw_set_color(c_fuchsia);
@@ -637,12 +659,10 @@
 		draw_set_font(asset_font_jetbrains_mono_small9);
 		draw_set_color(choose(c_white, c_white, c_white, c_white, c_white, c_white, c_fuchsia));
 		draw_set_alpha(1.0);
-		
-		// length 30
-		                
-		var title =		"      Downcasted/Enmity      ";
-		var subtitle =	"         Butterflies         ";
-		
+
+		///@todo move to properties
+		var title = getPropertyString("gameRenderer.start.title", "John doe");
+		var subtitle = getPropertyString("gameRenderer.start.subtitle", "Lorem ipsum");
 		var text = stringParams(
 			"{0}\n{1}\n\n{2}        {3}\n\n{4}\n{5}",
 			title,
@@ -651,8 +671,8 @@
 			getRandomValueFromArray([
 				"play    ", " play   ", "  play  ", "   play ", "    play"
 			]),
-			"MOVE:           ARROWS OR WSAD",
-			"SHOOT/JUMP:         SPACE OR Z"
+			"",
+			""
 		);
 		draw_text(
 			(RealWidth / 2.0) + irandom(2), 
