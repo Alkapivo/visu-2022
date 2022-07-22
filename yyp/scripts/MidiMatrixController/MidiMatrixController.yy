@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "com.devhorizon.visu",
-    "path": "folders/src/com.devhorizon.visu.yy",
+    "name": "system",
+    "path": "folders/src/com.devhorizon.visu/boot/system.yy",
   },
   "resourceVersion": "1.0",
   "name": "MidiMatrixController",

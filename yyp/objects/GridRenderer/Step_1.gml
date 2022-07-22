@@ -1,3 +1,3 @@
-///@description updateBegin()
+///@description GMObject.updateBegin()
 
-	updateBegin();
+	this.GMObject.updateBegin();

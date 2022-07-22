@@ -1,3 +1,3 @@
-///@description preRender()
+///@description GMObject.preRender()
 
-	preRender();
+	this.GMObject.preRender();

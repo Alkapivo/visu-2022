@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "ParticleEvent",
-    "path": "folders/src/com.devhorizon.visu/entity/ParticleEvent.yy",
+    "path": "folders/src/com.devhorizon.visu/boot/entity/ParticleEvent.yy",
   },
   "resourceVersion": "1.0",
   "name": "destroyParticleEvent",

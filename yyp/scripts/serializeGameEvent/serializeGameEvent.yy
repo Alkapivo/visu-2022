@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "GameEvent",
-    "path": "folders/src/com.devhorizon.visu/entity/GameEvent.yy",
+    "path": "folders/src/com.devhorizon.visu/boot/entity/GameEvent.yy",
   },
   "resourceVersion": "1.0",
   "name": "serializeGameEvent",

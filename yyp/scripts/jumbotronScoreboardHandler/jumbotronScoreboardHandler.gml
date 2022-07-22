@@ -17,7 +17,7 @@ function jumbotronScoreboardHandler(argument0) {
 			);
 			var gameFinished = getValueFromMap(state, "gameFinished", false);
 			if (!gameFinished) {
-				emitTrackingEvent("GameFinished");	
+				
 			}
 			state[? "gameFinished"] = true;
 		

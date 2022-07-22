@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "setter",
-    "path": "folders/src/com.devhorizon.visu/entity/ShaderEvent/setter.yy",
+    "path": "folders/src/com.devhorizon.visu/boot/entity/ShaderEvent/setter.yy",
   },
   "resourceVersion": "1.0",
   "name": "setShaderEventData",

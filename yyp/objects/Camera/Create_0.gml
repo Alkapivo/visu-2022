@@ -1,7 +1,5 @@
 ///@description create()
 
-	registerContext(this);
-	
 	#region Fields
 	
 ///@public:
@@ -33,13 +31,13 @@
 	// 2D	
 	
 	///@type {Number}
-	cameraSpeed = 5;//getPropertyReal("camera.speed", 1.0);
+	cameraSpeed = getPropertyReal("camera.speed", 1.0);
 		
 	///@type {Number}
 	cameraMaxSpeed = getPropertyReal("camera.maxSpeed", 4.0);
 		
 	///@type {Number}
-	cameraTurboSpeed = 0.7;//getPropertyReal("camera.turboSpeed", 16.0);
+	cameraTurboSpeed = getPropertyReal("camera.turboSpeed", 16.0);
 		
 	///@type {Number}
 	cameraAcceleration = getPropertyReal("camera.acceleration", 0.1);
@@ -68,7 +66,7 @@
 	// 3D
 		
 	///@type {Number}
-	cameraZPosition = getPropertyReal("camera.zPosition", -384);
+	cameraZPosition = getPropertyReal("camera.zPosition", 384);
 		
 	///@type {Boolean}
 	isMode3D = false;
@@ -87,18 +85,158 @@
 	
 	#endregion
 	
-	#region Initialize view
+	GMObject = {
+		create: method(this, function() {
+			
+			registerContext(this);
+			
+			view_enabled = true;
+		
+			view_set_visible(this.view, true);
+			camera_set_proj_mat(this.camera, this.projectionMatrix);
+		
+			view_set_camera(0, this.camera);
+			camera_set_update_script(this.camera, cameraUpdate);
+			camera_set_view_size(this.camera, ViewWidth, ViewHeight);
+		
+			cameraChange();
+		}),
+		updateEnd: method(this, function() {
+			
+			if keyboard_check_pressed(vk_f5) {
+			
+				this.isMode3D = !this.isMode3D;
+				window_set_cursor(cr_default);
+				cameraChange();
+			}
 	
-	view_enabled = true;
+			if (this.isMode3D) {
 		
-	view_set_visible(view, true);
-	camera_set_proj_mat(camera, projectionMatrix);
 		
-	view_set_camera(0, camera);
-	camera_set_update_script(camera, cameraUpdate);
-	camera_set_view_size(camera, global.viewWidth, global.viewHeight);
+				#region 3D mode
 		
-	cameraChange();
+				#region Mouse look
+				if (mouse_check_button(mb_left)) {
+			
+					#region Resolve if mouse isn't on any window
+					if (!this.mouseLookChecked) {
+						
+						this.mouseLookAvailable = true;
+						this.mouseLookChecked = true;
+					}
+					#endregion
+		
+					#region Mouse look
+					if (this.mouseLookAvailable) {
+				
+						var windowWidth = window_get_width();
+						var windowHeight = window_get_height();
+						var mouseX = window_mouse_get_x();
+						var mouseY = window_mouse_get_y();
+				
+						this.cameraDirection -= (mouseX - (windowWidth / 2.0)) / 10.0;
+						this.cameraPitch += (mouseY - (windowHeight / 2.0)) / 10.0;
+						var windowX = window_get_x() + (windowWidth / 2.0)
+						var windowY = window_get_y() + (windowHeight / 2.0);
+						display_mouse_set(windowX, windowY);
+						window_set_cursor(cr_none);
+					}
+					#endregion
+				}
+		
+				if (mouse_check_button_released(mb_left)) {
+					this.mouseLookChecked = false;	
+					window_set_cursor(cr_default);
+				}
+				#endregion
+
+				#region Camera keyboard move
+				var spd = keyboard_check(vk_shift) ? 0.25 : 1;
+		
+				if (keyboard_check(ord("W"))) {
+					this.cameraXPosition += dcos(this.cameraDirection) * (spd * getDeltaTimeValue());
+					this.cameraYPosition -= dsin(this.cameraDirection) * (spd * getDeltaTimeValue());
+				}
+				if (keyboard_check(ord("A"))) {
+					this.cameraXPosition -= dsin(this.cameraDirection) * (spd * getDeltaTimeValue());
+					this.cameraYPosition -= dcos(this.cameraDirection) * (spd * getDeltaTimeValue());
+				}
+				if (keyboard_check(ord("S"))) {
+					this.cameraXPosition -= dcos(this.cameraDirection) * (spd * getDeltaTimeValue());
+					this.cameraYPosition += dsin(this.cameraDirection) * (spd * getDeltaTimeValue());
+				}
+				if (keyboard_check(ord("D"))) {
+					this.cameraXPosition += dsin(this.cameraDirection) * (spd * getDeltaTimeValue());
+					this.cameraYPosition += dcos(this.cameraDirection) * (spd * getDeltaTimeValue());
+				}
+				if (keyboard_check(ord("E"))) {
+					this.cameraZPosition += (spd * getDeltaTimeValue());
+				}
+				if (keyboard_check(ord("Q"))) {
+					this.cameraZPosition -= (spd * getDeltaTimeValue());
+				}
+				#endregion
+		
+				var worldWidth = room_width;
+				var worldHeight = room_height;
+				//this.cameraXPosition = clamp(this.cameraXPosition, 0, worldWidth - ViewWidth);
+				//this.cameraYPosition = clamp(this.cameraYPosition, 0, worldHeight - ViewHeight);
+		
+				print(this.cameraXPosition, this.cameraYPosition, this.cameraZPosition);
+				#endregion
+		
+			} else {
+		
+				#region 2D mode
+				var worldWidth = room_width;
+				var worldHeight = room_height;
+				this.cameraXPosition = clamp(this.cameraXPosition, 0, worldWidth - ViewWidth);
+				this.cameraYPosition = clamp(this.cameraYPosition, 0, worldHeight - ViewHeight);
+		
+				if (instanceExists(cameraTarget)) {
+			
+					if (global.cameraSmoothFactor > 1.0) {
+				
+						this.cameraXPosition += (((this.cameraTarget.x - (ViewWidth / 2.0)) - this.cameraXPosition) / global.cameraSmoothFactor);
+						this.cameraYPosition += (((this.cameraTarget.y - (ViewHeight / 2.0)) - this.cameraYPosition) / global.cameraSmoothFactor);	
+					} else {
+				
+						this.cameraXPosition = ceil(this.cameraTarget.x - (ViewWidth / 2.0));
+						this.cameraYPosition = ceil(this.cameraTarget.y - (ViewHeight / 2.0));	
+					}
+				}
+		
+				#region Camera shake
+				var xDirection = cos(this.cameraShake) > 0 ? 1 : -1;
+				var yDirection = sin(this.cameraShake) > 0 ? 1 : -1;
+				var xCameraShake = this.cameraShake > 0 ? 
+					(random(this.cameraShake * 0.7) + (this.cameraShake * 0.3)) * xDirection :
+					0.0;
+				var yCameraShake = this.cameraShake > 0 ?
+					(random(this.cameraShake * 0.7) + (this.cameraShake * 0.3)) * yDirection :
+					0.0;
+		
+				var maxCameraShake = 20;
+				if (this.cameraShake > 0) {
+					this.cameraShake = clamp(this.cameraShake - applyDeltaTime(this.cameraShakeFactor), 0, maxCameraShake);
+				}
+				#endregion
+		
+				camera_set_view_pos(this.camera, this.cameraXPosition, this.cameraYPosition);
+				#endregion
+		
+			}
 	
-	#endregion
+
+		}),
+		render: method(this, function() {
+			
+		}),
+		cleanUp: method(this, function() {
+			camera_destroy(this.camera);
+			deregisterContext(this);
+		})
+	}
+	
+	this.GMObject.create();
 	

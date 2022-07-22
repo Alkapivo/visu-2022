@@ -1,1 +1,3 @@
-///@description Disable Draw
+///@description GMObject.render()
+
+	this.GMObject.render();

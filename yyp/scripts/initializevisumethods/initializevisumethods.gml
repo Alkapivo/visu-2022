@@ -138,9 +138,11 @@ function initializeVisuGlobals() {
 	global.__deaths = 0;
 	global.__score = 0;
 	
+	#macro GameplayType_PLATFORMER "platformer"
+	#macro GameplayType_BULLETHELL "bullethell"
 	global.__GameplayTypes = [
-		"platformer",
-		"bullethell"
+		GameplayType_PLATFORMER,
+		GameplayType_BULLETHELL
 	]
 	#macro GameplayTypes global.__GameplayTypes
 	

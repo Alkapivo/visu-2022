@@ -1,4 +1,4 @@
-///@description cleanUp()
+///@description GMObject.cleanUp()
 
-	cleanUp();
+	this.GMObject.cleanUp();
 	

@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "GridElementInfoType",
-    "path": "folders/src/com.devhorizon.visu/enum/GridElementInfoType.yy",
+    "path": "folders/src/com.devhorizon.visu/boot/enum/GridElementInfoType.yy",
   },
   "resourceVersion": "1.0",
   "name": "parseGridElementInfoTypeStringToEnum",

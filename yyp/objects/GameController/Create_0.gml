@@ -1,7 +1,5 @@
 ///@description create()
 
-	#macro TIANANMEN_SQUARE null
-
 	super();
 	
 	registerSceneController(this);
@@ -1234,12 +1232,11 @@
 	inject(BossManager);
 	inject(LyricsRenderer);
 	inject(GridRenderer);
-	inject(HandheldRenderer);
 	inject(ShroomManager);
 	inject(BulletManager);
 	inject(PlayerManager);
-	inject(ShroomEmitterManager);
 	inject(GameRenderer);
+	//createCamera();
 	
 	jsUtilBootComplete(); // hide loading div
 	
@@ -1253,3 +1250,114 @@
 	);
 	#endregion	
 	
+	GMObject = {
+		
+		updateBegin: method(this, function() {
+			
+			resolveGameplayTime(this);
+			this.midiMatrixController.update(this.midiMatrixController);
+	
+			if (!this.isGameplayStarted) {
+
+				if (mouse_check_button_pressed(mb_any)) {			
+					this.mouseCounter++;
+				}
+		
+				if (this.mouseCounter >= 2) {
+					this.isGameplayStarted = true;
+				}
+			}
+	
+			if (global.isGameplayStarted) {
+		
+				if (this.isOSTResolved) {
+			
+					if (this.enableReplay) {
+						var eventsPlayer = this.midiMatrixController.eventsPlayer;
+						var eventsRecorder = this.midiMatrixController.eventsRecorder;
+						if ((!isOptionalPresent(eventsPlayer.recording))
+							&& (!isOptionalPresent(eventsRecorder.getCurrentRecording(eventsRecorder)))) {
+					
+							var text = this.baseRecording;
+							var eventsRecording = eventsRecorder.parseRecording(eventsRecorder, text);
+							eventsPlayer.play(eventsPlayer, eventsRecording);
+							visuTrackDefaultHandler();
+						}	
+					}
+				} else {
+		
+					this.isOSTResolved = true;
+					try {
+				
+						var eventsPlayer = this.midiMatrixController.eventsPlayer;
+						var eventsRecorder = this.midiMatrixController.eventsRecorder;
+						var text = this.baseRecording;
+						var eventsRecording = eventsRecorder.parseRecording(eventsRecorder, text);
+						eventsPlayer.play(eventsPlayer, eventsRecording);
+				
+						//var package = package_carpenter_brut_turbo_killer();
+						//Core.PackageManager.applyPackage(package);
+				
+					} catch (exception) {
+			
+						logger(exception.message, LogType.ERROR);
+						printStackTrace();
+					}
+				}
+	
+				if (keyboard_check_pressed(ord("B"))) {
+		
+					var debugSpawnShroom = function(context) {
+		
+						var shroomShaderEventTemplates = getInstanceVariable(getShroomManager(), "shroomShaderEventTemplates");
+						var shaderEventTemplate = undefined;
+		
+						if (isDataStructure(shroomShaderEventTemplates, Map)) {
+		
+							var templateName = getRandomValueFromArray(getMapKeys(shroomShaderEventTemplates));
+							shaderEventTemplate = shroomShaderEventTemplates[? templateName];
+						}
+		
+						if (isEntity(shaderEventTemplate, ShaderEvent)) {
+			
+							var shaderEvent = shaderEventTemplate;
+							var shaderName = "shader" + getShaderEventName(shaderEvent);
+							var shaderAsset = getShader(shaderName);
+							var shaderIsCompiled = true; //isUndefined(shaderAsset) ? false : shader_is_compiled(shaderAsset);
+							logger("shaderAsset: {0} isCompiled: {1}", LogType.INFO, shaderAsset, shaderIsCompiled);
+						
+							if ((shaderAsset != null) && 
+								(shaderIsCompiled)) {
+							
+								var duration = getShaderEventDuration(shaderEvent);
+								var state = cloneMap(getShaderEventData(shaderEvent))   ;
+								var shaderTask = createShaderTask(shaderAsset, duration, state, 0.0, 0.7);
+								var pipeline = isDataStructure(state, Map) ? getValueFromMap(state, "pipeline", "main") : "main";
+								sendShaderTaskToShaderPipeline(shaderTask, pipeline);
+							} else {
+				
+								logger("Cannot dispatch ShaderEvent: shader \"{0}\" wasn't {1}", LogType.WARNING,
+									shaderName, shaderAsset == null ? "found" : "compiled");
+							}
+						}
+					}
+			
+					debugSpawnShroom(this);
+				}
+		
+				if (!timerFinished(this.godMode)) {
+		
+					this.godMode = incrementTimer(this.godMode, this.godModeDuration);
+				}
+			}
+	
+			global.isGameplayStarted = this.isGameplayStarted;
+		}),
+		cleanUp: method(this, function() {
+
+			super();
+			deregisterSceneController();
+			this.midiMatrixController.cleanUp(this.midiMatrixController);
+			global.isGameplayStarted = false;
+		})
+	}

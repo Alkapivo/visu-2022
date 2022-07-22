@@ -1,9 +1,3 @@
-///@description cleanUp()
+///@description GMObject.cleanUp()
 
-	super();
-	
-	deregisterSceneController();
-	
-	this.midiMatrixController.cleanUp(this.midiMatrixController);
-	
-	global.isGameplayStarted = false;
+	this.GMObject.cleanUp();

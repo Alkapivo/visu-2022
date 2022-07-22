@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "getter",
-    "path": "folders/src/com.devhorizon.visu/entity/ShaderEvent/getter.yy",
+    "path": "folders/src/com.devhorizon.visu/boot/entity/ShaderEvent/getter.yy",
   },
   "resourceVersion": "1.0",
   "name": "getShaderEventDuration",

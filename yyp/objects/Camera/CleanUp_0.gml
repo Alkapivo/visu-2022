@@ -1,5 +1,3 @@
-///@description 
+///@description GMObject.cleanUp()
 
-	camera_destroy(camera);
-	deregisterContext(this);
-
+	this.GMObject.cleanUp();

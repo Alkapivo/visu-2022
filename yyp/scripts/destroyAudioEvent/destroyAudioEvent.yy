@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "AudioEvent",
-    "path": "folders/src/com.devhorizon.visu/entity/AudioEvent.yy",
+    "path": "folders/src/com.devhorizon.visu/boot/entity/AudioEvent.yy",
   },
   "resourceVersion": "1.0",
   "name": "destroyAudioEvent",

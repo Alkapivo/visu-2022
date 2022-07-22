@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "getter",
-    "path": "folders/src/com.devhorizon.visu/entity/GridEvent/getter.yy",
+    "path": "folders/src/com.devhorizon.visu/boot/entity/GridEvent/getter.yy",
   },
   "resourceVersion": "1.0",
   "name": "getGridEventFields",

@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "getter",
-    "path": "folders/src/com.devhorizon.visu/entity/JumbotronEvent/getter.yy",
+    "path": "folders/src/com.devhorizon.visu/boot/entity/JumbotronEvent/getter.yy",
   },
   "resourceVersion": "1.0",
   "name": "getJumbotronEventHandlerName",
