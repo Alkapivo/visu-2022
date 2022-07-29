@@ -26,33 +26,52 @@ function cameraChange() {
 		
 			camera.camera = cameraReference;
 			camera.projectionMatrix = matrix_build_projection_perspective_fov(
-				45, 
-				GuiWidth /GuiHeight, 
-				1, 
-				2048);
-
-			camera.cameraXPosition += global.viewWidth * 0.5;
-			camera.cameraYPosition += global.viewHeight * 0.5;
+				-60,
+				-ViewWidth/ViewHeight, 
+				32, 
+				32000
+			);
+			
 			camera_set_proj_mat(cameraReference, camera.projectionMatrix);
 			view_set_camera(camera.view, cameraReference);
 			camera_set_update_script(cameraReference, cameraUpdate);
+			
+			application_surface_draw_enable(true);
+			gpu_set_zwriteenable(true); // Enables writing to the z-buffer
+			gpu_set_ztestenable(true); // Enables the depth testing, so far away things are drawn beind closer things
+			gpu_set_cullmode(cull_counterclockwise);
+			gpu_set_texfilter(true);
+			
+			camera.cameraXPosition = 286.83;
+			camera.cameraYPosition = 613.66;
+			camera.cameraZPosition = 463.65;
+			camera.cameraDirection = 88.60;
+			camera.cameraPitch = 1.0;
 		} else {
 			
 			var cameraReference = camera_create();
+			
+			view_enabled = true;
+			view_set_visible(camera.view, true);
+			
 			camera.camera = cameraReference;
 			camera.projectionMatrix = matrix_build_projection_ortho(
-				global.viewWidth, 
-				global.viewHeight, 
+				ViewWidth, 
+				ViewHeight, 
 				1, 
-				2048);
-			camera.cameraXPosition -= global.viewWidth * 0.5;
-			camera.cameraYPosition -= global.viewHeight * 0.5;
+				2048
+			);
 			
 			camera_set_proj_mat(cameraReference, camera.projectionMatrix);
 			view_set_camera(camera.view, cameraReference);
-			camera_set_view_size(cameraReference, global.viewWidth, global.viewHeight);
-			camera_set_view_pos(cameraReference, camera.cameraXPosition, camera.cameraYPosition);
+			camera_set_view_size(cameraReference, ViewWidth, ViewHeight);
+			camera_set_view_pos(cameraReference, 0, 0);
 			camera_set_update_script(cameraReference, cameraUpdate);
+			
+			application_surface_draw_enable(false);
+			gpu_set_zwriteenable(false);
+			gpu_set_ztestenable(false);
+			gpu_set_cullmode(cull_noculling);
 		}	
 	}
 }

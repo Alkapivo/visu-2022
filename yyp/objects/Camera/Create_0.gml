@@ -46,10 +46,10 @@
 	cameraFriction = getPropertyReal("camera.friction", 0.2);
 		
 	///@type {Number}
-	cameraXPosition = 0;
+	cameraXPosition = getPropertyReal("camera.cameraXPosition", 0);
 		
 	///@type {Number}
-	cameraYPosition = 0;
+	cameraYPosition = getPropertyReal("camera.cameraYPosition", 0);
 		
 	///@type {Number}
 	cameraVerticalSpeed = 0;
@@ -66,7 +66,7 @@
 	// 3D
 		
 	///@type {Number}
-	cameraZPosition = getPropertyReal("camera.zPosition", 384);
+	cameraZPosition = getPropertyReal("camera.cameraZPosition", 0);
 		
 	///@type {Boolean}
 	isMode3D = false;
@@ -105,7 +105,7 @@
 			
 			if keyboard_check_pressed(vk_f5) {
 			
-				this.isMode3D = !this.isMode3D;
+				this.isMode3D = !this.isMode3D
 				window_set_cursor(cr_default);
 				cameraChange();
 			}
@@ -151,7 +151,7 @@
 				#endregion
 
 				#region Camera keyboard move
-				var spd = keyboard_check(vk_shift) ? 0.25 : 1;
+				var spd = keyboard_check(vk_shift) ? 3 : 8;
 		
 				if (keyboard_check(ord("W"))) {
 					this.cameraXPosition += dcos(this.cameraDirection) * (spd * getDeltaTimeValue());
@@ -179,19 +179,17 @@
 		
 				var worldWidth = room_width;
 				var worldHeight = room_height;
-				//this.cameraXPosition = clamp(this.cameraXPosition, 0, worldWidth - ViewWidth);
-				//this.cameraYPosition = clamp(this.cameraYPosition, 0, worldHeight - ViewHeight);
+				this.cameraXPosition = clamp(this.cameraXPosition, 0, worldWidth);
+				this.cameraYPosition = clamp(this.cameraYPosition, 0, worldHeight);
 		
-				print(this.cameraXPosition, this.cameraYPosition, this.cameraZPosition);
+				print(this.cameraXPosition, this.cameraYPosition, this.cameraZPosition, this.cameraDirection, this.cameraPitch);
 				#endregion
 		
 			} else {
 		
 				#region 2D mode
-				var worldWidth = room_width;
-				var worldHeight = room_height;
-				this.cameraXPosition = clamp(this.cameraXPosition, 0, worldWidth - ViewWidth);
-				this.cameraYPosition = clamp(this.cameraYPosition, 0, worldHeight - ViewHeight);
+				this.cameraXPosition = 0;
+				this.cameraYPosition = 0;
 		
 				if (instanceExists(cameraTarget)) {
 			
@@ -223,8 +221,8 @@
 				#endregion
 		
 				camera_set_view_pos(this.camera, this.cameraXPosition, this.cameraYPosition);
+				//print(this.cameraXPosition, this.cameraYPosition, this.cameraZPosition);
 				#endregion
-		
 			}
 	
 
