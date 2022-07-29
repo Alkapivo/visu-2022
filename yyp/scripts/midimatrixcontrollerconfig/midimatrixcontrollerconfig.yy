@@ -6,7 +6,7 @@
     "path": "folders/src/com.devhorizon.visu/controller/GameController.yy",
   },
   "resourceVersion": "1.0",
-  "name": "GameControllerFunctions",
+  "name": "MidiMatrixControllerConfig",
   "tags": [],
   "resourceType": "GMScript",
 }

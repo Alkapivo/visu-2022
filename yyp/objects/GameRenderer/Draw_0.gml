@@ -12,28 +12,46 @@
 	var gridRenderer = getGridRenderer();
 	draw_clear_alpha(gridRenderer.colorGridBackground, 1.0);
 
+
+	var backgroundAlphaMargin = 0.25;
+	var backgroundAlpha = getSpriteAlpha(this.background);
+	backgroundAlpha = clamp(backgroundAlpha + applyDeltaTime(), 0.0, 1.0 - backgroundAlphaMargin);
+	setSpriteAlpha(this.background, backgroundAlpha);
+	setSpriteAlpha(this.previousBackground, 1.0 - backgroundAlphaMargin - backgroundAlpha);
+
+	if (getSpriteAlpha(this.previousBackground) > backgroundAlphaMargin) {
+		
+		var previousBackgroundScale = RealWidth > RealHeight 
+			? RealWidth / getTextureWidth(getSpriteAssetIndex(previousBackground)) 
+			: RealHeight / getTextureHeight(getSpriteAssetIndex(previousBackground)
+		);
+		drawSprite(
+			previousBackground,
+			RealWidth / 2.0,
+			RealHeight / 2.0,
+			previousBackgroundScale,
+			previousBackgroundScale,
+			getSpriteAlpha(previousBackground)	
+		);
+	}
+	
 	var backgroundScale = RealWidth > RealHeight 
 		? RealWidth / getTextureWidth(getSpriteAssetIndex(background)) 
 		: RealHeight / getTextureHeight(getSpriteAssetIndex(background)
 	);
-
 	drawSprite(
 		background,
 		RealWidth / 2.0,
 		RealHeight / 2.0,
 		backgroundScale,
 		backgroundScale,
-		0.75,
-		0.0,
-		c_white
+		getSpriteAlpha(background)
 	);
 
 	#region Render stars particles
 		
 	if (gridRenderer != null) {
-			
-		var spriteNumber = sprite_get_number(asset_sprite_star);
-			
+		
 		switch (starsRenderType) {
 			case StarsRenderTypes.POINT:
 			
@@ -263,3 +281,47 @@
 	}
 	#endregion
 	
+	if (getCamera().isMode3D) {
+
+		draw_clear_alpha(c_black, 0.0);
+		
+		vertex_format_begin();
+		vertex_format_add_position_3d();
+		vertex_format_add_color();
+		vertex_format_add_texcoord();
+		var vertex_format = vertex_format_end();
+
+		var v_buff = vertex_create_buffer();
+		vertex_begin(v_buff, vertex_format);
+		    vertex_position(v_buff, 10, 10);
+		    vertex_colour(v_buff, c_white, 1);
+		    vertex_texcoord(v_buff, 0, 0);
+
+		    vertex_position(v_buff, 110, 10);
+		    vertex_colour(v_buff, c_white, 1);
+		    vertex_texcoord(v_buff, 1, 0);
+
+		    vertex_position(v_buff, 110, 110);
+		    vertex_colour(v_buff, c_white, 1);
+		    vertex_texcoord(v_buff, 1, 1);
+		vertex_end(v_buff);
+
+		testSurface = getSurface(testSurface, 1280, 720, false);
+		gpuSetSurfaceTarget(testSurface);
+			draw_sprite(asset_sprite_spaceship, 0, 300, 300);
+			draw_sprite(asset_sprite_spaceship, 0, 600, 300);
+		gpuResetSurfaceTarget();
+
+		
+		
+		//matrix_set(matrix_world, matrix_build(room_width, room_height, 0, 0, 0, 0, 1, 1, 1));
+		//vertex_submit(v_buff, pr_trianglelist, surface_get_texture(screenSurface));
+		//draw_sprite(asset_sprite_spaceship, 0, 600, 300);
+		//draw_surface(getGridRenderer().gridSurface, 64, 64);
+		//matrix_set(matrix_world, matrix_build_identity());
+		
+		draw_surface(getGridRenderer().gridElementSurface, 64, 64);
+	} else {
+		
+		
+	}

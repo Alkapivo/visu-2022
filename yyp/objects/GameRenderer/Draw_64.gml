@@ -1,5 +1,10 @@
 ///@description Draw debug overlay
 
+	if (getCamera().isMode3D) {
+		
+		exit;	
+	}
+
 	var handheldRenderer = getHandheldRenderer();
 	var screenWidth = isHandheld() ? global.viewWidth : global.guiWidth;
 	var screenHeight = isHandheld() ? global.viewHeight : global.guiHeight;
@@ -495,35 +500,19 @@
 	#endregion
 	
 	#region Render applicationSurface
-	//gpuSetShader(shaderAbberation);
+	if (getCamera().isMode3D) {
 
-	bktglitch_activate(GuiWidth, GuiHeight);
-	__bktgtlich_pass_uniforms_from_ui();
-	/*
-	// Quickly setting all parameters at once using a preset
-	bktglitch_config_preset(BktGlitchPreset.B);
-
-	// Additional tweaking
-	bktglitch_set_jumbleness(0.5);
-	bktglitch_set_jumble_speed(2.5);
-	bktglitch_set_jumble_resolution(random_range(0.2, 0.4));
-	bktglitch_set_jumble_shift(random_range(0.2, 0.4));
-	bktglitch_set_channel_shift(0.01);
-	bktglitch_set_channel_dispersion(.05);
-
-	// Setting the overall intensity of the effect, adding a bit when the ball bounces.
-	bktglitch_set_intensity(0.025);
-	*/
-
+	} else {
+		
+		//gpuSetShader(shaderAbberation);
+		bktglitch_activate(GuiWidth, GuiHeight);
+		__bktgtlich_pass_uniforms_from_ui();
 		drawSurfaceStretched(applicationSurface, 0, 0, RealWidth, RealHeight);
-
-	// Done with the shader (this is really just shader_reset)!
-	bktglitch_deactivate();
-
-	//gpuResetShader();
+		bktglitch_deactivate();
+		//gpuResetShader();
+	}
 	#endregion
-	
-	
+		
 	if (global.isGameplayStarted) {
 		
 		var midiMatrixController = getInstanceVariable(getGameController(), "midiMatrixController");
@@ -686,7 +675,6 @@
 	
 	//this.bpmController.render(this.bpmController);
 	
-	
 	var cameraData = getGridRenderer().cameraData;
 	var circleSize = 32;
 	/*
@@ -718,3 +706,4 @@
 	draw_set_alpha(1.0);
 	*/
 	
+
