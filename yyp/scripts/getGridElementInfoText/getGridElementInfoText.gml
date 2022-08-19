@@ -3,7 +3,7 @@
 ///@param {GridElementInfo} gridElementInfo
 ///@return {String} text 
 ///@throws {Exception}
-///@generated {2021-08-25T13:56:53.559Z}
+///@generated {2022-08-18T22:24:59.618Z}
 
 function getGridElementInfoText(gridElementInfo) {
 

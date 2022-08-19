@@ -3,7 +3,7 @@
 ///@param {String} jsonString
 ///@return {GameEvent} gameEvent 
 ///@throws {Exception}
-///@generated {2021-08-25T13:56:53.531Z}
+///@generated {2022-08-18T22:24:59.582Z}
 
 function deserializeGameEvent(jsonString) {
 

@@ -3,7 +3,7 @@
 ///@param {Boss} boss
 ///@return {AssetScript} handler 
 ///@throws {Exception}
-///@generated {2021-08-25T13:56:53.436Z}
+///@generated {2022-08-18T22:24:59.535Z}
 
 function getBossHandler(boss) {
 

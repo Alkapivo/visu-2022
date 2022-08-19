@@ -3,7 +3,7 @@
 ///@param {String} jsonString
 ///@return {BossEvent} bossEvent 
 ///@throws {Exception}
-///@generated {2021-08-25T13:56:53.475Z}
+///@generated {2022-08-18T22:24:59.547Z}
 
 function deserializeBossEvent(jsonString) {
 

@@ -3,7 +3,7 @@
 ///@param {ShaderPipeline} shaderPipeline
 ///@param {Stack<ShaderTask>} buffer
 ///@throws {Exception}
-///@generated {2021-08-25T13:56:53.691Z}
+///@generated {2022-08-18T22:24:59.743Z}
 
 function setShaderPipelineBuffer(shaderPipeline, buffer) {
 

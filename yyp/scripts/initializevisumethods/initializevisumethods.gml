@@ -146,7 +146,8 @@ function initializeVisuGlobals() {
 	]
 	#macro GameplayTypes global.__GameplayTypes
 	
-	global.__baseScaleResolution = 2048;
+	
+	global.__baseScaleResolution = getPropertyReal("gameRenderer.baseScaleResolution", 2048);
 	#macro BASE_SCALE_RESOLUTION global.__baseScaleResolution
 }
 

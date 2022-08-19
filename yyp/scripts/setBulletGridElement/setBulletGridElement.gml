@@ -3,7 +3,7 @@
 ///@param {Bullet} bullet
 ///@param {GridElement} gridElement
 ///@throws {Exception}
-///@generated {2021-08-25T13:56:53.505Z}
+///@generated {2022-08-18T22:24:59.564Z}
 
 function setBulletGridElement(bullet, gridElement) {
 

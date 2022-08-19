@@ -8,7 +8,7 @@
 ///@param {Number} collisionRadius
 ///@return {Bullet} bullet 
 ///@throws {Exception}
-///@generated {2021-08-25T13:56:53.504Z}
+///@generated {2022-08-18T22:24:59.564Z}
 
 function createBullet(gridElement, angle, speedValue, acceleration, producer, collisionRadius) {
 

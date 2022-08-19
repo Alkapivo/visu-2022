@@ -7,7 +7,7 @@
             "font": "Poison"
         },
         "paths": {
-            "modelPath": "asset/api/model.json",
+            "modelPath": "api/model.json",
             "yypPath": "yyp"        
         }
     }

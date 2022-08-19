@@ -3,7 +3,7 @@
 ///@param {Shroom} shroom
 ///@return {Optional<AssetScript>} bulletCollisionHandler 
 ///@throws {Exception}
-///@generated {2021-08-25T13:56:53.721Z}
+///@generated {2022-08-18T22:24:59.781Z}
 
 function getShroomBulletCollisionHandler(shroom) {
 

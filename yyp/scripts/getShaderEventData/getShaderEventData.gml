@@ -3,7 +3,7 @@
 ///@param {ShaderEvent} shaderEvent
 ///@return {Map<String::any>} data 
 ///@throws {Exception}
-///@generated {2021-08-25T13:56:53.677Z}
+///@generated {2022-08-18T22:24:59.731Z}
 
 function getShaderEventData(shaderEvent) {
 

@@ -3,7 +3,7 @@
 ///@param {PlayerEvent} playerEvent
 ///@return {Map<String::any>} fields 
 ///@throws {Exception}
-///@generated {2021-08-25T13:56:53.669Z}
+///@generated {2022-08-18T22:24:59.723Z}
 
 function getPlayerEventFields(playerEvent) {
 

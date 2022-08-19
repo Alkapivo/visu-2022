@@ -2,7 +2,7 @@
 ///@description Destroy GridEvent entity.
 ///@param {GridEvent} gridEvent
 ///@throws {Exception}
-///@generated {2021-08-25T13:56:53.575Z}
+///@generated {2022-08-18T22:24:59.634Z}
 
 function destroyGridEvent(gridEvent) {
 
