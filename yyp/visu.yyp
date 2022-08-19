@@ -819,6 +819,7 @@
     {"id":{"name":"getTiledLayerYPos","path":"scripts/getTiledLayerYPos/getTiledLayerYPos.yy",},"order":9,},
     {"id":{"name":"getTiledLayerProperties","path":"scripts/getTiledLayerProperties/getTiledLayerProperties.yy",},"order":11,},
     {"id":{"name":"getTiledLayerData","path":"scripts/getTiledLayerData/getTiledLayerData.yy",},"order":13,},
+    {"id":{"name":"gmcallback_test_callback","path":"scripts/gmcallback_test_callback/gmcallback_test_callback.yy",},"order":8,},
     {"id":{"name":"getTiledLayerWidth","path":"scripts/getTiledLayerWidth/getTiledLayerWidth.yy",},"order":15,},
     {"id":{"name":"getTiledLayerHeight","path":"scripts/getTiledLayerHeight/getTiledLayerHeight.yy",},"order":17,},
     {"id":{"name":"Property","path":"scripts/Property/Property.yy",},"order":2,},

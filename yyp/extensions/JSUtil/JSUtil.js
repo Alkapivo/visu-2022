@@ -8053,6 +8053,7 @@ global.jsUtilIsFullscreen = isFullscreen;
 global.jsUtilIsMobile = isMobile;
 global.jsUtilSetCanvasVisibility = setCanvasVisibility
 global.jsUtilBootComplete = bootComplete
+global.jsUtilGetVirtualMidiMatrix = getVirtualMidiMatrix
 /**
  * @GMFunctionName jsUtilFBPixelEvent 
  */
@@ -8158,6 +8159,15 @@ function bootComplete() {
     return "boot complete";
 }
 
+/**
+ * @GMFunctionName jsUtilGetVirtualMidiMatrix
+ * @param {String} key - String
+ */
+ function jsUtilGetVirtualMidiMatrix() {
+    console.debug(getFormattedLog("[JSUtil]", "getVirtualMidiMatrix"));
+    return "{}";
+}
+
 function getFormattedLog(...log) {
     const tempDate = new Date().toISOString().split("T")
     const date = `${tempDate[0]} ${tempDate[1].split(".")[0]}`
@@ -8190,4 +8200,7 @@ function jsUtilSetCanvasVisibility(visibility) {
 }
 function jsUtilBootComplete() {
    return global.jsUtilBootComplete();
+}
+function jsUtilGetVirtualMidiMatrix(key) {
+   return global.jsUtilGetVirtualMidiMatrix(key);
 }

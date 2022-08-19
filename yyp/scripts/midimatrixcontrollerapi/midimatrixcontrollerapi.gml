@@ -215,25 +215,8 @@ function createEventsPlayer() {
 						
 							try {
 								recording.eventPointer++
-								var key = event.data.key;
-								var button = Core.Collections._Map.get(keymapConfig, key);
-								button.pressed(button, key);
-								
-								setStructVariable(eventsPlayer.cache, key, 1.0);
-								
-								var midiController = getGameController().midiMatrixController
-								midiController.eventsRecorder.registerEvent(
-									midiController.eventsRecorder, { 
-										name: "MidiControllerButtonEvent", 
-										data: { 
-											key: key,
-											timestamp: event.data.timestamp,
-											log: event.data.log,
-										}
-									}	
-								);
-								
 								global.__launchapdEvents++
+								sendMidiMatrixEvent(eventsPlayer, keymapConfig, event.data.key, event.data.timestamp)
 							} catch (exception) {
 								logger(exception.message, LogType.ERROR);
 								printStackTrace();
@@ -245,6 +228,26 @@ function createEventsPlayer() {
 		}
 	}
 }
+
+function sendMidiMatrixEvent(eventsPlayer, keymapConfig,  key, timestamp) {
+	var button = Core.Collections._Map.get(keymapConfig, key);
+	button.pressed(button, key);
+								
+	setStructVariable(eventsPlayer.cache, key, 1.0);
+								
+	var midiController = getGameController().midiMatrixController
+	midiController.eventsRecorder.registerEvent(
+		midiController.eventsRecorder, { 
+			name: "MidiControllerButtonEvent", 
+			data: { 
+				key: key,
+				timestamp: timestamp,
+				log: "",
+			}
+		}	
+	);
+}
+
 
 function createEventsRecorder() {
 

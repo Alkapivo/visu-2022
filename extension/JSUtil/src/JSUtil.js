@@ -10,6 +10,7 @@ global.jsUtilIsFullscreen = isFullscreen;
 global.jsUtilIsMobile = isMobile;
 global.jsUtilSetCanvasVisibility = setCanvasVisibility
 global.jsUtilBootComplete = bootComplete
+global.jsUtilGetVirtualMidiMatrix = getVirtualMidiMatrix
 /**
  * @GMFunctionName jsUtilFBPixelEvent 
  */
@@ -113,6 +114,15 @@ function bootComplete() {
     
 
     return "boot complete";
+}
+
+/**
+ * @GMFunctionName jsUtilGetVirtualMidiMatrix
+ * @param {String} key - String
+ */
+ function jsUtilGetVirtualMidiMatrix() {
+    console.debug(getFormattedLog("[JSUtil]", "getVirtualMidiMatrix"));
+    return "{}";
 }
 
 function getFormattedLog(...log) {
