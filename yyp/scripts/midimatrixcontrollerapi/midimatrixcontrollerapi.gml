@@ -315,6 +315,7 @@ function createEventsRecorder() {
 				
 				var jsonObject = Core.JSON.decode(jsonString);
 				var timer = Core.Collections._Map.get(jsonObject, "timer");
+				setInstanceVariable(getGameRenderer(), "trackTimer", timer);
 				var events = [];
 				var jsonEvents = Core.Collections._Map.get(jsonObject, "events");
 				if (jsonEvents != null) {

@@ -206,51 +206,6 @@
 		
 	#endregion
 	
-	#region Progress bar
-	if (enableProgressBar) {
-		var currentTime = getGameplayTime();
-		var maxTime = 168.5; // hardcoded value
-		var percentageTime = clamp(currentTime/maxTime, 0.0, 1.0);
-		var barLength = global.guiWidth * 0.8;
-		var barThickness = global.guiHeight * 0.04;
-		var xAnchor = (global.guiWidth - barLength) / 2.0;
-		var yAnchor = (global.guiHeight * 0.1) - (barThickness / 2.0);
-		draw_set_alpha(0.6);
-		draw_set_color(c_red);
-		draw_line_width(
-			xAnchor,
-			yAnchor,
-			xAnchor + (barLength * percentageTime),
-			yAnchor,
-			barThickness * choose(0.8, 0.9, 1.0, 1.0)
-		);
-		draw_set_color(c_yellow);
-		draw_line_width(
-			xAnchor,
-			yAnchor,
-			xAnchor + (barLength * percentageTime),
-			yAnchor,
-			0.4 * barThickness * choose(0.8, 0.9, 1.0, 1.0)
-		);
-		draw_set_color(c_white);
-		draw_line_width(
-			xAnchor,
-			yAnchor,
-			xAnchor + (barLength * percentageTime),
-			yAnchor,
-			0.1 * barThickness * choose(0.8, 0.9, 1.0, 1.0)
-		);
-		draw_set_alpha(1.0);
-		
-		var barPointerScale = (barThickness * 2) / sprite_get_width(getSpriteAssetIndex(barPointer))
-		drawSprite(barPointer, xAnchor + (barLength * percentageTime), yAnchor,
-			barPointerScale,
-			barPointerScale,
-			1.0,
-			270);
-	}
-	#endregion
-	
 	gpuResetSurfaceTarget();
 	#endregion
 
@@ -589,8 +544,10 @@
 			var soundInstanceId = global.__soundInstanceId;
 			if (isAudio(soundInstanceId)) {
 			
+				
 				var currentLength = recording.timer;
-				var audioLength = audio_sound_length(soundInstanceId);
+				var audioLength = this.trackTimer;
+				logger("Recording timer: {0} {1} {2}", LogType.INFO, recording.timer, getGameplayTime(), audioLength);
 				
 				var barLength = (GuiWidth / 3);
 				
