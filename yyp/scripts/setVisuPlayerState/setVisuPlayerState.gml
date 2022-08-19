@@ -3,7 +3,7 @@
 ///@param {VisuPlayer} visuPlayer
 ///@param {Map<String::any>} state
 ///@throws {Exception}
-///@generated {2021-08-25T13:56:53.640Z}
+///@generated {2022-08-18T22:24:59.694Z}
 
 function setVisuPlayerState(visuPlayer, state) {
 

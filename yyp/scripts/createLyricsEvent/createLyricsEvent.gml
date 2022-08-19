@@ -5,7 +5,7 @@
 ///@param {Number} duration
 ///@return {LyricsEvent} lyricsEvent 
 ///@throws {Exception}
-///@generated {2021-08-25T13:56:53.876Z}
+///@generated {2022-08-18T22:24:59.983Z}
 
 function createLyricsEvent(lyrics, lifespan, duration) {
 

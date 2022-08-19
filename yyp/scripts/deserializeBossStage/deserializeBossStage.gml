@@ -3,7 +3,7 @@
 ///@param {String} jsonString
 ///@return {BossStage} bossStage 
 ///@throws {Exception}
-///@generated {2021-08-25T13:56:53.487Z}
+///@generated {2022-08-18T22:24:59.554Z}
 
 function deserializeBossStage(jsonString) {
 

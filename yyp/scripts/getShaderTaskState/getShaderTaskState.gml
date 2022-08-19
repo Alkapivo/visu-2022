@@ -3,7 +3,7 @@
 ///@param {ShaderTask} shaderTask
 ///@return {Map<String::any>} state 
 ///@throws {Exception}
-///@generated {2021-08-25T13:56:53.704Z}
+///@generated {2022-08-18T22:24:59.757Z}
 
 function getShaderTaskState(shaderTask) {
 

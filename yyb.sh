@@ -1,6 +1,6 @@
 #!/bin/bash
-GAME_DIST_HOME=~/projects/devhorizon/visu/dist/web/resources/visu/sewerslvt/ntr_1
-GAME_WEB_HOME=~/projects/devhorizon/visu-web/resources/visu/sewerslvt/ntr_1
+GAME_DIST_HOME=~/projects/devhorizon/visu/dist/web/resources/visu/midbooze/distant-memory
+GAME_WEB_HOME=~/projects/devhorizon/Alkapivo.github.io/resources/visu/midbooze/distant-memory
 GAME_NAME=$(cat ./yyp-package.json | jq -r '.name')
 
 if (( $# == 0 )); then

@@ -2,7 +2,7 @@
 ///@description Destroy Boss entity.
 ///@param {Boss} boss
 ///@throws {Exception}
-///@generated {2021-08-25T13:56:53.436Z}
+///@generated {2022-08-18T22:24:59.535Z}
 
 function destroyBoss(boss) {
 

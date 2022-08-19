@@ -2,7 +2,7 @@
 ///@description Destroy ShaderTask entity.
 ///@param {ShaderTask} shaderTask
 ///@throws {Exception}
-///@generated {2021-08-25T13:56:53.703Z}
+///@generated {2022-08-18T22:24:59.757Z}
 
 function destroyShaderTask(shaderTask) {
 
@@ -16,7 +16,4 @@ function destroyShaderTask(shaderTask) {
 	
 	destroyDataStructure(state, Map, "Unable to destroy Map state in ShaderTask");
 	setShaderTaskState(shaderTask, null);
-	
-
-	
 }

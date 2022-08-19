@@ -3,7 +3,7 @@
 ///@param {LyricsEvent} lyricsEvent
 ///@param {Number} lifespan
 ///@throws {Exception}
-///@generated {2021-08-25T13:56:53.876Z}
+///@generated {2022-08-18T22:24:59.984Z}
 
 function setLyricsEventLifespan(lyricsEvent, lifespan) {
 

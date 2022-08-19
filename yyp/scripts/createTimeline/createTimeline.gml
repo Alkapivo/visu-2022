@@ -5,7 +5,7 @@
 ///@param {Satck<GameEvent>} stack
 ///@return {Timeline} timeline 
 ///@throws {Exception}
-///@generated {2021-08-25T13:56:53.829Z}
+///@generated {2022-08-18T22:24:59.953Z}
 
 function createTimeline(time, context, stack) {
 
