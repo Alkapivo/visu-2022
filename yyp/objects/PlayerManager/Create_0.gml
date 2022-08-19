@@ -385,6 +385,11 @@
 				var gameRenderer = getGameRenderer();
 				gameRenderer.jumbotronEvent = jumbotronEvent;
 				gameRenderer.jumbotronEventTimer = 0.0;
+				
+				var baseScaleResolution = this.gameplayType == "bullethell"
+					? getPropertyReal("gameRenderer.baseScaleResolution.bullethell", 2048)
+					: getPropertyReal("gameRenderer.baseScaleResolution.platformer", 2048)
+				global.__baseScaleResolution = baseScaleResolution
 			}
 		}),
 		cleanUp: method(this, function() {
