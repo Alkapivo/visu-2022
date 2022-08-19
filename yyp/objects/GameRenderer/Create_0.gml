@@ -214,6 +214,7 @@
 
 	background = createSprite(asset_texture_empty, 0, 1.0, 1.0, 0.0, 0.0, c_white);
 	previousBackground = createSprite(asset_texture_empty, 0, 1.0, 1.0, 1.0, 0.0, c_white);
+	trackTimer = 0.0;
 
 /// @description Insert description here
 // You can write your code in this editor
