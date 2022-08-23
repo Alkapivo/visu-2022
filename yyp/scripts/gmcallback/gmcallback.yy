@@ -6,7 +6,7 @@
     "path": "folders/src/com.devhorizon.visu.yy",
   },
   "resourceVersion": "1.0",
-  "name": "gmcallback_test_callback",
+  "name": "gmcallback",
   "tags": [],
   "resourceType": "GMScript",
 }

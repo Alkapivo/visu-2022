@@ -819,7 +819,7 @@
     {"id":{"name":"getTiledLayerYPos","path":"scripts/getTiledLayerYPos/getTiledLayerYPos.yy",},"order":9,},
     {"id":{"name":"getTiledLayerProperties","path":"scripts/getTiledLayerProperties/getTiledLayerProperties.yy",},"order":11,},
     {"id":{"name":"getTiledLayerData","path":"scripts/getTiledLayerData/getTiledLayerData.yy",},"order":13,},
-    {"id":{"name":"gmcallback_test_callback","path":"scripts/gmcallback_test_callback/gmcallback_test_callback.yy",},"order":8,},
+    {"id":{"name":"gmcallback","path":"scripts/gmcallback/gmcallback.yy",},"order":8,},
     {"id":{"name":"getTiledLayerWidth","path":"scripts/getTiledLayerWidth/getTiledLayerWidth.yy",},"order":15,},
     {"id":{"name":"getTiledLayerHeight","path":"scripts/getTiledLayerHeight/getTiledLayerHeight.yy",},"order":17,},
     {"id":{"name":"Property","path":"scripts/Property/Property.yy",},"order":2,},
@@ -2834,6 +2834,7 @@
     {"CopyToMask":-1,"filePath":"datafiles/data","resourceVersion":"1.0","name":"bullethell_demo_1.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/data","resourceVersion":"1.0","name":"ball.d3d","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/data","resourceVersion":"1.0","name":"midbooze_distant_memory_10.json","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/data","resourceVersion":"1.0","name":"FapJPVEUIAEwzY5.jpg","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2022.6.0.23",

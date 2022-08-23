@@ -8,14 +8,5 @@ function sendGridElementRenderRequest(argument0) {
 		var positionStamp = fetchGridElementPositionStamp(gridElement);
 		var gridElementPipeline = getGridRendererGridElementPipeline();
 	
-		if (!isArray(getGridElementPosition(gridElement))) {
-	
-			debugger;
-		}
-	
 		addToPriorityQueue(gridElementPipeline, positionStamp, gridElement);
-	
-
-
-
 }
