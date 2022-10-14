@@ -547,7 +547,7 @@
 				
 				var currentLength = recording.timer;
 				var audioLength = this.trackTimer;
-				logger("Recording timer: {0} {1} {2}", LogType.INFO, recording.timer, getGameplayTime(), audioLength);
+				//logger("Recording timer: {0} {1} {2}", LogType.INFO, recording.timer, getGameplayTime(), audioLength);
 				
 				var barLength = (GuiWidth / 3);
 				

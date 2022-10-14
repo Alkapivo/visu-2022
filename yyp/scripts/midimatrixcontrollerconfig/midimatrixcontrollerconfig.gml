@@ -369,13 +369,22 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "A", "6" ],
 			            pressed: function () {
 
-							var topLineWidth = 0.38;
-							var bottomLineWidth = 0.39;
+							var topLineWidth = 0.36;
+							var bottomLineWidth = 0.37;
 							logger("Set topLineWidth: {0}. bottomLineWidth: {1}", LogType.INFO, topLineWidth, bottomLineWidth);
 							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "topLineWidth", topLineWidth, 0.001, 1, 0)
 							sendFieldModifierTask(fieldModifierTask);
 							
 							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "bottomLineWidth", bottomLineWidth, 0.001, 1, 0)
+							sendFieldModifierTask(fieldModifierTask);
+							
+							var xScale = 0.85
+							var yScale = 0.85
+							logger("Set xScale: {0}. yScale: {1}", LogType.INFO, xScale, yScale);
+							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "xScale", xScale, 0.0008, 1, 0)
+							sendFieldModifierTask(fieldModifierTask);
+							
+							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "yScale", yScale, 0.0008, 1, 0)
 							sendFieldModifierTask(fieldModifierTask);
 			            }
 			        }
@@ -386,13 +395,22 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "S", "6" ],
 			            pressed: function () {
 							
-							var topLineWidth = 0.47;
+							var topLineWidth = 0.37;
 							var bottomLineWidth = 0.69;
 							logger("Set topLineWidth: {0}. bottomLineWidth: {1}", LogType.INFO, topLineWidth, bottomLineWidth);
 							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "topLineWidth", topLineWidth, 0.001, 1, 0)
 							sendFieldModifierTask(fieldModifierTask);
 							
 							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "bottomLineWidth", bottomLineWidth, 0.001, 1, 0)
+							sendFieldModifierTask(fieldModifierTask);
+							
+							var xScale = 0.90
+							var yScale = 0.90
+							logger("Set xScale: {0}. yScale: {1}", LogType.INFO, xScale, yScale);
+							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "xScale", xScale, 0.0008, 1, 0)
+							sendFieldModifierTask(fieldModifierTask);
+							
+							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "yScale", yScale, 0.0008, 1, 0)
 							sendFieldModifierTask(fieldModifierTask);
 			            }
 			        }
@@ -403,13 +421,22 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "D", "6" ],
 			            pressed: function () {
 
-							var topLineWidth = 0.75;
+							var topLineWidth = 0.70;
 							var bottomLineWidth = 0.96;
 							logger("Set topLineWidth: {0}. bottomLineWidth: {1}", LogType.INFO, topLineWidth, bottomLineWidth);
 							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "topLineWidth", topLineWidth, 0.001, 1, 0)
 							sendFieldModifierTask(fieldModifierTask);
 							
 							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "bottomLineWidth", bottomLineWidth, 0.001, 1, 0)
+							sendFieldModifierTask(fieldModifierTask);
+							
+							var xScale = 0.95
+							var yScale = 0.95
+							logger("Set xScale: {0}. yScale: {1}", LogType.INFO, xScale, yScale);
+							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "xScale", xScale, 0.0008, 1, 0)
+							sendFieldModifierTask(fieldModifierTask);
+							
+							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "yScale", yScale, 0.0008, 1, 0)
 							sendFieldModifierTask(fieldModifierTask);
 			            }
 			        }
@@ -420,13 +447,22 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "F", "6" ],
 			            pressed: function () {
 
-							var topLineWidth = 1.0;
-							var bottomLineWidth = 1.0;
+							var topLineWidth = 0.89;
+							var bottomLineWidth = 0.93;
 							logger("Set topLineWidth: {0}. bottomLineWidth: {1}", LogType.INFO, topLineWidth, bottomLineWidth);
 							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "topLineWidth", topLineWidth, 0.001, 1, 0)
 							sendFieldModifierTask(fieldModifierTask);
 							
 							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "bottomLineWidth", bottomLineWidth, 0.001, 1, 0)
+							sendFieldModifierTask(fieldModifierTask);
+							
+							var xScale = 1.03
+							var yScale = 1.03
+							logger("Set xScale: {0}. yScale: {1}", LogType.INFO, xScale, yScale);
+							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "xScale", xScale, 0.0008, 1, 0)
+							sendFieldModifierTask(fieldModifierTask);
+							
+							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "yScale", yScale, 0.0008, 1, 0)
 							sendFieldModifierTask(fieldModifierTask);
 			            }
 			        }
@@ -492,7 +528,7 @@ function generateDefaultMidiMatrixController() {
 								"Mosaic",
 								3.6,
 								createMap(
-									createTuple("amount", [ 96, 1024, 0.8, 0.002 ])
+									createTuple("amount", [ 96, 1024, 0.8, 0.004 ])
 								)
 							);
 							
@@ -509,12 +545,12 @@ function generateDefaultMidiMatrixController() {
 
 			                var shaderEvent = createShaderEvent(
 								"Wave",
-								4.2,
+								3.8,
 								createMap(
-									[ "amount", [ 0, 15, 0.05 ] ],
-									[ "distortion", [ 7, 60, 0.08 ] ],
-									[ "speed", [ 2.1 ] ],
-									[ "time",  [ 0, 1000, 0.01 ] ]
+									[ "amount", [ 30, 1, 0.16 ] ],
+									[ "distortion", [ 60, 20, 0.2 ] ],
+									[ "speed", [ 0.4, 2.1, 0.1 ] ],
+									[ "time", [ 0, 1000, 0.01 ] ]
 								)
 							);
 							logger("Sending shaderEvent: {0}", LogType.INFO, getShaderEventName(shaderEvent));
@@ -530,7 +566,7 @@ function generateDefaultMidiMatrixController() {
 
 							var shaderEvent = createShaderEvent(
 								"Revert",
-								1.6,
+								2.71,
 								createMap()
 							);
 							logger("Sending shaderEvent: {0}", LogType.INFO, getShaderEventName(shaderEvent));
@@ -577,7 +613,7 @@ function generateDefaultMidiMatrixController() {
 						            [ "positionY", 0.5 ],
 						            [ "amount", [ 100, 1000, 0.2 ] ],
 						            [ "distortion", 40, 600, 0.16 ],
-						            [ "speed", [ 2, 10, 0.001 ] ],
+						            [ "speed", [ 2, 10, 0.01 ] ],
 						            [ "time", [ 0, 1000, 0.1 ] ]
 								)
 							);
@@ -594,11 +630,11 @@ function generateDefaultMidiMatrixController() {
 
 							var shaderEvent = createShaderEvent(
 								"Wave",
-								7.9,
+								8,
 								createMap(
-									[ "amount", [ 0, 15, 0.05 ] ],
-									[ "distortion", [ 30, 45, 0.04 ] ],
-									[ "speed", [ 1.6 ] ],
+									[ "amount", [ 1, 30, 0.11 ] ],
+									[ "distortion", [ 20, 60, 0.1 ] ],
+									[ "speed", [ 0.4, 2.1, 0.03 ] ],
 									[ "time",  [ 0, 1000, 0.01 ] ]
 								)
 							);
@@ -614,10 +650,14 @@ function generateDefaultMidiMatrixController() {
 			            pressed: function () {
 
 							var shaderEvent = createShaderEvent(
-								"Thermal",
-								7.4,
-								createMap()
+								"LED",
+								6.66,
+								createMap(
+									[ "brightness", 1.5 ],
+									[ "ledSize", [ 64, 480, 0.67 ] ]
+								)
 							);
+							
 							logger("Sending shaderEvent: {0}", LogType.INFO, getShaderEventName(shaderEvent));
 							sendShaderEvent(shaderEvent);
 			            }
@@ -748,6 +788,9 @@ function generateDefaultMidiMatrixController() {
 								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
 								features: {
 									isShooting: false,
+									isZigzagMovement: true,
+									zigzagAmount: 0.0016,
+									zigzagSpeed: 0.08,
 									bulletFollowPlayer: false,
 									slideAwayAfterLanding: false,
 								}
@@ -816,6 +859,9 @@ function generateDefaultMidiMatrixController() {
 								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
 								features: {
 									isShooting: false,
+									isZigzagMovement: true,
+									zigzagAmount: 0.0008,
+									zigzagSpeed: 0.07,
 									bulletFollowPlayer: false,
 									slideAwayAfterLanding: true,
 								}
@@ -1057,9 +1103,12 @@ function generateDefaultMidiMatrixController() {
 								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
 								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
 								features: {
-									isShooting: true,
+									isShooting: false,
+									isZigzagMovement: true,
+									zigzagAmount: 0.001,
+									zigzagSpeed: 0.13,
 									bulletFollowPlayer: true,
-									slideAwayAfterLanding: false,
+									slideAwayAfterLanding: false
 								}
 							}
 							
@@ -1091,7 +1140,10 @@ function generateDefaultMidiMatrixController() {
 								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
 								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
 								features: {
-									isShooting: true,
+									isShooting: false,
+									isZigzagMovement: false,
+									zigzagAmount: 0.003,
+									zigzagSpeed: 0.15,
 									bulletFollowPlayer: false,
 									slideAwayAfterLanding: false,
 								}
@@ -1159,9 +1211,12 @@ function generateDefaultMidiMatrixController() {
 								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
 								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
 								features: {
-									isShooting: true,
+									isShooting: choose(true, true, false),
+									isZigzagMovement: true,
 									bulletFollowPlayer: true,
 									slideAwayAfterLanding: true,
+									zigzagAmount: 0.003,
+									zigzagSpeed: 0.11,
 								}
 							}
 							

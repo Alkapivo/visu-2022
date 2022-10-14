@@ -297,7 +297,7 @@
 						Core.Collections._Map.set(getShroomState(shroom), "playerLanded", true);
 						
 						var shroomHorizontalSpeed = Core.Collections._Map.get(getShroomState(shroom), "horizontalSpeed");
-						var movedHorizontalPosition = getPositionHorizontal(playerPosition) + applyDeltaTime(shroomHorizontalSpeed);
+						var movedHorizontalPosition = getPositionHorizontal(playerPosition) + shroomHorizontalSpeed;
 						setPositionHorizontal(playerPosition, movedHorizontalPosition);
 						
 						var calcVerticalPosition = getPositionVertical(playerPosition)

@@ -259,7 +259,7 @@
 						getGridRendererXScale(),
 						getGridRendererYScale(), 
 						getGridRendererAngle() + gridRenderer.angleSwing, 
-						0.2,
+						0.33,
 						c_white,
 						createPosition(0.5, 0.5)
 					);

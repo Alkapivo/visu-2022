@@ -162,6 +162,8 @@
 						
 							if ((shaderAsset != null) && 
 								(shaderIsCompiled)) {
+									
+									
 							
 								var duration = getShaderEventDuration(shaderEvent);
 								var state = cloneMap(getShaderEventData(shaderEvent))   ;

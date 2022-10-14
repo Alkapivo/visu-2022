@@ -154,8 +154,20 @@
 							getPositionVertical(shroomPosition), 
 			 				speedValue);
 						setPositionVertical(shroomPosition, movedVerticalPosition);
-								
+						
+						var isZigzagMovement = getValueFromMap(shroomState, "isZigzagMovement", false);
 						var horizontalSpeed = getValueFromMap(shroomState, "horizontalSpeed", choose(1, -1) * (random(6.66) / 1000));
+						if (isZigzagMovement) {
+							
+							var zigzagTimer = getValueFromMap(shroomState, "zigzagTimer", 0);
+							var zigzagAmount = getValueFromMap(shroomState, "zigzagAmount", 0.002);
+							var zigzagSpeed = getValueFromMap(shroomState, "zigzagSpeed", 0.2);
+							zigzagTimer = incrementTimer(zigzagTimer, 6.28, zigzagSpeed);
+							horizontalSpeed = sin(zigzagTimer) * zigzagAmount
+							Core.Collections._Map.set(shroomState, "zigzagTimer", zigzagTimer);
+							Core.Collections._Map.set(shroomState, "horizontalSpeed", horizontalSpeed);
+						}
+						
 						var movedHorizontalPosition = getPositionHorizontal(shroomPosition) + applyDeltaTime(horizontalSpeed);
 						setPositionHorizontal(shroomPosition, movedHorizontalPosition);
 				

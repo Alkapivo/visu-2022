@@ -557,6 +557,9 @@ function spawnVisuShroom(config) {
 	var shroomState = createMap();
 	Core.Collections._Map.set(shroomState, "bulletTaken", 0);
 	Core.Collections._Map.set(shroomState, "isShooting", getValueFromStruct(config.features, "isShooting", false));
+	Core.Collections._Map.set(shroomState, "isZigzagMovement", getValueFromStruct(config.features, "isZigzagMovement", false));
+	Core.Collections._Map.set(shroomState, "zigzagAmount", getValueFromStruct(config.features, "zigzagAmount", 0.002));
+	Core.Collections._Map.set(shroomState, "zigzagSpeed", getValueFromStruct(config.features, "zigzagSpeed", 0.2));
 	Core.Collections._Map.set(shroomState, "bulletFollowPlayer", getValueFromStruct(config.features, "bulletFollowPlayer", false));
 	Core.Collections._Map.set(shroomState, "slideAwayAfterLanding", getValueFromStruct(config.features, "slideAwayAfterLanding", false));
 	
