@@ -1,0 +1,325 @@
+{
+    "audio": {
+        "name": "asset_ost_visu_main",
+        "trackPosition": 90.0
+    },
+    "timer": 186.3038720000231478479690849781,
+    "events": [
+        {
+            "data": {
+                "timestamp": 91.207041999999944437149679288268,
+                "log": "",
+                "key": "5x2"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 95.462897666666520990474964492023,
+                "log": "",
+                "key": "4x0"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 95.613545999999857372131373267621,
+                "log": "",
+                "key": "4x1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 99.496853666666467574941634666175,
+                "log": "2022-11-02 18:06:46 INFO    [Anonymous] Set xScale: 0.85. yScale: 0.85",
+                "key": "4x2"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 103.56565799999968646716297371313,
+                "log": "2022-11-02 18:06:50 INFO    [Anonymous] Set xScale: 0.90. yScale: 0.90",
+                "key": "5x2"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 103.50340699999959781507641309872,
+                "log": "",
+                "key": "4x1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 111.33921699999946497428027214482,
+                "log": "2022-11-02 18:06:57 INFO    [Anonymous] Set xScale: 0.95. yScale: 0.95",
+                "key": "6x2"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 111.27259766666601592532970244065,
+                "log": "",
+                "key": "5x1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 115.34435299999927337921690195799,
+                "log": "2022-11-02 18:07:01 INFO    [Anonymous] Set xScale: 0.85. yScale: 0.85",
+                "key": "4x2"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 119.01203799999919397123449016362,
+                "log": "",
+                "key": "4x1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 119.28500133333250232681166380644,
+                "log": "2022-11-02 18:07:05 INFO    [Anonymous] Set xScale: 0.95. yScale: 0.95",
+                "key": "6x2"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 123.1036909999990172082107164897,
+                "log": "2022-11-02 18:07:09 INFO    [Anonymous] Set xScale: 0.85. yScale: 0.85",
+                "key": "4x2"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 123.20087199999902338731772033498,
+                "log": "",
+                "key": "5x1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 123.93783766666567203174054156989,
+                "log": "",
+                "key": "5x1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 124.62364833333228375522594433278,
+                "log": "",
+                "key": "5x1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 125.39479499999893619133217725903,
+                "log": "",
+                "key": "5x1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 126.0653179999989390580594772473,
+                "log": "",
+                "key": "5x1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 127.09133033333218065763503545895,
+                "log": "2022-11-02 18:07:13 INFO    [Anonymous] Set xScale: 1.03. yScale: 1.03",
+                "key": "7x2"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 127.07129466666557959797501098365,
+                "log": "",
+                "key": "4x1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 127.27237233333224253328808117658,
+                "log": "",
+                "key": "4x0"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 134.85228733333525497073424048722,
+                "log": "2022-11-02 18:07:21 INFO    [Anonymous] Set xScale: 0.95. yScale: 0.95",
+                "key": "6x2"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 138.39154800000335399090545251966,
+                "log": "2022-11-02 18:07:24 INFO    [Anonymous] Set xScale: 0.90. yScale: 0.90",
+                "key": "5x2"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 142.55059200000519581408298108727,
+                "log": "2022-11-02 18:07:28 INFO    [Anonymous] Set xScale: 0.85. yScale: 0.85",
+                "key": "4x2"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 142.61581933333866345492424443364,
+                "log": "",
+                "key": "4x0"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 146.67038166667359178063634317368,
+                "log": "2022-11-02 18:07:32 INFO    [Anonymous] Set xScale: 0.90. yScale: 0.90",
+                "key": "5x2"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 146.46791666667371600851765833795,
+                "log": "",
+                "key": "4x1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 149.57002933334140948318236041814,
+                "log": "2022-11-02 18:07:35 INFO    [Anonymous] Set xScale: 0.95. yScale: 0.95",
+                "key": "6x2"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 150.42185166667553630759357474744,
+                "log": "",
+                "key": "5x1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 152.43558700000912153882381971925,
+                "log": "2022-11-02 18:07:38 INFO    [Anonymous] Set xScale: 1.03. yScale: 1.03",
+                "key": "7x2"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 152.91733066667666207649745047092,
+                "log": "",
+                "key": "5x1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 155.23057933334439439931884407997,
+                "log": "",
+                "key": "5x1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 158.52922766667830956066609360278,
+                "log": "2022-11-02 18:07:44 INFO    [Anonymous] Set xScale: 0.95. yScale: 0.95",
+                "key": "6x2"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 158.46018766667918953316984698176,
+                "log": "",
+                "key": "5x1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 158.62770966667926586524117738008,
+                "log": "",
+                "key": "4x1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 158.9297650000127362091006943956,
+                "log": "",
+                "key": "4x0"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 166.32772433334827155704260803759,
+                "log": "2022-11-02 18:07:52 INFO    [Anonymous] Set xScale: 0.90. yScale: 0.90",
+                "key": "5x2"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 173.95632633335131345120316836983,
+                "log": "2022-11-02 18:08:00 INFO    [Anonymous] Set xScale: 0.95. yScale: 0.95",
+                "key": "6x2"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 182.08165400002144451718777418137,
+                "log": "2022-11-02 18:08:08 INFO    [Anonymous] Set xScale: 0.90. yScale: 0.90",
+                "key": "5x2"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 185.96843100002294590922247152776,
+                "log": "2022-11-02 18:08:12 INFO    [Anonymous] Set xScale: 0.85. yScale: 0.85",
+                "key": "4x2"
+            },
+            "name": "MidiControllerButtonEvent"
+        }
+    ],
+    "layout": {
+        "name": "novation-launchpad",
+        "page": 0.0
+    }
+}
