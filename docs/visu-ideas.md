@@ -7,3 +7,19 @@ Shroom behaviour ideas:
  - `platformer`: landing on shroom can trigger respawnj event
  - `platformer`: collision with shroom can trigger respawn event
  - `platformer`: shroom can change its direction and speed when the player will land or collide on it
+
+
+Editor ideas:
+
+covnert 
+ - screenshot from arrangement view (ableton) 
+ - song file
+ - event dictionary
+ into track.json, where 
+  - pixel colors are mapped to events from dictionary
+  - pixels are mapped with timestamps
+
+visu-track-package
+ - separate gms project 
+
+ 

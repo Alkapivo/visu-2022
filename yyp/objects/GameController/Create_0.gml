@@ -60,6 +60,9 @@
 	///@type {Boolean}
 	isOSTResolved = false;
 	
+	///@type {Number}
+	rewind = getPropertyReal("GameController.rewind", 0.0);
+	
 	#endregion
 	
 	#region Dependencies
@@ -116,6 +119,7 @@
 							var eventsRecording = eventsRecorder.parseRecording(eventsRecorder, text);
 							eventsPlayer.play(eventsPlayer, eventsRecording);
 							visuTrackDefaultHandler();
+							
 						}	
 					}
 				} else {
@@ -127,6 +131,13 @@
 						var eventsRecorder = this.midiMatrixController.eventsRecorder;
 						var text = this.baseRecording;
 						var eventsRecording = eventsRecorder.parseRecording(eventsRecorder, text);
+						
+						eventsRecording.audio.trackPosition = this.rewind; // rewind hack
+						
+						if (isStruct(getStructVariable(eventsRecorder.state, "currentRecording"))) {
+							eventsRecorder.state.currentRecording.timer =  this.rewind // rewind hack
+							eventsRecorder.state.currentRecording.audio.trackPosition =  this.rewind // rewind hack
+						}
 						eventsPlayer.play(eventsPlayer, eventsRecording);
 				
 						//var package = package_carpenter_brut_turbo_killer();

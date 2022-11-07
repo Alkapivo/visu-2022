@@ -297,6 +297,8 @@
 						Core.Collections._Map.set(getShroomState(shroom), "playerLanded", true);
 						
 						var shroomHorizontalSpeed = Core.Collections._Map.get(getShroomState(shroom), "horizontalSpeed");
+						var gridSpeed = getInstanceVariable(getGridRenderer(), "separatorSpeed");
+						shroomHorizontalSpeed = shroomHorizontalSpeed * (gridSpeed / 0.005);
 						var movedHorizontalPosition = getPositionHorizontal(playerPosition) + shroomHorizontalSpeed;
 						setPositionHorizontal(playerPosition, movedHorizontalPosition);
 						

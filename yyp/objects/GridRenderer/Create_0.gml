@@ -16,7 +16,7 @@
 ///@public:
 
 	///@type {Boolean}
-	enableGridRendering = true;
+	enableGridRendering = false;
 
 	///@type {Boolean}
 	enableGridElementsRendering = true;
@@ -49,7 +49,7 @@
 	gridEventPipeline = generatePipeline(GridRenderer_gridEventPipeline, Stack, GridEvent);
 	
 	///@type {Number} normalized
-	topLineWidth = 0.612;//0.462;//0.712;
+	topLineWidth = 0.33;
 	
 	///@type {Number} normalized
 	topLinePosition = 0.5;
@@ -58,7 +58,7 @@
 	topLinePositionFactor = global.topLinePositionFactorValues[0];
 
 	///@type {Number} normalized
-	bottomLineWidth = 0.681;//0.533;//0.786;
+	bottomLineWidth = 0.75
 	
 	///@type {Number} normalized
 	bottomLinePosition = 0.5;
@@ -115,19 +115,19 @@
 	isGridFrameCleaned = true;
 	
 	///@type {Boolean}
-	gridWheelSpeed = 0.01;
+	gridWheelSpeed = 0.008;
 	
 	///@type {Color}
-	colorGridWheelTopLeft = colorHashToColor("#ff0000");
+	colorGridWheelTopLeft = colorHashToColor("#ffffff");
 	
 	///@type {Color}
-	colorGridWheelTopRight = colorHashToColor("#6e1037");
+	colorGridWheelTopRight = colorHashToColor("#ffffff");
 	
 	///@type {Color}
-	colorGridWheelBottomRight = colorHashToColor("#ff0000");
+	colorGridWheelBottomRight = colorHashToColor("#ffffff");
 	
 	///@type {Color}
-	colorGridWheelBottomLeft = colorHashToColor("#1f010a");
+	colorGridWheelBottomLeft = colorHashToColor("#ffffff");
 	
 	///@type {Boolean}
 	swingGrid = false;
@@ -509,6 +509,7 @@
 				for (var index = 0; index < gridColorWheelLength; index++) {
 					var colorPointer = this.gridColorWheelPointers[index];
 					if (transformColor(this.gridColorWheel[@ index], this.gridColorWheelTable[colorPointer], this.gridWheelSpeed)) {
+						//printArray(this.gridColorWheelTable[index]);
 						this.gridColorWheelPointers[index] = colorPointer + 1 > 3 ? 0 : colorPointer + 1;
 					}	
 				}

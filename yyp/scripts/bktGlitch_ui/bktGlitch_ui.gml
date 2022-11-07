@@ -35,7 +35,7 @@ function __bktgtlich_ui_init() {
         lineShift: {
             minValue: 0.0,
             maxValue: 0.03,
-            defValue: 0
+            defValue: 0.0
         },
         lineResolution: {
             minValue: 0.0,
@@ -49,22 +49,22 @@ function __bktgtlich_ui_init() {
         },
         lineDrift: {
             minValue: 0.0,
-            maxValue: 0,
+            maxValue: 0.1,
             defValue: 0
         },
         jumbleSpeed: {
             minValue: 0,
-            maxValue: 0,
+            maxValue: 0.1,
             defValue: 0
         },
         jumbleShift: {
             minValue: 0,
-            maxValue: 0,
+            maxValue: 0.2,
             defValue: 0
         },
         jumbleResolution: {
             minValue: 0,
-            maxValue: 0,
+            maxValue: 0.16,
             defValue: 0
         },
         jumbleness: {
@@ -99,8 +99,8 @@ function __bktgtlich_ui_init() {
         },
         intensity: {
             minValue: 0.0,
-            maxValue: 0.07,
-            defValue: 0.05
+            maxValue: 0.1,
+            defValue: 0.08
         }
     }
 

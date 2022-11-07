@@ -38,6 +38,7 @@ function transformColor(argument0, argument1, argument2) {
 		setColorAlpha(sourceColor, alphaFinal);
 	
 		var areEqual = areColorsEqual(sourceColor, targetColor);
+		//printArray(targetColor);
 		if (areEqual) {
 			setColorRed(sourceColor, round(redFinal * 255) / 255);
 			setColorGreen(sourceColor, round(greenFinal * 255) / 255);
