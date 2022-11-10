@@ -39,12 +39,6 @@
 				}	
 			}
 			
-			var alpha = getShaderTaskAlpha(task);
-			if (alpha < 1) {
-				alpha = clamp(alpha + applyDeltaTime(0.07), 0.0, 1.0);
-				setShaderTaskAlpha(task, alpha);
-			}
-			
 			var countdown = getShaderTaskCountdown(task);
 			countdown -= (1 / GAME_FPS) * getDeltaTimeValue();
 			setShaderTaskCountdown(task, countdown);
@@ -60,6 +54,18 @@
 				}
 			} else {
 				destroyShaderTask(task);
+			}
+			
+			var alpha = getShaderTaskAlpha(task);
+			var alphaFadeOutTimer = 0.8;
+			if (countdown > alphaFadeOutTimer) {
+				if (alpha < 1) {
+					alpha = clamp(alpha + applyDeltaTime(), 0.0, 1.0);
+					setShaderTaskAlpha(task, alpha);
+				}
+			} else {
+				alpha = countdown / alphaFadeOutTimer;
+				setShaderTaskAlpha(task, alpha);
 			}
 		}
 		

@@ -27,8 +27,20 @@ function visuTrackDefaultHandler() {
 	gridRenderer.colorGridBackground = colorHashToGMColor(getPropertyString("gridRenderer.colorGridBackground", "#000000"));
 	gridRenderer.colorGridWheelTopLeft = colorHashToColor(getPropertyString("gridRenderer.colorGridWheelTopLeft", "#ffffff"));
 	gridRenderer.colorGridWheelTopRight = colorHashToColor(getPropertyString("gridRenderer.colorGridWheelTopRight", "#ffffff"));
-	gridRenderer.colorGridWheelBottomRight = colorHashToColor(getPropertyString("gridRenderer.colorGridWheelBottomRight", "#ff0000"));
-	gridRenderer.colorGridWheelBottomLeft = colorHashToColor(getPropertyString("gridRenderer.colorGridWheelBottomLeft", "#f2d5d8"));
+	gridRenderer.colorGridWheelBottomRight = colorHashToColor(getPropertyString("gridRenderer.colorGridWheelBottomRight", "#ffffff"));
+	gridRenderer.colorGridWheelBottomLeft = colorHashToColor(getPropertyString("gridRenderer.colorGridWheelBottomLeft", "#ffffff"));
+	gridRenderer.gridColorWheel = [
+		cloneArray(gridRenderer.colorGridWheelTopLeft),
+		cloneArray(gridRenderer.colorGridWheelTopRight),
+		cloneArray(gridRenderer.colorGridWheelBottomRight),
+		cloneArray(gridRenderer.colorGridWheelBottomLeft)
+	];
+	gridRenderer.gridColorWheelTable = [
+		gridRenderer.colorGridWheelTopLeft,
+		gridRenderer.colorGridWheelTopRight,
+		gridRenderer.colorGridWheelBottomRight,
+		gridRenderer.colorGridWheelBottomLeft
+	]
 	gridRenderer.background_color_01 = colorHashToGMColor(getPropertyString("gridRenderer.background_color_01", "#ffffff"));
 	gridRenderer.background_color_02 = colorHashToGMColor(getPropertyString("gridRenderer.background_color_02", "#e63956"));
 	gridRenderer.background_color_03 = colorHashToGMColor(getPropertyString("gridRenderer.background_color_03", "#d131f5"));

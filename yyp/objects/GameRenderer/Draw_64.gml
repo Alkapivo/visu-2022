@@ -212,7 +212,21 @@
 	#region Draw to jumbotronSurface
 	gpuSetSurfaceTarget(jumbotronSurface);
 	if (jumbotronEvent != null) {
-		drawClear([ 0.77, 0.0, 0.21, 0.4]); // TODO getJumbotronEventBackgroundColor
+		
+		var jumbotronAlpha = 1.0;
+		var jumbotronFadeTime = 0.2
+		var duration = getJumbotronEventDuration(jumbotronEvent);
+		if (jumbotronEventTimer < jumbotronFadeTime) {
+		
+			jumbotronAlpha = jumbotronEventTimer / jumbotronFadeTime
+		}
+		
+		if (jumbotronEventTimer > duration - jumbotronFadeTime) {
+			
+			jumbotronAlpha = 1.0 - ((jumbotronEventTimer - (duration - jumbotronFadeTime)) / jumbotronFadeTime)
+		}
+		
+		drawClear([ 0.77, 0.0, 0.21, jumbotronAlpha * 0.4]); // TODO getJumbotronEventBackgroundColor
 		var jumbotronHandlerName = getJumbotronEventHandlerName(jumbotronEvent)
 		switch (jumbotronHandlerName) {
 			case "message":
@@ -239,7 +253,7 @@
 					fontColorTopRight,
 					fontColorBottomRight,
 					fontColorBottomLeft,
-					1.0);
+					jumbotronAlpha);
 				#endregion
 				break;
 			case "scoreboard":
@@ -298,7 +312,7 @@
 				break;
 		}
 
-		var duration = getJumbotronEventDuration(jumbotronEvent);
+		
 		jumbotronEventTimer = incrementTimer(jumbotronEventTimer, duration);
 		if (timerFinished(jumbotronEventTimer)) {
 			jumbotronEventTimer = 0.0;
@@ -546,8 +560,9 @@
 			
 				
 				var currentLength = recording.timer;
-				var audioLength = this.trackTimer;
-				logger("Recording timer: {0} {1} {2}", LogType.INFO, recording.timer, getGameplayTime(), audioLength);
+				var audioLength = audio_sound_length(soundInstanceId); //this.trackTimer; //rewind hack
+				//logger("Recording timer: {0} {1} {2}", LogType.INFO, recording.timer, getGameplayTime(), audioLength);
+
 				
 				var barLength = (GuiWidth / 3);
 				
@@ -663,4 +678,11 @@
 	draw_set_alpha(1.0);
 	*/
 	
+	if (global.isGameplayStarted) {
+		if (!isStackEmpty(texturesStack)) {
+	
+			var texture = popStack(texturesStack);
+			renderTexture(texture, random(GuiWidth), random(GuiHeight), random(sprite_get_number(texture)));
+		}
+	}
 

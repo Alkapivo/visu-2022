@@ -16,7 +16,7 @@
 ///@public:
 
 	///@type {Boolean}
-	enableGridRendering = true;
+	enableGridRendering = false;
 
 	///@type {Boolean}
 	enableGridElementsRendering = true;
@@ -49,7 +49,7 @@
 	gridEventPipeline = generatePipeline(GridRenderer_gridEventPipeline, Stack, GridEvent);
 	
 	///@type {Number} normalized
-	topLineWidth = 0.612;//0.462;//0.712;
+	topLineWidth = 0.33;
 	
 	///@type {Number} normalized
 	topLinePosition = 0.5;
@@ -58,7 +58,7 @@
 	topLinePositionFactor = global.topLinePositionFactorValues[0];
 
 	///@type {Number} normalized
-	bottomLineWidth = 0.681;//0.533;//0.786;
+	bottomLineWidth = 0.75
 	
 	///@type {Number} normalized
 	bottomLinePosition = 0.5;
@@ -115,19 +115,19 @@
 	isGridFrameCleaned = true;
 	
 	///@type {Boolean}
-	gridWheelSpeed = 0.01;
+	gridWheelSpeed = 0.008;
 	
 	///@type {Color}
-	colorGridWheelTopLeft = colorHashToColor("#ff0000");
+	colorGridWheelTopLeft = colorHashToColor("#ffffff");
 	
 	///@type {Color}
-	colorGridWheelTopRight = colorHashToColor("#6e1037");
+	colorGridWheelTopRight = colorHashToColor("#ffffff");
 	
 	///@type {Color}
-	colorGridWheelBottomRight = colorHashToColor("#ff0000");
+	colorGridWheelBottomRight = colorHashToColor("#ffffff");
 	
 	///@type {Color}
-	colorGridWheelBottomLeft = colorHashToColor("#1f010a");
+	colorGridWheelBottomLeft = colorHashToColor("#ffffff");
 	
 	///@type {Boolean}
 	swingGrid = false;
@@ -509,6 +509,7 @@
 				for (var index = 0; index < gridColorWheelLength; index++) {
 					var colorPointer = this.gridColorWheelPointers[index];
 					if (transformColor(this.gridColorWheel[@ index], this.gridColorWheelTable[colorPointer], this.gridWheelSpeed)) {
+						//printArray(this.gridColorWheelTable[index]);
 						this.gridColorWheelPointers[index] = colorPointer + 1 > 3 ? 0 : colorPointer + 1;
 					}	
 				}
@@ -556,6 +557,7 @@
 					gpu_set_blendmode_ext(this.blendModes[this.firstBlendPointer], this.blendModes[this.secondBlendPointer]);
 					var dimension = max(viewWidth, viewHeight);
 					var gridElementPipelineSize = getPriorityQueueSize(this.gridElementPipeline);
+					var playerGridElement = createEmptyOptional();
 					for (var index = 0; index < gridElementPipelineSize; index++) {
 		
 						var gridElement = popMinPriorityQueue(this.gridElementPipeline);
@@ -582,6 +584,7 @@
 						if (spriteAsset == asset_sprite_spaceship) {
 							restoreBlendMode = true;
 							gpu_set_blendmode(bm_normal)
+							playerGridElement = gridElement;
 						}
 		
 						var verticalProjectionPowerFactor = clamp(this.gridAngle, 0.0, 1.0)		
@@ -657,9 +660,102 @@
 						}
 						#endregion
 					}
+					
+					
 					gpu_set_blendmode(bm_normal);
 				}
+				if (isEntity(playerGridElement, GridElement)) {
+						var gridElement = playerGridElement;
+						
+						#region Calculate GridElement Coordinates
+						var position = getGridElementPosition(gridElement);
+						var pathXBegin = (getPositionHorizontal(position) * pixelTopLineWidth) + lineTopXBegin;
+						var pathXEnd = (getPositionHorizontal(position) * pixelBottomLineWidth) + lineBottomXBegin;
+						var pathLength = getDistanceBetweenCoords(pathXBegin, pathYBegin, pathXEnd, pathYEnd);
+						var pathDirection = getAngleBetweenCoords(pathXBegin, pathYBegin, pathXEnd, pathYEnd);
+				
+						var sprite = getGridElementSprite(gridElement);
+						var spriteAsset = getSpriteAssetIndex(sprite);
+						var pixelSpriteWidth = getSpriteAssetWidth(spriteAsset);
+						var pixelSpriteHeight = getSpriteAssetHeight(spriteAsset);
+						var spriteWidth = pixelSpriteWidth / BASE_SCALE_RESOLUTION;
+						var spriteHeight = pixelSpriteHeight / BASE_SCALE_RESOLUTION;
+					
+						gpu_set_blendmode(bm_normal)
+		
+						var verticalProjectionPowerFactor = clamp(this.gridAngle, 0.0, 1.0)		
+						var targetScaleFactor = power(position[1], verticalProjectionPowerFactor);
 			
+						var targetHeight = (spriteHeight * gridHeight) * targetScaleFactor;
+						var targetXBegin = pathXBegin + getXOnCircle(pathLength * getPositionVertical(position), pathDirection);
+						var targetYBegin = pathYBegin + getYOnCircle(pathLength * getPositionVertical(position), pathDirection);
+						var targetXEnd = targetXBegin + getXOnCircle(targetHeight, pathDirection);
+						var targetYEnd = targetYBegin + getYOnCircle(targetHeight, pathDirection);
+						var targetTopWidth = (
+							(lineTopXCenter + ((targetYBegin - pixelOffsetTop) / gridAngleRight) + (pixelTopLineWidth * 0.5)) - 
+							(lineTopXCenter - ((targetYBegin - pixelOffsetTop) / gridAngleLeft) - (pixelTopLineWidth * 0.5))) 
+							* spriteWidth
+						var targetBottomWidth = (
+							(lineTopXCenter + ((targetYEnd - pixelOffsetTop) / gridAngleRight) + (pixelTopLineWidth * 0.5)) - 
+							(lineTopXCenter - ((targetYEnd - pixelOffsetTop) / gridAngleLeft) - (pixelTopLineWidth * 0.5))) 
+							* spriteWidth
+						#endregion 
+		
+						#region Draw GridElement
+						var polygon2D = [
+						    [ targetXBegin - (targetTopWidth * 0.5),  targetYBegin ],
+						    [ targetXBegin + (targetTopWidth * 0.5),  targetYBegin ],
+						    [ targetXEnd + (targetBottomWidth * 0.5), targetYEnd   ],
+						    [ targetXEnd - (targetBottomWidth * 0.5), targetYEnd   ]
+						];
+    
+						var spriteScale = targetScaleFactor * (1.0 - (this.offsetTop + this.offsetBottom));
+			
+						var verticalPosition = getPositionVertical(getGridElementPosition(gridElement));
+						var equation = (this.gridAngle * 2.0) * power(verticalPosition, 2) - this.gridAngle + 1.0;
+			
+						var tempSimpleSpriteScale = position[1] + 0.5;
+						var scaleFactor = 0.9;
+						var simpleSpriteScale = min(1.0, max(1 + scaleFactor - position[1], 0.0));
+						var spriteBlend = c_white;
+						if (restoreBlendMode) {
+						
+							renderTexture(
+								asset_texture_spaceship_glow,
+								targetXBegin + ((targetXEnd - targetXBegin) / 2.0),
+								targetYEnd,
+								0,
+								simpleSpriteScale,
+								simpleSpriteScale,
+								1.0
+							);
+						
+							this.cameraData.guiX = targetXBegin + ((targetXEnd - targetXBegin) / 2.0);
+							this.cameraData.guiY = targetYEnd;
+						}
+					
+						if (this.isFlat) {
+					
+							drawSprite(
+								sprite,
+								targetXBegin + ((targetXEnd - targetXBegin) / 2.0),
+								targetYEnd,
+								simpleSpriteScale,
+								simpleSpriteScale,
+								1.0,
+								0.0,
+								c_white
+							);
+						} else {
+					
+							drawSpritePolygon(
+								sprite,
+								polygon2D,
+								1.0
+							);
+						}
+						#endregion
+				}
 				#endregion
 	
 			gpuResetSurfaceTarget();
@@ -771,3 +867,4 @@
 	}
 
 	this.GMObject.create();
+	
