@@ -240,7 +240,7 @@ function initializeGlobals() {
 	#macro LangCode global.langCode
 	
 	///@type {Boolean}
-	global.__IsTextureLinearInterpolationEnabled = false;
+	global.__IsTextureLinearInterpolationEnabled = true;
 	#macro IsTextureLinearInterpolationEnabled global.__IsTextureLinearInterpolationEnabled
 
 	#region ParticleEmitterShapeDictionary

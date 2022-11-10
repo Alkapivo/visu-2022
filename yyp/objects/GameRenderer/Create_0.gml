@@ -219,6 +219,20 @@
 	foregroundTheta = 0.0;
 	trackTimer = 0.0;
 	cameraTheta = 0.0;
+	texturesStack = createStack(
+		asset_texture_visu_bkg_1,
+		asset_texture_visu_bkg_2,
+		asset_texture_visu_bkg_3,
+		asset_texture_visu_bkg_4,
+		asset_texture_visu_shroom_01,
+		asset_texture_visu_shroom_02,
+		asset_texture_visu_shroom_03,
+		asset_texture_visu_shroom_04,
+		asset_texture_visu_shroom_05,
+		asset_texture_visu_shroom_06,
+		asset_texture_visu_shroom_07,
+		asset_texture_visu_shroom_08
+	);
 
 /// @description Insert description here
 // You can write your code in this editor

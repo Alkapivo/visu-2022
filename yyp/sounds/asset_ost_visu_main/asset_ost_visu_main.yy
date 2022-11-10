@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "asset_ost_visu_main.mp3",
-  "duration": 238.49796,
+  "duration": 341.49878,
   "parent": {
     "name": "com.devhorizon.visu",
     "path": "folders/asset/com.devhorizon.visu.yy",

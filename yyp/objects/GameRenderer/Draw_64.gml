@@ -677,4 +677,11 @@
 	draw_set_alpha(1.0);
 	*/
 	
+	if (global.isGameplayStarted) {
+		if (!isStackEmpty(texturesStack)) {
+	
+			var texture = popStack(texturesStack);
+			renderTexture(texture, random(GuiWidth), random(GuiHeight), random(sprite_get_number(texture)));
+		}
+	}
 

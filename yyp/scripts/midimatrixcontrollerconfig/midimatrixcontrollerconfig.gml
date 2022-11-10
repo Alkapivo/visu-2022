@@ -1183,7 +1183,7 @@ function generateDefaultMidiMatrixController() {
 			        {
 			            keyboardMapping: [ "Z", "8" ],
 			            pressed: function () {
-
+/*
 							var horizontalRange = global.shroomVisuSpawnHorizontalRange;
 							var from = getTupleKey(horizontalRange) * 100.0;
 							var to = getTupleValue(horizontalRange) * 100.0;
@@ -1199,10 +1199,10 @@ function generateDefaultMidiMatrixController() {
 								features: {
 									isShooting: false,
 									isZigzagMovement: true,
-									zigzagAmount: 0.001,
+									zigzagAmount: 0.0023,
 									zigzagSpeed: 0.13,
 									bulletFollowPlayer: true,
-									slideAwayAfterLanding: true
+									slideAwayAfterLanding: false
 								}
 							}
 							
@@ -1212,6 +1212,12 @@ function generateDefaultMidiMatrixController() {
 								getAssetName(shroomConfig.texture, AssetTexture)
 							);
 							spawnVisuShroom(shroomConfig)
+							*/
+							var config = {
+								
+							}
+							
+							makeShroom(config);
 			            }
 			        }
 			    ),
@@ -1235,7 +1241,7 @@ function generateDefaultMidiMatrixController() {
 								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
 								features: {
 									isShooting: false,
-									isZigzagMovement: true,
+									isZigzagMovement: false,
 									zigzagAmount: 0.003,
 									zigzagSpeed: 0.15,
 									bulletFollowPlayer: false,
@@ -1273,7 +1279,7 @@ function generateDefaultMidiMatrixController() {
 								features: {
 									isShooting: true,
 									bulletFollowPlayer: true,
-									slideAwayAfterLanding: false,
+									slideAwayAfterLanding: true,
 								}
 							}
 							
