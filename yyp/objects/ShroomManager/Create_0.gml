@@ -168,7 +168,7 @@
 							Core.Collections._Map.set(shroomState, "horizontalSpeed", horizontalSpeed);
 						}
 						
-						var movedHorizontalPosition = getPositionHorizontal(shroomPosition) + applyDeltaTime(horizontalSpeed);
+						var movedHorizontalPosition = getPositionHorizontal(shroomPosition) + applyDeltaTime(horizontalSpeed  * (gridSpeed / 0.005));
 						setPositionHorizontal(shroomPosition, movedHorizontalPosition);
 				
 						if ((movedVerticalPosition >= -1.5) &&
@@ -176,6 +176,12 @@
 						
 							sendGridElementRenderRequest(shroomGridElement);
 						} else {
+							destroyShrooms = pushArray(destroyShrooms, index);
+						}
+						
+						if ((movedHorizontalPosition <= -1.5) &&
+							(movedHorizontalPosition >= 1.5)) {
+						
 							destroyShrooms = pushArray(destroyShrooms, index);
 						}
 						#endregion

@@ -156,8 +156,8 @@ function createEventsPlayer() {
 		
 			try {
 				eventsPlayer.recording = {
-					timer: 0.0,
-					duration: eventsRecording.timer,
+					timer: eventsRecording.audio.trackPosition,
+					duration: audio_sound_length(getAssetIndex(eventsRecording.audio.name, AssetSound, asset_ost_visu_main)),
 					events: eventsRecording.events,
 					eventPointer: 0
 				}
@@ -170,8 +170,9 @@ function createEventsPlayer() {
 					
 					audio_stop_all();
 					var soundInstanceId = audio_play_sound(sound, 100, false);
-					global.__soundInstanceId = soundInstanceId;
 					audio_sound_set_track_position(soundInstanceId, trackPosition);
+					eventsPlayer.recording.duration = audio_sound_length(soundInstanceId);
+					global.__soundInstanceId = soundInstanceId;
 				}
 				
 			} catch (exception) {
@@ -258,7 +259,7 @@ function createEventsRecorder() {
 				events: [],
 				audio: {
 					name: getAssetName(asset_ost_visu_main, AssetSound), ///@todo mockup
-					trackPosition: 0.00
+					trackPosition: 0.0
 				},
 				layout: {
 					name: "novation-launchpad", ///@todo mockup

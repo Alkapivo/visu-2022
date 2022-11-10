@@ -560,7 +560,7 @@
 			
 				
 				var currentLength = recording.timer;
-				var audioLength = this.trackTimer;
+				var audioLength = audio_sound_length(soundInstanceId); //this.trackTimer; //rewind hack
 				//logger("Recording timer: {0} {1} {2}", LogType.INFO, recording.timer, getGameplayTime(), audioLength);
 				
 				var barLength = (GuiWidth / 3);
@@ -677,4 +677,11 @@
 	draw_set_alpha(1.0);
 	*/
 	
+	if (global.isGameplayStarted) {
+		if (!isStackEmpty(texturesStack)) {
+	
+			var texture = popStack(texturesStack);
+			renderTexture(texture, random(GuiWidth), random(GuiHeight), random(sprite_get_number(texture)));
+		}
+	}
 

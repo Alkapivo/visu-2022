@@ -214,7 +214,25 @@
 
 	background = createSprite(asset_texture_empty, 0, 1.0, 1.0, 0.0, 0.0, c_white);
 	previousBackground = createSprite(asset_texture_empty, 0, 1.0, 1.0, 1.0, 0.0, c_white);
+	foreground = createSprite(asset_texture_empty, 0, 1.0, 1.0, 1.0, 0.0, c_white);
+	previousForeground = createSprite(asset_texture_empty, 0, 1.0, 1.0, 0.0, 0.0, c_white);
+	foregroundTheta = 0.0;
 	trackTimer = 0.0;
+	cameraTheta = 0.0;
+	texturesStack = createStack(
+		asset_texture_visu_bkg_1,
+		asset_texture_visu_bkg_2,
+		asset_texture_visu_bkg_3,
+		asset_texture_visu_bkg_4,
+		asset_texture_visu_shroom_01,
+		asset_texture_visu_shroom_02,
+		asset_texture_visu_shroom_03,
+		asset_texture_visu_shroom_04,
+		asset_texture_visu_shroom_05,
+		asset_texture_visu_shroom_06,
+		asset_texture_visu_shroom_07,
+		asset_texture_visu_shroom_08
+	);
 
 /// @description Insert description here
 // You can write your code in this editor
@@ -272,3 +290,22 @@ vertex_texcoord(vb_plane, 1, 1);
 vertex_end(vb_plane);
 
 testSurface = null;
+
+
+blendModes = [
+	bm_zero,
+	bm_one,
+	bm_src_colour,
+	bm_inv_src_colour,
+	bm_src_alpha,
+	bm_inv_src_alpha,
+	bm_dest_alpha,
+	bm_inv_dest_alpha,
+	bm_dest_colour,
+	bm_inv_dest_colour,
+	bm_src_alpha_sat,
+]
+
+firstBlendPointer = 1;
+secondBlendPointer = 3;
+blendModesLength = getArrayLength(blendModes);

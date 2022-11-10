@@ -184,3 +184,56 @@ function spawnShroom(shroomTemplate, shroomPosition, horizontalSpeed, shroomStat
 	addToList(fetchShrooms(), shroom);
 }
 
+
+var config = {
+	
+}
+
+function makeShroom(config) {
+
+	config = {
+		horizontalRange: getDefaultValue(getStructVariable(config, "horizontalRange"), global.shroomVisuSpawnHorizontalRange),
+		from: getDefaultValue(getStructVariable(config, "from"), getTupleKey(getDefaultValue(getStructVariable(config, "horizontalRange"), global.shroomVisuSpawnHorizontalRange)) * 100.0),
+		to: getDefaultValue(getStructVariable(config, "to"), getTupleValue(getDefaultValue(getStructVariable(config, "horizontalRange"), global.shroomVisuSpawnHorizontalRange)) * 100.0),
+		speedRange: getDefaultValue(getStructVariable(config, "speedRange"), global.shroomVisuSpawnSpeedRange),
+		texture: getDefaultValue(getStructVariable(config, "texture"), getGridRenderer().shroom_texture_05),
+		position: getDefaultValue(
+            getStructVariable(config, "position"),
+            createPosition(
+			    (getDefaultValue(getStructVariable(config, "from"), getTupleKey(getDefaultValue(getStructVariable(config, "horizontalRange"), global.shroomVisuSpawnHorizontalRange)) * 100.0) 
+				+ irandom(
+					getDefaultValue(getStructVariable(config, "to"), getTupleValue(getDefaultValue(getStructVariable(config, "horizontalRange"), global.shroomVisuSpawnHorizontalRange)) * 100.0) 
+					- getDefaultValue(getStructVariable(config, "from"), getTupleKey(getDefaultValue(getStructVariable(config, "horizontalRange"), global.shroomVisuSpawnHorizontalRange)) * 100.0)
+				)) / 100.0,
+			    0.003
+            )
+        ),
+		horizontalSpeed: getDefaultValue(
+            getStructVariable(config, "horizontalSpeed"), 
+            choose(1, -1) * choose(0.00001, 0.0001)
+        ),
+		verticalSpeed: getDefaultValue(
+            getStructVariable(config, "verticalSpeed"),
+            random_range(
+			    getPositionHorizontal(getDefaultValue(getStructVariable(config, "speedRange"), global.shroomVisuSpawnSpeedRange)), 
+			    getPositionVertical(getDefaultValue(getStructVariable(config, "speedRange"), global.shroomVisuSpawnSpeedRange))
+		    )
+        ),
+		features: {
+			isShooting: getDefaultValue(getStructVariable(getStructVariable(config, "features"), "isShooting"), false),
+			isZigzagMovement: getDefaultValue(getStructVariable(getStructVariable(config, "features"), "isZigzagMovement"), true),
+			zigzagAmount: getDefaultValue(getStructVariable(getStructVariable(config, "features"), "zigzagAmount"), 0.0023),
+			zigzagSpeed: getDefaultValue(getStructVariable(getStructVariable(config, "features"), "zigzagSpeed"), 0.13),
+			bulletFollowPlayer: getDefaultValue(getStructVariable(getStructVariable(config, "features"), "bulletFollowPlayer"), true),
+			slideAwayAfterLanding: getDefaultValue(getStructVariable(getStructVariable(config, "features"), "slideAwayAfterLanding"), false)
+		}
+        
+	}
+							
+	logger("Spawn shroom: { x: {0}, y: {1}  }", LogType.INFO, 
+		getPositionHorizontal(config.position), 
+		getPositionVertical(config.position), 
+		getAssetName(config.texture, AssetTexture)
+	);
+	spawnVisuShroom(config)
+}

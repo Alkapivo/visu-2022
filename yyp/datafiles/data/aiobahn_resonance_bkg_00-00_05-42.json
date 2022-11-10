@@ -15,14 +15,6 @@
         },
         {
             "data": {
-                "timestamp": 1.9614179999999994397086311437306,
-                "log": "2022-11-02 17:34:04 INFO    [Anonymous] Set colorGridBackground to: #7A2262",
-                "key": "5x5"
-            },
-            "name": "MidiControllerButtonEvent"
-        },
-        {
-            "data": {
                 "timestamp": 2.1957383333333320152291889826301,
                 "log": "2022-11-02 17:34:04 INFO    [Anonymous] Set colorGridBackground to: #F7F4FE",
                 "key": "7x5"

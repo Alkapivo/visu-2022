@@ -269,15 +269,28 @@
 			
 			var isCollision = false;
 			var shroomsSize = getListSize(shrooms);
-			for (var shroomIndex = 0; shroomIndex < shroomsSize; shroomIndex++) {
+			for (var shroomIndex = shroomsSize - 1; shroomIndex >= 0; shroomIndex--) {
 				var shroom = shrooms[| shroomIndex];
 				var shroomGridElement = getShroomGridElement(shroom);
 				var shroomGridElementPosition = getGridElementPosition(shroomGridElement);
+				
 				isCollision = checkCirclesCollision(
 					shroomGridElementPosition,
 					getShroomRadius(shroom),
 					playerPosition,
 					getVisuPlayerCollisionRadius(player)
+				);
+				
+				var texture = getSpriteAssetIndex(getGridElementSprite(shroomGridElement));
+				var shroomTextureWidth = getShroomRadius(shroom) * 1.5;
+				var shroomTextureHeight = getShroomRadius(shroom) * 1.5;
+				isCollision = point_in_rectangle(
+					getPositionHorizontal(playerPosition),
+					getPositionVertical(playerPosition),
+					getPositionHorizontal(shroomGridElementPosition) - shroomTextureWidth,
+					getPositionVertical(shroomGridElementPosition) - shroomTextureHeight,
+					getPositionHorizontal(shroomGridElementPosition) + shroomTextureWidth,
+					getPositionVertical(shroomGridElementPosition) + shroomTextureHeight
 				);
 				
 				if ((verticalSpeed >= 0.0)
@@ -297,6 +310,8 @@
 						Core.Collections._Map.set(getShroomState(shroom), "playerLanded", true);
 						
 						var shroomHorizontalSpeed = Core.Collections._Map.get(getShroomState(shroom), "horizontalSpeed");
+						var gridSpeed = getInstanceVariable(getGridRenderer(), "separatorSpeed");
+						shroomHorizontalSpeed = shroomHorizontalSpeed * (gridSpeed / 0.005);
 						var movedHorizontalPosition = getPositionHorizontal(playerPosition) + shroomHorizontalSpeed;
 						setPositionHorizontal(playerPosition, movedHorizontalPosition);
 						
@@ -333,6 +348,8 @@
 					
 					//killAndDoubleJump(player, shroom, playerState, jumpFactor);
 					stayOnShroom(player, shroom, playerState, jumpFactor, input);
+					
+					break;
 				}
 				
 				if (!isCollision) {

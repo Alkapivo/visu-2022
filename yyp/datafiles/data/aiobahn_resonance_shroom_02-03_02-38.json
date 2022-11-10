@@ -1380,6 +1380,14 @@
                 "key": "7x7"
             },
             "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 158.1614179999999994397086311437306,
+                "log": "editing json :), platformer mode activate",
+                "key": "6x1"
+            },
+            "name": "MidiControllerButtonEvent"
         }
     ],
     "layout": {
