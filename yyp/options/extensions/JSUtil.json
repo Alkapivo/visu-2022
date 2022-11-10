@@ -1,0 +1,9 @@
+{
+  "extensionId": {
+    "name": "JSUtil",
+    "path": "extensions/JSUtil/JSUtil.yy"
+  },
+  "resourceVersion": "1.0",
+  "resourceType": "GMExtensionConfigSet",
+  "configurables": null
+}

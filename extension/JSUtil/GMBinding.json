@@ -36,5 +36,11 @@
     {
         "functionName": "jsUtilBootComplete",
         "functionArguments": []
+    },
+    {
+        "functionName": "jsUtilGetVirtualMidiMatrix",
+        "functionArguments": [
+            "key"
+        ]
     }
 ]

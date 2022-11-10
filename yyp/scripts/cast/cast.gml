@@ -28,10 +28,6 @@ function cast(argument0, argument1) {
 						break;
 					case Number:
 						isValid = isNumber(object);
-						if (!isValid) {
-					
-							debugger;
-						}
 						break;
 					case String:
 						isValid = isString(object);
