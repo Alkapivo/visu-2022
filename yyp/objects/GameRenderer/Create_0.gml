@@ -213,6 +213,7 @@
 	#endregion
 
 	background = createSprite(asset_texture_empty, 0, 1.0, 1.0, 0.0, 0.0, c_white);
+	previousBackground = createSprite(asset_texture_empty, 0, 1.0, 1.0, 0.0, 0.0, c_white);
 	foreground = createSprite(asset_texture_empty, 0, 1.0, 1.0, 1.0, 0.0, c_white);
 	previousForeground = createSprite(asset_texture_empty, 0, 1.0, 1.0, 0.0, 0.0, c_white);
 	foregroundTheta = 0.0;
