@@ -562,6 +562,7 @@
 				var currentLength = recording.timer;
 				var audioLength = audio_sound_length(soundInstanceId); //this.trackTimer; //rewind hack
 				//logger("Recording timer: {0} {1} {2}", LogType.INFO, recording.timer, getGameplayTime(), audioLength);
+
 				
 				var barLength = (GuiWidth / 3);
 				
