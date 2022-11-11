@@ -156,8 +156,8 @@ function createEventsPlayer() {
 		
 			try {
 				eventsPlayer.recording = {
-					timer: 0.0,
-					duration: eventsRecording.timer,
+					timer: eventsRecording.audio.trackPosition,
+					duration: audio_sound_length(getAssetIndex(eventsRecording.audio.name, AssetSound, asset_ost_visu_main)),
 					events: eventsRecording.events,
 					eventPointer: 0
 				}
@@ -170,8 +170,9 @@ function createEventsPlayer() {
 					
 					audio_stop_all();
 					var soundInstanceId = audio_play_sound(sound, 100, false);
-					global.__soundInstanceId = soundInstanceId;
 					audio_sound_set_track_position(soundInstanceId, trackPosition);
+					eventsPlayer.recording.duration = audio_sound_length(soundInstanceId);
+					global.__soundInstanceId = soundInstanceId;
 				}
 				
 			} catch (exception) {
@@ -261,7 +262,7 @@ function createEventsRecorder() {
 				events: [],
 				audio: {
 					name: getAssetName(asset_ost_visu_main, AssetSound), ///@todo mockup
-					trackPosition: 0.00
+					trackPosition: 0.0
 				},
 				layout: {
 					name: "novation-launchpad", ///@todo mockup
@@ -560,6 +561,9 @@ function spawnVisuShroom(config) {
 	var shroomState = createMap();
 	Core.Collections._Map.set(shroomState, "bulletTaken", 0);
 	Core.Collections._Map.set(shroomState, "isShooting", getValueFromStruct(config.features, "isShooting", false));
+	Core.Collections._Map.set(shroomState, "isZigzagMovement", getValueFromStruct(config.features, "isZigzagMovement", false));
+	Core.Collections._Map.set(shroomState, "zigzagAmount", getValueFromStruct(config.features, "zigzagAmount", 0.002));
+	Core.Collections._Map.set(shroomState, "zigzagSpeed", getValueFromStruct(config.features, "zigzagSpeed", 0.2));
 	Core.Collections._Map.set(shroomState, "bulletFollowPlayer", getValueFromStruct(config.features, "bulletFollowPlayer", false));
 	Core.Collections._Map.set(shroomState, "slideAwayAfterLanding", getValueFromStruct(config.features, "slideAwayAfterLanding", false));
 	

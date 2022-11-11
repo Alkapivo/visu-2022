@@ -31,7 +31,7 @@
 	textHeight = 22;
 	
 	///@type {Boolean}
-	enableLyricsRenderer = true;
+	enableLyricsRenderer = false;
 	
 	///@type {Number}
 	lifespan = 0.0;
@@ -59,4 +59,4 @@
 
 	#endregion
 	
-	lain01 = false;
+	lain01 = true;

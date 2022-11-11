@@ -1,0 +1,45 @@
+{
+    "timer": 142.01995366667111397873668465763,
+    "events": [
+        {
+            "data": {
+                "key": "0x5",
+                "timestamp": 111.42126466666630335566878784448,
+                "log": "2022-11-10 22:54:08 INFO    [Anonymous] shaderAsset: 16 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "3x5",
+                "timestamp": 116.30138299999943285456538433209,
+                "log": "2022-11-10 22:54:13 INFO    [Anonymous] shaderAsset: 16 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "1x5",
+                "timestamp": 121.80301966666590374188672285527,
+                "log": "2022-11-10 22:54:18 INFO    [Anonymous] shaderAsset: 1 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "2x5",
+                "timestamp": 126.28098466666577337491617072374,
+                "log": "2022-11-10 22:54:23 INFO    [Anonymous] shaderAsset: 17 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        }
+    ],
+    "layout": {
+        "page": 0.0,
+        "name": "novation-launchpad"
+    },
+    "audio": {
+        "trackPosition": 95.0,
+        "name": "asset_ost_visu_main"
+    }
+}

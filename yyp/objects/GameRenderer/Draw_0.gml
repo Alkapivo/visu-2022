@@ -47,6 +47,75 @@
 		backgroundScale,
 		getSpriteAlpha(background)
 	);
+	
+	if (isOptionalPresent(this.foreground)) {
+		
+		if (keyboard_check_pressed(ord("I"))) {
+			this.firstBlendPointer = clamp(this.firstBlendPointer + 1, 0, this.blendModesLength - 1);
+			logger("firstBlendPointer {0}", LogType.DEBUG, this.firstBlendPointer);
+		}
+		if (keyboard_check_pressed(ord("K"))) {
+			this.firstBlendPointer = clamp(this.firstBlendPointer- 1, 0, this.blendModesLength - 1);
+			logger("firstBlendPointer {0}", LogType.DEBUG, this.firstBlendPointer);
+		}
+					
+		if (keyboard_check_pressed(ord("O"))) {
+			this.secondBlendPointer = clamp(this.secondBlendPointer + 1, 0, this.blendModesLength - 1);
+			logger("secondBlendPointer {0}", LogType.DEBUG, this.secondBlendPointer);
+		}
+		if (keyboard_check_pressed(ord("L"))) {
+			this.secondBlendPointer = clamp(this.secondBlendPointer - 1, 0, this.blendModesLength - 1);
+			logger("secondBlendPointer {0}", LogType.DEBUG, this.secondBlendPointer);
+		}
+		
+		this.firstBlendPointer = 8
+		this.secondBlendPointer = 2
+		//gpu_set_blendmode_ext(this.blendModes[this.firstBlendPointer], this.blendModes[this.secondBlendPointer]);
+		gpu_set_blendmode(bm_add)
+		var foregroundAlphaMargin = 0.0;
+		var foregroundAlpha = getSpriteAlpha(this.foreground);
+		foregroundAlpha = clamp(foregroundAlpha + applyDeltaTime(), 0.0, 1.0 - foregroundAlphaMargin);
+		setSpriteAlpha(this.foreground, foregroundAlpha);
+		
+		foregroundTheta = incrementTimer(foregroundTheta, pi*2, 1 / (GAME_FPS * 3));
+		cameraTheta = incrementTimer(cameraTheta, pi*2, 1 / (GAME_FPS * 5));
+		var foregroundThetaFactor = 64;
+		
+		if (isOptionalPresent(this.previousForeground)) {
+			
+			setSpriteAlpha(this.previousForeground, 1.0 - foregroundAlphaMargin - foregroundAlpha)
+			if (getSpriteAlpha(this.previousForeground) > foregroundAlphaMargin) {
+		
+				var previousForegroundScale = RealWidth > RealHeight 
+					? RealWidth / getTextureWidth(getSpriteAssetIndex(this.previousForeground)) 
+					: RealHeight / getTextureHeight(getSpriteAssetIndex(this.previousForeground)
+				);
+				drawSprite(
+					this.previousForeground,
+					(RealWidth / 2.0) + cos(foregroundTheta) * foregroundThetaFactor,
+					(RealHeight / 2.0) + sin(foregroundTheta) * foregroundThetaFactor,
+					previousForegroundScale * 1.1,
+					previousForegroundScale * 1.1,
+					getSpriteAlpha(previousForeground)	
+				);
+			}
+		}
+		
+		var foregroundScale = RealWidth > RealHeight 
+			? RealWidth / getTextureWidth(getSpriteAssetIndex(this.foreground))
+			: RealHeight / getTextureHeight(getSpriteAssetIndex(this.foreground))
+		drawSprite(
+			this.foreground,
+			(RealWidth / 2.0) + cos(foregroundTheta) * foregroundThetaFactor,
+			(RealHeight / 2.0) + sin(foregroundTheta) * foregroundThetaFactor,
+			foregroundScale * 1.1,
+			foregroundScale * 1.1,
+			getSpriteAlpha(this.foreground)
+		);
+		
+		gpu_set_blendmode(bm_normal);
+	}
+	
 
 	#region Render stars particles
 		
@@ -149,6 +218,8 @@
 		mouseYPosition = lerp(mouseYPosition, getMouseGuiY(), mousePositionFactor)
 		mouseXPosition = GuiWidth / 2.0;
 		mouseYPosition = GuiHeight / 2.0;
+		mouseXPosition = (GuiWidth / 2.0) + (sin(cameraTheta) * 64);
+		mouseYPosition = (GuiHeight / 2.0) + (cos(cameraTheta) * 64);
 		
 		drawSurface(
 			gridSurface,
@@ -219,6 +290,8 @@
 					mouseYPosition = lerp(mouseYPosition, getMouseGuiY(), mousePositionFactor)
 					mouseXPosition = GuiWidth / 2.0;
 					mouseYPosition = GuiHeight / 2.0;
+					mouseXPosition = (GuiWidth / 2.0) + (sin(cameraTheta) * 64);
+					mouseYPosition = (GuiHeight / 2.0) + (cos(cameraTheta) * 64);
 					
 					drawSurface(
 						gameSurface,
@@ -227,7 +300,7 @@
 						getGridRendererXScale(),
 						getGridRendererYScale(),
 						0,//getGridRendererAngle() + gridRenderer.angleSwing,
-						1.0,
+						alpha,
 						c_white,
 						createPosition(0.5, 0.5)
 					);
@@ -259,7 +332,7 @@
 						getGridRendererXScale(),
 						getGridRendererYScale(), 
 						getGridRendererAngle() + gridRenderer.angleSwing, 
-						0.2,
+						0.33,
 						c_white,
 						createPosition(0.5, 0.5)
 					);
