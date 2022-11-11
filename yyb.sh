@@ -1,6 +1,6 @@
 #!/bin/bash
-GAME_DIST_HOME=~/projects/devhorizon/visu-project/visu/dist/web/resources/visu/sewerslvt/blissful-overdose
-GAME_WEB_HOME=~/projects/devhorizon/Alkapivo.github.io/resources/visu/sewerslvt/blissful-overdose
+GAME_DIST_HOME=~/projects/devhorizon/visu-project/visu/dist/web/resources/visu/aiobahn/resonance
+GAME_WEB_HOME=~/projects/devhorizon/visu-project/visu-web/resources/visu/aiobahn/resonance
 GAME_NAME=$(cat ./yyp-package.json | jq -r '.name')
 
 if (( $# == 0 )); then
