@@ -19,6 +19,6 @@ node merge-timelines.js out9.json aiobahn_resonance_shroom_02-38_03-08.json out1
 node merge-timelines.js out10.json aiobahn_resonance_shroom_03-08_03-40.json out11.json
 node merge-timelines.js out11.json aiobahn_resonance_shroom_03-40_04-08.json out12.json
 node merge-timelines.js out12.json aiobahn_resonance_shroom_04-08_04-46.json out13.json
-node merge-timelines.js out13.json aiobahn_resonance_shroom_05-05_05-42.json timeline.json --verbose
+node merge-timelines.js out13.json aiobahn_resonance_shroom_05-05_05-42.json timeline.json
 rm out*
 echo "visu track - build successfully"
