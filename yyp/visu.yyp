@@ -2078,6 +2078,7 @@
     {"id":{"name":"shaderLEDHandler","path":"scripts/shaderLEDHandler/shaderLEDHandler.yy",},"order":23,},
     {"id":{"name":"shaderEmbossHandler","path":"scripts/shaderEmbossHandler/shaderEmbossHandler.yy",},"order":25,},
     {"id":{"name":"jumbotronScoreboardOptionYoutube","path":"scripts/jumbotronScoreboardOptionYoutube/jumbotronScoreboardOptionYoutube.yy",},"order":1,},
+    {"id":{"name":"asset_ost_visu_aiobahn_resonance","path":"sounds/asset_ost_visu_aiobahn_resonance/asset_ost_visu_aiobahn_resonance.yy",},"order":13,},
     {"id":{"name":"jumbotronScoreboardOptionShare","path":"scripts/jumbotronScoreboardOptionShare/jumbotronScoreboardOptionShare.yy",},"order":3,},
     {"id":{"name":"jumbotronScoreboardOptionRestart","path":"scripts/jumbotronScoreboardOptionRestart/jumbotronScoreboardOptionRestart.yy",},"order":5,},
     {"id":{"name":"jumbotronScoreboardHandler","path":"scripts/jumbotronScoreboardHandler/jumbotronScoreboardHandler.yy",},"order":7,},

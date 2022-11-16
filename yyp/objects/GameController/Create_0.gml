@@ -117,9 +117,14 @@
 					
 							var text = this.baseRecording;
 							var eventsRecording = eventsRecorder.parseRecording(eventsRecorder, text);
+							if (isStruct(getStructVariable(eventsRecorder.state, "currentRecording"))) {
+								eventsRecorder.state.currentRecording.timer = 0.0; //this.rewind // rewind hack
+								eventsRecorder.state.currentRecording.audio.trackPosition = 0.0; //this.rewind // rewind hack
+							}
+						
 							eventsPlayer.play(eventsPlayer, eventsRecording);
 							visuTrackDefaultHandler();
-							
+							logger("DUPA", LogType.DEBUG);
 						}	
 					}
 				} else {
@@ -132,14 +137,15 @@
 						var text = this.baseRecording;
 						var eventsRecording = eventsRecorder.parseRecording(eventsRecorder, text);
 						
-						eventsRecording.audio.trackPosition = this.rewind; // rewind hack
+						eventsRecording.audio.trackPosition = 0.0; //this.rewind; // rewind hack
 						
 						if (isStruct(getStructVariable(eventsRecorder.state, "currentRecording"))) {
-							eventsRecorder.state.currentRecording.timer =  this.rewind // rewind hack
-							eventsRecorder.state.currentRecording.audio.trackPosition =  this.rewind // rewind hack
+							eventsRecorder.state.currentRecording.timer = 0.0; //this.rewind // rewind hack
+							eventsRecorder.state.currentRecording.audio.trackPosition = 0.0; //this.rewind // rewind hack
 						}
 						eventsPlayer.play(eventsPlayer, eventsRecording);
 				
+						logger("DUPA", LogType.DEBUG);
 						//var package = package_carpenter_brut_turbo_killer();
 						//Core.PackageManager.applyPackage(package);
 				

@@ -157,7 +157,7 @@ function createEventsPlayer() {
 			try {
 				eventsPlayer.recording = {
 					timer: eventsRecording.audio.trackPosition,
-					duration: audio_sound_length(getAssetIndex(eventsRecording.audio.name, AssetSound, asset_ost_visu_main)),
+					duration: audio_sound_length(asset_ost_visu_aiobahn_resonance),
 					events: eventsRecording.events,
 					eventPointer: 0
 				}
@@ -170,6 +170,7 @@ function createEventsPlayer() {
 					
 					audio_stop_all();
 					var soundInstanceId = audio_play_sound(sound, 100, false);
+					logger("Dupa track position {0}", LogType.DEBUG. trackPosition);
 					audio_sound_set_track_position(soundInstanceId, trackPosition);
 					eventsPlayer.recording.duration = audio_sound_length(soundInstanceId);
 					global.__soundInstanceId = soundInstanceId;
@@ -261,7 +262,7 @@ function createEventsRecorder() {
 				timer: 0.0,
 				events: [],
 				audio: {
-					name: getAssetName(asset_ost_visu_main, AssetSound), ///@todo mockup
+					name: getAssetName(asset_ost_visu_aiobahn_resonance, AssetSound), ///@todo mockup
 					trackPosition: 0.0
 				},
 				layout: {
@@ -271,7 +272,7 @@ function createEventsRecorder() {
 			};
 			eventsRecorder.setCurrentRecording(eventsRecorder, currentRecording)
 			audio_stop_all();
-			audio_play_sound(asset_ost_visu_main, 100, false);
+			audio_play_sound(asset_ost_visu_aiobahn_resonance, 100, false);
 			
 			logger(
 				"Created new recording: { audio.trackPosition: {0}, layout.name: {1} }", LogType.INFO, 
@@ -342,7 +343,7 @@ function createEventsRecorder() {
 				
 				var audio = {
 					trackPosition: 0,
-					name: "asset_ost_visu_main"
+					name: "asset_ost_visu_aiobahn_resonance"
 				}
 				
 				var jsonAudio = Core.Collections._Map.get(jsonObject, "audio");
