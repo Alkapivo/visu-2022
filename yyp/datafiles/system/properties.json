@@ -49,7 +49,7 @@
 	"base-timeline": "timeline.json",
 	"_base-timeline": "aiobahn_resonance_grid_00-00_05-42.json",
 	"base-timeline-function": null,
-	"GameController.enableReplay": false,
+	"GameController.enableReplay": true,
 	"GameController.rewind": 0,
 	"_GameController.rewind": 15,
 	"gameRenderer.baseScaleResolution": 4096,
