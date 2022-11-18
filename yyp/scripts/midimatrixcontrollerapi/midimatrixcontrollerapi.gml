@@ -170,7 +170,6 @@ function createEventsPlayer() {
 					
 					audio_stop_all();
 					var soundInstanceId = audio_play_sound(sound, 100, false);
-					logger("Dupa track position {0}", LogType.DEBUG. trackPosition);
 					audio_sound_set_track_position(soundInstanceId, trackPosition);
 					eventsPlayer.recording.duration = audio_sound_length(soundInstanceId);
 					global.__soundInstanceId = soundInstanceId;
@@ -193,7 +192,7 @@ function createEventsPlayer() {
 					if ((isAudio(soundInstanceId))
 						&& (audio_is_playing(soundInstanceId))) {
 				
-						var audioPosition = audio_sound_get_track_position(global.__soundInstanceId);
+						var audioPosition = audio_sound_get_track_position(soundInstanceId);
 						if (audioPosition > 0.0) {
 							recording.timer = audioPosition;
 						}

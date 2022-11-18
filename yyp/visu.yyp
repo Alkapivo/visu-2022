@@ -438,7 +438,6 @@
     {"id":{"name":"getChronosTaskTimer","path":"scripts/getChronosTaskTimer/getChronosTaskTimer.yy",},"order":1,},
     {"id":{"name":"getChronosTaskDuration","path":"scripts/getChronosTaskDuration/getChronosTaskDuration.yy",},"order":3,},
     {"id":{"name":"getChronosTaskChronosEvent","path":"scripts/getChronosTaskChronosEvent/getChronosTaskChronosEvent.yy",},"order":5,},
-    {"id":{"name":"asset_ost_visu_main","path":"sounds/asset_ost_visu_main/asset_ost_visu_main.yy",},"order":12,},
     {"id":{"name":"setChronosTaskTimer","path":"scripts/setChronosTaskTimer/setChronosTaskTimer.yy",},"order":1,},
     {"id":{"name":"setChronosTaskDuration","path":"scripts/setChronosTaskDuration/setChronosTaskDuration.yy",},"order":3,},
     {"id":{"name":"setChronosTaskChronosEvent","path":"scripts/setChronosTaskChronosEvent/setChronosTaskChronosEvent.yy",},"order":5,},
