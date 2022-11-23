@@ -157,7 +157,7 @@ function createEventsPlayer() {
 			try {
 				eventsPlayer.recording = {
 					timer: eventsRecording.audio.trackPosition,
-					duration: audio_sound_length(asset_ost_visu_aiobahn_resonance),
+					duration: audio_sound_length(asset_ost_visu_sewerslvt_skitzofrenia_simulation),
 					events: eventsRecording.events,
 					eventPointer: 0
 				}
@@ -261,7 +261,7 @@ function createEventsRecorder() {
 				timer: 0.0,
 				events: [],
 				audio: {
-					name: getAssetName(asset_ost_visu_aiobahn_resonance, AssetSound), ///@todo mockup
+					name: getAssetName(asset_ost_visu_sewerslvt_skitzofrenia_simulation, AssetSound), ///@todo mockup
 					trackPosition: 0.0
 				},
 				layout: {
@@ -271,7 +271,7 @@ function createEventsRecorder() {
 			};
 			eventsRecorder.setCurrentRecording(eventsRecorder, currentRecording)
 			audio_stop_all();
-			audio_play_sound(asset_ost_visu_aiobahn_resonance, 100, false);
+			audio_play_sound(asset_ost_visu_sewerslvt_skitzofrenia_simulation, 100, false);
 			
 			logger(
 				"Created new recording: { audio.trackPosition: {0}, layout.name: {1} }", LogType.INFO, 
@@ -342,7 +342,7 @@ function createEventsRecorder() {
 				
 				var audio = {
 					trackPosition: 0,
-					name: "asset_ost_visu_aiobahn_resonance"
+					name: "asset_ost_visu_sewerslvt_skitzofrenia_simulation"
 				}
 				
 				var jsonAudio = Core.Collections._Map.get(jsonObject, "audio");

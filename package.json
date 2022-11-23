@@ -1,0 +1,23 @@
+{
+  "name": "visu",
+  "version": "0.5.33",
+  "description": "Real time visualizer with simple platformer and bullethell gameplay",
+  "main": "app.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "deploy": "sh yyb.sh deploy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alkapivo/visu.git"
+  },
+  "author": "Alkapivo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alkapivo/visu/issues"
+  },
+  "homepage": "https://github.com/Alkapivo/visu#readme"
+}

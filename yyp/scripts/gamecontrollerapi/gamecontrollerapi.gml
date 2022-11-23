@@ -1,5 +1,6 @@
 function respawnVisuPlayer() {
 
+	exit; //hack
 	var gameController = getGameController();
 	if (timerFinished(gameController.godMode)) {
 		
