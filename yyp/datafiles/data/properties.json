@@ -1,6 +1,6 @@
 {
 	"_base-timeline": "sewerslvt_skitzophrenia-simulation_bkg_00-00_06-00.json",
-	"base-timeline": "base.json",
+	"base-timeline": "sewerslvt_blissful-overdose.json",
 	"base-timeline-function": null,
 	"launchpad-layout": "launchpad-layout.json",
 	"shader-templates": "shader-templates.json",
@@ -11,9 +11,9 @@
 	"GameController.ost": "asset_sound_visu_ost",
 	"gameRenderer.baseScaleResolution": 2048,
 	"gameRenderer.baseScaleResolution.bullethell": 2048,
-	"gameRenderer.baseScaleResolution.platformer": 2048,
-	"gameRenderer.start.title": "Visu",
-	"gameRenderer.start.subtitle": "base.json",
+	"gameRenderer.baseScaleResolution.platformer": 1280,
+	"gameRenderer.start.title": "Sewerslvt",
+	"gameRenderer.start.subtitle": "blisfull overdose",
 	"player.jumpFactor": 0.01797,
 	"player.gravityFactor": 0.00112,
 	"player.horizontalFriction": 3.1,
@@ -25,13 +25,13 @@
 
 	"_gridRenderer.xScale": 0.25,
 	"_gridRenderer.yScale": 0.25,
-	"gridRenderer.xScale": 1.0,
-	"gridRenderer.yScale": 1.0,
-	"gridRenderer.primaryLinesWidth": 7,
-	"gridRenderer.secondaryLinesWidth": 5,
-	"gridRenderer.channels": 1,
+	"gridRenderer.xScale": 0.89,
+	"gridRenderer.yScale": 0.89,
+	"gridRenderer.primaryLinesWidth": 10,
+	"gridRenderer.secondaryLinesWidth": 8,
+	"gridRenderer.channels": 5,
 	"gridRenderer.gridWireframeSurfaceAlpha": 0.92,
-	"gridRenderer.separatorFrameFrequency": 0.66,
+	"gridRenderer.separatorFrameFrequency": 2.25,
 
 	"gridRenderer.shroom_texture_01": "asset_texture_visu_shroom_01",
 	"gridRenderer.shroom_texture_02": "asset_texture_visu_shroom_02",
@@ -53,8 +53,8 @@
 	"gridRenderer.colorGridWheelTopRight": "#FE1F9C",
 	"gridRenderer.colorGridWheelBottomRight": "#CF5BF2",
 	"gridRenderer.colorGridWheelBottomLeft": "#FD76E6",
-	"gridRenderer.background_color_01": "#331759",
-	"gridRenderer.background_color_02": "#331759",
-	"gridRenderer.background_color_03": "#170d24",
-	"gridRenderer.background_color_04": "#170d24"
+	"gridRenderer.background_color_01": "#352B75",
+	"gridRenderer.background_color_02": "#7A2262",
+	"gridRenderer.background_color_03": "#4B473F",
+	"gridRenderer.background_color_04": "#4B473F"
 }

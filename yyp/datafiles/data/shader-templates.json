@@ -227,6 +227,244 @@
         "name": "Revert",
         "shader": "Revert",
         "parameters": []
+    },
+    {
+        "name": "Mosaic-2",
+        "shader": "Mosaic",
+        "parameters": [
+            {
+                "name": "amount",
+                "start": 96.0,
+                "end": 1024.0,
+                "factor": 0.8,
+                "increment": 0.004
+            }
+        ]
+    },
+    {
+        "name": "Wave-2",
+        "shader": "Wave",
+        "parameters": [
+            {
+                "name": "amount",
+                "start": 30.0,
+                "end": 1.0,
+                "factor": 0.16,
+                "increment": 0.0
+            },
+            {
+                "name": "distortion",
+                "start": 60.0,
+                "end": 20.0,
+                "factor": 0.2,
+                "increment": 0.0
+            },
+            {
+                "name": "speed",
+                "start": 0.4,
+                "end": 2.1,
+                "factor": 0.1,
+                "increment": 0.0
+            },
+            {
+                "name": "time",
+                "start": 0.0,
+                "end": 1000.0,
+                "factor": 0.01,
+                "increment": 0.0
+            }
+        ]
+    },
+    {
+        "name": "Magnify-2",
+        "shader": "Magnify",
+        "parameters": [
+            {
+                "name": "positionX",
+                "start": 0.5,
+                "end": 0.5,
+                "factor": 0.0,
+                "increment": 0.0
+            },
+            {
+                "name": "positionY",
+                "start": 0.5,
+                "end": 0.5,
+                "factor": 0.0,
+                "increment": 0.0
+            },
+            {
+                "name": "radius",
+                "start": 0.06,
+                "end": 0.70,
+                "factor": 0.006,
+                "increment": 0.0
+            },
+            {
+                "name": "minZoom",
+                "start": 0.20,
+                "end": 0.50,
+                "factor": 0.002,
+                "increment": 0.0
+            },
+            {
+                "name": "maxZoom",
+                "start": 0.50,
+                "end": 0.9,
+                "factor": 0.002,
+                "increment": 0.0
+            }
+        ]
+    },
+    {
+        "name": "Ripple-3",
+        "shader": "Ripple",
+        "parameters": [
+            {
+                "name": "positionX",
+                "start": 0.5,
+                "end": 0.5,
+                "factor": 0.0,
+                "increment": 0.0
+            },
+            {
+                "name": "positionY",
+                "start": 0.3,
+                "end": 0.8,
+                "factor": 0.002,
+                "increment": 0.0
+            },
+            {
+                "name": "amount",
+                "start": 100.0,
+                "end": 1000.0,
+                "factor": 0.2,
+                "increment": 0.0
+            },
+            {
+                "name": "distortion",
+                "start": 40.0,
+                "end": 600.0,
+                "factor": 0.16,
+                "increment": 0.0
+                },
+            {
+                "name": "speed",
+                "start": 2.0,
+                "end": 10.0,
+                "factor": 0.1,
+                "increment": 0.0
+            },
+            {
+                "name": "time",
+                "start": 0.0,
+                "end": 1000.0,
+                "factor": 0.1,
+                "increment": 0.0
+            }
+        ]
+    },
+    {
+        "name": "Wave-3",
+        "shader": "Wave",
+        "parameters": [
+            {
+                "name": "amount",
+                "start": 1.0,
+                "end": 30.0,
+                "factor": 0.11,
+                "increment": 0.0
+            },
+            {
+                "name": "distortion",
+                "start": 20.0,
+                "end": 60.0,
+                "factor": 0.1,
+                "increment": 0.0
+            },
+            {
+                "name": "speed",
+                "start": 0.4,
+                "end": 2.1,
+                "factor": 0.03,
+                "increment": 0.0
+            },
+            {
+                "name": "time",
+                "start": 0.0,
+                "end": 1000.0,
+                "factor": 0.01,
+                "increment": 0.0
+            }
+        ]
+    },
+    {
+        "name": "LED-3",
+        "shader": "LED",
+        "parameters": [
+            {
+                "name": "brightness",
+                "start": 1.5,
+                "end": 1.5,
+                "factor": 1.0,
+                "increment": 1.0
+            },
+            {
+                "name": "ledSize",
+                "start": 64.0,
+                "end": 480.0,
+                "factor": 0.67,
+                "increment": 0.0
+            }
+        ]
+    },
+    {
+        "name": "Ripple-4",
+        "shader": "Ripple",
+        "parameters": [
+            {
+                "name": "positionX",
+                "start": 0.5,
+                "end": 0.5,
+                "factor": 0.0,
+                "increment": 0.0
+            },
+            {
+                "name": "positionY",
+                "start": 0.3,
+                "end": 0.8,
+                "factor": 0.002,
+                "increment": 0.0
+            },
+            {
+                "name": "amount",
+                "start": 30.0,
+                "end": 40.0,
+                "factor": 0.2,
+                "increment": 0.0
+            },
+            {
+                "name": "distortion",
+                "start": 40.0,
+                "end": 400.0,
+                "factor": 0.2,
+                "increment": 0.0
+                },
+            {
+                "name": "speed",
+                "start": 1.0,
+                "end": 5.0,
+                "factor": 0.02,
+                "increment": 0.0
+            },
+            {
+                "name": "time",
+                "start": 0.0,
+                "end": 1000.0,
+                "factor": 0.1,
+                "increment": 0.0
+            }
+        ]
     }
 ]
 

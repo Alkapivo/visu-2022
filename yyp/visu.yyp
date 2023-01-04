@@ -1264,6 +1264,10 @@
     {"CopyToMask":-1,"filePath":"datafiles/system","resourceVersion":"1.0","name":"shroom-templates.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/system","resourceVersion":"1.0","name":"properties.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/data","resourceVersion":"1.0","name":"shroom-templates.json","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/data","resourceVersion":"1.0","name":"merged-timelines-output.json","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/data","resourceVersion":"1.0","name":"sewerslvt_blissful-overdose_background.json","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/data","resourceVersion":"1.0","name":"sewerslvt_blissful-overdose_mob.json","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/data","resourceVersion":"1.0","name":"sewerslvt_blissful-overdose.json","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2022.5.1.16",
