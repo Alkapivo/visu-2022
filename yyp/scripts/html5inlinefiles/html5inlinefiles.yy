@@ -6,7 +6,7 @@
     "path": "folders/src/com.devhorizon.visu/boot/system.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Html5EmbeddedTrackJson",
+  "name": "Html5InlineFiles",
   "tags": [],
   "resourceType": "GMScript",
 }

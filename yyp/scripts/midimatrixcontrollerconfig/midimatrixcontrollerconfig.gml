@@ -1,10 +1,13 @@
 function generateDefaultMidiMatrixController() {
 
-	var launchpadJsonString = Core.File.read({ 
-		path: "data", 
-		filename: "launchpad-layout.json", 
+	var launchpadJsonString = isHtml5()
+		? html5EmbeddedLaunchpadLayout()
+		: Core.File.read({ 
+			path: "data", 
+			filename: "launchpad-layout.json", 
 		withDialog: false 
-	});
+		});
+	
 	var config = parseJsonLaunchpadLayout(launchpadJsonString);
 	return createMidiMatrixController(config)
 	//return _generateDefaultMidiMatrixController()

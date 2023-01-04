@@ -810,7 +810,7 @@
     {"id":{"name":"GridElementInfo","path":"scripts/GridElementInfo/GridElementInfo.yy",},"order":1,},
     {"id":{"name":"ArrayMap","path":"scripts/ArrayMap/ArrayMap.yy",},"order":4,},
     {"id":{"name":"README","path":"notes/README/README.yy",},"order":0,},
-    {"id":{"name":"Html5EmbeddedTrackJson","path":"scripts/Html5EmbeddedTrackJson/Html5EmbeddedTrackJson.yy",},"order":2,},
+    {"id":{"name":"Html5InlineFiles","path":"scripts/Html5InlineFiles/Html5InlineFiles.yy",},"order":2,},
     {"id":{"name":"bktGlitch_ui","path":"scripts/bktGlitch_ui/bktGlitch_ui.yy",},"order":0,},
     {"id":{"name":"PlayerManagerStatic","path":"scripts/PlayerManagerStatic/PlayerManagerStatic.yy",},"order":5,},
     {"id":{"name":"Sprite","path":"scripts/Sprite/Sprite.yy",},"order":1,},
