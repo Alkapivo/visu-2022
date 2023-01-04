@@ -24,7 +24,7 @@ function createBPMController(config) {
 					timer = timer - duration;
 				
 					var eventPointer = context.state.eventPointer + 1;
-					if (eventPointer > Core.Collections._Array.size(context.state.events) - 1) {
+					if (eventPointer > Core.Collections.Arrays.size(context.state.events) - 1) {
 				
 						eventPointer = 0;
 					}
@@ -50,7 +50,7 @@ function createBPMController(config) {
 			var events = context.state.events;
 			var eventPointer = context.state.eventPointer;
 			var eventString = "";
-			var size = Core.Collections._Array.size(events);
+			var size = Core.Collections.Arrays.size(events);
 			for (var index = 0; index < size; index++) {
 			
 				var event = events[index];

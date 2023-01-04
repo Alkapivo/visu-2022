@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "texture",
-    "path": "folders/asset/com.devhorizon.core/core/texture.yy",
+    "path": "folders/asset/com.devhorizon.core/texture.yy",
   },
   "resourceVersion": "1.0",
   "name": "asset_texture_empty",

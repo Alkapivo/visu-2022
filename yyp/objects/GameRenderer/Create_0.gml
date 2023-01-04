@@ -33,6 +33,8 @@
 	///@type {Map<AssetShader::AssetScript>}
 	shaderUniformSetters = createMap();
 	
+	shaderTemplateRepository = createRepository("shaderTemplateRepository", "ShaderTemplate", createMap());
+	
 ///@private:
 
 	///@type {Surface}
@@ -108,7 +110,7 @@
 	shaderCRTTimer = 0.0;
 	
 	///@type {Sprite}
-	barPointer = createSprite(asset_sprite_spaceship, 0, 1.0, 1.0, 1.0, 0.0, c_white);
+	barPointer = createSprite(asset_texture_visu_player, 0, 1.0, 1.0, 1.0, 0.0, c_white);
 	
 	///@type {Boolean}
 	enableProgressBar = getPropertyBoolean("gameplayRenderer.enableProgressBar", false);
@@ -309,3 +311,11 @@ blendModes = [
 firstBlendPointer = 1;
 secondBlendPointer = 3;
 blendModesLength = getArrayLength(blendModes);
+
+	var shaderTemplatesJsonString = Core.File.read({ 
+		path: "data", 
+		filename: "shader-templates.json", 
+		withDialog: false 
+	});
+	parseJsonShaderTemplates(shaderTemplatesJsonString);
+	

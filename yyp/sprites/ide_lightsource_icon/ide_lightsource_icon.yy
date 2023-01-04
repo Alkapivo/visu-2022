@@ -71,8 +71,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "IDE",
-    "path": "folders/asset/com.devhorizon.core/core/texture/IDE.yy",
+    "name": "ide",
+    "path": "folders/asset/com.devhorizon.core/texture/ide.yy",
   },
   "resourceVersion": "1.0",
   "name": "ide_lightsource_icon",

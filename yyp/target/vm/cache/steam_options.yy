@@ -1,3 +1,0 @@
-{
-  "steamsdk_path": ""
-}

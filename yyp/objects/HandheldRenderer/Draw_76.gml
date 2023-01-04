@@ -54,7 +54,7 @@
 		var joystickXPosition = getVirtualJoystickXPosition(virtualJoystick);
 		var joystickYPosition = getVirtualJoystickYPosition(virtualJoystick);
 		var joystickSize = getVirtualJoystickPointerMaxDistance(virtualJoystick);
-		var joystickScale = (joystickSize * 2) / sprite_get_width(asset_sprite_joystick_background);
+		var joystickScale = (joystickSize * 2) / sprite_get_width(asset_texture_visu_button_bkg_1);
 		joystickXPosition = isOptionalPresent(joystickXPosition) ? joystickXPosition : 
 			(handheldOrientation == ScreenOrientation.HORIZONTAL ? 
 				handheldBarWidth * handheldOrientationHorizontalButtonHorizontalOffset : 
@@ -65,7 +65,7 @@
 				global.guiHeight - (handheldBarHeight * handheldOrientationVerticalButtonVerticalOffset));
 		
 		draw_sprite_ext(
-			asset_sprite_joystick_background, 0,
+			asset_texture_visu_button_bkg_1, 0,
 			joystickXPosition, joystickYPosition,
 			joystickScale, joystickScale,
 			0.0, c_white, 1.0);
@@ -82,7 +82,7 @@
 				global.guiHeight - (handheldBarHeight * handheldOrientationVerticalButtonVerticalOffset));
 		
 		draw_sprite_ext(
-			asset_sprite_joystick_pointer, 0,
+			asset_texture_visu_bullet_2, 0,
 			joystickPointerXPosition, joystickPointerYPosition, 
 			joystickScale, joystickScale,
 			0.0, c_white, 1.0);
@@ -90,9 +90,9 @@
 		var actionButtonXPosition = getTouchInputHandlerVirtualActionKeyXPosition(inputHandler);
 		var actionButtonYPosition = getTouchInputHandlerVirtualActionKeyYPosition(inputHandler);
 		var actionButtonSize = getTouchInputHandlerVirtualActionKeyWidth(inputHandler) / 2.0
-		var actionButtonScale = (2 * actionButtonSize) / sprite_get_width(asset_sprite_action_button);
+		var actionButtonScale = (2 * actionButtonSize) / sprite_get_width(asset_texture_visu_button_1);
 		draw_sprite_ext(
-			asset_sprite_action_button, 0,
+			asset_texture_visu_button_1, 0,
 			actionButtonXPosition + actionButtonSize, 
 			actionButtonYPosition + actionButtonSize, 
 			actionButtonScale, actionButtonScale,

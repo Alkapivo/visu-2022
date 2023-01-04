@@ -128,6 +128,22 @@
 		}
 		runScript(initializeGlobalsScript);
 		
+		var initializePropertiesScript = getAssetIndex(
+			stringParams("initialize{0}Properties", artifactName), 
+			AssetScript, null);
+		if (!isOptionalPresent(initializePropertiesScript)) {
+			throwException(
+				createException(
+					RuntimeException, 
+					stringParams("initializePropertiesScript wasn't found in config.json package { artifactName: \"{0}\" }", artifactName), 
+					runtimeExceptionHandler
+				)
+			);
+			exit;
+			
+		}
+		runScript(initializePropertiesScript);
+		
 		var initializeManagersScript = getAssetIndex(
 			stringParams("initialize{0}Managers", artifactName), 
 			AssetScript, null);

@@ -50,6 +50,7 @@
 	
 	if (isOptionalPresent(this.foreground)) {
 		
+		/*
 		if (keyboard_check_pressed(ord("I"))) {
 			this.firstBlendPointer = clamp(this.firstBlendPointer + 1, 0, this.blendModesLength - 1);
 			logger("firstBlendPointer {0}", LogType.DEBUG, this.firstBlendPointer);
@@ -67,6 +68,7 @@
 			this.secondBlendPointer = clamp(this.secondBlendPointer - 1, 0, this.blendModesLength - 1);
 			logger("secondBlendPointer {0}", LogType.DEBUG, this.secondBlendPointer);
 		}
+		*/
 		
 		this.firstBlendPointer = 8
 		this.secondBlendPointer = 2
@@ -170,7 +172,7 @@
 					var starSize = star[2];
 					var starAlpha = star[3];
 					draw_sprite_ext(
-						asset_sprite_star, 
+						asset_texture_star_1, 
 						/*
 						clamp(
 							clamp(spriteNumber * starSize, 0.0, 1.0) -
@@ -381,15 +383,15 @@
 
 		testSurface = getSurface(testSurface, 1280, 720, false);
 		gpuSetSurfaceTarget(testSurface);
-			draw_sprite(asset_sprite_spaceship, 0, 300, 300);
-			draw_sprite(asset_sprite_spaceship, 0, 600, 300);
+			draw_sprite(asset_texture_visu_player, 0, 300, 300);
+			draw_sprite(asset_texture_visu_player, 0, 600, 300);
 		gpuResetSurfaceTarget();
 
 		
 		
 		//matrix_set(matrix_world, matrix_build(room_width, room_height, 0, 0, 0, 0, 1, 1, 1));
 		//vertex_submit(v_buff, pr_trianglelist, surface_get_texture(screenSurface));
-		//draw_sprite(asset_sprite_spaceship, 0, 600, 300);
+		//draw_sprite(asset_texture_visu_player, 0, 600, 300);
 		//draw_surface(getGridRenderer().gridSurface, 64, 64);
 		//matrix_set(matrix_world, matrix_build_identity());
 		

@@ -118,7 +118,7 @@
 			}
 			
 			bulletsCooldown = clamp(bulletsCooldown - applyDeltaTime(1), 0, MAX_NUMBER);
-			Core.Collections._Map.set(playerState, "bulletsCooldown", bulletsCooldown);
+			Core.Collections.Maps.set(playerState, "bulletsCooldown", bulletsCooldown);
 			#endregion
 
 			#region Collision
@@ -136,8 +136,8 @@
 				
 				if (isCollision) {
 					var shroomState = getShroomState(shroom);
-					Core.Collections._Map.set(shroomState, "status", "end");
-					Core.Collections._Map.set(shroomState, "instantKill", true);
+					Core.Collections.Maps.set(shroomState, "status", "end");
+					Core.Collections.Maps.set(shroomState, "instantKill", true);
 					global.__deaths++;
 					continue;
 				}
@@ -177,7 +177,7 @@
 				sendShaderEvent(shaderEvent)
 			}
 			
-			Core.Collections._Map.set(playerState, "bombTimer", bombTimer);
+			Core.Collections.Maps.set(playerState, "bombTimer", bombTimer);
 			#endregion
 			
 			sendGridElementRenderRequest(playerGridElement);
@@ -234,9 +234,13 @@
 			verticalSpeed = verticalPosition == verticalPositionMax ? 0.0 : verticalSpeed;
 			setVisuPlayerVerticalSpeed(player, verticalSpeed);
 			
-			var movedVerticalPosition = fetchMovedVerticalPositionOnGrid(
-				verticalPosition, 
-	 			verticalSpeed
+			var movedVerticalPosition = clamp(
+				fetchMovedVerticalPositionOnGrid(
+					verticalPosition, 
+	 				verticalSpeed
+				),
+				verticalPositionMin,
+				verticalPositionMax
 			);
 			setPositionVertical(playerPosition, movedVerticalPosition);
 			
@@ -245,12 +249,12 @@
 				&& (verticalPosition >= verticalPositionMax)) {
 
 				setVisuPlayerVerticalSpeed(player, -jumpFactor);
-				Core.Collections._Map.set(playerState, "doubleJump", true);
-				Core.Collections._Map.set(playerState, "doubleJumpReleased", false);
+				Core.Collections.Maps.set(playerState, "doubleJump", true);
+				Core.Collections.Maps.set(playerState, "doubleJumpReleased", false);
 			}
 			
-			var doubleJump = Core.Collections._Map.get(playerState, "doubleJump");
-			var doubleJumpReleased = Core.Collections._Map.get(playerState, "doubleJumpReleased");
+			var doubleJump = Core.Collections.Maps.get(playerState, "doubleJump");
+			var doubleJumpReleased = Core.Collections.Maps.get(playerState, "doubleJumpReleased");
 			if (doubleJump) {
 			
 				if (input.keyboardCheckAction) {
@@ -263,7 +267,7 @@
 				} else {
 				
 					doubleJumpReleased = true;
-					Core.Collections._Map.set(playerState, "doubleJumpReleased", doubleJumpReleased);
+					Core.Collections.Maps.set(playerState, "doubleJumpReleased", doubleJumpReleased);
 				}
 			}
 			
@@ -305,11 +309,11 @@
 						speedValue = speedValue * (gridSpeed / 0.005);
 									
 						setVisuPlayerVerticalSpeed(player, 0.0);
-						Core.Collections._Map.set(playerState, "landedOnShroom", true);
+						Core.Collections.Maps.set(playerState, "landedOnShroom", true);
 						
-						Core.Collections._Map.set(getShroomState(shroom), "playerLanded", true);
+						Core.Collections.Maps.set(getShroomState(shroom), "playerLanded", true);
 						
-						var shroomHorizontalSpeed = Core.Collections._Map.get(getShroomState(shroom), "horizontalSpeed");
+						var shroomHorizontalSpeed = Core.Collections.Maps.get(getShroomState(shroom), "horizontalSpeed");
 						var gridSpeed = getInstanceVariable(getGridRenderer(), "separatorSpeed");
 						shroomHorizontalSpeed = shroomHorizontalSpeed * (gridSpeed / 0.005);
 						var movedHorizontalPosition = getPositionHorizontal(playerPosition) + shroomHorizontalSpeed;
@@ -327,13 +331,13 @@
 						if (input.keyboardCheckAction) {
 							///@todo shroom.kill();
 							var shroomState = getShroomState(shroom);
-							Core.Collections._Map.set(shroomState, "status", "end");
-							Core.Collections._Map.set(shroomState, "instantKill", true);
+							Core.Collections.Maps.set(shroomState, "status", "end");
+							Core.Collections.Maps.set(shroomState, "instantKill", true);
 					
 							///@todo player.jump(factor);
 							setVisuPlayerVerticalSpeed(player, -1.0 * jumpFactor);
-							Core.Collections._Map.set(playerState, "doubleJump", true);
-							Core.Collections._Map.set(playerState, "doubleJumpReleased", false);
+							Core.Collections.Maps.set(playerState, "doubleJump", true);
+							Core.Collections.Maps.set(playerState, "doubleJumpReleased", false);
 							
 						}
 						
@@ -341,8 +345,16 @@
 							
 							///@todo shroom.kill();
 							var shroomState = getShroomState(shroom);
-							Core.Collections._Map.set(shroomState, "status", "end");
-							Core.Collections._Map.set(shroomState, "instantKill", true);
+							Core.Collections.Maps.set(shroomState, "status", "end");
+							Core.Collections.Maps.set(shroomState, "instantKill", true);
+						}
+						
+						if (movedVerticalPosition <= 0.10) {
+							
+							///@todo shroom.kill();
+							var shroomState = getShroomState(shroom);
+							Core.Collections.Maps.set(shroomState, "status", "end");
+							Core.Collections.Maps.set(shroomState, "instantKill", true);
 						}
 					}
 					
@@ -354,17 +366,22 @@
 				
 				if (!isCollision) {
 					
-					Core.Collections._Map.get(playerState, "lastPosition", null);
+					Core.Collections.Maps.get(playerState, "lastPosition", null);
 				}
 			}
 
-			var landedOnShroom = Core.Collections._Map.get(playerState, "landedOnShroom") == true;
+			var landedOnShroom = Core.Collections.Maps.get(playerState, "landedOnShroom") == true;
 			if ((movedVerticalPosition >= verticalPositionMax)
 				&& (!isCollision)
 				&& (landedOnShroom)) {
 				
-				Core.Collections._Map.set(playerState, "landedOnShroom", false)
+				Core.Collections.Maps.set(playerState, "landedOnShroom", false)
 				respawnVisuPlayer();
+			}
+			
+			if ((movedVerticalPosition <= 0.10) && (landedOnShroom)) {
+			
+				Core.Collections.Maps.set(playerState, "landedOnShroom", false)
 			}
 			
 			sendGridElementRenderRequest(playerGridElement);
@@ -422,7 +439,7 @@
 		_glow: method(this, function() {
 			
 			try {
-				var player = Core.Collections._List.get(this.players, 0);
+				var player = Core.Collections.Lists.get(this.players, 0);
 				var state = getVisuPlayerState(player);
 				var color = getValueFromMap(state, "blendColor", { red: 0.25, green: 0.0, blue: 1.0 });
 				var amount = getValueFromMap(state, "glowAmount", 0.001);
@@ -434,10 +451,10 @@
 				color.red = color.red > 1.0 ? color.red - 1.0 : color.red + applyDeltaTime(amount);
 				color.green = color.green > 1.0 ? color.green - 1.0 : color.green + applyDeltaTime(amount);
 				color.blue = color.blue > 1.0 ? color.blue - 1.0 : color.blue + applyDeltaTime(amount);
-				Core.Collections._Map.set(state, "blendColor", color);
+				Core.Collections.Maps.set(state, "blendColor", color);
 
 				var spriteBlend = make_color_rgb(color.red * 255, color.green * 255, color.blue * 255);
-				Core.Collections._Map.set(state, "spriteBlend", spriteBlend);
+				Core.Collections.Maps.set(state, "spriteBlend", spriteBlend);
 				
 			} catch (exception) {
 				logger(exception.message, LogType.ERROR);

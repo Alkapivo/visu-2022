@@ -1,0 +1,116 @@
+[
+    {
+        "name": "shroom-01",
+        "texture": [ "shroom_texture_01" ],
+        "angle": [ 270.0 ],
+        "baseSpeed": [ 0.0001 ],
+        "features": {
+            "isShooting": true,
+            "isZigzagMovement": false,
+            "zigzagAmount": 0.0016,
+            "zigzagSpeed": 0.08,
+            "bulletFollowPlayer": true,
+            "slideAwayAfterLanding": true
+        }
+    },
+    {
+        "name": "shroom-02",
+        "texture": [ "shroom_texture_02" ],
+        "angle": [ 270.0 ],
+        "baseSpeed": [ 0.0001 ],
+        "features": {
+            "isShooting": false,
+            "isZigzagMovement": false,
+            "zigzagAmount": 0.0016,
+            "zigzagSpeed": 0.08,
+            "bulletFollowPlayer": false,
+            "slideAwayAfterLanding": false
+        }
+    },
+    {
+        "name": "shroom-03",
+        "texture": [ "shroom_texture_03" ],
+        "angle": [ 90.0 ],
+        "baseSpeed": [ 0.0001 ],
+        "features": {
+            "isShooting": false,
+            "isZigzagMovement": false,
+            "zigzagAmount": 0.0016,
+            "zigzagSpeed": 0.08,
+            "bulletFollowPlayer": false,
+            "slideAwayAfterLanding": false
+        }
+    },
+    {
+        "name": "shroom-04",
+        "texture": [ "shroom_texture_04" ],
+        "angle": [ 90.0 ],
+        "baseSpeed": [ 0.0001 ],
+        "features": {
+            "isShooting": true,
+            "isZigzagMovement": false,
+            "zigzagAmount": 0.0008,
+            "zigzagSpeed": 0.07,
+            "bulletFollowPlayer": false,
+            "slideAwayAfterLanding": false
+        }
+    },
+    {
+        "name": "shroom-05",
+        "texture": [ "shroom_texture_05" ],
+        "angle": [ 180.0 ],
+        "baseSpeed": [ 0.0001 ],
+        "features": {
+            "isShooting": true,
+            "isZigzagMovement": true,
+            "zigzagAmount": 0.0023,
+            "zigzagSpeed": 0.13,
+            "bulletFollowPlayer": true,
+            "slideAwayAfterLanding": false
+        }
+    },
+    {
+        "name": "shroom-06",
+        "texture": [ "shroom_texture_06" ],
+        "angle": [ 180.0 ],
+        "baseSpeed": [ 0.0001 ],
+        "features": {
+            "isShooting": false,
+            "isZigzagMovement": true,
+            "zigzagAmount": 0.003,
+            "zigzagSpeed": 0.15,
+            "bulletFollowPlayer": true,
+            "slideAwayAfterLanding": false
+        }
+    },
+    {
+        "name": "shroom-07",
+        "texture": [ "shroom_texture_07" ],
+        "angle": [ 180.0 ],
+        "baseSpeed": [ 0.0001 ],
+        "features": {
+            "isShooting": true,
+            "isZigzagMovement": false,
+            "zigzagAmount": 0.003,
+            "zigzagSpeed": 0.15,
+            "bulletFollowPlayer": false,
+            "slideAwayAfterLanding": true
+        }
+    },
+    {
+        "name": "shroom-08",
+        "texture": [ "shroom_texture_07" ],
+        "angle": [ 180.0 ],
+        "baseSpeed": [ 0.0001 ],
+        "features": {
+            "isShooting": true,
+            "isZigzagMovement": true,
+            "zigzagAmount": 0.0018,
+            "zigzagSpeed": 0.11,
+            "bulletFollowPlayer": false,
+            "slideAwayAfterLanding": true,
+            "isHorizontalMovement": false
+        }
+    }
+]
+

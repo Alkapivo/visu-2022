@@ -1,0 +1,74 @@
+[
+    {
+        "name" : "shroom-01",
+        "texture" : [ "asset_texture_visu_shroom_01" ],
+        "spawnPosition" : [ "top" ],
+        "baseSpeed" : [ 0.1 ],
+        "features" : {
+            "isZigzagMovement": true
+        }
+    },
+    {
+        "name" : "shroom-02",
+        "texture" : [ "asset_texture_visu_shroom_02" ],
+        "spawnPosition" : [ "top" ],
+        "baseSpeed" : [ 0.1 ],
+        "features" : {
+            "isZigzagMovement": true
+        }
+    },
+    {
+        "name" : "shroom-03",
+        "texture" : [ "asset_texture_visu_shroom_03" ],
+        "spawnPosition" : [ "top" ],
+        "baseSpeed" : [ 0.1 ],
+        "features" : {
+            "isZigzagMovement": true
+        }
+    },
+    {
+        "name" : "shroom-04",
+        "texture" : [ "asset_texture_visu_shroom_04" ],
+        "spawnPosition" : [ "top" ],
+        "baseSpeed" : [ 0.1 ],
+        "features" : {
+            "isZigzagMovement": true
+        }
+    },
+    {
+        "name" : "shroom-05",
+        "texture" : [ "asset_texture_visu_shroom_05" ],
+        "spawnPosition" : [ "top" ],
+        "baseSpeed" : [ 0.1 ],
+        "features" : {
+            "isZigzagMovement": false
+        }
+    },
+    {
+        "name" : "shroom-06",
+        "texture" : [ "asset_texture_visu_shroom_06" ],
+        "spawnPosition" : [ "top" ],
+        "baseSpeed" : [ 0.1 ],
+        "features" : {
+            "isZigzagMovement": false
+        }
+    },
+    {
+        "name" : "shroom-07",
+        "texture" : [ "asset_texture_visu_shroom_07" ],
+        "spawnPosition" : [ "top" ],
+        "baseSpeed" : [ 0.1 ],
+        "features" : {
+            "isZigzagMovement": false
+        }
+    },
+    {
+        "name" : "shroom-08",
+        "texture" : [ "asset_texture_visu_shroom_08" ],
+        "spawnPosition" : [ "top" ],
+        "baseSpeed" : [ 0.1 ],
+        "features" : {
+            "isZigzagMovement": false
+        }
+    }
+]

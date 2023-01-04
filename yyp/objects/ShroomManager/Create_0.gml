@@ -1,5 +1,6 @@
 ///@description ShroomManager::GMCreate event 
 
+
 	#region ///@interface Manager
 ///@public:
 
@@ -31,7 +32,15 @@
 		create: method(this, function() {
 		
 			super();
-		
+			
+			this.shroomTemplateRepository = createRepository("shroomTemplateRepository", Entity, createMap());
+			var shroomTemplatesJsonString = Core.File.read({ 
+				path: "data", 
+				filename: "shroom-templates.json", 
+				withDialog: false 
+			});
+			parseJsonShroomTemplates(shroomTemplatesJsonString)
+			
 			this.shaderEventEffectEmboss = createShaderEvent(
 				"Emboss",
 				2.4,
@@ -150,26 +159,41 @@
 						var gridSpeed = getInstanceVariable(getGridRenderer(), "separatorSpeed");
 						speedValue = speedValue * (gridSpeed / 0.005);
 				
-						var movedVerticalPosition = fetchMovedVerticalPositionOnGrid(
-							getPositionVertical(shroomPosition), 
-			 				speedValue);
-						setPositionVertical(shroomPosition, movedVerticalPosition);
+						
 						
 						var isZigzagMovement = getValueFromMap(shroomState, "isZigzagMovement", false);
+						var verticalSpeed = getValueFromMap(shroomState, "verticalSpeed", 0); 
 						var horizontalSpeed = getValueFromMap(shroomState, "horizontalSpeed", choose(1, -1) * (random(6.66) / 1000));
 						if (isZigzagMovement) {
 							
+							var spawnPosition = getValueFromMap(shroomState, "spawnPosition", SpawnPosition_TOP);
 							var zigzagTimer = getValueFromMap(shroomState, "zigzagTimer", 0);
 							var zigzagAmount = getValueFromMap(shroomState, "zigzagAmount", 0.002);
 							var zigzagSpeed = getValueFromMap(shroomState, "zigzagSpeed", 0.2);
 							zigzagTimer = incrementTimer(zigzagTimer, 6.28, zigzagSpeed);
-							horizontalSpeed = sin(zigzagTimer) * zigzagAmount
-							Core.Collections._Map.set(shroomState, "zigzagTimer", zigzagTimer);
-							Core.Collections._Map.set(shroomState, "horizontalSpeed", horizontalSpeed);
+							Core.Collections.Maps.set(shroomState, "zigzagTimer", zigzagTimer);
+							if ((spawnPosition == SpawnPosition_TOP) 
+								|| (spawnPosition == SpawnPosition_BOTTOM)) {
+								
+								horizontalSpeed = sin(zigzagTimer) * zigzagAmount
+								Core.Collections.Maps.set(shroomState, "horizontalSpeed", horizontalSpeed);
+							}
+							
+							if ((spawnPosition == SpawnPosition_LEFT) 
+								|| (spawnPosition == SpawnPosition_RIGHT)) {
+							
+								verticalSpeed = sin(zigzagTimer) * zigzagAmount
+								Core.Collections.Maps.set(shroomState, "verticalSpeed", verticalSpeed);
+							}
+							
 						}
 						
-						var movedHorizontalPosition = getPositionHorizontal(shroomPosition) + applyDeltaTime(horizontalSpeed  * (gridSpeed / 0.005));
+						var movedHorizontalPosition = getPositionHorizontal(shroomPosition) + (applyDeltaTime(horizontalSpeed  * (gridSpeed / 0.005)));
 						setPositionHorizontal(shroomPosition, movedHorizontalPosition);
+						
+						var movedVerticalPosition = fetchMovedVerticalPositionOnGrid(getPositionVertical(shroomPosition), speedValue)
+							+ applyDeltaTime(verticalSpeed);
+						setPositionVertical(shroomPosition, movedVerticalPosition);
 				
 						if ((movedVerticalPosition >= -1.5) &&
 							(movedVerticalPosition <= 1.5)) {
@@ -189,7 +213,7 @@
 						if (getPlayerManager().gameplayType == "bullethell") {
 				
 							var isShooting = getValueFromMap(shroomState, "isShooting", false);
-							Core.Collections._Map.set(shroomState, "isShooting", isShooting);
+							Core.Collections.Maps.set(shroomState, "isShooting", isShooting);
 							if (isShooting) {
 						
 								var bulletTimerDuration = getValueFromMap(shroomState, "bulletTimerDuration", choose(0.40, 0.50, 0.70));
@@ -208,7 +232,7 @@
 											), 
 											BulletProducer.SHROOM, 
 											270 + (choose(1, -1) * random(bulletAngleRange)), 
-											createSprite(asset_texture_bullet_shroom_01, 0, 1.0, 1.0, 1.0, 0.0, c_white),
+											createSprite(asset_texture_visu_bullet_1, 0, 1.0, 1.0, 1.0, 0.0, c_white),
 											bulletSpeed, 
 											0.0008
 										);
@@ -227,7 +251,7 @@
 												), 
 												BulletProducer.SHROOM, 
 												180 + getAngleBetweenPoints(playerPosition, shroomPosition), 
-												createSprite(asset_texture_bullet_shroom_01, 0, 1.0, 1.0, 1.0, 0.0, c_white),
+												createSprite(asset_texture_visu_bullet_1, 0, 1.0, 1.0, 1.0, 0.0, c_white),
 												bulletSpeed, 
 												0.0008
 											);
@@ -244,7 +268,7 @@
 									}
 								}
 				
-								Core.Collections._Map.set(shroomState, "bulletTimer", bulletTimer);
+								Core.Collections.Maps.set(shroomState, "bulletTimer", bulletTimer);
 							}
 						}
 				
@@ -256,14 +280,14 @@
 								var isFeatureEnabled = getValueFromMap(shroomState, "slideAwayAfterLanding", false) == true;
 								if (isFeatureEnabled) {
 							
-									var playerLanded = Core.Collections._Map.get(shroomState, "playerLanded") == true;
+									var playerLanded = Core.Collections.Maps.get(shroomState, "playerLanded") == true;
 									if (playerLanded) {
 						
 										var horizontalPosition = getPositionHorizontal(getGridElementPosition(getShroomGridElement(shroom)));
 										var horizontalDirection = horizontalPosition < 0.5 ? 1 : -1;
 								
-										Core.Collections._Map.set(shroomState, "slideAwayAfterLanding", false);
-										Core.Collections._Map.set(shroomState, "horizontalSpeed", getShroomSpeedValue(shroom) * 0.75 * horizontalDirection);
+										Core.Collections.Maps.set(shroomState, "slideAwayAfterLanding", false);
+										Core.Collections.Maps.set(shroomState, "horizontalSpeed", getShroomSpeedValue(shroom) * 0.75 * horizontalDirection);
 										setShroomSpeedValue(shroom, getShroomSpeedValue(shroom) * 0.66);
 									}
 								}

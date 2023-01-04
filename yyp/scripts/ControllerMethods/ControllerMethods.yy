@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Controller",
-    "path": "folders/src/com.devhorizon.core/controller/Controller.yy",
+    "name": "controller",
+    "path": "folders/src/com.devhorizon.core/controller.yy",
   },
   "resourceVersion": "1.0",
   "name": "ControllerMethods",

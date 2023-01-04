@@ -1,30 +1,37 @@
-///@description
+///@description GMObject 
 
-	super();
-	deregisterSceneRenderer();
 	
-	if (jumbotronEvent != null) {
-		destroyJumbotronEvent(jumbotronEvent);	
+
+	cleanUp = function() {
+	
+		super();
+		deregisterSceneRenderer();
+	
+		if (this.jumbotronEvent != null) {
+			destroyJumbotronEvent(this.jumbotronEvent);	
+		}
+		destroyDataStructure(this.jumbotronState, Map, "Unable to destroy jumbotronState");
+
+		destroyDataStructure(this.shaderPipelinesNames, List, "Unable to destroy shader pipelines names")
+	
+		for (var key = mapFirst(this.shaderPipelines); iteratorFinish(key); key = mapNext(this.shaderPipelines, key)) {
+			var shaderPipeline = this.shaderPipelines[? key];
+			destroyShaderPipeline(shaderPipeline);
+		}
+		destroyDataStructure(this.shaderPipelines, Map, "Unable to destroy shaderPipelines");
+
+		destroyDataStructure(this.shaderHandlers, Map, "Unable to destroy shader handlers");
+		destroyDataStructure(this.shaderUniformSetters, Map, "Unable to destroy shader uniform setters");
+	
+		destroySurface(this.applicationSurface);
+		destroySurface(this.screenSurface);
+		destroySurface(this.gameSurface);
+		destroySurface(this.shaderSurface);		
+		destroySurface(this.guiSurface);
+		destroySurface(this.jumbotronSurface);
+	
+		destroyDataStructure(this.scoreNotifyEffectPipeline, List, "Unable to destroy scoreNotifyEffectPipeline");
 	}
-	destroyDataStructure(jumbotronState, Map, "Unable to destroy jumbotronState");
-
-	destroyDataStructure(shaderPipelinesNames, List, "Unable to destroy shader pipelines names")
 	
-	for (var key = mapFirst(shaderPipelines); iteratorFinish(key); key = mapNext(shaderPipelines, key)) {
-		var shaderPipeline = shaderPipelines[? key];
-		destroyShaderPipeline(shaderPipeline);
-	}
-	destroyDataStructure(shaderPipelines, Map, "Unable to destroy shaderPipelines");
-
-	destroyDataStructure(shaderHandlers, Map, "Unable to destroy shader handlers");
-	destroyDataStructure(shaderUniformSetters, Map, "Unable to destroy shader uniform setters");
-	
-	destroySurface(applicationSurface);
-	destroySurface(screenSurface);
-	destroySurface(gameSurface);
-	destroySurface(shaderSurface);		
-	destroySurface(guiSurface);
-	destroySurface(jumbotronSurface);
-	
-	destroyDataStructure(scoreNotifyEffectPipeline, List, "Unable to destroy scoreNotifyEffectPipeline");
+	this.cleanUp();
 	

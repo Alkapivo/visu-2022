@@ -1,4 +1,17 @@
 function generateDefaultMidiMatrixController() {
+
+	var launchpadJsonString = Core.File.read({ 
+		path: "data", 
+		filename: "launchpad-layout.json", 
+		withDialog: false 
+	});
+	var config = parseJsonLaunchpadLayout(launchpadJsonString);
+	return createMidiMatrixController(config)
+	//return _generateDefaultMidiMatrixController()
+}
+
+
+function _generateDefaultMidiMatrixController() {
 	
 	return createMidiMatrixController(
 		createMapFromTupleArray(
@@ -11,9 +24,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "1", "5"],
 			            pressed: function(button, key) {
 							
-							var screens = 1.0;
-							logger("Set screens: {0}", LogType.INFO, screens);
-							setScreensTarget(screens);	
+							actionSetScreensTarget(1.0)	
 			            }
 			        }
 			    ),
@@ -24,9 +35,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "2", "5"],
 			            pressed: function(button, key) {
 							
-							var screens = 2.0;
-							logger("Set screens: {0}", LogType.INFO, screens);
-							setScreensTarget(screens);	
+							actionSetScreensTarget(2.0)	
 			            }
 			        }
 			    ),
@@ -37,9 +46,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "3", "5" ],
 			            pressed: function(button, key) {
 							
-							var screens = 3.0;
-							logger("Set screens: {0}", LogType.INFO, screens);
-							setScreensTarget(screens);
+							actionSetScreensTarget(3.0)
 			            }
 			        }
 			    ),
@@ -50,9 +57,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "4", "5" ],
 			            pressed: function(button, key) {
 							
-							var screens = 4.0;
-							logger("Set screens: {0}", LogType.INFO, screens);
-							setScreensTarget(screens);
+							actionSetScreensTarget(4.0)
 			            }
 			        }
 			    ),
@@ -63,10 +68,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "Q", "5" ],
 			            pressed: function () {
 							
-							var previousFactor = getScreensFactor();
-							var screenFactor = 0.001;
-							logger("Set screens factor: {0}", LogType.INFO, previousFactor, screenFactor);
-							setScreensFactor(screenFactor);	
+							actionSetScreenFactor(0.001)
 			            }
 			        }
 			    ),
@@ -77,10 +79,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "W", "5" ],
 			            pressed: function () {
 							
-							var previousFactor = getScreensFactor();
-							var screenFactor = 0.004;
-							logger("Set screens factor: {0}", LogType.INFO, previousFactor, screenFactor);
-							setScreensFactor(screenFactor);
+							actionSetScreenFactor(0.004)
 			            }
 			        }
 			    ),
@@ -91,10 +90,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "E", "5" ],
 			            pressed: function () {
 							
-							var previousFactor = getScreensFactor();
-							var screenFactor = 0.05;
-							logger("Set screens factor: {0}", LogType.INFO, previousFactor, screenFactor);
-							setScreensFactor(screenFactor);
+							actionSetScreenFactor(0.05)
 			            }
 			        }
 			    ),
@@ -105,10 +101,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "R", "5" ],
 			            pressed: function () {
 
-							var previousFactor = getScreensFactor();
-							var screenFactor = 0.075;
-							logger("Set screens factor: {0}", LogType.INFO, previousFactor, screenFactor);
-							setScreensFactor(screenFactor);
+							actionSetScreenFactor(0.075)
 			            }
 			        }
 			    ),
@@ -119,11 +112,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "A", "5" ],
 			            pressed: function () {
 
-							var factor = 90;
-							var angle = round(getGridRenderer().angle);
-							var target = (sign(angle) * ((angle div 90) * 90)) + factor;
-							logger("Set angle target: {0}", LogType.INFO, target);
-							setAngleTarget(target);
+							actionSetAngleTarget(90);
 			            }
 			        }
 			    ),
@@ -134,11 +123,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "S", "5" ],
 			            pressed: function () {
 							
-							var factor = -90;
-							var angle = round(getGridRenderer().angle);
-							var target = (sign(angle) * ((angle div 90) * 90)) + factor;
-							logger("Set angle target: {0}", LogType.INFO, target);
-							setAngleTarget(target);
+							actionSetAngleTarget(-90);
 			            }
 			        }
 			    ),
@@ -148,11 +133,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "D", "5" ],
 			            pressed: function () {
 							
-							var factor = 45;
-							var angle = round(getGridRenderer().angle);
-							var target = (sign(angle) * ((angle div 45) * 45)) + factor;
-							logger("Set angle target: {0}", LogType.INFO, target);
-							setAngleTarget(target);
+							actionSetAngleTarget(45);
 			            }
 			        }
 			    ),
@@ -162,11 +143,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "F", "5" ],
 			            pressed: function () {
 							
-							var factor = -45;
-							var angle = round(getGridRenderer().angle);
-							var target = (sign(angle) * ((angle div 45) * 45)) + factor;
-							logger("Set angle target: {0}", LogType.INFO, target);
-							setAngleTarget(target);
+							actionSetAngleTarget(-45);
 			            }
 			        }
 			    ),
@@ -176,9 +153,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "Z", "5" ],
 			            pressed: function () {
 							
-							var factor = 0.11;
-							logger("Set angle factor: {0}", LogType.INFO, factor);
-							setAngleFactor(factor);
+							actionSetAngleFactor(0.11)
 			            }
 			        }
 			    ),
@@ -188,9 +163,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "X", "5" ],
 			            pressed: function () {
 							
-							var factor = 0.33;
-							logger("Set angle factor: {0}", LogType.INFO, factor);
-							setAngleFactor(factor);
+							actionSetAngleFactor(0.33)
 			            }
 			        }
 			    ),
@@ -200,9 +173,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "C", "5" ],
 			            pressed: function () {
 							
-							var factor = 0.77
-							logger("Set angle factor: {0}", LogType.INFO, factor);
-							setAngleFactor(factor);
+							actionSetAngleFactor(0.77)
 			            }
 			        }
 			    ),
@@ -212,9 +183,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "V", "5" ],
 			            pressed: function () {
 							
-							var factor = 1.61
-							logger("Set angle factor: {0}", LogType.INFO, factor);
-							setAngleFactor(factor);
+							actionSetAngleFactor(1.61)
 			            }
 			        }
 			    ),
@@ -226,9 +195,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "1", "6"],
 			            pressed: function () {
 							
-							var value = !getGridRendererEnableGridRendering()
-							logger("Set enable-grid-rendering: {0}", LogType.INFO, value ? "true" : "false");
-							setGridRendererEnableGridRendering(value);
+							actionSwitchEnableGridRendering()
 			            }
 			        }
 			    ),
@@ -238,8 +205,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "2", "6"],
 			            pressed: function () {
 							
-							logger("Update enableLyricsRenderer", LogType.INFO);
-							getLyricsRenderer().enableLyricsRenderer = !getLyricsRenderer().enableLyricsRenderer;
+							actionSwitchEnableLyricsRendering() 
 			            }
 			        }
 			    ),
@@ -249,17 +215,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "3", "6" ],
 			            pressed: function () {
 							
-							try {
-								
-								var eventsRecorder = getGameController().midiMatrixController.eventsRecorder;
-								var text = Core.File.read({ withDialog: true });
-								var eventsRecording = eventsRecorder.parseRecording(eventsRecorder, text);
-								var eventsPlayer = getGameController().midiMatrixController.eventsPlayer;
-								eventsPlayer.play(eventsPlayer, eventsRecording);
-							} catch(exception) {
-								logger(exception.message, LogType.INFO);
-								printStackTrace();
-							}
+							actionLoadRecordingFromFile()
 			            }
 			        }
 			    ),
@@ -269,24 +225,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "4", "6" ],
 			            pressed: function () {
 							
-							try {
-								
-								var eventsRecorder = getGameController().midiMatrixController.eventsRecorder;
-								if isStruct(eventsRecorder.getCurrentRecording(eventsRecorder)) {
-								
-									eventsRecorder.stopRecording(eventsRecorder);	
-								} else {
-								
-									eventsRecorder.startRecording(eventsRecorder);	
-								}
-								
-								global.isGameplayStarted = true;
-								global.__hackWithRecorder = true;
-								getGameController().isGameplayStarted = global.isGameplayStarted;
-							} catch(exception) {
-								logger(exception.message, LogType.INFO);
-								printStackTrace();
-							}
+							actionStartRecordingToFile()
 			            }
 			        }
 			    ),
@@ -296,9 +235,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "Q", "6" ],
 			            pressed: function () {
 
-							var value = !getGridRendererIsGridFrameCleaned();
-							logger("Set grid-frame-cleaned: {0}", LogType.INFO, value ? "true" : "false");
-							setGridRendererIsGridFrameCleaned(value);
+							actionSwitchEnableGridFrameCleaned()
 			            }
 			        }
 			    ),
@@ -308,9 +245,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "W", "6" ],
 			            pressed: function () {
 
-							var value = !getGridRendererIsGridWheelEnabled();
-							logger("Set grid-wheel-enabled: {0}", LogType.INFO, value ? "true" : "false");
-							setGridRendererIsGridWheelEnabled(value);
+							actionSwitchEnableGridColorWheel()
 			            }
 			        }
 			    ),
@@ -320,36 +255,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "E", "6" ],
 			            pressed: function () {
 
-							/*
-							var swingGrid = getInstanceVariable(getGridRenderer(), "swingGrid");
-							logger("Set swingGrid: {0}", LogType.INFO, swingGrid ? "true" : "false");
-							setInstanceVariable(getGridRenderer(), "swingGrid", !(swingGrid == true));
-							*/
-							
-							var gameplayType = getPlayerManager().gameplayType;
-							gameplayType = gameplayType == "bullethell"
-								? "platformer"
-								: "bullethell";
-							setInstanceVariable(getPlayerManager(), "gameplayType", gameplayType);
-							
-							var baseScaleResolution = gameplayType == "bullethell"
-								? getPropertyReal("gameRenderer.baseScaleResolution.bullethell", 2048)
-								: getPropertyReal("gameRenderer.baseScaleResolution.platformer", 2048)
-							global.__baseScaleResolution = baseScaleResolution
-							
-							var jumbotronEvent = createJumbotronEvent(
-								stringParams(
-									" GAMEMODE\n\n>> {0} <<\n\n----------\n",
-									string_upper(gameplayType)
-								),
-								"message",
-								2.66
-							);
-							var gameRenderer = getGameRenderer();
-							gameRenderer.jumbotronEvent = jumbotronEvent;
-							gameRenderer.jumbotronEventTimer = 0.0;
-							
-							getGameController().godMode = incrementTimer(getGameController().godMode, getGameController().godModeDuration);
+							actionSwitchChangeGameplay()
 			            }
 			        }
 			    ),
@@ -359,8 +265,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "R", "6" ],
 			            pressed: function () {
 							
-							logger("Remove shader from pipeline main", LogType.INFO);
-							popStack(getShaderPipelinePipe(fetchShaderPipelineByName("main")))
+							actionRemoveLastShader()
 			            }
 			        }
 			    ),
@@ -370,23 +275,10 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "A", "6" ],
 			            pressed: function () {
 
-							var topLineWidth = 0.36;
-							var bottomLineWidth = 0.37;
-							logger("Set topLineWidth: {0}. bottomLineWidth: {1}", LogType.INFO, topLineWidth, bottomLineWidth);
-							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "topLineWidth", topLineWidth, 0.001, 1, 0)
-							sendFieldModifierTask(fieldModifierTask);
-							
-							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "bottomLineWidth", bottomLineWidth, 0.001, 1, 0)
-							sendFieldModifierTask(fieldModifierTask);
-							
-							var xScale = 0.85
-							var yScale = 0.85
-							logger("Set xScale: {0}. yScale: {1}", LogType.INFO, xScale, yScale);
-							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "xScale", xScale, 0.0008, 1, 0)
-							sendFieldModifierTask(fieldModifierTask);
-							
-							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "yScale", yScale, 0.0008, 1, 0)
-							sendFieldModifierTask(fieldModifierTask);
+							actionSetGridTopLineWidth(0.36, 0.001);
+							actionSetGridBottomLineWidth(0.37, 0.001);
+							actionSetGridXScale(0.85, 0.0008);
+							actionSetGridYScale(0.85, 0.0008);
 			            }
 			        }
 			    ),
@@ -396,23 +288,10 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "S", "6" ],
 			            pressed: function () {
 							
-							var topLineWidth = 0.37;
-							var bottomLineWidth = 0.69;
-							logger("Set topLineWidth: {0}. bottomLineWidth: {1}", LogType.INFO, topLineWidth, bottomLineWidth);
-							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "topLineWidth", topLineWidth, 0.001, 1, 0)
-							sendFieldModifierTask(fieldModifierTask);
-							
-							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "bottomLineWidth", bottomLineWidth, 0.001, 1, 0)
-							sendFieldModifierTask(fieldModifierTask);
-							
-							var xScale = 0.90
-							var yScale = 0.90
-							logger("Set xScale: {0}. yScale: {1}", LogType.INFO, xScale, yScale);
-							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "xScale", xScale, 0.0008, 1, 0)
-							sendFieldModifierTask(fieldModifierTask);
-							
-							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "yScale", yScale, 0.0008, 1, 0)
-							sendFieldModifierTask(fieldModifierTask);
+							actionSetGridTopLineWidth(0.37, 0.001);
+							actionSetGridBottomLineWidth(0.69, 0.001);
+							actionSetGridXScale(0.90, 0.0008);
+							actionSetGridYScale(0.90, 0.0008);
 			            }
 			        }
 			    ),
@@ -421,24 +300,11 @@ function generateDefaultMidiMatrixController() {
 			        {
 			            keyboardMapping: [ "D", "6" ],
 			            pressed: function () {
-
-							var topLineWidth = 0.70;
-							var bottomLineWidth = 0.96;
-							logger("Set topLineWidth: {0}. bottomLineWidth: {1}", LogType.INFO, topLineWidth, bottomLineWidth);
-							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "topLineWidth", topLineWidth, 0.001, 1, 0)
-							sendFieldModifierTask(fieldModifierTask);
 							
-							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "bottomLineWidth", bottomLineWidth, 0.001, 1, 0)
-							sendFieldModifierTask(fieldModifierTask);
-							
-							var xScale = 0.95
-							var yScale = 0.95
-							logger("Set xScale: {0}. yScale: {1}", LogType.INFO, xScale, yScale);
-							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "xScale", xScale, 0.0008, 1, 0)
-							sendFieldModifierTask(fieldModifierTask);
-							
-							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "yScale", yScale, 0.0008, 1, 0)
-							sendFieldModifierTask(fieldModifierTask);
+							actionSetGridTopLineWidth(0.70, 0.001);
+							actionSetGridBottomLineWidth(0.96, 0.001);
+							actionSetGridXScale(0.95, 0.0008);
+							actionSetGridYScale(0.95, 0.0008);
 			            }
 			        }
 			    ),
@@ -448,23 +314,10 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "F", "6" ],
 			            pressed: function () {
 
-							var topLineWidth = 0.89;
-							var bottomLineWidth = 0.93;
-							logger("Set topLineWidth: {0}. bottomLineWidth: {1}", LogType.INFO, topLineWidth, bottomLineWidth);
-							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "topLineWidth", topLineWidth, 0.001, 1, 0)
-							sendFieldModifierTask(fieldModifierTask);
-							
-							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "bottomLineWidth", bottomLineWidth, 0.001, 1, 0)
-							sendFieldModifierTask(fieldModifierTask);
-							
-							var xScale = 1.03
-							var yScale = 1.03
-							logger("Set xScale: {0}. yScale: {1}", LogType.INFO, xScale, yScale);
-							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "xScale", xScale, 0.0008, 1, 0)
-							sendFieldModifierTask(fieldModifierTask);
-							
-							var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "yScale", yScale, 0.0008, 1, 0)
-							sendFieldModifierTask(fieldModifierTask);
+							actionSetGridTopLineWidth(0.89, 0.001);
+							actionSetGridBottomLineWidth(0.93, 0.001);
+							actionSetGridXScale(1.03, 0.0008);
+							actionSetGridYScale(1.03, 0.0008);
 			            }
 			        }
 			    ),
@@ -474,9 +327,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "Z", "6" ],
 			            pressed: function () {
 							
-							var gridSpeed = 0.002;
-							logger("Set gridSpeed to: {0}", LogType.INFO, gridSpeed);
-							setInstanceVariable(getGridRenderer(), "separatorSpeed", gridSpeed);
+							actionSetGridSpeed(0.002);
 			            }
 			        }
 			    ),
@@ -486,9 +337,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "X", "6" ],
 			            pressed: function () {
 							
-							var gridSpeed = 0.003;
-							logger("Set gridSpeed to: {0}", LogType.INFO, gridSpeed);
-							setInstanceVariable(getGridRenderer(), "separatorSpeed", gridSpeed);
+							actionSetGridSpeed(0.003);
 			            }
 			        }
 			    ),
@@ -498,9 +347,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "C", "6" ],
 			            pressed: function () {
 
-							var gridSpeed = 0.005;
-							logger("Set gridSpeed to: {0}", LogType.INFO, gridSpeed);
-							setInstanceVariable(getGridRenderer(), "separatorSpeed", gridSpeed);
+							actionSetGridSpeed(0.005);
 			            }
 			        }
 			    ),
@@ -510,9 +357,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "V", "6" ],
 			            pressed: function () {
 
-							var gridSpeed = 0.0075;
-							logger("Set gridSpeed to: {0}", LogType.INFO, gridSpeed);
-							setInstanceVariable(getGridRenderer(), "separatorSpeed", gridSpeed);
+							actionSetGridSpeed(0.0075);
 			            }
 			        }
 			    ),
@@ -525,16 +370,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "1", "7"],
 			            pressed: function () {
 
-			                var shaderEvent = createShaderEvent(
-								"Mosaic",
-								5.6,
-								createMap(
-									createTuple("amount", [ 128, 1024, 1.0, 0.002 ])
-								)
-							);
-							
-							logger("Sending shaderEvent: {0}", LogType.INFO, getShaderEventName(shaderEvent));
-							sendShaderEvent(shaderEvent)
+			                actionStartShader("Mosaic-1", 5.6);
 			            }
 			        }
 			    ),
@@ -544,16 +380,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "2", "7"],
 			            pressed: function () {
 
-			                var shaderEvent = createShaderEvent(
-								"LED",
-								6,
-								createMap(
-									[ "brightness", 1.0 ],
-									[ "ledSize",  [ 96, 512, 0.1, 0.002 ] ]
-								)
-							);
-							logger("Sending shaderEvent: {0}", LogType.INFO, getShaderEventName(shaderEvent));
-							sendShaderEvent(shaderEvent)
+			               actionStartShader("LED-1", 6.0);
 			            }
 			        }
 			    ),
@@ -563,16 +390,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "3", "7" ],
 			            pressed: function () {
 
-							var shaderEvent = createShaderEvent(
-								"LED",
-								6,
-								createMap(
-									[ "brightness", 1.0 ],
-									[ "ledSize", [ 512, 96, 0.1, 0.002 ] ]
-								)
-							);
-							logger("Sending shaderEvent: {0}", LogType.INFO, getShaderEventName(shaderEvent));
-							sendShaderEvent(shaderEvent)
+							actionStartShader("LED-2", 6.0);
 			            }
 			        }
 			    ),
@@ -581,20 +399,8 @@ function generateDefaultMidiMatrixController() {
 			        {
 			            keyboardMapping: [ "4", "7" ],
 			            pressed: function () {
-
-							var shaderEvent = createShaderEvent(
-								"Magnify",
-								6.2,
-								createMap(
-									[ "positionX", [ 0.5 ] ],
-									[ "positionY", [ 0.5 ] ],
-									[ "radius", [ 0.05, 0.70, 0.005 ] ],
-									[ "minZoom", [ 0.10, 0.30, 0.002 ] ],
-									[ "maxZoom", [ 0.30, 0.8, 0.002] ]
-								)
-							);
-							logger("Sending shaderEvent: {0}", LogType.INFO, getShaderEventName(shaderEvent));
-							sendShaderEvent(shaderEvent)
+							
+							actionStartShader("Magnify-1", 6.2);
 			            }
 			        }
 			    ),
@@ -604,20 +410,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "Q", "7" ],
 			            pressed: function () {
 
-							var shaderEvent = createShaderEvent(
-								"Ripple",
-								6.8,
-								createMap(
-									[ "positionX", 0.5 ],
-						            [ "positionY", 0.5 ],
-						            [ "amount", [ 1, 120, 0.2 ] ],
-						            [ "distortion", 40, 600, 0.2 ],
-						            [ "speed", [ 2, 10, 0.001 ] ],
-						            [ "time", [ 0, 1000, 0.1 ] ]
-								)
-							);
-							logger("Sending shaderEvent: {0}", LogType.INFO, getShaderEventName(shaderEvent));
-							sendShaderEvent(shaderEvent);
+							actionStartShader("Ripple-1", 6.8);
 			            }
 			        }
 			    ),
@@ -627,18 +420,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "W", "7" ],
 			            pressed: function () {
 
-							var shaderEvent = createShaderEvent(
-								"Wave",
-								4.9,
-								createMap(
-									[ "amount", [ 15, 25, 0.05 ] ],
-									[ "distortion", [ 30, 45, 0.05 ] ],
-									[ "speed", [ 2 ] ],
-									[ "time",  [ 0, 1000, 0.01 ] ]
-								)
-							);
-							logger("Sending shaderEvent: {0}", LogType.INFO, getShaderEventName(shaderEvent));
-							sendShaderEvent(shaderEvent);
+							actionStartShader("Wave-1", 4.9);
 			            }
 			        }
 			    ),
@@ -648,13 +430,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "E", "7" ],
 			            pressed: function () {
 
-							var shaderEvent = createShaderEvent(
-								"Revert",
-								4.4,
-								createMap()
-							);
-							logger("Sending shaderEvent: {0}", LogType.INFO, getShaderEventName(shaderEvent));
-							sendShaderEvent(shaderEvent);
+							actionStartShader("Revert", 4.4);
 			            }
 			        }
 			    ),
@@ -664,20 +440,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "R", "7" ],
 			            pressed: function () {
 
-							var shaderEvent = createShaderEvent(
-								"Ripple",
-								6.8,
-								createMap(
-									[ "positionX", 0.5 ],
-						            [ "positionY", [ 0.3, 0.8, 0.002 ] ],
-						            [ "amount", [ 30, 40, 0.2 ] ],
-						            [ "distortion", 40, 400, 0.2 ],
-						            [ "speed", [ 1, 5, 0.02 ] ],
-						            [ "time", [ 0, 1000, 0.1 ] ]
-								)
-							);
-							logger("Sending shaderEvent: {0}", LogType.INFO, getShaderEventName(shaderEvent));
-							sendShaderEvent(shaderEvent);
+							actionStartShader("Ripple-2", 6.8);
 			            }
 			        }
 			    ),
@@ -687,9 +450,8 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "A", "7" ],
 			            pressed: function () {
 
-							var spawnMargin = 0.05;
-							global.shroomVisuSpawnHorizontalRange = createTuple(0.0 + spawnMargin, 0.25 - spawnMargin);
-							logger("Update spawn position");
+							actionSetSpawnHRange(0.05, 0.2);
+							actionSetSpawnVRange(0.3, 0.45);
 			            }
 			        }
 			    ),
@@ -699,9 +461,8 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "S", "7" ],
 			            pressed: function () {
 
-							var spawnMargin = 0.05;
-							global.shroomVisuSpawnHorizontalRange = createTuple(0.25 + spawnMargin, 0.5 - spawnMargin);
-							logger("Update spawn position");
+							actionSetSpawnHRange(0.3, 0.45);
+							actionSetSpawnVRange(0.55, 0.7);
 			            }
 			        }
 			    ),
@@ -711,9 +472,8 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "D", "7" ],
 			            pressed: function () {
 
-							var spawnMargin = 0.05;
-							global.shroomVisuSpawnHorizontalRange = createTuple(0.5 + spawnMargin, 0.75 - spawnMargin);
-							logger("Update spawn position");
+							actionSetSpawnHRange(0.55, 0.7);
+							actionSetSpawnVRange(0.3, 0.45);
 			            }
 			        }
 			    ),
@@ -723,9 +483,8 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "F", "7" ],
 			            pressed: function () {
 
-							var spawnMargin = 0.05;
-							global.shroomVisuSpawnHorizontalRange = createTuple(0.75 + spawnMargin, 1.0 - spawnMargin);
-							logger("Update spawn position");							
+							actionSetSpawnHRange(0.8, 0.95);
+							actionSetSpawnVRange(0.05, 0.2);
 			            }
 			        }
 			    ),
@@ -735,49 +494,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "Z", "7" ],
 			            pressed: function () {
 							
-
-							var horizontalRange = global.shroomVisuSpawnHorizontalRange;
-							var from = getTupleKey(horizontalRange) * 100.0;
-							var to = getTupleValue(horizontalRange) * 100.0;
-							var speedRange = global.shroomVisuSpawnSpeedRange;
-							var shroomConfig = {
-								texture: choose(
-									getGridRenderer().shroom_texture_01
-								),
-								position: createPosition(
-									(from + irandom(to - from)) / 100.0,
-									0.006
-								),
-								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
-								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
-								features: {
-									isShooting: true,
-									bulletFollowPlayer: false,
-									slideAwayAfterLanding: false,
-								}
-							}
-							
-							var featureEnabled = true;
-							if (featureEnabled) {
-							
-								shroomConfig.horizontalSpeed = abs(shroomConfig.verticalSpeed)
-								shroomConfig.verticalSpeed = shroomConfig.verticalSpeed * 0.1;
-								
-								var verticalPosition = getPositionHorizontal(shroomConfig.position)
-								verticalPosition = verticalPosition < 0.20
-									? verticalPosition + 0.10
-									: verticalPosition * 0.6;
-								
-								setPositionVertical(shroomConfig.position, verticalPosition);
-								setPositionHorizontal(shroomConfig.position, -0.33);
-							}
-							
-							logger("Spawn shroom: { x: {0}, y: {1}  }", LogType.INFO, 
-								getPositionHorizontal(shroomConfig.position), 
-								getPositionVertical(shroomConfig.position), 
-								getAssetName(shroomConfig.texture, AssetTexture)
-							);
-							spawnVisuShroom(shroomConfig)
+							actionSpawnShroom("shroom-01");
 			            }
 			        }
 			    ),
@@ -787,51 +504,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "X", "7" ],
 			            pressed: function () {
 							
-							var horizontalRange = global.shroomVisuSpawnHorizontalRange;
-							var from = getTupleKey(horizontalRange) * 100.0;
-							var to = getTupleValue(horizontalRange) * 100.0;
-							var speedRange = global.shroomVisuSpawnSpeedRange;
-							var shroomConfig = {
-								texture: choose(
-									getGridRenderer().shroom_texture_02
-								),
-								position: createPosition(
-									(from + irandom(to - from)) / 100.0,
-									0.003
-								),
-								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
-								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
-								features: {
-									isShooting: false,
-									isZigzagMovement: false,
-									zigzagAmount: 0.0016,
-									zigzagSpeed: 0.08,
-									bulletFollowPlayer: false,
-									slideAwayAfterLanding: false,
-								}
-							}
-							
-							var featureEnabled = true;
-							if (featureEnabled) {
-							
-								shroomConfig.horizontalSpeed = abs(shroomConfig.verticalSpeed)
-								shroomConfig.verticalSpeed = shroomConfig.verticalSpeed * 0.1;
-								
-								var verticalPosition = getPositionHorizontal(shroomConfig.position)
-								verticalPosition = verticalPosition < 0.20
-									? verticalPosition + 0.10
-									: verticalPosition * 0.6;
-								
-								setPositionVertical(shroomConfig.position, verticalPosition);
-								setPositionHorizontal(shroomConfig.position, -0.33);
-							}
-							
-							logger("Spawn shroom: { x: {0}, y: {1}  }", LogType.INFO, 
-								getPositionHorizontal(shroomConfig.position), 
-								getPositionVertical(shroomConfig.position), 
-								getAssetName(shroomConfig.texture, AssetTexture)
-							);
-							spawnVisuShroom(shroomConfig)
+							actionSpawnShroom("shroom-02");
 			            }
 			        }
 			    ),
@@ -841,48 +514,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "C", "7" ],
 			            pressed: function () {
 							
-							var horizontalRange = global.shroomVisuSpawnHorizontalRange;
-							var from = getTupleKey(horizontalRange) * 100.0;
-							var to = getTupleValue(horizontalRange) * 100.0;
-							var speedRange = global.shroomVisuSpawnSpeedRange;
-							var shroomConfig = {
-								texture: choose(
-									getGridRenderer().shroom_texture_03
-								),
-								position: createPosition(
-									(from + irandom(to - from)) / 100.0,
-									0.003
-								),
-								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
-								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
-								features: {
-									isShooting: false,
-									bulletFollowPlayer: false,
-									slideAwayAfterLanding: false,
-								}
-							}
-							
-							var featureEnabled = true;
-							if (featureEnabled) {
-							
-								shroomConfig.horizontalSpeed = abs(shroomConfig.verticalSpeed) * -1;
-								shroomConfig.verticalSpeed = shroomConfig.verticalSpeed * 0.05;
-								
-								var verticalPosition = getPositionHorizontal(shroomConfig.position)
-								verticalPosition = verticalPosition < 0.20
-									? verticalPosition + 0.10
-									: verticalPosition * 0.6;
-								
-								setPositionVertical(shroomConfig.position, verticalPosition);
-								setPositionHorizontal(shroomConfig.position, 1.33);
-							}
-							
-							logger("Spawn shroom: { x: {0}, y: {1}  }", LogType.INFO, 
-								getPositionHorizontal(shroomConfig.position), 
-								getPositionVertical(shroomConfig.position), 
-								getAssetName(shroomConfig.texture, AssetTexture)
-							);
-							spawnVisuShroom(shroomConfig)
+							actionSpawnShroom("shroom-03");
 			            }
 			        }
 			    ),
@@ -892,51 +524,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "V", "7" ],
 			            pressed: function () {
 
-							var horizontalRange = global.shroomVisuSpawnHorizontalRange;
-							var from = getTupleKey(horizontalRange) * 100.0;
-							var to = getTupleValue(horizontalRange) * 100.0;
-							var speedRange = global.shroomVisuSpawnSpeedRange;
-							var shroomConfig = {
-								texture: choose(
-									getGridRenderer().shroom_texture_04
-								),
-								position: createPosition(
-									(from + irandom(to - from)) / 100.0,
-									0.003
-								),
-								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
-								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
-								features: {
-									isShooting: true,
-									isZigzagMovement: false,
-									zigzagAmount: 0.0008,
-									zigzagSpeed: 0.07,
-									bulletFollowPlayer: false,
-									slideAwayAfterLanding: false,
-								}
-							}
-							
-							var featureEnabled = true;
-							if (featureEnabled) {
-							
-								shroomConfig.horizontalSpeed = abs(shroomConfig.verticalSpeed) * -1;
-								shroomConfig.verticalSpeed = shroomConfig.verticalSpeed * 0.1;
-								
-								var verticalPosition = getPositionHorizontal(shroomConfig.position)
-								verticalPosition = verticalPosition < 0.20
-									? verticalPosition + 0.10
-									: verticalPosition * 0.6;
-								
-								setPositionVertical(shroomConfig.position, verticalPosition);
-								setPositionHorizontal(shroomConfig.position, 1.33);
-							}
-							
-							logger("Spawn shroom: { x: {0}, y: {1}  }", LogType.INFO, 
-								getPositionHorizontal(shroomConfig.position), 
-								getPositionVertical(shroomConfig.position), 
-								getAssetName(shroomConfig.texture, AssetTexture)
-							);
-							spawnVisuShroom(shroomConfig)
+							actionSpawnShroom("shroom-04");
 			            }
 			        }
 			    ),
@@ -949,9 +537,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "1", "8"],
 			            pressed: function () {
 
-							var value = 150;
-							logger("Send wavePulse: {0}", LogType.INFO, value);
-							setInstanceVariable(getGridRenderer(), "wavePulseAmount", value); 
+							actionSpawnGridPulse(150.0)
 			            }
 			        }
 			    ),
@@ -962,9 +548,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "2", "8"],
 			            pressed: function () {
 
-			                var value = 60;
-							logger("Send wavePulse: {0}", LogType.INFO, value);
-							setInstanceVariable(getGridRenderer(), "wavePulseAmount", value); 
+			                actionSpawnGridPulse(60.0)
 			            }
 			        }
 			    ),
@@ -975,10 +559,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "3", "8" ],
 			            pressed: function () {
 
-							var value = ceil(getInstanceVariable(getGridRenderer(), "channels"));
-							value = clamp(value - 1, 0, 1000);
-							logger("Set channels target: {0}", LogType.INFO, value);
-							setChannelsTarget(value);	
+							actionAddGridChannels(-1.0, 0.05)
 			            }
 			        }
 			    ),
@@ -989,10 +570,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "4", "8" ],
 			            pressed: function () {
 
-							var value = ceil(getInstanceVariable(getGridRenderer(), "channels"));
-							value = clamp(value + 1, 0, 1000);
-							logger("Set channels target: {0}", LogType.INFO, value);
-							setChannelsTarget(value);						
+							actionAddGridChannels(1.0, 0.05)
 			            }
 			        }
 			    ),
@@ -1002,28 +580,8 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "Q", "8" ],
 			            pressed: function () {
 
-							var color = getGridRenderer().background_color_01;
-							var texture = getGridRenderer().background_texture_01;
-							logger("Set colorGridBackground to: {0}", LogType.INFO, gmColorToColorHash(color));
-							setInstanceVariable(getGridRenderer(), "colorGridBackground", color);
-							
-							var background = getInstanceVariable(getGameRenderer(), "background");
-							var frame = irandom(sprite_get_number(texture));
-							setInstanceVariable(getGameRenderer(), "previousBackground", background);
-							setInstanceVariable(getGameRenderer(), "background", getRandomValueFromArray([
-								createSprite(
-									getSpriteAssetIndex(background) == getGridRenderer().background_texture_01
-										? asset_texture_empty
-										: getGridRenderer().background_texture_01,
-									frame,
-									1.0, 
-									1.0, 
-									0.0, 
-									0.0, 
-									c_white
-								)
-							]));		
-							setInstanceVariable(getGameRenderer(), "foreground", createSprite(asset_texture_empty, 0, 1.0, 1.0, 1.0, 0.0, c_white));
+							actionSetBackgroundColor("background_color_01")
+							actionSetBackgroundTexture("background_texture_01")
 			            }
 			        }
 			    ),
@@ -1033,26 +591,9 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "W", "8" ],
 			            pressed: function () {
 							
-							var color = getGridRenderer().background_color_02;
-							logger("Set colorGridBackground to: {0}", LogType.INFO, gmColorToColorHash(color));
-							setInstanceVariable(getGridRenderer(), "colorGridBackground", color);
+							actionSetBackgroundColor("background_color_02")
+							actionSetBackgroundTexture("background_texture_02")
 							
-							var background = getInstanceVariable(getGameRenderer(), "background");
-							setInstanceVariable(getGameRenderer(), "previousBackground", background);
-							setInstanceVariable(getGameRenderer(), "background", getRandomValueFromArray([
-								createSprite(
-									getSpriteAssetIndex(background) == getGridRenderer().background_texture_02
-										? asset_texture_empty
-										: getGridRenderer().background_texture_02,
-									irandom(sprite_get_number(getGridRenderer().background_texture_02)), 
-									1.0, 
-									1.0, 
-									0.0, 
-									0.0, 
-									c_white
-								)
-							]));
-							setInstanceVariable(getGameRenderer(), "foreground", createSprite(asset_texture_empty, 0, 1.0, 1.0, 1.0, 0.0, c_white));
 			            }
 			        }
 			    ),
@@ -1062,36 +603,8 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "E", "8" ],
 			            pressed: function () {
 
-							var color = getGridRenderer().background_color_03;
-							logger("Set colorGridBackground to: {0}", LogType.INFO, gmColorToColorHash(color));
-							setInstanceVariable(getGridRenderer(), "colorGridBackground", color);
-							
-							var foreground = getInstanceVariable(getGameRenderer(), "foreground");
-							var texture = getGridRenderer().background_texture_03;
-							var frame = irandom(sprite_get_number(texture));
-							try {
-								var currentTexture = getSpriteAssetIndex(foreground);
-								if (currentTexture == texture) {
-									var currentFrame = getSpriteCurrentFrame(foreground);
-									frame = currentFrame + 1 >= sprite_get_number(currentTexture)
-										? 0 
-										: currentFrame + 1;
-								}
-							} catch (exception) {
-								logger(exception.message, LogType.ERROR);	
-							}
-							setInstanceVariable(getGameRenderer(), "previousForeground", foreground);
-							setInstanceVariable(getGameRenderer(), "foreground", getRandomValueFromArray([
-								createSprite(
-									texture,
-									frame, 
-									1.0, 
-									1.0, 
-									0.0, 
-									0.0, 
-									c_white
-								)
-							]));
+							actionSetBackgroundColor("background_color_03")
+							actionSetForegroundTexture("background_texture_03")
 			            }
 			        }
 			    ),
@@ -1101,36 +614,8 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "R", "8" ],
 			            pressed: function () {
 
-							var color = getGridRenderer().background_color_04;
-							logger("Set colorGridBackground to: {0}", LogType.INFO, gmColorToColorHash(color));
-							setInstanceVariable(getGridRenderer(), "colorGridBackground", color);
-							
-							var foreground = getInstanceVariable(getGameRenderer(), "foreground");
-							var texture = getGridRenderer().background_texture_04;
-							var frame = irandom(sprite_get_number(texture));
-							try {
-								var currentTexture = getSpriteAssetIndex(foreground);
-								if (currentTexture == texture) {
-									var currentFrame = getSpriteCurrentFrame(foreground);
-									frame = currentFrame + 1 >= sprite_get_number(currentTexture)
-										? 0 
-										: currentFrame + 1;
-								}
-							} catch (exception) {
-								logger(exception.message, LogType.ERROR);	
-							}
-							setInstanceVariable(getGameRenderer(), "previousForeground", foreground);
-							setInstanceVariable(getGameRenderer(), "foreground", getRandomValueFromArray([
-								createSprite(
-									texture, 
-									frame, 
-									1.0, 
-									1.0, 
-									0.0, 
-									0.0, 
-									c_white
-								)
-							]));
+							actionSetBackgroundColor("background_color_04")
+							actionSetForegroundTexture("background_texture_04")
 			            }
 			        }
 			    ),
@@ -1140,8 +625,8 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "A", "8" ],
 			            pressed: function () {
 							
-							global.shroomVisuSpawnHorizontalRange = createTuple(0.0, 1.0);
-							logger("Update spawn position");
+							actionSetSpawnHRange(0.0, 1.0);
+							actionSetSpawnVRange(0.0, 1.0) 
 			            }
 			        }
 			    ),
@@ -1151,8 +636,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "S", "8" ],
 			            pressed: function () {
 
-							global.shroomVisuSpawnSpeedRange = createPosition(0.002, 0.003);
-							logger("Update spawn speed");
+							actionSetSpawnSpeed(0.002, 0.003);
 			            }
 			        }
 			    ),
@@ -1162,8 +646,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "D", "8" ],
 			            pressed: function () {
 							
-							global.shroomVisuSpawnSpeedRange = createPosition(0.006, 0.007);
-							logger("Update spawn speed");
+							actionSetSpawnSpeed(0.006, 0.007)
 			            }
 			        }
 			    ),
@@ -1173,8 +656,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "F", "8" ],
 			            pressed: function () {
 														
-							logger("Sending bkt glitch event", LogType.INFO);
-							setInstanceVariable(getGameRenderer(), "__isKeyPressed", true);
+							actionSpawnRandomGlitch();
 			            }
 			        }
 			    ),
@@ -1183,41 +665,8 @@ function generateDefaultMidiMatrixController() {
 			        {
 			            keyboardMapping: [ "Z", "8" ],
 			            pressed: function () {
-/*
-							var horizontalRange = global.shroomVisuSpawnHorizontalRange;
-							var from = getTupleKey(horizontalRange) * 100.0;
-							var to = getTupleValue(horizontalRange) * 100.0;
-							var speedRange = global.shroomVisuSpawnSpeedRange;
-							var shroomConfig = {
-								texture: getGridRenderer().shroom_texture_05,
-								position: createPosition(
-									(from + irandom(to - from)) / 100.0,
-									0.003
-								),
-								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
-								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
-								features: {
-									isShooting: false,
-									isZigzagMovement: true,
-									zigzagAmount: 0.0023,
-									zigzagSpeed: 0.13,
-									bulletFollowPlayer: true,
-									slideAwayAfterLanding: false
-								}
-							}
 							
-							logger("Spawn shroom: { x: {0}, y: {1}  }", LogType.INFO, 
-								getPositionHorizontal(shroomConfig.position), 
-								getPositionVertical(shroomConfig.position), 
-								getAssetName(shroomConfig.texture, AssetTexture)
-							);
-							spawnVisuShroom(shroomConfig)
-							*/
-							var config = {
-								
-							}
-							
-							makeShroom(config);
+							actionSpawnShroom("shroom-05");
 			            }
 			        }
 			    ),
@@ -1227,34 +676,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "X", "8" ],
 			            pressed: function () {
 							
-							var horizontalRange = global.shroomVisuSpawnHorizontalRange;
-							var from = getTupleKey(horizontalRange) * 100.0;
-							var to = getTupleValue(horizontalRange) * 100.0;
-							var speedRange = global.shroomVisuSpawnSpeedRange;
-							var shroomConfig = {
-								texture: getGridRenderer().shroom_texture_06,
-								position: createPosition(
-									(from + irandom(to - from)) / 100.0,
-									0.003
-								),
-								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
-								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
-								features: {
-									isShooting: false,
-									isZigzagMovement: false,
-									zigzagAmount: 0.003,
-									zigzagSpeed: 0.15,
-									bulletFollowPlayer: false,
-									slideAwayAfterLanding: true,
-								}
-							}
-							
-							logger("Spawn shroom: { x: {0}, y: {1}  }", LogType.INFO, 
-								getPositionHorizontal(shroomConfig.position), 
-								getPositionVertical(shroomConfig.position), 
-								getAssetName(shroomConfig.texture, AssetTexture)
-							);
-							spawnVisuShroom(shroomConfig)
+							actionSpawnShroom("shroom-06");
 			            }
 			        }
 			    ),
@@ -1264,31 +686,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "C", "8" ],
 			            pressed: function () {
 							
-							var horizontalRange = global.shroomVisuSpawnHorizontalRange;
-							var from = getTupleKey(horizontalRange) * 100.0;
-							var to = getTupleValue(horizontalRange) * 100.0;
-							var speedRange = global.shroomVisuSpawnSpeedRange;
-							var shroomConfig = {
-								texture: getGridRenderer().shroom_texture_07,
-								position: createPosition(
-									(from + irandom(to - from)) / 100.0,
-									0.003
-								),
-								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
-								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
-								features: {
-									isShooting: true,
-									bulletFollowPlayer: true,
-									slideAwayAfterLanding: true,
-								}
-							}
-							
-							logger("Spawn shroom: { x: {0}, y: {1}  }", LogType.INFO, 
-								getPositionHorizontal(shroomConfig.position), 
-								getPositionVertical(shroomConfig.position), 
-								getAssetName(shroomConfig.texture, AssetTexture)
-							);
-							spawnVisuShroom(shroomConfig)
+							actionSpawnShroom("shroom-07");
 			            }
 			        }
 			    ),
@@ -1298,34 +696,7 @@ function generateDefaultMidiMatrixController() {
 			            keyboardMapping: [ "V", "8" ],
 			            pressed: function () {
 
-							var horizontalRange = global.shroomVisuSpawnHorizontalRange;
-							var from = getTupleKey(horizontalRange) * 100.0;
-							var to = getTupleValue(horizontalRange) * 100.0;
-							var speedRange = global.shroomVisuSpawnSpeedRange;
-							var shroomConfig = {
-								texture: getGridRenderer().shroom_texture_08,
-								position: createPosition(
-									(from + irandom(to - from)) / 100.0,
-									0.003
-								),
-								horizontalSpeed: choose(1, -1) * choose(0.00001, 0.0001),
-								verticalSpeed: random_range(getPositionHorizontal(speedRange), getPositionVertical(speedRange)),
-								features: {
-									isShooting: true,
-									isZigzagMovement: true,
-									bulletFollowPlayer: true,
-									slideAwayAfterLanding: false,
-									zigzagAmount: 0.003,
-									zigzagSpeed: 0.11,
-								}
-							}
-							
-							logger("Spawn shroom: { x: {0}, y: {1}  }", LogType.INFO, 
-								getPositionHorizontal(shroomConfig.position), 
-								getPositionVertical(shroomConfig.position), 
-								getAssetName(shroomConfig.texture, AssetTexture)
-							);
-							spawnVisuShroom(shroomConfig)
+							actionSpawnShroom("shroom-08");
 			            }
 			        }
 			    )

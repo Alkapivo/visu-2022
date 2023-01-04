@@ -48,7 +48,7 @@
   },
   "parent": {
     "name": "scene",
-    "path": "folders/asset/com.devhorizon.core/visu/scene.yy",
+    "path": "folders/asset/com.devhorizon.visu/scene.yy",
   },
   "resourceVersion": "1.0",
   "name": "SceneGame",

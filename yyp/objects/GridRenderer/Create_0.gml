@@ -207,10 +207,10 @@
 	angleTheta = 0.0;
 	
 	///@type {Sprite}
-	markerGood = createSprite(asset_texture_marker_good, 0.0, 1.0, 1.0, 1.0, 0.0, c_white);
+	markerGood = createSprite(asset_texture_empty, 0.0, 1.0, 1.0, 1.0, 0.0, c_white);
 	
 	///@type {Sprite}
-	markerBad = createSprite(asset_texture_marker_bad, 0.0, 1.0, 1.0, 1.0, 0.0, c_white);
+	markerBad = createSprite(asset_texture_empty, 0.0, 1.0, 1.0, 1.0, 0.0, c_white);
 	
 	blendModes = [
 	    bm_zero,
@@ -535,6 +535,7 @@
 		
 				if (this.enableGridElementsRendering) {
 			
+					/*
 					if (keyboard_check_pressed(ord("I"))) {
 						this.firstBlendPointer = clamp(this.firstBlendPointer + 1, 0, this.blendModesLength - 1);
 						logger("firstBlendPointer {0}", LogType.DEBUG, this.firstBlendPointer);
@@ -552,6 +553,7 @@
 						this.secondBlendPointer = clamp(this.secondBlendPointer - 1, 0, this.blendModesLength - 1);
 						logger("secondBlendPointer {0}", LogType.DEBUG, this.secondBlendPointer);
 					}
+					*/
 					
 					var restoreBlendMode = false;
 					gpu_set_blendmode_ext(this.blendModes[this.firstBlendPointer], this.blendModes[this.secondBlendPointer]);
@@ -581,7 +583,7 @@
 						var spriteWidth = pixelSpriteWidth / BASE_SCALE_RESOLUTION;
 						var spriteHeight = pixelSpriteHeight / BASE_SCALE_RESOLUTION;
 					
-						if (spriteAsset == asset_sprite_spaceship) {
+						if (spriteAsset == asset_texture_visu_player) {
 							restoreBlendMode = true;
 							gpu_set_blendmode(bm_normal)
 							playerGridElement = gridElement;
@@ -625,7 +627,7 @@
 						if (restoreBlendMode) {
 						
 							renderTexture(
-								asset_texture_spaceship_glow,
+								asset_texture_visu_player_glow,
 								targetXBegin + ((targetXEnd - targetXBegin) / 2.0),
 								targetYEnd,
 								0,
@@ -721,7 +723,7 @@
 						if (restoreBlendMode) {
 						
 							renderTexture(
-								asset_texture_spaceship_glow,
+								asset_texture_visu_player_glow,
 								targetXBegin + ((targetXEnd - targetXBegin) / 2.0),
 								targetYEnd,
 								0,
@@ -806,7 +808,7 @@
 			var colorTransformPipelineSize = getListSize(this.colorTransformPipeline);
 			for (var index = 0; index < colorTransformPipelineSize; index++) {
 				
-				var	colorTransformTask = Core.Collections._List.get(this.colorTransformPipeline, index);
+				var	colorTransformTask = Core.Collections.Lists.get(this.colorTransformPipeline, index);
 				var fieldName = getColorTransformTaskFieldName(colorTransformTask);
 				var color = instanceVariableExists(this, fieldName) ? getInstanceVariable(this, fieldName) : null;
 				if (color == null) {
@@ -859,7 +861,7 @@
 			destroyDataStructure(this.separatorsBuffer, Stack, "Unable to destroy separatorsBuffer stack");
 	
 			for (var index = 0; index < getListSize(this.colorTransformPipeline); index++) {
-				var colorTransformTask = Core.Collections._List.get(this.colorTransformPipeline, index);
+				var colorTransformTask = Core.Collections.Lists.get(this.colorTransformPipeline, index);
 				destroyColorTransformTask(colorTransformTask);	
 			}
 			destroyDataStructure(this.colorTransformPipeline, List, "Unable to destroy colorTransformPipeline");

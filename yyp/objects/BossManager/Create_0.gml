@@ -49,7 +49,7 @@
 			destroyDataStructure(this.bossEventPipeline, Stack, "Unable to destroy bossEventPipeline");
 
 			for (var index = 0; index < getListSize(this.bosses); index++) {
-				var boss = Core.Collections._List.get(bosses, index);
+				var boss = Core.Collections.Lists.get(bosses, index);
 				destroyBoss(boss);
 			}
 			destroyDataStructure(this.bosses, List, "Unable to destroy bosses");
@@ -67,10 +67,10 @@
 			guardSurface(this, this.bossSurface, "bossSurface", ViewWidth, ViewHeight, true);
 			gpuSetSurfaceTarget(this.bossSurface);
 	
-			var bossesSize = Core.Collections._List.size(this.bosses);
+			var bossesSize = Core.Collections.Lists.size(this.bosses);
 			var destroyBosses = [];
 			for (var index = 0; index < bossesSize; index++) {
-				var boss = Core.Collections._List.get(this.bosses, index);
+				var boss = Core.Collections.Lists.get(this.bosses, index);
 				var bossScriptHandler = getBossHandler(boss);
 		
 				var state = getBossState(boss);
