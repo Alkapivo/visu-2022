@@ -349,7 +349,7 @@
 							Core.Collections.Maps.set(shroomState, "instantKill", true);
 						}
 						
-						if (movedVerticalPosition <= 0.10) {
+						if (movedVerticalPosition <= -0.01) {
 							
 							///@todo shroom.kill();
 							var shroomState = getShroomState(shroom);
@@ -379,7 +379,7 @@
 				respawnVisuPlayer();
 			}
 			
-			if ((movedVerticalPosition <= 0.10) && (landedOnShroom)) {
+			if ((movedVerticalPosition <= -0.01) && (landedOnShroom)) {
 			
 				Core.Collections.Maps.set(playerState, "landedOnShroom", false)
 			}
