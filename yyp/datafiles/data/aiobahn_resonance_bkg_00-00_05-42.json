@@ -1,0 +1,525 @@
+{
+    "audio": {
+        "name": "asset_sound_visu_ost",
+        "trackPosition": 0.0
+    },
+    "timer": 342.59615433334471390480757690966,
+    "events": [
+        {
+            "data": {
+                "timestamp": 0.0614179999999994397086311437306,
+                "log": "2022-11-02 17:34:04 INFO    [Anonymous] Set colorGridBackground to: #7A2262",
+                "key": "5x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 2.1957383333333320152291889826301,
+                "log": "2022-11-02 17:34:04 INFO    [Anonymous] Set colorGridBackground to: #F7F4FE",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 6.1211199999999887921831032144837,
+                "log": "2022-11-02 17:34:08 INFO    [Anonymous] Set colorGridBackground to: #F7F4FE",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 9.8583490000000288944193016504869,
+                "log": "2022-11-02 17:34:12 INFO    [Anonymous] Set colorGridBackground to: #F7F4FE",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 13.94989366666678876072182902135,
+                "log": "2022-11-02 17:34:16 INFO    [Anonymous] Set colorGridBackground to: #F7F4FE",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 18.022561666666792490332227316685,
+                "log": "2022-11-02 17:34:20 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "5x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 18.022561666666792490332227316685,
+                "log": "2022-11-02 17:34:20 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 23.669692666666644953465947764926,
+                "log": "2022-11-02 17:34:25 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 31.494645333333057379832098376937,
+                "log": "2022-11-02 17:34:33 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 38.986539333332864032399811549112,
+                "log": "2022-11-02 17:34:41 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 45.738410333332637947023613378406,
+                "log": "2022-11-02 17:34:47 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 49.039050666665886524242523591965,
+                "log": "2022-11-02 17:34:51 INFO    [Anonymous] Set colorGridBackground to: #7A2262",
+                "key": "5x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 64.392532333332098914979724213481,
+                "log": "2022-11-02 17:35:06 INFO    [Anonymous] Set colorGridBackground to: #F7F4FE",
+                "key": "6x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 71.15133099999857790862733963877,
+                "log": "2022-11-02 17:35:13 INFO    [Anonymous] Set colorGridBackground to: #F7F4FE",
+                "key": "6x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 79.719146666664968847726413514465,
+                "log": "2022-11-02 17:35:21 INFO    [Anonymous] Set colorGridBackground to: #F7F4FE",
+                "key": "6x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 87.451145333331439246649097185582,
+                "log": "2022-11-02 17:35:29 INFO    [Anonymous] Set colorGridBackground to: #F7F4FE",
+                "key": "6x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 96.0996203333311456162846297957,
+                "log": "2022-11-02 17:35:37 INFO    [Anonymous] Set colorGridBackground to: #393052",
+                "key": "4x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 111.75398399999740206567366840318,
+                "log": "2022-11-02 17:35:53 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 118.83235499999710782503825612366,
+                "log": "2022-11-02 17:36:00 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 127.51862666666355039524205494672,
+                "log": "2022-11-02 17:36:09 INFO    [Anonymous] Set colorGridBackground to: #7A2262",
+                "key": "5x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 143.1570400000031213494366966188,
+                "log": "2022-11-02 17:36:24 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 147.44725866667161540135566610843,
+                "log": "2022-11-02 17:36:28 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 151.32060200000643135354039259255,
+                "log": "2022-11-02 17:36:32 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 155.06101066667460486314666923136,
+                "log": "2022-11-02 17:36:36 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 159.00083166667610612421412952244,
+                "log": "2022-11-02 17:36:40 INFO    [Anonymous] Set colorGridBackground to: #393052",
+                "key": "4x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 159.16876466667616796257789246738,
+                "log": "2022-11-02 17:36:40 INFO    [Anonymous] Set colorGridBackground to: #F7F4FE",
+                "key": "6x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 162.89120533334443052808637730777,
+                "log": "2022-11-02 17:36:44 INFO    [Anonymous] Set colorGridBackground to: #F7F4FE",
+                "key": "6x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 170.60163566668092016698210500181,
+                "log": "2022-11-02 17:36:51 INFO    [Anonymous] Set colorGridBackground to: #F7F4FE",
+                "key": "6x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 178.17953466668413398110715206712,
+                "log": "2022-11-02 17:36:59 INFO    [Anonymous] Set colorGridBackground to: #F7F4FE",
+                "key": "6x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 186.41084700002113549999194219708,
+                "log": "2022-11-02 17:37:07 INFO    [Anonymous] Set colorGridBackground to: #F7F4FE",
+                "key": "6x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 190.18185500002280718945257831365,
+                "log": "2022-11-02 17:37:11 INFO    [Anonymous] Set colorGridBackground to: #7A2262",
+                "key": "5x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 206.17242700002955757554445881397,
+                "log": "2022-11-02 17:37:27 INFO    [Anonymous] Set colorGridBackground to: #393052",
+                "key": "4x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 221.50558133336951982528262306005,
+                "log": "2022-11-02 17:37:42 INFO    [Anonymous] Set colorGridBackground to: #7A2262",
+                "key": "5x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 221.77436700003624991950346156955,
+                "log": "2022-11-02 17:37:42 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 225.69975033337118475174065679312,
+                "log": "2022-11-02 17:37:46 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 229.64135533337270089759840629995,
+                "log": "2022-11-02 17:37:50 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 233.68321166670779120977385900915,
+                "log": "2022-11-02 17:37:54 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 237.57469766670931221597129479051,
+                "log": "2022-11-02 17:37:58 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 241.61517800004398281998874153942,
+                "log": "2022-11-02 17:38:02 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 245.74253266671249207320215646178,
+                "log": "2022-11-02 17:38:06 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 250.64042133338131179698393680155,
+                "log": "2022-11-02 17:38:11 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 253.15448166671575336295063607395,
+                "log": "2022-11-02 17:38:13 INFO    [Anonymous] Set colorGridBackground to: #7A2262",
+                "key": "5x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 253.23830966671579290050431154668,
+                "log": "2022-11-02 17:38:14 INFO    [Anonymous] Set colorGridBackground to: #F7F4FE",
+                "key": "6x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 257.36076466671642037908895872533,
+                "log": "2022-11-02 17:38:18 INFO    [Anonymous] Set colorGridBackground to: #F7F4FE",
+                "key": "6x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 261.16642466671493139074300415814,
+                "log": "2022-11-02 17:38:21 INFO    [Anonymous] Set colorGridBackground to: #F7F4FE",
+                "key": "6x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 265.90732733337932813810766674578,
+                "log": "2022-11-02 17:38:26 INFO    [Anonymous] Set colorGridBackground to: #F7F4FE",
+                "key": "6x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 269.82872033337753236992284655571,
+                "log": "2022-11-02 17:38:30 INFO    [Anonymous] Set colorGridBackground to: #F7F4FE",
+                "key": "6x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 273.13087766670952305503305979073,
+                "log": "2022-11-02 17:38:33 INFO    [Anonymous] Set colorGridBackground to: #F7F4FE",
+                "key": "6x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 277.30123266670750581397442147136,
+                "log": "2022-11-02 17:38:38 INFO    [Anonymous] Set colorGridBackground to: #F7F4FE",
+                "key": "6x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 281.34240000003904924597009085119,
+                "log": "2022-11-02 17:38:42 INFO    [Anonymous] Set colorGridBackground to: #F7F4FE",
+                "key": "6x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 284.67667533337095164824859239161,
+                "log": "2022-11-02 17:38:45 INFO    [Anonymous] Set colorGridBackground to: #7A2262",
+                "key": "5x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 300.44897833336432313444674946368,
+                "log": "2022-11-02 17:39:01 INFO    [Anonymous] Set colorGridBackground to: #393052",
+                "key": "4x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 308.02438533336101045279065147042,
+                "log": "2022-11-02 17:39:08 INFO    [Anonymous] Set colorGridBackground to: #7A2262",
+                "key": "5x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 308.19168266669430522597394883633,
+                "log": "2022-11-02 17:39:08 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 311.66281566669266567259910516441,
+                "log": "2022-11-02 17:39:12 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 315.87144500002432323526591062546,
+                "log": "2022-11-02 17:39:16 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 318.16959000002310631316504441202,
+                "log": "2022-11-02 17:39:18 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 320.09711666668891894005355425179,
+                "log": "2022-11-02 17:39:20 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 324.05402466668709848818252794445,
+                "log": "2022-11-02 17:39:24 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 327.67414900001858768519014120102,
+                "log": "2022-11-02 17:39:28 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 331.42866800001672800135565921664,
+                "log": "2022-11-02 17:39:31 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 333.55937033334879515678039751947,
+                "log": "2022-11-02 17:39:33 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 335.65447600001436967431800439954,
+                "log": "2022-11-02 17:39:36 INFO    [Anonymous] Set colorGridBackground to: #2E2B37",
+                "key": "7x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "timestamp": 339.7120463333458246779628098011,
+                "log": "2022-11-02 17:39:40 INFO    [Anonymous] Set colorGridBackground to: #7A2262",
+                "key": "5x5"
+            },
+            "name": "MidiControllerButtonEvent"
+        }
+    ],
+    "layout": {
+        "name": "novation-launchpad",
+        "page": 0.0
+    }
+}

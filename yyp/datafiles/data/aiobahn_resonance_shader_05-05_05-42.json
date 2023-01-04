@@ -1,0 +1,389 @@
+{
+    "timer": 339.60910566665756959991995245218,
+    "events": [
+        {
+            "data": {
+                "key": "2x5",
+                "timestamp": 306.6313543333326379070058465004,
+                "log": "2022-11-10 23:01:31 INFO    [Anonymous] shaderAsset: 17 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "1x4",
+                "timestamp": 306.76494633333260253493790514767,
+                "log": "2022-11-10 23:01:31 INFO    [Anonymous] shaderAsset: 20 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "2x4",
+                "timestamp": 306.91777833333247826885781250894,
+                "log": "2022-11-10 23:01:31 INFO    [Anonymous] shaderAsset: 20 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "0x4",
+                "timestamp": 307.11873033333245075482409447432,
+                "log": "2022-11-10 23:01:31 INFO    [Anonymous] shaderAsset: 10 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "2x4",
+                "timestamp": 307.33908633333231819051434285939,
+                "log": "2022-11-10 23:01:32 INFO    [Anonymous] shaderAsset: 20 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "1x4",
+                "timestamp": 307.53988833333227148614241741598,
+                "log": "2022-11-10 23:01:32 INFO    [Anonymous] shaderAsset: 20 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "3x4",
+                "timestamp": 307.64023866666559570148820057511,
+                "log": "2022-11-10 23:01:32 INFO    [Anonymous] shaderAsset: 19 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "2x4",
+                "timestamp": 307.87668999999885954821365885437,
+                "log": "2022-11-10 23:01:32 INFO    [Anonymous] shaderAsset: 20 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "1x4",
+                "timestamp": 308.07748933333215290986117906868,
+                "log": "2022-11-10 23:01:32 INFO    [Anonymous] shaderAsset: 20 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "3x4",
+                "timestamp": 308.26264099999877998925512656569,
+                "log": "2022-11-10 23:01:32 INFO    [Anonymous] shaderAsset: 19 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "0x4",
+                "timestamp": 308.41465533333195025988970883191,
+                "log": "2022-11-10 23:01:33 INFO    [Anonymous] shaderAsset: 10 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "2x4",
+                "timestamp": 308.59908266666514009557431563735,
+                "log": "2022-11-10 23:01:33 INFO    [Anonymous] shaderAsset: 20 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "2x4",
+                "timestamp": 309.72494266666461726345005445182,
+                "log": "2022-11-10 23:01:34 INFO    [Anonymous] shaderAsset: 20 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "1x4",
+                "timestamp": 309.90882499999787569322506897151,
+                "log": "2022-11-10 23:01:34 INFO    [Anonymous] shaderAsset: 20 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "2x4",
+                "timestamp": 310.04283766666446808812906965613,
+                "log": "2022-11-10 23:01:34 INFO    [Anonymous] shaderAsset: 20 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "3x4",
+                "timestamp": 310.22647333333111419051419943571,
+                "log": "2022-11-10 23:01:34 INFO    [Anonymous] shaderAsset: 19 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "0x4",
+                "timestamp": 310.36182333333107408179785124958,
+                "log": "2022-11-10 23:01:35 INFO    [Anonymous] shaderAsset: 10 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "3x5",
+                "timestamp": 310.49292033333102835968020372093,
+                "log": "2022-11-10 23:01:35 INFO    [Anonymous] shaderAsset: 16 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "1x5",
+                "timestamp": 310.59320833333100608797394670546,
+                "log": "2022-11-10 23:01:35 INFO    [Anonymous] shaderAsset: 1 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "2x5",
+                "timestamp": 313.66213533333086616039508953691,
+                "log": "2022-11-10 23:01:38 INFO    [Anonymous] shaderAsset: 17 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "0x5",
+                "timestamp": 315.74004299999700151602155528963,
+                "log": "2022-11-10 23:01:40 INFO    [Anonymous] shaderAsset: 16 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "1x5",
+                "timestamp": 316.8511923333298341276531573385,
+                "log": "2022-11-10 23:01:41 INFO    [Anonymous] shaderAsset: 1 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "0x4",
+                "timestamp": 317.05407233332977057216339744627,
+                "log": "2022-11-10 23:01:41 INFO    [Anonymous] shaderAsset: 10 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "0x4",
+                "timestamp": 317.28916199999633818151778541505,
+                "log": "2022-11-10 23:01:41 INFO    [Anonymous] shaderAsset: 10 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "3x4",
+                "timestamp": 317.3731139999962920228426810354,
+                "log": "2022-11-10 23:01:42 INFO    [Anonymous] shaderAsset: 19 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "1x4",
+                "timestamp": 317.6260099999961994399200193584,
+                "log": "2022-11-10 23:01:42 INFO    [Anonymous] shaderAsset: 20 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "3x5",
+                "timestamp": 320.23147099999505371670238673687,
+                "log": "2022-11-10 23:01:44 INFO    [Anonymous] shaderAsset: 16 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "1x4",
+                "timestamp": 320.38230799999496412056032568216,
+                "log": "2022-11-10 23:01:45 INFO    [Anonymous] shaderAsset: 20 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "3x4",
+                "timestamp": 320.48558433332823369710240513086,
+                "log": "2022-11-10 23:01:45 INFO    [Anonymous] shaderAsset: 19 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "1x4",
+                "timestamp": 320.63673599999486896194866858423,
+                "log": "2022-11-10 23:01:45 INFO    [Anonymous] shaderAsset: 20 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "0x4",
+                "timestamp": 320.75409999999487808963749557734,
+                "log": "2022-11-10 23:01:45 INFO    [Anonymous] shaderAsset: 10 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "3x5",
+                "timestamp": 320.75409999999487808963749557734,
+                "log": "2022-11-10 23:01:45 INFO    [Anonymous] shaderAsset: 16 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "1x5",
+                "timestamp": 321.12343799999479188045370392501,
+                "log": "2022-11-10 23:01:45 INFO    [Anonymous] shaderAsset: 1 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "2x4",
+                "timestamp": 322.41813699999482878411072306335,
+                "log": "2022-11-10 23:01:47 INFO    [Anonymous] shaderAsset: 20 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "0x5",
+                "timestamp": 322.60105599999485548323718830943,
+                "log": "2022-11-10 23:01:47 INFO    [Anonymous] shaderAsset: 16 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "0x5",
+                "timestamp": 324.8358529999947563737805467099,
+                "log": "2022-11-10 23:01:49 INFO    [Anonymous] shaderAsset: 16 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "2x4",
+                "timestamp": 324.88939366666141950190649367869,
+                "log": "2022-11-10 23:01:49 INFO    [Anonymous] shaderAsset: 20 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "3x4",
+                "timestamp": 325.0333823333280633960384875536,
+                "log": "2022-11-10 23:01:49 INFO    [Anonymous] shaderAsset: 19 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "3x4",
+                "timestamp": 325.2628263333280074220965616405,
+                "log": "2022-11-10 23:01:49 INFO    [Anonymous] shaderAsset: 19 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "2x4",
+                "timestamp": 325.54248133332799852723837830126,
+                "log": "2022-11-10 23:01:50 INFO    [Anonymous] shaderAsset: 20 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "0x4",
+                "timestamp": 325.73300333332804257224779576063,
+                "log": "2022-11-10 23:01:50 INFO    [Anonymous] shaderAsset: 10 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "2x5",
+                "timestamp": 326.02921933332800108473747968674,
+                "log": "2022-11-10 23:01:50 INFO    [Anonymous] shaderAsset: 17 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "1x5",
+                "timestamp": 329.28096299999481288978131487966,
+                "log": "2022-11-10 23:01:53 INFO    [Anonymous] shaderAsset: 1 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "3x4",
+                "timestamp": 329.46462299999478773315786384046,
+                "log": "2022-11-10 23:01:54 INFO    [Anonymous] shaderAsset: 19 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "0x5",
+                "timestamp": 329.56466299999476632365258410573,
+                "log": "2022-11-10 23:01:54 INFO    [Anonymous] shaderAsset: 16 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "2x4",
+                "timestamp": 329.73197699999474252763320691884,
+                "log": "2022-11-10 23:01:54 INFO    [Anonymous] shaderAsset: 20 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "3x5",
+                "timestamp": 331.09951399999465593282366171479,
+                "log": "2022-11-10 23:01:55 INFO    [Anonymous] shaderAsset: 16 isCompiled: 1"
+            },
+            "name": "MidiControllerButtonEvent"
+        }
+    ],
+    "layout": {
+        "page": 0.0,
+        "name": "novation-launchpad"
+    },
+    "audio": {
+        "trackPosition": 305.0,
+        "name": "asset_sound_visu_ost"
+    }
+}

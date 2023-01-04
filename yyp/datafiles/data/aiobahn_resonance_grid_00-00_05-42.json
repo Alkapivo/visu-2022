@@ -1,0 +1,517 @@
+{
+    "timer": 261.31117500004319254003348760307,
+    "events": [
+        {
+            "data": {
+                "key": "4x2",
+                "timestamp": 2.142306999999999295170027835411,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "5x2",
+                "timestamp": 9.9207766666666952204423068906181,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x2",
+                "timestamp": 13.78454333333345260825808509253,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "5x2",
+                "timestamp": 17.415533333333470977777324151248,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "5x4",
+                "timestamp": 17.849143000000125880433188285679,
+                "log": "2022-11-10 21:53:15 INFO    [Anonymous] Send wavePulse: 60"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x0",
+                "timestamp": 17.784354000000131890146803925745,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x4",
+                "timestamp": 21.825798333333349177109994343482,
+                "log": "2022-11-10 21:53:19 INFO    [Anonymous] Send wavePulse: 150"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x4",
+                "timestamp": 25.621174999999894339453021530062,
+                "log": "2022-11-10 21:53:23 INFO    [Anonymous] Send wavePulse: 150"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x4",
+                "timestamp": 27.704272999999847826302357134409,
+                "log": "2022-11-10 21:53:25 INFO    [Anonymous] Send wavePulse: 150"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x4",
+                "timestamp": 29.718078666666453813149928464554,
+                "log": "2022-11-10 21:53:27 INFO    [Anonymous] Send wavePulse: 150"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x4",
+                "timestamp": 33.412637333333051969930238556117,
+                "log": "2022-11-10 21:53:31 INFO    [Anonymous] Send wavePulse: 150"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x2",
+                "timestamp": 33.412046333333030645462713437155,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x4",
+                "timestamp": 37.488870333332954487559618428349,
+                "log": "2022-11-10 21:53:35 INFO    [Anonymous] Send wavePulse: 150"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x4",
+                "timestamp": 41.317132666666161355806252686307,
+                "log": "2022-11-10 21:53:38 INFO    [Anonymous] Send wavePulse: 150"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x4",
+                "timestamp": 43.332243666666123260711174225435,
+                "log": "2022-11-10 21:53:40 INFO    [Anonymous] Send wavePulse: 150"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x4",
+                "timestamp": 45.312760999999412092620332259685,
+                "log": "2022-11-10 21:53:42 INFO    [Anonymous] Send wavePulse: 150"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "5x4",
+                "timestamp": 49.222312999999289218067133333534,
+                "log": "2022-11-10 21:53:46 INFO    [Anonymous] Send wavePulse: 60"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "5x2",
+                "timestamp": 49.027616333332588283155928365886,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "5x4",
+                "timestamp": 53.182478999999162283529585693032,
+                "log": "2022-11-10 21:53:50 INFO    [Anonymous] Send wavePulse: 60"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "5x4",
+                "timestamp": 57.005829999999058088633319130167,
+                "log": "2022-11-10 21:53:54 INFO    [Anonymous] Send wavePulse: 60"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "5x4",
+                "timestamp": 61.021969999998965761278668651357,
+                "log": "2022-11-10 21:53:58 INFO    [Anonymous] Send wavePulse: 60"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "6x2",
+                "timestamp": 64.451413666665445134640322066844,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x4",
+                "timestamp": 64.937067999998831169250479433686,
+                "log": "2022-11-10 21:54:02 INFO    [Anonymous] Send wavePulse: 150"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x4",
+                "timestamp": 65.139433333332149800298793707043,
+                "log": "2022-11-10 21:54:02 INFO    [Anonymous] Send wavePulse: 150"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x0",
+                "timestamp": 64.836144333332100586630986072123,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x2",
+                "timestamp": 80.363164999998303983375080861151,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "5x2",
+                "timestamp": 96.223445333331156348322110716254,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x0",
+                "timestamp": 97.377690666664477703307056799531,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "5x1",
+                "timestamp": 112.08259666666421594527491834015,
+                "log": "2022-11-10 21:54:49 INFO    [Anonymous] Set grid-wheel-enabled: true"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x2",
+                "timestamp": 111.73355466666409085974009940401,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "7x2",
+                "timestamp": 123.47878666666380809147085528821,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "5x1",
+                "timestamp": 127.81234733333037922875519143417,
+                "log": "2022-11-10 21:55:04 INFO    [Anonymous] Set grid-wheel-enabled: false"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "5x2",
+                "timestamp": 127.47906099999698881219956092536,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x1",
+                "timestamp": 143.38831666666962405543017666787,
+                "log": "2022-11-10 21:55:20 INFO    [Anonymous] Set grid-frame-cleaned: false"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x2",
+                "timestamp": 142.95407866666900531527062412351,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "5x2",
+                "timestamp": 150.83617600000530956094735302031,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x2",
+                "timestamp": 152.5597646666726063813257496804,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "5x2",
+                "timestamp": 154.50166533334007112898689229041,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x2",
+                "timestamp": 157.6988936666745075854123570025,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "6x2",
+                "timestamp": 158.20000133334136194207530934364,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x1",
+                "timestamp": 159.22107666667540115668089129031,
+                "log": "2022-11-10 21:55:36 INFO    [Anonymous] Set grid-frame-cleaned: true"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "7x2",
+                "timestamp": 158.68513066667483712990360800177,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x0",
+                "timestamp": 158.91930500000825077222543768585,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "6x2",
+                "timestamp": 174.31501866668043021491030231118,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "5x2",
+                "timestamp": 186.12726533335143130898359231651,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "5x1",
+                "timestamp": 190.43015366668771548575023189187,
+                "log": "2022-11-10 21:56:07 INFO    [Anonymous] Set grid-wheel-enabled: true"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x0",
+                "timestamp": 190.0093710000195414977497421205,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x1",
+                "timestamp": 206.36244633336056608641229104251,
+                "log": "2022-11-10 21:56:22 INFO    [Anonymous] Set grid-frame-cleaned: false"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x2",
+                "timestamp": 205.50768900002492500789230689406,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "6x2",
+                "timestamp": 205.70827633335832729244430083781,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x1",
+                "timestamp": 221.92273600003284172998974099755,
+                "log": "2022-11-10 21:56:38 INFO    [Anonymous] Set grid-frame-cleaned: true"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "5x1",
+                "timestamp": 222.14089566669960618128243368119,
+                "log": "2022-11-10 21:56:38 INFO    [Anonymous] Set grid-wheel-enabled: false"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "5x2",
+                "timestamp": 221.20189633336391921147878747433,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x2",
+                "timestamp": 223.91269566669828350313764531165,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x1",
+                "timestamp": 237.68131466670556051212770398706,
+                "log": "2022-11-10 21:56:54 INFO    [Anonymous] Set grid-frame-cleaned: false"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "5x2",
+                "timestamp": 236.89607033336943686663289554417,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "6x2",
+                "timestamp": 244.95865066670560850070614833385,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "5x1",
+                "timestamp": 248.04182100004288713535061106086,
+                "log": "2022-11-10 21:57:04 INFO    [Anonymous] Set grid-wheel-enabled: true"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "5x1",
+                "timestamp": 252.35467233337777770429966039956,
+                "log": "2022-11-10 21:57:08 INFO    [Anonymous] Set grid-wheel-enabled: false"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x1",
+                "timestamp": 253.59759333337822795328975189477,
+                "log": "2022-11-10 21:57:09 INFO    [Anonymous] Set grid-frame-cleaned: true"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x4",
+                "timestamp": 254.39794833337845147980260662735,
+                "log": "2022-11-10 21:57:10 INFO    [Anonymous] Send wavePulse: 150"
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "5x1",
+                "timestamp": 253.13783833337524242779181804508,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        },
+        {
+            "data": {
+                "key": "4x0",
+                "timestamp": 254.2419436667089769343874650076,
+                "log": ""
+            },
+            "name": "MidiControllerButtonEvent"
+        }
+    ],
+    "layout": {
+        "page": 0.0,
+        "name": "novation-launchpad"
+    },
+    "audio": {
+        "trackPosition": 0.0,
+        "name": "asset_sound_visu_ost"
+    }
+}
