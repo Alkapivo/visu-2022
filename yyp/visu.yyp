@@ -908,7 +908,7 @@
     {"id":{"name":"font_ibm_vga9","path":"fonts/font_ibm_vga9/font_ibm_vga9.yy",},"order":3,},
     {"id":{"name":"font_ibm_ps2thin4","path":"fonts/font_ibm_ps2thin4/font_ibm_ps2thin4.yy",},"order":5,},
     {"id":{"name":"font_console","path":"fonts/font_console/font_console.yy",},"order":2,},
-    {"id":{"name":"asset_font_jetbrains_mono_small9","path":"fonts/asset_font_jetbrains_mono_small9/asset_font_jetbrains_mono_small9.yy",},"order":1,},
+    {"id":{"name":"asset_font_lyrics_renderer","path":"fonts/asset_font_lyrics_renderer/asset_font_lyrics_renderer.yy",},"order":1,},
     {"id":{"name":"LoadingHandler","path":"objects/LoadingHandler/LoadingHandler.yy",},"order":0,},
     {"id":{"name":"Camera","path":"objects/Camera/Camera.yy",},"order":0,},
     {"id":{"name":"Boot","path":"objects/Boot/Boot.yy",},"order":0,},
@@ -1264,6 +1264,7 @@
     {"CopyToMask":-1,"filePath":"datafiles/system","resourceVersion":"1.0","name":"shroom-templates.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/system","resourceVersion":"1.0","name":"properties.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/data","resourceVersion":"1.0","name":"shroom-templates.json","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/data","resourceVersion":"1.0","name":"midbooze_distant_memory_10.json","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2022.5.1.16",

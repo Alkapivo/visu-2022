@@ -5,7 +5,7 @@
         "spawnPosition" : [ "top" ],
         "baseSpeed" : [ 0.1 ],
         "features" : {
-            "isZigzagMovement": true
+            "isShooting": true
         }
     },
     {
@@ -14,7 +14,9 @@
         "spawnPosition" : [ "top" ],
         "baseSpeed" : [ 0.1 ],
         "features" : {
-            "isZigzagMovement": true
+            "isZigzagMovement": true,
+            "zigzagAmount": 0.0100,
+            "zigzagSpeed": 0.0137
         }
     },
     {
@@ -22,9 +24,7 @@
         "texture" : [ "asset_texture_visu_shroom_03" ],
         "spawnPosition" : [ "top" ],
         "baseSpeed" : [ 0.1 ],
-        "features" : {
-            "isZigzagMovement": true
-        }
+        "features" : {}
     },
     {
         "name" : "shroom-04",
@@ -32,7 +32,7 @@
         "spawnPosition" : [ "top" ],
         "baseSpeed" : [ 0.1 ],
         "features" : {
-            "isZigzagMovement": true
+            "slideAwayAfterLanding": true
         }
     },
     {
@@ -41,7 +41,8 @@
         "spawnPosition" : [ "top" ],
         "baseSpeed" : [ 0.1 ],
         "features" : {
-            "isZigzagMovement": false
+            "isShooting": true,
+            "bulletFollowPlayer": true
         }
     },
     {
@@ -50,7 +51,7 @@
         "spawnPosition" : [ "top" ],
         "baseSpeed" : [ 0.1 ],
         "features" : {
-            "isZigzagMovement": false
+            "isShooting": false
         }
     },
     {
@@ -59,7 +60,7 @@
         "spawnPosition" : [ "top" ],
         "baseSpeed" : [ 0.1 ],
         "features" : {
-            "isZigzagMovement": false
+            "slideAwayAfterLanding": true
         }
     },
     {
@@ -68,7 +69,9 @@
         "spawnPosition" : [ "top" ],
         "baseSpeed" : [ 0.1 ],
         "features" : {
-            "isZigzagMovement": false
+            "isZigzagMovement": true,
+            "zigzagAmount": 0.0080,
+            "zigzagSpeed": 0.0137
         }
     }
 ]

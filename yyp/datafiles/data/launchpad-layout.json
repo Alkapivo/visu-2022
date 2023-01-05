@@ -431,7 +431,7 @@
             "actions": [
                 {
                     "name": "actionStartShader",
-                    "parameters": [ "Mosaic-1", 5.6 ]
+                    "parameters": [ "Mosaic-midbooze", 2.6 ]
                 }
             ]
         },
@@ -442,7 +442,7 @@
             "actions": [
                 {
                     "name": "actionStartShader",
-                    "parameters": [ "LED-1", 6.0 ]
+                    "parameters": [ "LED-midbooze", 2.2 ]
                 }
             ]
         },
@@ -453,7 +453,7 @@
             "actions": [
                 {
                     "name": "actionStartShader",
-                    "parameters": [ "LED-2", 6.0 ]
+                    "parameters": [ "LED-midbooze-2", 2.2 ]
                 }
             ]
         },
@@ -464,7 +464,7 @@
             "actions": [
                 {
                     "name": "actionStartShader",
-                    "parameters": [ "Magnify-1", 6.2 ]
+                    "parameters": [ "Magnify-1", 2.2 ]
                 }
             ]
         },
@@ -519,7 +519,7 @@
             "actions": [
                 {
                     "name": "actionStartShader",
-                    "parameters": [ "Ripple-1", 6.8 ]
+                    "parameters": [ "Ripple-1", 7.8 ]
                 }
             ]
         },
@@ -530,7 +530,7 @@
             "actions": [
                 {
                     "name": "actionStartShader",
-                    "parameters": [ "Wave-1", 4.9 ]
+                    "parameters": [ "Wave-1", 7.9 ]
                 }
             ]
         },
@@ -541,7 +541,7 @@
             "actions": [
                 {
                     "name": "actionStartShader",
-                    "parameters": [ "Revert", 4.4 ]
+                    "parameters": [ "Thermal", 7.4 ]
                 }
             ]
         },
@@ -552,7 +552,7 @@
             "actions": [
                 {
                     "name": "actionStartShader",
-                    "parameters": [ "Ripple-2", 6.8 ]
+                    "parameters": [ "Ripple-2", 3.8 ]
                 }
             ]
         },
