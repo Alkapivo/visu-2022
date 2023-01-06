@@ -39,7 +39,7 @@ function createBPMController(config) {
 			var yBegin = 200;
 			var symbolWidth = 12;
 			var symbolHeight = 20;
-			var font = font_ibm_ps2thin4;
+			var font = asset_font_ibm_ps2thin4;
 			 
 			draw_set_halign(fa_left);
 			draw_set_valign(fa_top);
