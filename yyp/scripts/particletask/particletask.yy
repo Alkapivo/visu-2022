@@ -6,7 +6,7 @@
     "path": "folders/src/com.devhorizon.core/entity/manager/ParticleManager.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ParticleEvent",
+  "name": "ParticleTask",
   "tags": [],
   "resourceType": "GMScript",
 }

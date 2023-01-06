@@ -148,7 +148,6 @@ function initializeVisuContexts() {
 	global.timelineManagerContext = null;
 	global.particleManagerContext = null;
 
-	global.handheldRendererContext = null;
 	global.gameRendererContext = null;	
 	global.gridRendererContext = null;
 	global.lyricsRendererContext = null;
@@ -210,12 +209,6 @@ function initializeVisuEnums() {
 		PARTICLE = 1
 	}
 	
-	enum FontSize {
-		SMALL = 0,
-		MEDIUM = 1,
-		LARGE = 2
-	}
-	
 	#region SpawnPosition
 	#macro SpawnPosition_TOP "top"
 	#macro SpawnPosition_RIGHT "right"
@@ -257,26 +250,6 @@ function initializeVisuGlobals() {
 	
 	
 	global.demo = false;
-
-    ///@todo Remove
-	///@type {Boolean}
-	global.isHandheldMode = false;
-
-	///@todo Remove
-	///@type {FontFace}
-	global.jetbrainsmono = [
-		asset_font_jetbrains_mono_small,
-		asset_font_jetbrains_mono_small,
-		asset_font_jetbrains_mono_small
-	]
-	
-	///@todo Remove
-	///@type {FontFace}
-	global.jetbrainsmonoBold = [
-		asset_font_jetbrains_mono_small,
-		asset_font_jetbrains_mono_small,
-		asset_font_jetbrains_mono_small
-	]
 
 	///@todo Remove
 	global.gameCounter = 0;

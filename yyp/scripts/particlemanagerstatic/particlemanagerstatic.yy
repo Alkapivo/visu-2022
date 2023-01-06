@@ -3,10 +3,10 @@
   "isCompatibility": false,
   "parent": {
     "name": "ParticleManager",
-    "path": "folders/src/com.devhorizon.core/entity/manager/ParticleManager.yy",
+    "path": "folders/src/com.devhorizon.core/manager/ParticleManager.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ParticleEvent",
+  "name": "ParticleManagerStatic",
   "tags": [],
   "resourceType": "GMScript",
 }

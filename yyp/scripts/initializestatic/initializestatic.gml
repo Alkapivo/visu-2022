@@ -18,7 +18,8 @@ function initializeContexts() {
        #region Manager
        global.networkManagerContext = null;
        global.windowManagerContext = null;
-       global.resourceManagerContext = null;   
+       global.resourceManagerContext = null; 
+	   global.particleManagerContext = null;
        #endregion
        
        #region Renderer
@@ -1007,7 +1008,7 @@ function initializeGlobals() {
 			},
 			Font: {
 				fetch: function(name) {
-					return getAssetIndex(name, AssetFont, asset_font_jetbrains_mono_small);	
+					return getAssetIndex(name, AssetFont, asset_font_default);	
 				}
 			}
 		},
