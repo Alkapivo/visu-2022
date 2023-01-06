@@ -222,17 +222,38 @@ function initializeParticleEffectSnow() {
 
 }
 
+///@function initializeParticleEffectSnow()
+///@description Particle Effect handler.
+function particleShroomExplosion() {
+
+	var particleEffectName = "particle_shroom_explosion";
+	
+	var particleEffect = part_type_create();
+	var particleEffects = getParticleManager().particleEffects;
+	
+	part_type_shape(particleEffect, pt_shape_sphere);
+	part_type_size(particleEffect, 0.15, 1, 0.40, 0);
+	part_type_scale(particleEffect, 0.10, 0.13);
+	part_type_orientation(particleEffect, 0, 0, 0, 0, 0);
+	part_type_color3(particleEffect, 65280, 16711680, 255);
+	part_type_alpha3(particleEffect, 0.58, 1, 0);
+	part_type_blend(particleEffect, 1);
+	part_type_life(particleEffect, 20, 60);
+	part_type_speed(particleEffect, 1, 4, 0, 0);
+	part_type_direction(particleEffect, 0, 360, 0, 0);
+	part_type_gravity(particleEffect, 0.22, 90);
+
+	
+	addToMap(particleEffects, particleEffectName, particleEffect);
+}
+
 ///@function parseFieldsToParticleTask(particle, fields)
 ///@description Parser for GameEvent entity.
 ///@param {Map<String::Object>} fields
 ///@return {ParticleTask} particleTask
-function parseFieldsToParticleTask(argument0, argument1) {
-
-	var particle = argument0;
-	var fields = argument1;
+function parseFieldsToParticleTask(particle, fields) {
 	
-	var system = parseParticleSystemsStringToEnum(getValueFromMap(fields, "system", "background"));
-	system = system == null ? ParticleSystems.FOREGROUND : system;
+	var system = parseParticleSystemsStringToEnum(getValueFromMap(fields, "system", ParticleSystems.FOREGROUND));
 	var amount = getValueFromMap(fields, "amount", 10);
 	var duration = getValueFromMap(fields, "duration", 3.5);
 	var emitterInterval = getValueFromMap(fields, "emitterInterval", 3.5);
@@ -256,9 +277,6 @@ function parseFieldsToParticleTask(argument0, argument1) {
 		emitterInterval,
 		0.0,
 		positionBegin,
-		positionEnd);
-	
-
-
-
+		positionEnd
+	);
 }
