@@ -1,4 +1,4 @@
-///@function splitTextToArray(text, delimiter)
+///@function splitStringToArray(text, delimiter)
 ///@description Split text into array by delimiter
 ///@param {String} text
 ///@param {String} delimiter

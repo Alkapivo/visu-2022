@@ -5,9 +5,8 @@
 		exit;	
 	}
 
-	var handheldRenderer = getHandheldRenderer();
-	var screenWidth = isHandheld() ? global.viewWidth : global.guiWidth;
-	var screenHeight = isHandheld() ? global.viewHeight : global.guiHeight;
+	var screenWidth = GuiWidth;
+	var screenHeight = GuiHeight;
 	
 	gpu_set_texfilter(true);
 	
@@ -38,8 +37,7 @@
 	var gridColor = colorToGMColor(getGridRenderer().colorGridWheelTopRight); 
 	var positionX = viewWidth - (0.1 * viewWidth);
 	var positionY = hudYAnchor * viewHeight;
-	var fontSize = screenWidth > 600 ? FontSize.LARGE: FontSize.MEDIUM;
-	var font = global.jetbrainsmonoBold[fontSize];
+	var font = asset_font_default;
 	draw_set_font(font);
 	draw_set_halign(fa_right);
 	draw_set_valign(fa_bottom);
@@ -65,8 +63,7 @@
 		
 	#region Score value
 	if (hudDrawClearTimer <= 9) {
-		var fontSize = screenWidth > 600 ? FontSize.LARGE: FontSize.MEDIUM;
-		var font = global.jetbrainsmonoBold[fontSize];
+		var font = asset_font_default;
 		draw_set_font(font);
 		draw_set_halign(fa_right);
 		draw_set_valign(fa_top);
@@ -89,8 +86,7 @@
 			*/
 	}
 		
-	var fontSize = screenWidth > 600 ? FontSize.LARGE: FontSize.MEDIUM;
-	var font = global.jetbrainsmonoBold[fontSize];
+	var font = asset_font_default;
 	draw_set_font(font);
 	draw_set_halign(fa_right);
 	draw_set_valign(fa_top);
@@ -142,7 +138,7 @@
 		var alpha = (90 - time) / 70;
 		var positionX = position[0] * viewWidth;
 		var positionY = position[1] * viewHeight - (time * (text == "+" ? 1 : -1))
-		var font = global.jetbrainsmonoBold[FontSize.LARGE];
+		var font = asset_font_default;
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_middle);
 		var fontColorTopLeft = text == "+" ? c_lime : c_red;
@@ -234,8 +230,7 @@
 				var gridColor = colorToGMColor(getGridRenderer().colorGridWheelTopLeft); 
 				var positionX = 0.5 * screenWidth;
 				var positionY = 0.5 * screenHeight;
-				var fontSize = screenWidth > 600 ? FontSize.LARGE : FontSize.MEDIUM;
-				var font = asset_font_jetbrains_mono_small9
+				var font = asset_font_default
 				draw_set_font(font);
 				draw_set_halign(fa_middle);
 				draw_set_valign(fa_center);
@@ -262,8 +257,7 @@
 				var positionX = 0.5 * screenWidth;
 				var positionY = 0.2 * screenHeight;
 				
-				var fontSize = screenWidth > 600 ? FontSize.LARGE : FontSize.MEDIUM;
-				var font = global.jetbrainsmonoBold[fontSize];
+				var font = asset_font_default;
 				draw_set_font(font);
 				draw_set_halign(fa_middle);
 				draw_set_valign(fa_center);
@@ -287,7 +281,7 @@
 				var positionX = 0.5 * screenWidth;
 				var positionY = 0.35 * screenHeight;
 				
-				var font = global.jetbrainsmonoBold[FontSize.LARGE];
+				var font = asset_font_default;
 				draw_set_font(font);
 				draw_set_halign(fa_middle);
 				draw_set_valign(fa_center);
@@ -372,97 +366,28 @@
 		gpuSetShaderUniformFloat(shaderCRTUniformNoiseSize, shaderCRTUniformValueNoiseSize);
 	    gpuSetShaderUniformFloat(shaderCRTUniformTimer, shaderCRTTimer);
 			
-		if (isHandheld()) {
-			var handheldOrientation = getHandheldRendererOrientation(handheldRenderer);
-			var handheldBarWidth = getHandheldRendererBarWidth(handheldRenderer);
-			var handheldBarHeight = getHandheldRendererBarHeight(handheldRenderer);
-			
-			switch (handheldOrientation) {
-				case ScreenOrientation.HORIZONTAL:
-					var screenSurfaceXPosition = handheldBarWidth;
-					var screenSurfaceYPosition = 0;
-					var screenSurfaceRelativeWidth = global.guiWidth - (2 * handheldBarWidth);
-					var screenSurfaceRelativeHeight = global.guiHeight;
-					drawSurfaceStretched(screenSurface, 
-						screenSurfaceXPosition,
-						screenSurfaceYPosition,
-						screenSurfaceRelativeWidth,
-						screenSurfaceRelativeHeight);
-					break;
-				case ScreenOrientation.VERTICAL:
-					var screenSurfaceXPosition = 0;
-					var screenSurfaceYPosition = 0;
-					var screenSurfaceRelativeWidth = global.guiWidth;
-					var screenSurfaceRelativeHeight = global.guiHeight - handheldBarHeight;
-					drawSurfaceStretched(screenSurface, 
-						screenSurfaceXPosition,
-						screenSurfaceYPosition,
-						screenSurfaceRelativeWidth,
-						screenSurfaceRelativeHeight);
-					break;
-			}
-		} else {
-			
-			/*
-			var _alpha = draw_get_alpha();
-			var factor = 0.037;
-			draw_set_alpha(factor);
-			draw_rectangle_color(0, 0, GuiWidth, GuiHeight, c_black, c_black, c_black, c_black, false);
-			draw_set_alpha(_alpha);
-			*/
-			//drawSurfaceStretched(screenSurface, getMouseGuiX() - (GuiWidth / 2.0), getMouseGuiY() - (GuiHeight / 2.0), global.guiWidth, global.guiHeight);	
-			drawSurfaceStretched(screenSurface, 0, 0, global.guiWidth, global.guiHeight);
-		}
+		/*
+		var _alpha = draw_get_alpha();
+		var factor = 0.037;
+		draw_set_alpha(factor);
+		draw_rectangle_color(0, 0, GuiWidth, GuiHeight, c_black, c_black, c_black, c_black, false);
+		draw_set_alpha(_alpha);
+		*/
+		//drawSurfaceStretched(screenSurface, getMouseGuiX() - (GuiWidth / 2.0), getMouseGuiY() - (GuiHeight / 2.0), global.guiWidth, global.guiHeight);	
+		drawSurfaceStretched(screenSurface, 0, 0, global.guiWidth, global.guiHeight);
+		
 		gpuResetShader();
 	} else {
-		if (isHandheld()) {
-			var handheldOrientation = getHandheldRendererOrientation(handheldRenderer);
-			var handheldBarWidth = getHandheldRendererBarWidth(handheldRenderer);
-			var handheldBarHeight = getHandheldRendererBarHeight(handheldRenderer);
-			
-			switch (handheldOrientation) {
-				case ScreenOrientation.HORIZONTAL:
-					var screenSurfaceXPosition = handheldBarWidth;
-					var screenSurfaceYPosition = 0;
-					var screenSurfaceRelativeWidth = global.guiWidth - (2 * handheldBarWidth);
-					var screenSurfaceRelativeHeight = global.guiHeight;
-					drawSurfaceStretched(screenSurface, 
-						screenSurfaceXPosition,
-						screenSurfaceYPosition,
-						screenSurfaceRelativeWidth,
-						screenSurfaceRelativeHeight);
-					break;
-				case ScreenOrientation.VERTICAL:
-					var screenSurfaceXPosition = 0;
-					var screenSurfaceYPosition = 0;
-					var screenSurfaceRelativeWidth = global.guiWidth;
-					var screenSurfaceRelativeHeight = global.guiHeight - handheldBarHeight;
-					drawSurfaceStretched(screenSurface, 
-						screenSurfaceXPosition,
-						screenSurfaceYPosition,
-						screenSurfaceRelativeWidth,
-						screenSurfaceRelativeHeight);
-					break;
-			}
-		} else {
-			
-			/*
-			var _alpha = draw_get_alpha();
-			var factor = 0.037;
-			draw_set_alpha(factor);
-			draw_rectangle_color(0, 0, GuiWidth, GuiHeight, c_black, c_black, c_black, c_black, false);
-			draw_set_alpha(_alpha);
-			*/
-			//drawSurfaceStretched(screenSurface, getMouseGuiX() - (GuiWidth / 2.0), getMouseGuiY() - (GuiHeight / 2.0), global.guiWidth, global.guiHeight);	
-			drawSurfaceStretched(screenSurface, 0, 0, global.guiWidth, global.guiHeight);
-			
-			
-		}
-	}
 
-	if (isHandheld()) {
-		var handheldSurface = getHandheldRendererSurface(handheldRenderer);
-		drawSurface(handheldSurface, 0, 0);
+		/*
+		var _alpha = draw_get_alpha();
+		var factor = 0.037;
+		draw_set_alpha(factor);
+		draw_rectangle_color(0, 0, GuiWidth, GuiHeight, c_black, c_black, c_black, c_black, false);
+		draw_set_alpha(_alpha);
+		*/
+		//drawSurfaceStretched(screenSurface, getMouseGuiX() - (GuiWidth / 2.0), getMouseGuiY() - (GuiHeight / 2.0), global.guiWidth, global.guiHeight);	
+		drawSurfaceStretched(screenSurface, 0, 0, global.guiWidth, global.guiHeight);
 	}
 	
 	gpuResetSurfaceTarget();
@@ -513,7 +438,7 @@
 	
 			draw_set_halign(fa_left);
 			draw_set_valign(fa_bottom);
-			draw_set_font(font_ibm_ps2thin4);
+			draw_set_font(asset_font_ibm_ps2thin4);
 			var gameplayData = getGameController().gameplayData;
 			var text = stringParams(
 				"Shroom counter:    {0}\n" +
@@ -576,7 +501,7 @@
 					1
 				);
 				
-				draw_set_font(font_ibm_ps2thin4);
+				draw_set_font(asset_font_ibm_ps2thin4);
 				draw_set_halign(fa_right);
 				draw_set_valign(fa_middle);
 				
@@ -617,7 +542,7 @@
 		
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_middle);
-		draw_set_font(asset_font_jetbrains_mono_small9);
+		draw_set_font(asset_font_start_screen);
 		draw_set_color(choose(c_white, c_white, c_white, c_white, c_white, c_white, c_fuchsia));
 		draw_set_alpha(1.0);
 

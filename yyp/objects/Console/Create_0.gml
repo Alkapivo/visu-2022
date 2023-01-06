@@ -8,7 +8,7 @@
 	isConsoleDisplayed = false;
 	
 	///@type {AssetFont}
-	font = getAssetIndex(getProperty("console.fontName", "font_console"), AssetFont, font_console);
+	font = getAssetIndex(getProperty("console.fontName", "asset_font_default"), AssetFont, asset_font_default);
 	
 ///@private:
 
