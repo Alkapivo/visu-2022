@@ -10,7 +10,7 @@
 	enableReplay = getPropertyBoolean("GameController.enableReplay", false);
 
 	///@type {?InputHandler}
-	inputHandler = createInputHandler(isHandheld() ? TouchInputHandler : KeyboardInputHandler);
+	inputHandler = KeyboardInputHandler;
 
 	///@type {Number}
 	gameplayTime = 0;
@@ -73,18 +73,11 @@
 	inject(BulletManager);
 	inject(PlayerManager);
 	inject(GameRenderer);
+	inject(ParticleManager);
 	createCamera();
 	
 	jsUtilBootComplete(); // hide loading div
 	
-	pushStack(
-		getLyricsRenderer().lyricsTaskPipeline,
-		createLyricsEvent(
-			global.__lyrics,
-			4096, 
-			0.11
-		)
-	);
 	#endregion	
 	
 	GMObject = {

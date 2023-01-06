@@ -2,7 +2,7 @@
 
 	super();
 	registerSceneRenderer(this);
-	setRendererResizeStrategyHandler(id, (isHandheld() ? handheldResizeStrategy : defaultResizeStrategy));
+	setRendererResizeStrategyHandler(id, defaultResizeStrategy);
 	bktglitch_init();
 	__bktgtlich_ui_init()
 	
@@ -319,3 +319,4 @@ blendModesLength = getArrayLength(blendModes);
 	});
 	parseJsonShaderTemplates(shaderTemplatesJsonString);
 	
+	particleTimer = 0.0;
