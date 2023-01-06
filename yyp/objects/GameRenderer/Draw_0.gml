@@ -284,7 +284,8 @@
 			getGridRendererAngle(),
 			1.0,
 			c_white,
-			createPosition(0.5, 0.5));
+			createPosition(0.5, 0.5)
+		);
 	}
 	#endregion
 			

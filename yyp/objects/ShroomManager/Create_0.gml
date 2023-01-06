@@ -304,6 +304,19 @@
 						if (instantKill) {
 				
 							destroyShrooms = pushArray(destroyShrooms, index);
+							var positions = fetchGridElementParticlePosition(shroomGridElement, shroomPosition);
+							var particleTask = createParticleTask(
+								"particle_explosion",
+								ParticleSystems.BACKGROUND,
+								64,
+								0.0,
+								0.1,
+								0.01,
+								0.0,
+								createPosition(positions.xStart, positions.yStart),
+								createPosition(positions.xEnd, positions.yEnd)
+							);
+							sendParticleTask(particleTask);	
 							break;
 						}
 			
@@ -317,6 +330,19 @@
 							if (bulletTaken > 0) { //3
 						
 								destroyShrooms = pushArray(destroyShrooms, index);
+								var positions = fetchGridElementParticlePosition(shroomGridElement, shroomPosition);
+								var particleTask = createParticleTask(
+									"particle_explosion",
+									ParticleSystems.FOREGROUND,
+									60,
+									0.0,
+									0.4,
+									0.4,
+									0.0,
+									createPosition(positions.xStart, positions.yStart),
+									createPosition(positions.xEnd, positions.yEnd)
+								);
+								sendParticleTask(particleTask);	
 								break;
 							} else {
 					
