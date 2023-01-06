@@ -569,7 +569,7 @@
             "keyboardMapping": [ "E", "8" ],
             "actions": [
                 {
-                    "name": "actionSetBackgroundColor",
+                    "name": "actionSetForegroundColor",
                     "parameters": [ "background_color_03" ]
                 },
                 {
@@ -580,7 +580,7 @@
         },
         {
             "key": "7x5",
-            "displayName": "set foreground",
+            "displayName": "set background",
             "keyboardMapping": [ "R", "8" ],
             "actions": [
                 {
@@ -588,7 +588,7 @@
                     "parameters": [ "background_color_04" ]
                 },
                 {
-                    "name": "actionSetForegroundTexture",
+                    "name": "actionSetBackgroundTexture",
                     "parameters": [ "background_texture_04" ]
                 }
             ]
