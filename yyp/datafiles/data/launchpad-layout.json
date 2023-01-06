@@ -228,11 +228,11 @@
             "actions": [
                 {
                     "name": "actionSetGridTopLineWidth",
-                    "parameters": [ 0.36, 0.001 ]
+                    "parameters": [ 0.44, 0.001 ]
                 },
                 {
                     "name": "actionSetGridBottomLineWidth",
-                    "parameters": [ 0.37, 0.001 ]
+                    "parameters": [ 0.46, 0.001 ]
                 },
                 {
                     "name": "actionSetGridXScale",
@@ -241,29 +241,6 @@
                 {
                     "name": "actionSetGridYScale",
                     "parameters": [ 0.85, 0.0008 ]
-                }
-            ]
-        },
-        {
-            "key": "4x2",
-            "displayName": "set grid-shape",
-            "keyboardMapping": [ "S", "6" ],
-            "actions": [
-                {
-                    "name": "actionSetGridTopLineWidth",
-                    "parameters": [ 0.37, 0.001 ]
-                },
-                {
-                    "name": "actionSetGridBottomLineWidth",
-                    "parameters": [ 0.69, 0.001 ]
-                },
-                {
-                    "name": "actionSetGridXScale",
-                    "parameters": [ 0.90, 0.0008 ]
-                },
-                {
-                    "name": "actionSetGridYScale",
-                    "parameters": [ 0.90, 0.0008 ]
                 }
             ]
         },
@@ -274,11 +251,11 @@
             "actions": [
                 {
                     "name": "actionSetGridTopLineWidth",
-                    "parameters": [ 0.37, 0.001 ]
+                    "parameters": [ 0.55, 0.001 ]
                 },
                 {
                     "name": "actionSetGridBottomLineWidth",
-                    "parameters": [ 0.69, 0.001 ]
+                    "parameters": [ 0.68, 0.001 ]
                 },
                 {
                     "name": "actionSetGridXScale",
@@ -301,7 +278,7 @@
                 },
                 {
                     "name": "actionSetGridBottomLineWidth",
-                    "parameters": [ 0.96, 0.001 ]
+                    "parameters": [ 0.9, 0.001 ]
                 },
                 {
                     "name": "actionSetGridXScale",
@@ -320,11 +297,11 @@
             "actions": [
                 {
                     "name": "actionSetGridTopLineWidth",
-                    "parameters": [ 0.89, 0.001 ]
+                    "parameters": [ 0.92, 0.001 ]
                 },
                 {
                     "name": "actionSetGridBottomLineWidth",
-                    "parameters": [ 0.93, 0.001 ]
+                    "parameters": [ 0.97, 0.001 ]
                 },
                 {
                     "name": "actionSetGridXScale",
@@ -431,7 +408,7 @@
             "actions": [
                 {
                     "name": "actionStartShader",
-                    "parameters": [ "Mosaic-1", 5.6 ]
+                    "parameters": [ "Mosaic-1", 3.6 ]
                 }
             ]
         },
@@ -442,7 +419,7 @@
             "actions": [
                 {
                     "name": "actionStartShader",
-                    "parameters": [ "LED-1", 6.0 ]
+                    "parameters": [ "Wave-dvwnpour", 4.2 ]
                 }
             ]
         },
@@ -453,7 +430,7 @@
             "actions": [
                 {
                     "name": "actionStartShader",
-                    "parameters": [ "LED-2", 6.0 ]
+                    "parameters": [ "Revert", 1.6 ]
                 }
             ]
         },
@@ -464,7 +441,7 @@
             "actions": [
                 {
                     "name": "actionStartShader",
-                    "parameters": [ "Magnify-1", 6.2 ]
+                    "parameters": [ "Magnify-dvwnpour", 3.3 ]
                 }
             ]
         },
@@ -519,7 +496,7 @@
             "actions": [
                 {
                     "name": "actionStartShader",
-                    "parameters": [ "Ripple-1", 6.8 ]
+                    "parameters": [ "Ripple-1", 7.8 ]
                 }
             ]
         },
@@ -530,7 +507,7 @@
             "actions": [
                 {
                     "name": "actionStartShader",
-                    "parameters": [ "Wave-1", 4.9 ]
+                    "parameters": [ "Wave-1", 7.9 ]
                 }
             ]
         },
@@ -541,7 +518,7 @@
             "actions": [
                 {
                     "name": "actionStartShader",
-                    "parameters": [ "Revert", 4.4 ]
+                    "parameters": [ "Thermal", 7.4 ]
                 }
             ]
         },
@@ -552,7 +529,7 @@
             "actions": [
                 {
                     "name": "actionStartShader",
-                    "parameters": [ "Ripple-2", 6.8 ]
+                    "parameters": [ "Ripple-2", 3.8 ]
                 }
             ]
         },
@@ -596,7 +573,7 @@
                     "parameters": [ "background_color_03" ]
                 },
                 {
-                    "name": "actionSetForegroundTexture",
+                    "name": "actionSetBackgroundTexture",
                     "parameters": [ "background_texture_03" ]
                 }
             ]
@@ -611,7 +588,7 @@
                     "parameters": [ "background_color_04" ]
                 },
                 {
-                    "name": "actionSetForegroundTexture",
+                    "name": "actionSetBackgroundTexture",
                     "parameters": [ "background_texture_04" ]
                 }
             ]
