@@ -1,241 +1,54 @@
-///@description Draw debug overlay
+///@description GMObject.renderGUI
 
 	if (getCamera().isMode3D) {
-		
 		exit;	
 	}
 
-	var screenWidth = GuiWidth;
-	var screenHeight = GuiHeight;
-	
+	this.applicationSurface = getSurface(this.applicationSurface, GuiWidth, GuiHeight, true);
+	this.screenSurface = getSurface(this.screenSurface, GuiWidth, GuiHeight, true);
+	this.guiSurface = getSurface(this.guiSurface, GuiWidth, GuiHeight, true);
+	this.jumbotronSurface = getSurface(this.jumbotronSurface, GuiWidth, GuiHeight, true);
+	this.gameSurface = getSurface(this.gameSurface, ViewWidth, ViewHeight, true);
+
+
 	gpu_set_texfilter(true);
+	gpuSetSurfaceTarget(this.guiSurface);
 	
-	guardSurface(id, applicationSurface, "applicationSurface", global.guiWidth, global.guiHeight, true);
-	guardSurface(id, screenSurface, "screenSurface", screenWidth, screenHeight, true);
-	guardSurface(id, guiSurface, "guiSurface", screenWidth, screenHeight, true);
-	guardSurface(id, jumbotronSurface, "jumbotronSurface", screenWidth, screenHeight, true);
-	guardSurface(id, gameSurface, "gameSurface", global.viewWidth, global.viewHeight, true);
-
-	#region Draw to guiSurface
-	gpuSetSurfaceTarget(guiSurface);
-	
-	hudDrawClearTimer = incrementTimer(hudDrawClearTimer, 15, 1);
-	if (hudDrawClearTimer > 9) {
-		drawClear(COLOR_TRANSPARENT);	
-	}
-
-	var viewWidth = screenWidth;
-	var viewHeight = screenHeight;
-	var hudYAnchor = hudLocation == "top" ? 0.14 : 0.86;
-	
-	#region Score
-	var scoreValue = getGameplayScore();
-	var scoreValuePositionX = viewWidth - (0.1 * viewWidth);
-	var scoreValuePositionY = hudYAnchor * viewHeight;
-	
-	#region Score title	
-	var gridColor = colorToGMColor(getGridRenderer().colorGridWheelTopRight); 
-	var positionX = viewWidth - (0.1 * viewWidth);
-	var positionY = hudYAnchor * viewHeight;
-	var font = asset_font_default;
-	draw_set_font(font);
-	draw_set_halign(fa_right);
-	draw_set_valign(fa_bottom);
-				
-	var text = stringParams("SHROOMS: {0}", global.shroomSize);
-	var fontColorTopLeft = c_white;
-	var fontColorTopRight= gridColor;
-	var fontColorBottomRight = c_white;
-	var fontColorBottomLeft = c_fuchsia;
-	
-	/*
-	draw_text_color(
-		positionX,
-		positionY, 
-		text,
-		fontColorTopLeft,
-		fontColorTopRight,
-		fontColorBottomRight,
-		fontColorBottomLeft,
-		1.0);
-	*/
-	#endregion
-		
-	#region Score value
-	if (hudDrawClearTimer <= 9) {
-		var font = asset_font_default;
-		draw_set_font(font);
-		draw_set_halign(fa_right);
-		draw_set_valign(fa_top);
-		
-		var text = floor(random(9999) + 10000 * random(9));
-		var fontColorTopLeft = c_black;
-		var fontColorTopRight= c_white;
-		var fontColorBottomLeft = c_silver;
-		var fontColorBottomRight = c_fuchsia;
-		/*
-		draw_text_color(
-			positionX,
-			positionY, 
-			text,
-			fontColorTopLeft,
-			fontColorTopRight,
-			fontColorBottomRight,
-			fontColorBottomLeft,
-			choose(0.2, 0.2, 0.2, 0.3, 0.3, 0.4, 0.5));
-			*/
-	}
-		
-	var font = asset_font_default;
-	draw_set_font(font);
-	draw_set_halign(fa_right);
-	draw_set_valign(fa_top);
-	
-	var text = string(getGameplayScore());
-	var fontColorTopLeft = colorHashToGMColor("#ff005a");
-	var fontColorTopRight= c_white
-	var fontColorBottomLeft = c_white;
-	var fontColorBottomRight = c_white;
-	draw_text_color(
-		positionX,
-		positionY, 
-		text,
-		fontColorTopLeft,
-		fontColorTopRight,
-		fontColorBottomRight,
-		fontColorBottomLeft,
-		1.0);
-	#endregion
-		
-	#region Previous score value
-	if (scoreValue != previousScoreValue) {
-		var textWidth = string_width(text);
-		var textHeight = string_height(text);
-		var positionBegin = createPosition(
-			((scoreValuePositionX - textWidth) / viewWidth),
-			(scoreValuePositionY / viewHeight));
-		var positionEnd = createPosition(
-			(scoreValuePositionX / viewWidth),
-			((scoreValuePositionY + textHeight) / viewHeight));
-		var randomPosition = createPosition(
-			positionBegin[0] + (((random(positionEnd[0] - positionBegin[0]) * 1000) / 1000)),
-			positionBegin[1] + (((random(positionEnd[1] - positionBegin[1]) * 1000) / 1000)))
-		
-	}
-	previousScoreValue = scoreValue;
-	#endregion
-		
-	#region scoreNotifyEffectPipeline
-	var destroyScoreNotifyEffectPipeline = [];
-	var scoreNotifyEffectPipelineSize = getListSize(scoreNotifyEffectPipeline);
-	for (var index = 0; index < scoreNotifyEffectPipelineSize; index++) {
-		var task = scoreNotifyEffectPipeline[| index];
-
-		var text = task[0];
-		var time = task[1];
-		time = incrementTimer(time, 90);
-		var position = task[2];
-		var alpha = (90 - time) / 70;
-		var positionX = position[0] * viewWidth;
-		var positionY = position[1] * viewHeight - (time * (text == "+" ? 1 : -1))
-		var font = asset_font_default;
-		draw_set_halign(fa_center);
-		draw_set_valign(fa_middle);
-		var fontColorTopLeft = text == "+" ? c_lime : c_red;
-		var fontColorTopRight= fontColorTopLeft;
-		var fontColorBottomLeft = fontColorTopLeft;
-		var fontColorBottomRight = fontColorTopLeft;
-		draw_text_color(
-			positionX,
-			positionY, 
-			text,
-			fontColorTopLeft,
-			fontColorTopRight,
-			fontColorBottomRight,
-			fontColorBottomLeft,
-			alpha);
-		
-		if (time == 0.0) {
-			pushArray(destroyScoreNotifyEffectPipeline, index);	
-		}
-			
-		task[@ 1] = time;
-	}
-	var destroyScoreNotifyEffectPipelineSize = getArrayLength(destroyScoreNotifyEffectPipeline);
-	for (var index = 0; index < destroyScoreNotifyEffectPipelineSize; index++) {
-		var scoreNotifyEffectPipelineIndex = destroyScoreNotifyEffectPipeline[index];
-		scoreNotifyEffectPipeline[| scoreNotifyEffectPipelineIndex] = null;
-	}
-	
-	if (destroyScoreNotifyEffectPipelineSize > 0) {
-		reduceList(scoreNotifyEffectPipeline, null);	
-	}
-	#endregion
-		
-	#region HUD: Draw bullets 
-	var player = findPlayerByIndex(0);
-	if (player != null && hudVisible) {
-		var playerState = getVisuPlayerState(player);
-		var bullets = getValueFromMap(playerState, "bullets", 0);
-		var bulletSprite = global.bulletAsset;
-		var bulletSpriteWidth = sprite_get_width(bulletSprite);
-		var bulletSpriteTargetWidth = ceil(screenWidth * 0.0833);
-		var bulletScale = (bulletSpriteTargetWidth / bulletSpriteWidth) * 0.8;
-		for (var index = 0; index < bullets; index++) {
-			var bulletXPosition = (screenWidth * 0.08) + ((bulletSpriteWidth * (0.4 * bulletScale)) * index);
-			// commented by krulig in favour to next line
-			//var bulletYPosition = screenHeight - (screenHeight * 0.12);
-			var bulletYPosition = hudYAnchor * viewHeight;
-			draw_sprite_ext(
-				bulletSprite, 
-				0, 
-				bulletXPosition, 
-				bulletYPosition,
-				bulletScale, 
-				bulletScale, 
-				choose(1, 1, -1) * random(3),
-				c_white, 
-				1.0);
-		}
-	}
-	#endregion
-		
-	#endregion
+	drawClear(COLOR_TRANSPARENT);
 	
 	gpuResetSurfaceTarget();
-	#endregion
 
 	#region Draw to jumbotronSurface
-	gpuSetSurfaceTarget(jumbotronSurface);
-	if (jumbotronEvent != null) {
+	gpuSetSurfaceTarget(this.jumbotronSurface);
+	if (this.jumbotronEvent != null) {
 		
 		var jumbotronAlpha = 1.0;
 		var jumbotronFadeTime = 0.2
-		var duration = getJumbotronEventDuration(jumbotronEvent);
-		if (jumbotronEventTimer < jumbotronFadeTime) {
+		var duration = getJumbotronEventDuration(this.jumbotronEvent);
+		if (this.jumbotronEventTimer < jumbotronFadeTime) {
 		
-			jumbotronAlpha = jumbotronEventTimer / jumbotronFadeTime
+			jumbotronAlpha = this.jumbotronEventTimer / jumbotronFadeTime
 		}
 		
-		if (jumbotronEventTimer > duration - jumbotronFadeTime) {
+		if (this.jumbotronEventTimer > duration - jumbotronFadeTime) {
 			
-			jumbotronAlpha = 1.0 - ((jumbotronEventTimer - (duration - jumbotronFadeTime)) / jumbotronFadeTime)
+			jumbotronAlpha = 1.0 - ((this.jumbotronEventTimer - (duration - jumbotronFadeTime)) / jumbotronFadeTime)
 		}
 		
 		drawClear([ 0.77, 0.0, 0.21, jumbotronAlpha * 0.4]); // TODO getJumbotronEventBackgroundColor
-		var jumbotronHandlerName = getJumbotronEventHandlerName(jumbotronEvent)
+		var jumbotronHandlerName = getJumbotronEventHandlerName(this.jumbotronEvent)
 		switch (jumbotronHandlerName) {
 			case "message":
 				#region
 				var gridColor = colorToGMColor(getGridRenderer().colorGridWheelTopLeft); 
-				var positionX = 0.5 * screenWidth;
-				var positionY = 0.5 * screenHeight;
-				var font = asset_font_default
+				var positionX = 0.5 * GuiWidth;
+				var positionY = 0.5 * GuiHeight;
+				var font = asset_font_start_screen;
 				draw_set_font(font);
 				draw_set_halign(fa_middle);
 				draw_set_valign(fa_center);
 				
-				var text = getJumbotronEventMessage(jumbotronEvent);
+				var text = getJumbotronEventMessage(this.jumbotronEvent);
 				var fontColorTopLeft = c_white;
 				var fontColorTopRight= gridColor;
 				var fontColorBottomRight = c_white;
@@ -251,66 +64,12 @@
 					jumbotronAlpha);
 				#endregion
 				break;
-			case "scoreboard":
-				#region
-				var gridColor = colorToGMColor(getGridRenderer().colorGridWheelTopLeft); 
-				var positionX = 0.5 * screenWidth;
-				var positionY = 0.2 * screenHeight;
-				
-				var font = asset_font_default;
-				draw_set_font(font);
-				draw_set_halign(fa_middle);
-				draw_set_valign(fa_center);
-				
-				var text = wordwrapString(getJumbotronEventMessage(jumbotronEvent), screenWidth * 0.8, "\n", 1);
-				var fontColorTopLeft = c_white;
-				var fontColorTopRight= gridColor;
-				var fontColorBottomLeft = c_fuchsia;
-				var fontColorBottomRight = c_white;
-				draw_text_color(
-					positionX,
-					positionY, 
-					text,
-					fontColorTopLeft,
-					fontColorTopRight,
-					fontColorBottomRight,
-					fontColorBottomLeft,
-					1.0);
-				
-				var gridColor = colorToGMColor(getGridRenderer().colorGridWheelTopLeft); 
-				var positionX = 0.5 * screenWidth;
-				var positionY = 0.35 * screenHeight;
-				
-				var font = asset_font_default;
-				draw_set_font(font);
-				draw_set_halign(fa_middle);
-				draw_set_valign(fa_center);
-				
-				var text = string(getGameplayScore());
-				var fontColorTopLeft = c_white;
-				var fontColorTopRight= gridColor;
-				var fontColorBottomLeft = c_fuchsia;
-				var fontColorBottomRight = c_white;
-				draw_text_color(
-					positionX,
-					positionY, 
-					text,
-					fontColorTopLeft,
-					fontColorTopRight,
-					fontColorBottomRight,
-					fontColorBottomLeft,
-					1.0);
-				#endregion
-				
-				jumbotronScoreboardHandler(jumbotronState);
-				break;
 		}
 
-		
-		jumbotronEventTimer = incrementTimer(jumbotronEventTimer, duration);
-		if (timerFinished(jumbotronEventTimer)) {
-			jumbotronEventTimer = 0.0;
-			jumbotronEvent = createEmptyOptional();
+		this.jumbotronEventTimer = incrementTimer(this.jumbotronEventTimer, duration);
+		if (timerFinished(this.jumbotronEventTimer)) {
+			this.jumbotronEventTimer = 0.0;
+			this.jumbotronEvent = createEmptyOptional();
 		}
 	} else {
 		drawClear(COLOR_TRANSPARENT);	
@@ -320,34 +79,39 @@
 	#endregion
 
 	#region Draw to screenSurface
-	gpuSetSurfaceTarget(screenSurface);
+	gpuSetSurfaceTarget(this.screenSurface);
 	var verticalScreens = clamp(getGridRenderer().verticalScreens, 1.0, 32.0);
 	var verticalScreensSize = ceil(verticalScreens);
 	var horizontalScreens = clamp(getGridRenderer().horizontalScreens, 1.0, 32.0);	
 	var horizontalScreensSize = ceil(horizontalScreens);
 	for (var yIndex = 0; yIndex < verticalScreensSize; yIndex++) {
+		
 		for (var xIndex = 0; xIndex < horizontalScreensSize; xIndex++) {
-			var applicationSurfaceWidth = round(screenWidth / horizontalScreens);
-			var applicationSurfaceHeight = round(screenHeight / verticalScreens);
-			drawSurfaceStretched(gameSurface, 
+			
+			var applicationSurfaceWidth = round(GuiWidth / horizontalScreens);
+			var applicationSurfaceHeight = round(GuiHeight / verticalScreens);
+			drawSurfaceStretched(
+				this.gameSurface, 
 				xIndex * applicationSurfaceWidth,
 				yIndex * applicationSurfaceHeight,
 				applicationSurfaceWidth,
-				applicationSurfaceHeight);
+				applicationSurfaceHeight
+			);
 		}
 	}
 	
 	var lyricsRenderer = getLyricsRenderer();
 	if (isOptionalPresent(lyricsRenderer)) {
 		if (lyricsRenderer.enableLyricsRenderer) {
+			
 			var lyricsSurface = lyricsRenderer.lyricsSurface;
 			draw_set_alpha(lyricsRenderer.alpha)
-			drawSurfaceStretched(lyricsSurface, 0, 0, screenWidth, screenHeight);
+			drawSurfaceStretched(lyricsSurface, 0, 0, GuiWidth, GuiHeight);
 			draw_set_alpha(1.0);
 		}
 	}
-	drawSurfaceStretched(guiSurface, 0, 0, screenWidth, screenHeight);
-	drawSurfaceStretched(jumbotronSurface, 0, 0, screenWidth, screenHeight);
+	drawSurfaceStretched(guiSurface, 0, 0, GuiWidth, GuiHeight);
+	drawSurfaceStretched(jumbotronSurface, 0, 0, GuiWidth, GuiHeight);
 	gpuResetSurfaceTarget();
 	#endregion
 	
@@ -394,9 +158,7 @@
 	#endregion
 	
 	#region Render applicationSurface
-	if (getCamera().isMode3D) {
-
-	} else {
+	if (!getCamera().isMode3D) {
 		
 		//gpuSetShader(shaderAbberation);
 		bktglitch_activate(GuiWidth, GuiHeight);
@@ -487,8 +249,6 @@
 				var currentLength = recording.timer;
 				var audioLength = audio_sound_length(soundInstanceId); //this.trackTimer; //rewind hack
 				//logger("Recording timer: {0} {1} {2}", LogType.INFO, recording.timer, getGameplayTime(), audioLength);
-
-				
 				var barLength = (GuiWidth / 3);
 				
 				draw_set_color(c_white);
@@ -572,42 +332,20 @@
 	
 	//this.bpmController.render(this.bpmController);
 	
-	var cameraData = getGridRenderer().cameraData;
-	var circleSize = 32;
-	/*
-	draw_set_alpha(0.6);
-	draw_circle_color(
-		cameraData.guiX,
-		cameraData.guiY,
-		32,
-		c_red,
-		c_lime,
-		true
-	);
-	draw_circle_color(
-		cameraData.guiX,
-		cameraData.guiY,
-		32 - 2,
-		c_fuchsia,
-		c_red,
-		true
-	);
-	draw_circle_color(
-		cameraData.guiX,
-		cameraData.guiY,
-		32 - 4,
-		c_orange,
-		c_blue,
-		true
-	);
-	draw_set_alpha(1.0);
-	*/
-	
 	if (global.isGameplayStarted) {
-		if (!isStackEmpty(texturesStack)) {
+		if (!isStackEmpty(this.texturesStack)) {
 	
-			var texture = popStack(texturesStack);
-			renderTexture(texture, random(GuiWidth), random(GuiHeight), random(sprite_get_number(texture)));
+			var texture = popStack(this.texturesStack);
+			renderTexture(
+				texture, 
+				random(GuiWidth * 0.7), 
+				random(GuiHeight * 0.7), 
+				random(sprite_get_number(texture)),
+				0.0,
+				1.0,
+				1.0,
+				0.5
+			);
 		}
 	}
 
