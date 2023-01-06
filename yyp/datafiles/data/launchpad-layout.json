@@ -245,29 +245,6 @@
             ]
         },
         {
-            "key": "4x2",
-            "displayName": "set grid-shape",
-            "keyboardMapping": [ "S", "6" ],
-            "actions": [
-                {
-                    "name": "actionSetGridTopLineWidth",
-                    "parameters": [ 0.37, 0.001 ]
-                },
-                {
-                    "name": "actionSetGridBottomLineWidth",
-                    "parameters": [ 0.69, 0.001 ]
-                },
-                {
-                    "name": "actionSetGridXScale",
-                    "parameters": [ 0.90, 0.0008 ]
-                },
-                {
-                    "name": "actionSetGridYScale",
-                    "parameters": [ 0.90, 0.0008 ]
-                }
-            ]
-        },
-        {
             "key": "5x2",
             "displayName": "set grid-shape",
             "keyboardMapping": [ "S", "6" ],

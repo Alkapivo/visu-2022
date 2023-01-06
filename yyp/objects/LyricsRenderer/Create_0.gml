@@ -20,6 +20,14 @@
 	
 	///@type {Number}
 	alpha = 1.0;
+	
+	///@type {Number}
+	shake = {
+		timer: 0.0,
+		duration: 0.0,
+		xOffset: 0.0,
+		yOffset: 0.0,
+	}
 		
 ///@private:
 
@@ -42,6 +50,16 @@
 						throw (stringParams("Lyrics weren't found: {0}", lyricsEvent.name));
 					}
 					
+					for (var lyricsJob = getReactorFirstElement(this.lyricsReactor);
+						iteratorFinish(lyricsJob);
+						lyricsJob = getReactorNextElement(this.lyricsReactor)) {
+						
+						if (lyricsJob.lyrics.name == lyricsEvent.name) {
+							removeReactorElement(this.lyricsReactor);	
+						}
+					}
+					resolveReactor(this.lyricsReactor);
+					
 					var lyricsJob = {
 						timer: 0.0,
 						linePointer: 0,
@@ -53,13 +71,28 @@
 					
 					var wordwrappedLines = [];
 					var areaWidth = (lyricsJob.lyrics.area.xEnd - lyricsJob.lyrics.area.xStart) * GuiWidth;
-					for (var lineIndex = 0; lineIndex < Core.Collections.Arrays.size(lyricsJob.lyrics.lines); lineIndex++) {
 					
-						var line = lyricsJob.lyrics.lines[lineIndex];
-						var wordwrappedLine = wordwrapString(line, areaWidth, "$_NEW_LINE", 1);
-						wordwrappedLines = (stringContains(wordwrappedLine, "$_NEW_LINE"))
-							? pushElementsToArray(wordwrappedLines, splitStringToArray(wordwrappedLine, "$_NEW_LINE"))
-							: pushArray(wordwrappedLines, wordwrappedLine);
+					if (lyricsJob.lyrics.useConsoleStackAsLines) {
+						var trace = getConsoleTrace(getConsole());
+						for (var traceIndex = 0; traceIndex < Core.Collections.Arrays.size(trace); traceIndex++) {
+							
+							var line = trace[traceIndex];
+							if (isString(line)) {
+								var wordwrappedLine = wordwrapString(line, areaWidth, "$_NEW_LINE", 1);
+								wordwrappedLines = (stringContains(wordwrappedLine, "$_NEW_LINE"))
+									? pushElementsToArray(wordwrappedLines, splitStringToArray(wordwrappedLine, "$_NEW_LINE"))
+									: pushArray(wordwrappedLines, wordwrappedLine);
+							}
+						}
+					} else {
+						for (var lineIndex = 0; lineIndex < Core.Collections.Arrays.size(lyricsJob.lyrics.lines); lineIndex++) {
+					
+							var line = lyricsJob.lyrics.lines[lineIndex];
+							var wordwrappedLine = wordwrapString(line, areaWidth, "$_NEW_LINE", 1);
+							wordwrappedLines = (stringContains(wordwrappedLine, "$_NEW_LINE"))
+								? pushElementsToArray(wordwrappedLines, splitStringToArray(wordwrappedLine, "$_NEW_LINE"))
+								: pushArray(wordwrappedLines, wordwrappedLine);
+						}
 					}
 					lyricsJob.lines = wordwrappedLines;
 					
@@ -149,6 +182,7 @@
 			if (this.enableLyricsRenderer) {
 				
 				gpuSetSurfaceTarget(lyricsSurface);
+				gpuSetShader(shaderAbberation);
 				drawClear(COLOR_TRANSPARENT);
 				for (var lyricsJob = getReactorFirstElement(this.lyricsReactor);
 					iteratorFinish(lyricsJob);
@@ -192,10 +226,31 @@
 						var color = lyricsJob.lyrics.useInvertedBackgroundColor
 							? invertedColorGridBackground
 							: lyricsJob.lyrics.color
+						
+						if (timerFinished(this.shake.timer)) {
+							
+							this.shake = {
+								timer: 0.0,
+								duration: 0.0,
+								xOffset: 0.0,
+								yOffset: 0.0,
+							}
+							
+							if (random(1.0) > 1.0 - lyricsJob.lyrics.shakeProbability) {
+								
+								this.shake.duration = Core.Collections.Arrays.getRandomValue(lyricsJob.lyrics.shakeDuration);
+								this.shake.timer = incrementTimer(this.shake.timer, this.shake.duration);
+								this.shake.xOffset = choose(1, -1) * Core.Collections.Arrays.getRandomValue(lyricsJob.lyrics.shakeAmount);
+								this.shake.yOffset = choose(1, -1) * Core.Collections.Arrays.getRandomValue(lyricsJob.lyrics.shakeAmount);
+							}
+						} else {
+							
+							this.shake.timer = incrementTimer(this.shake.timer, this.shake.duration);
+						}
 					
 						draw_text_ext_color(
-							xPosition,
-							yPosition,
+							xPosition + this.shake.xOffset,
+							yPosition + this.shake.yOffset,
 							lyricsJob.stringBuffer,
 							lyricsJob.lyrics.linesPadding,
 							(lyricsJob.lyrics.area.xEnd - lyricsJob.lyrics.area.xStart) * GuiWidth,
@@ -211,6 +266,7 @@
 						printStackTrace();
 					}
 				}
+				gpuResetShader();
 				gpuResetSurfaceTarget();
 			}
 			
