@@ -87,7 +87,7 @@ function createMidiMatrixController(config) {
 			
 				if (enableRender) {
 					draw_clear_alpha(c_black, 0.0);
-					draw_set_font(font_ibm_ps2thin4);
+					draw_set_font(asset_font_ibm_ps2thin4);
 					draw_set_halign(fa_left);
 					draw_set_valign(fa_top);
 					draw_set_alpha(0.92);
