@@ -5,7 +5,7 @@
 	drawClear(COLOR_TRANSPARENT);
 		
 	#region Calculate text height
-	draw_set_font(font_ibm_vga9);
+	draw_set_font(asset_font_ibm_vga9);
 	var horizontalMargin = 32;
 	var verticalMargin = 48;
 	var frameWidth = 4;
