@@ -228,11 +228,11 @@
             "actions": [
                 {
                     "name": "actionSetGridTopLineWidth",
-                    "parameters": [ 0.36, 0.001 ]
+                    "parameters": [ 0.33, 0.001 ]
                 },
                 {
                     "name": "actionSetGridBottomLineWidth",
-                    "parameters": [ 0.37, 0.001 ]
+                    "parameters": [ 0.34, 0.001 ]
                 },
                 {
                     "name": "actionSetGridXScale",
@@ -241,29 +241,6 @@
                 {
                     "name": "actionSetGridYScale",
                     "parameters": [ 0.85, 0.0008 ]
-                }
-            ]
-        },
-        {
-            "key": "4x2",
-            "displayName": "set grid-shape",
-            "keyboardMapping": [ "S", "6" ],
-            "actions": [
-                {
-                    "name": "actionSetGridTopLineWidth",
-                    "parameters": [ 0.37, 0.001 ]
-                },
-                {
-                    "name": "actionSetGridBottomLineWidth",
-                    "parameters": [ 0.69, 0.001 ]
-                },
-                {
-                    "name": "actionSetGridXScale",
-                    "parameters": [ 0.90, 0.0008 ]
-                },
-                {
-                    "name": "actionSetGridYScale",
-                    "parameters": [ 0.90, 0.0008 ]
                 }
             ]
         },
@@ -274,11 +251,11 @@
             "actions": [
                 {
                     "name": "actionSetGridTopLineWidth",
-                    "parameters": [ 0.37, 0.001 ]
+                    "parameters": [ 0.0, 0.001 ]
                 },
                 {
                     "name": "actionSetGridBottomLineWidth",
-                    "parameters": [ 0.69, 0.001 ]
+                    "parameters": [ 1.0, 0.001 ]
                 },
                 {
                     "name": "actionSetGridXScale",
@@ -297,11 +274,11 @@
             "actions": [
                 {
                     "name": "actionSetGridTopLineWidth",
-                    "parameters": [ 0.70, 0.001 ]
+                    "parameters": [ 0.56, 0.001 ]
                 },
                 {
                     "name": "actionSetGridBottomLineWidth",
-                    "parameters": [ 0.96, 0.001 ]
+                    "parameters": [ 0.72, 0.001 ]
                 },
                 {
                     "name": "actionSetGridXScale",
@@ -442,7 +419,7 @@
             "actions": [
                 {
                     "name": "actionStartShader",
-                    "parameters": [ "LED-1", 6.0 ]
+                    "parameters": [ "LED-1", 5.2 ]
                 }
             ]
         },
@@ -453,7 +430,7 @@
             "actions": [
                 {
                     "name": "actionStartShader",
-                    "parameters": [ "LED-2", 6.0 ]
+                    "parameters": [ "LED-2", 5.2 ]
                 }
             ]
         },
@@ -541,7 +518,7 @@
             "actions": [
                 {
                     "name": "actionStartShader",
-                    "parameters": [ "Revert", 4.4 ]
+                    "parameters": [ "Thermal", 4.4 ]
                 }
             ]
         },
@@ -588,7 +565,7 @@
         },
         {
             "key": "6x5",
-            "displayName": "set foreground",
+            "displayName": "set background",
             "keyboardMapping": [ "E", "8" ],
             "actions": [
                 {
@@ -596,14 +573,14 @@
                     "parameters": [ "background_color_03" ]
                 },
                 {
-                    "name": "actionSetForegroundTexture",
+                    "name": "actionSetBackgroundTexture",
                     "parameters": [ "background_texture_03" ]
                 }
             ]
         },
         {
             "key": "7x5",
-            "displayName": "set foreground",
+            "displayName": "set background",
             "keyboardMapping": [ "R", "8" ],
             "actions": [
                 {
@@ -611,7 +588,7 @@
                     "parameters": [ "background_color_04" ]
                 },
                 {
-                    "name": "actionSetForegroundTexture",
+                    "name": "actionSetBackgroundTexture",
                     "parameters": [ "background_texture_04" ]
                 }
             ]
