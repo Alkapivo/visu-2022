@@ -5,104 +5,85 @@
 ///@param {[...Object]} [parameters]
 function logger() {
 
-		///checkArgumentCount(2, argument_count, logger);
+	///checkArgumentCount(2, argument_count, logger);
 
-		var message = argument_count > 0 ? argument[0] : "";
-		var logType = argument_count > 1 ? argument[1] : null;
+	var message = argument_count > 0 ? argument[0] : "";
+	var logType = argument_count > 1 ? argument[1] : null;
 
-		var prefix = null;
-		switch(logType) {
-			case LogType.INFO:
-				prefix = "INFO    ";
-				break;
-			case LogType.WARNING:
-				prefix = "WARNING ";
-				break;
-			case LogType.ERROR:
-				prefix = "ERROR   ";
-				break;
-			case LogType.DEBUG:
-				prefix = "DEBUG   ";
-				break;
-			case LogType.NETWORK_MESSAGE:
-				prefix = "NET_MSG "
-				break;
-			default:
-				prefix = "DEFAULT ";
-				break
-		}
+	var prefix = null;
+	switch(logType) {
+		case LogType.INFO:
+			prefix = "INFO    ";
+			break;
+		case LogType.WARNING:
+			prefix = "WARNING ";
+			break;
+		case LogType.ERROR:
+			prefix = "ERROR   ";
+			break;
+		case LogType.DEBUG:
+			prefix = "DEBUG   ";
+			break;
+		case LogType.NETWORK_MESSAGE:
+			prefix = "NET_MSG "
+			break;
+		default:
+			prefix = "DEFAULT ";
+			break
+	}
 	
-		/*
-		if (getCurrentConfig() == Config_PROD) {
+	/*
+	if (getCurrentConfig() == Config_PROD) {
 		
-			if ((logType == LogType.INFO) ||
-				(logType == LogType.DEBUG) ||
-				(logType == LogType.NETWORK_MESSAGE)) {
+		if ((logType == LogType.INFO) ||
+			(logType == LogType.DEBUG) ||
+			(logType == LogType.NETWORK_MESSAGE)) {
 		
-				return null;
-			}
+			return null;
 		}
-		*/
+	}
+	*/
 	
 	
-		var caller = "";
-		try {
+	var caller = "";
+	try {
 			
-			caller = getInstanceClassName(this);	
-		} catch (exception) {
+		caller = getInstanceClassName(this);	
+	} catch (exception) {
 			
-			caller = "Anonymous";
-		}
+		caller = "Anonymous";
+	}
 		
-		var date = string(current_year) + "-"
-				+ string(string_replace(string_format(current_month, 2, 0), " ", "0")) + "-"
-				+ string(string_replace(string_format(current_day, 2, 0), " ", "0")) + " "
-				+ string(string_replace(string_format(current_hour, 2, 0), " ", "0")) + ":"
-				+ string(string_replace(string_format(current_minute, 2, 0), " ", "0")) + ":"
-				+ string(string_replace(string_format(current_second, 2, 0), " ", "0"));
+	var date = string(current_year) + "-"
+			+ string(string_replace(string_format(current_month, 2, 0), " ", "0")) + "-"
+			+ string(string_replace(string_format(current_day, 2, 0), " ", "0")) + " "
+			+ string(string_replace(string_format(current_hour, 2, 0), " ", "0")) + ":"
+			+ string(string_replace(string_format(current_minute, 2, 0), " ", "0")) + ":"
+			+ string(string_replace(string_format(current_second, 2, 0), " ", "0"));
 	
-		if (argument_count > 2) {
-			for (var index = 2; index < argument_count; index++) {
-				var subString = "{" + string(index - 2) + "}";
-				var newString = string(argument[index]); 
-				message = string_replace_all(message, subString, newString);
-			}
+	if (argument_count > 2) {
+		for (var index = 2; index < argument_count; index++) {
+			var subString = "{" + string(index - 2) + "}";
+			var newString = string(argument[index]); 
+			message = string_replace_all(message, subString, newString);
 		}
+	}
 	
-		var log = 
-			string(date) + " " + 
-			string(prefix) + "[" + 
-			string(caller) + "] " + 
-			string(message);
+	var log = 
+		string(date) + " " + 
+		string(prefix) + "[" + 
+		string(caller) + "] " + 
+		string(message);
 	
-		if (logType != LogType.DEBUG) {
+	if (logType != LogType.DEBUG) {
 		
-			pushQueue(getLoggerQueue(), log);
-		}
+		pushQueue(getLoggerQueue(), log);
+	}
 	
-		var console = getConsole();
-		if (isOptionalPresent(console)) {
-			addLogToConsoleStack(console, log);
-		}
+	var console = getConsole();
+	if (isOptionalPresent(console)) {
+		addLogToConsoleStack(console, log);
+	}
 	
-		print(log);
-	
-	
-		
-		if ((globalVariableExists("lyricsRendererContext"))
-			&& (caller == "Anonymous" || caller == undefined)) {
-			
-			var lyricsRenderer = getLyricsRenderer();
-			if (isOptionalPresent(lyricsRenderer)) {
-				
-				pushArray(
-					global.__lyrics, 
-					stringParams(
-						"{0}{1}", 
-						choose("", " ", "  ", "   "), 
-						string_upper(message)
-					)
-				);
-			}
-		}
+	print(log);
 }

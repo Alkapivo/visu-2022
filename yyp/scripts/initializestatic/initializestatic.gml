@@ -1004,6 +1004,11 @@ function initializeGlobals() {
 				fetch: function(name) {
 					return getAssetIndex(name, AssetTexture, asset_texture_empty)
 				}
+			},
+			Font: {
+				fetch: function(name) {
+					return getAssetIndex(name, AssetFont, asset_font_jetbrains_mono_small);	
+				}
 			}
 		},
 		JSON: global.__core_JSON,
@@ -1045,6 +1050,7 @@ function initializeMacros() {
 	#macro Collection 800409
 	#macro JsonString 800410
 	#macro Type 900450
+	#macro Struct 90460
 	#endregion
 	
 	#region MPGrid
