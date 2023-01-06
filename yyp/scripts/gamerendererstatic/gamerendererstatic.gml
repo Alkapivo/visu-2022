@@ -105,8 +105,8 @@ function jumbotronScoreboardHandler(argument0) {
 			}
 			state[? "cooldown"] = cooldown;
 		
-			var screenWidth = isHandheld() ? global.viewWidth : global.guiWidth;
-			var screenHeight = isHandheld() ? global.viewHeight : global.guiHeight;
+			var screenWidth = GuiWidth;
+			var screenHeight = GuiHeight;
 			switch (orientation) {
 				case ScreenOrientation.HORIZONTAL:
 					var xAnchor = screenWidth * 0.5;
@@ -964,46 +964,7 @@ function initializeShaderPipelines(argument0) {
 
 
 }
-///@function parseFieldsToParticleTask(particle, fields)
-///@description Parser for GameEvent entity.
-///@param {Map<String::Object>} fields
-///@return {ParticleTask} particleTask
-function parseFieldsToParticleTask(argument0, argument1) {
 
-		var particle = argument0;
-		var fields = argument1;
-	
-		var system = parseParticleSystemsStringToEnum(getValueFromMap(fields, "system", "background"));
-		system = system == null ? ParticleSystems.FOREGROUND : system;
-		var amount = getValueFromMap(fields, "amount", 10);
-		var duration = getValueFromMap(fields, "duration", 3.5);
-		var emitterInterval = getValueFromMap(fields, "emitterInterval", 3.5);
-		var positionBegin = getValueFromMap(fields, "positionBegin", [ 0.5, 0,5 ]);
-		positionBegin = 
-			isArray(positionBegin) ? 
-				(getArrayLength(positionBegin) == 2.0 ? positionBegin : [ 0.5, 0.5 ]) :
-				[ 0.5, 0.5 ];
-		var positionEnd = getValueFromMap(fields, "positionEnd", [ 0.5, 0.5 ]);
-		positionEnd = 
-			isArray(positionEnd) ? 
-				(getArrayLength(positionEnd) == 2.0 ? positionEnd : [ 0.5, 0.5 ]) :
-				[ 0.5, 0.5 ];
-	
-		return createParticleTask(
-			particle,
-			system,
-			amount,
-			0.0,
-			duration,
-			emitterInterval,
-			0.0,
-			positionBegin,
-			positionEnd);
-	
-
-
-
-}
 ///@function registerShaderPipeline(name, limit)
 ///@description Create new ShaderPipeline and register it on shaderPipelines.
 ///@param {String} name
@@ -1043,18 +1004,14 @@ function registerShaderPipeline(argument0, argument1) {
 ///@param {ParticleTask} particleTask
 function sendParticleTask(argument0) {
 
-		var particleTask = argument0;
+	var particleTask = argument0;
 
-		/*
-		var particleManager = getParticleManager();
-		var particleTaskPipelines = particleManager.particleTaskPipelines;
-		var particleTaskParticleSystem = getParticleTaskParticleSystem(particleTask);
-		var particleTaskPipeline = particleTaskPipelines[particleTaskParticleSystem];
+	var particleManager = getParticleManager();
+	var particleTaskPipelines = particleManager.particleTaskPipelines;
+	var particleTaskParticleSystem = getParticleTaskParticleSystem(particleTask);
+	var particleTaskPipeline = particleTaskPipelines[particleTaskParticleSystem];
 	
-		addToList(particleTaskPipeline, particleTask);
-		*/	
-
-
+	addToList(particleTaskPipeline, particleTask);
 
 }
 ///@function sendShaderTaskToShaderPipeline(shaderTask, shaderPipelineName)
