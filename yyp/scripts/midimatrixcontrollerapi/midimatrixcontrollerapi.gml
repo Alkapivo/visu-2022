@@ -692,6 +692,10 @@ function actionSwitchEnableGridRendering() {
 function actionSwitchEnableLyricsRendering() {
 	
 	logger("Update enableLyricsRenderer", LogType.INFO);
+	if (getLyricsRenderer().enableLyricsRenderer) {
+		
+		clearReactor(getLyricsRenderer().lyricsReactor)		
+	}
 	getLyricsRenderer().enableLyricsRenderer = !getLyricsRenderer().enableLyricsRenderer;
 }
 
@@ -997,3 +1001,9 @@ function actionSpawnGridPulse(amount) {
 	setInstanceVariable(getGridRenderer(), "wavePulseAmount", amount); 
 }
 
+function actionSendLyricsEvent(name) {
+
+	logger("Send LyricsEvent: {0}", LogType.INFO, name);
+	sendLyricsEventToLyricsRenderer({ name: name })
+	
+}
