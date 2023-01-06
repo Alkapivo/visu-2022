@@ -136,7 +136,7 @@
     "path": "folders/asset/com.devhorizon.core/font/RetroPack.yy",
   },
   "resourceVersion": "1.0",
-  "name": "font_ibm_ps2thin4",
+  "name": "asset_font_ibm_ps2thin4",
   "tags": [],
   "resourceType": "GMFont",
 }

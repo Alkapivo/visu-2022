@@ -230,7 +230,7 @@
     "path": "folders/asset/com.devhorizon.core/font/RetroPack.yy",
   },
   "resourceVersion": "1.0",
-  "name": "font_ibm_vga9",
+  "name": "asset_font_ibm_vga9",
   "tags": [],
   "resourceType": "GMFont",
 }

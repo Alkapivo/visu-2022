@@ -229,7 +229,7 @@
     "path": "folders/asset/com.devhorizon.core/font.yy",
   },
   "resourceVersion": "1.0",
-  "name": "font_console",
+  "name": "asset_font_consolas_small",
   "tags": [],
   "resourceType": "GMFont",
 }

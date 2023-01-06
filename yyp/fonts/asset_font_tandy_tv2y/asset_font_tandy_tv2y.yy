@@ -230,7 +230,7 @@
     "path": "folders/asset/com.devhorizon.core/font/RetroPack.yy",
   },
   "resourceVersion": "1.0",
-  "name": "font_tandy_tv2y",
+  "name": "asset_font_tandy_tv2y",
   "tags": [],
   "resourceType": "GMFont",
 }
