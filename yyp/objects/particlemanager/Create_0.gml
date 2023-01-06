@@ -53,6 +53,7 @@
 	initializeParticleEffectGUIScoreUp();
 	initializeParticleEffectGUIScoreDown();
 	initializeParticleEffectSnow();
+	particleShroomExplosion()
 	
 	/// TODO initialzie
 	starsSystem = part_system_create();
