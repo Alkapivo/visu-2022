@@ -306,7 +306,7 @@
 							destroyShrooms = pushArray(destroyShrooms, index);
 							var positions = fetchGridElementParticlePosition(shroomGridElement, shroomPosition);
 							var particleTask = createParticleTask(
-								"particle_explosion",
+								"particle_shroom_explosion",
 								ParticleSystems.BACKGROUND,
 								64,
 								0.0,
@@ -332,7 +332,7 @@
 								destroyShrooms = pushArray(destroyShrooms, index);
 								var positions = fetchGridElementParticlePosition(shroomGridElement, shroomPosition);
 								var particleTask = createParticleTask(
-									"particle_explosion",
+									"particle_shroom_explosion",
 									ParticleSystems.FOREGROUND,
 									60,
 									0.0,
