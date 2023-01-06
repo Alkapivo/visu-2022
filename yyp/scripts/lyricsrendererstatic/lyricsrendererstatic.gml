@@ -4,16 +4,12 @@
 ///@return {LyricsRenderer} lyricsRenderer
 function createLyricsRenderer() {
 
-		var class = LyricsRenderer;
-		var instanceLayer = argument_count > 0 ? argument[0] : getSystemLayer();
+	var class = LyricsRenderer;
+	var instanceLayer = argument_count > 0 ? argument[0] : getSystemLayer();
 	
-		var instance = defaultContextInstanceConstructor(class, "LyricsRenderer", instanceLayer);
+	var instance = defaultContextInstanceConstructor(class, "LyricsRenderer", instanceLayer);
 	
-		return instance;
-	
-
-
-
+	return instance;
 }
 
 ///@function getLyricsRenderer()
@@ -21,31 +17,69 @@ function createLyricsRenderer() {
 ///@return {Optional<LyricsRenderer>} lyricsRenderer
 function getLyricsRenderer() {
 
-		return global.lyricsRendererContext;
-	
-
-
-
+	return global.lyricsRendererContext;
 }
 
-///@function sendLyricsTaskToLyricsRenderer(lyricsTask)
-///@desription Push lyricsTask to lyricsRenderer pipeline.
-///@param {LyricsTask} lyricsRenderer
-function sendLyricsTaskToLyricsRenderer(argument0) {
+///@function sendLyricsEventToLyricsRenderer(lyricsEvent)
+///@param {Struct} lyricsEvent
+function sendLyricsEventToLyricsRenderer(lyricsEvent) {
 
-		// TODO LyricsTask entity
-		var lyricsTaskJsonString = argument0;
+	addElementToPipeline(getInstanceVariable(getLyricsRenderer(), "lyricsPipeline"), lyricsEvent);
+}
+
+///@param {String} jsonString
+function parseJsonLyrics(jsonString) {
 	
-		var lyricsTask = deserializeLyricsEvent(lyricsTaskJsonString);
+	parseLyricsTemplate = function(jsonObject) {
 	
-		var lyricsRenderer = getLyricsRenderer();
-		if (isOptionalPresent(lyricsRenderer)) {
-			pushStack(lyricsRenderer.lyricsTaskPipeline, lyricsTask);	
-		} else {
-			logger("Trying to push LyricsTask when LyricsRenderer wasn't initialized", LogType.ERROR);	
+		var parseArea = function(map) {
+			var area = {
+				xStart: Core.Collections.Maps.get(map, "xStart"),
+				yStart: Core.Collections.Maps.get(map, "yStart"),
+				xEnd: Core.Collections.Maps.get(map, "xEnd"),
+				yEnd: Core.Collections.Maps.get(map, "yEnd")
+			}
+			return area;
 		}
-	
+		
+		var template = {
+            name: Core.Collections.Maps.get(jsonObject, "name"),
+            font: Core.Asset.Font.fetch(Core.Collections.Maps.get(jsonObject, "font")),
+			charInterval: Core.Collections.Maps.get(jsonObject, "charInterval"),
+			charAmount: Core.Collections.Maps.get(jsonObject, "charAmount"),
+			verticalAlign: Core.Collections.Maps.get(jsonObject, "verticalAlign"),
+			horizontalAlign: Core.Collections.Maps.get(jsonObject, "horizontalAlign"),
+			color: colorHashToGMColor(Core.Collections.Maps.get(jsonObject, "color")),
+			useInvertedBackgroundColor: Core.Collections.Maps.get(jsonObject, "useInvertedBackgroundColor") == true,
+			alpha: Core.Collections.Maps.get(jsonObject, "alpha"),
+			linesPadding: Core.Collections.Maps.get(jsonObject, "linesPadding"),
+			area: parseArea(Core.Collections.Maps.get(jsonObject, "area")),
+			lines: Core.Collections.Lists.toArray(Core.Collections.Maps.get(jsonObject, "lines")),
+        }
+		return template;
+	}   
+
+    try {
+
+        var gmJsonMap = Core.JSON.decode(jsonString);
+		var gmJsonArray = Core.Collections.Maps.get(gmJsonMap, "default");
+        for (var index = 0; index < Core.Collections.Lists.size(gmJsonArray); index++) {
+
+            var gmJsonObject = Core.Collections.Lists.get(gmJsonArray, index);
+            var template = parseLyricsTemplate(gmJsonObject);
+            logger("Parsed LyricsTemplate: {0}", LogType.INFO, template.name);
+            saveInRepository(fetchLyricsRepository(), template.name, template)
+        }
+		destroyDataStructure(gmJsonMap, Map);
+    } catch (exception) {
+
+        logger(exception.message, LogType.ERROR);
+        printStackTrace();
+    }
+}
 
 
+function fetchLyricsRepository() {
 
+	return getLyricsRenderer().lyricsRepository;
 }
