@@ -2,17 +2,28 @@
 ///@description Wrapper for draw_set_font, string_height.
 ///@param {Font} font
 ///@return {Integer} fontHeight
-function getFontHeight(argument0) {
+function getFontHeight(font) {
 
-		var font = argument0;
-		var usedFont = draw_get_font();
+	var usedFont = draw_get_font();
 	
-		draw_set_font(font);
-		var fontHeight = string_height("|");
-		draw_set_font(usedFont);
+	draw_set_font(font);
+	var fontHeight = string_height("|");
+	draw_set_font(usedFont);
 	
-		return fontHeight;
+	return fontHeight;
+}
 
+///@function getFontWidth(font)
+///@description Wrapper for draw_set_font, string_width.
+///@param {Font} font
+///@return {Integer} fontWidth
+function getFontWidth(font) {
 
-
+	var usedFont = draw_get_font();
+	
+	draw_set_font(font);
+	var fontHeight = string_height("|");
+	draw_set_font(usedFont);
+	
+	return fontHeight;
 }

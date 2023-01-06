@@ -1,7 +1,7 @@
 ///@description
 
-	var screenWidth = isHandheld() ? global.viewWidth : global.guiWidth;
-	var screenHeight = isHandheld() ? global.viewHeight : global.guiHeight;
+	var screenWidth = GuiWidth;
+	var screenHeight = GuiHeight;
 
 	guardSurface(id, shaderSurface, "shaderSurface", global.viewWidth, global.viewHeight, true);
 	guardSurface(id, gameSurface, "gameSurface", global.viewWidth, global.viewHeight, true);
@@ -198,6 +198,23 @@
 				
 	}
 	#endregion
+	
+	#region Render particleSurface BACKGROUND
+	var particleManager = getParticleManager();
+	var particleSurface = particleManager.particlesSurface[ParticleSystems.BACKGROUND];
+	if (isSurfaceValid(particleSurface))  {
+		drawSurface(
+			particleSurface,
+			0,
+			0,
+			getGridRendererXScale(),
+			getGridRendererYScale(),
+			getGridRendererAngle(),
+			1.0,
+			c_white,
+			createPosition(0.5, 0.5));
+	}
+	#endregion
 
 	#region Render gridSurface
 	var gridSurface = getGridRendererSurface();
@@ -253,6 +270,22 @@
 			createPosition(0.5, 0.5));
 	}
 	gpuResetShader();
+	#endregion
+	
+	#region Render particleSurface FOREGROUND
+	if (isSurfaceValid(particleSurface))  {
+	var particleSurface = particleManager.particlesSurface[ParticleSystems.FOREGROUND];
+		drawSurface(
+			particleSurface,
+			0,
+			0,
+			getGridRendererXScale(),
+			getGridRendererYScale(),
+			getGridRendererAngle(),
+			1.0,
+			c_white,
+			createPosition(0.5, 0.5));
+	}
 	#endregion
 			
 	gpuResetSurfaceTarget();

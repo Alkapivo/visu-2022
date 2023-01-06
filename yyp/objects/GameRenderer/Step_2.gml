@@ -79,3 +79,20 @@
 	#endregion
 
 	this.bpmController.update(this.bpmController);
+	
+	this.particleTimer = incrementTimer(this.particleTimer, 3);
+	//if (timerFinished(this.particleTimer)) {
+	//
+	//	var particleTask = createParticleTask(
+	//		"particle_devhorizon",
+	//		ParticleSystems.BACKGROUND,
+	//		30,
+	//		0.0,
+	//		3.0,
+	//		0.2,
+	//		0.0,
+	//		createPosition(0.5, 0.5),
+	//		createPosition(0.5, 0.5)
+	//	);
+	//	sendParticleTask(particleTask);	
+	//}
