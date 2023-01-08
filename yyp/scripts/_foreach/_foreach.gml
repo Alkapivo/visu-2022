@@ -1,11 +1,11 @@
-///@function forEach(collection, collectionType, handler)
+///@function _forEach(collection, collectionType, handler)
 ///@description This function will execute handler on every entry of passed collection.
 ///@param {Array<T>|ArrayMap<any::T>|Grid<T>|List<T>|Map<any::T>} collection
 ///@param {DataStructure~~IterableCollection} collectionType
 ///@param {AssetScript<T::any>} handler
 ///@param {Instance<S>} [context]
 ///@throws {InvalidDataStructureException|NotImplementedException}
-function forEach(argument0, argument1, argument2) {
+function _forEach(argument0, argument1, argument2) {
 	
 		var collection = argument0;
 		var collectionType = argument1;

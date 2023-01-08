@@ -6,7 +6,7 @@
     "path": "folders/src/com.devhorizon.core/util/collection.yy",
   },
   "resourceVersion": "1.0",
-  "name": "forEach",
+  "name": "_foreach",
   "tags": [],
   "resourceType": "GMScript",
 }

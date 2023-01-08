@@ -44,7 +44,7 @@ function parseJsonLyrics(jsonString) {
 		
 		var template = {
             name: Core.Collections.Maps.get(jsonObject, "name"),
-            font: Core.Asset.Font.fetch(Core.Collections.Maps.get(jsonObject, "font")),
+            font: Core.Assets.Font.fetch(Core.Collections.Maps.get(jsonObject, "font")),
 			charInterval: Core.Collections.Maps.get(jsonObject, "charInterval"),
 			charAmount: Core.Collections.Maps.get(jsonObject, "charAmount"),
 			verticalAlign: Core.Collections.Maps.get(jsonObject, "verticalAlign"),

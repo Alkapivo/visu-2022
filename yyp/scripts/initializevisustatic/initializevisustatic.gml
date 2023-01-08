@@ -136,7 +136,7 @@ function initializeVisuEntities() {
 function initializeVisuContexts() {
 
 	global.introControllerContext = null;
-	global.menuControllerContext = null;
+	global.playgroundControllerContext = null;
 	global.gameControllerContext = null;
 
 	global.audioManagerContext = null;
