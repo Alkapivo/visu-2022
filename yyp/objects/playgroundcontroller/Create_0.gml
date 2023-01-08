@@ -2,8 +2,6 @@
 
 	super()
 	
-	GuiWidth = 1280;
-	GuiHeight = 720;
 	var grid = {
 		width: 2.0,
 		height: 1.5,
@@ -13,6 +11,8 @@
 			speed: 0.001,
 			timer: 0.0,
 		},
+		pixelWidth: 512,
+		pixelHeight: 512,
 		view: {
 			width: 1.0,
 			height: 1.0,
@@ -116,8 +116,8 @@
 				handler: function(grid, element) {
 					element.y += element.state.speed;
 					
-					var surfaceWidth = GuiWidth;
-					var surfaceHeight = GuiHeight;
+					var surfaceWidth = grid.pixelWidth
+					var surfaceHeight = grid.pixelHeight
 					var texture = getSpriteAssetIndex(element.sprite);
 					var elementWidth = Core.Assets.Texture.getWidth(texture) / surfaceWidth;
 					var elementHeight = Core.Assets.Texture.getHeight(texture) / surfaceHeight;
@@ -138,8 +138,8 @@
 				handler: function(grid, element) {
 					element.y += element.state.speed;
 					
-					var surfaceWidth = GuiWidth;
-					var surfaceHeight = GuiHeight;
+					var surfaceWidth = grid.pixelWidth
+					var surfaceHeight = grid.pixelHeight
 					var texture = getSpriteAssetIndex(element.sprite);
 					var elementWidth = Core.Assets.Texture.getWidth(texture) / surfaceWidth;
 					var elementHeight = Core.Assets.Texture.getHeight(texture) / surfaceHeight;
@@ -276,26 +276,63 @@
 	
 	GMObject = {
 		state: {
-			surface: Core.Surfaces.create(GuiWidth, GuiHeight, true),
-			grid: grid
+			surface: null,
+			grid: grid,
 		},
 		create: method(this, function() {
-			this.GMObject.state.surface = Core.Surfaces.get(this.GMObject.state.surface, GuiWidth, GuiHeight, true)
+			this.GMObject.state.surface = Core.Surfaces.get(
+				this.GMObject.state.surface, 
+				this.GMObject.state.grid.pixelWidth, 
+				this.GMObject.state.grid.pixelHeight, 
+				true
+			);
 		}),
 		update: method(this, function() {
 			this.GMObject.state.grid.update(this.GMObject.state.grid);
+			this.mouseLook();
+					
+		    if (keyboard_check_direct(vk_escape)) {
+		        game_end();
+		    }
 		}),
-		renderGUI: method(this, function() {
+		preRender: method(this, function() {
+			
+			this.GMObject.state.surface = Core.Surfaces.get(
+				this.GMObject.state.surface, 
+				this.GMObject.state.grid.pixelWidth, 
+				this.GMObject.state.grid.pixelHeight, 
+				true
+			);
+			this.GMObject.state.grid.render(this.GMObject.state.grid, this.GMObject.state.surface);
+		}),
+		render: method(this, function() {
 			
 			Core.GPU.renderClearColor(GM_COLOR_BLACK, 1.0);
 			
-			this.GMObject.state.surface = Core.Surfaces.get(this.GMObject.state.surface, GuiWidth, GuiHeight, true);
-			this.GMObject.state.grid.render(this.GMObject.state.grid, this.GMObject.state.surface);
+			var camera = camera_get_active();
+			var camera_distance = 160;
+			var xto = this.x;
+			var yto = this.y;
+			var zto = this.z;
+			var xfrom = xto + camera_distance * dcos(this.look_dir) * dcos(this.look_pitch);
+			var yfrom = yto - camera_distance * dsin(this.look_dir) * dcos(this.look_pitch);
+			var zfrom = zto - camera_distance * dsin(this.look_pitch);
+
+			this.viewMatrix = matrix_build_lookat(xfrom, yfrom, zfrom, xto, yto, zto, 0, 0, 1);
+			this.projectionMatrix = matrix_build_projection_perspective_fov(-60, -window_get_width() / window_get_height(), 1, 32000);
+			camera_set_view_mat(camera, this.viewMatrix);
+			camera_set_proj_mat(camera, this.projectionMatrix);
+			camera_apply(camera);
 			
-			Core.Surfaces.render(this.GMObject.state.surface, 0.0, 0.0);
+			var surfaceTexture = surface_get_texture(this.GMObject.state.surface);
+			vertex_submit(this.vertexBuffer, pr_trianglelist, surfaceTexture);
+		}),
+		renderGUI: method(this, function() {
+			
+			//Core.GPU.renderClearColor(GM_COLOR_BLACK, 0.0);
+			//Core.Surfaces.render(this.GMObject.state.surface, 0.0, 0.0);
 			
 			var grid = this.GMObject.state.grid;
-			
 			var text = stringParams("view.x: {0}\nview.y: {1}\n{2}", 
 				grid.view.x, 
 				grid.view.y,
@@ -303,15 +340,107 @@
 					? stringParams("target.x: {0}\ntarget.y: {1}", grid.view.follow.target.x, grid.view.follow.target.y)
 					: ""
 			);
-			
 			Core.GPU.setConfig({
 				font: asset_font_ibm_ps2thin4,
 				horizontalAlign: GM_HALIGN_LEFT,
 				verticalAlign: GM_VALIGN_TOP,
 			});
-			
 			Core.Fonts.Render.outlinedText(text, 32, 32);
 		}),
 	}
 
 	this.GMObject.create();
+	
+	#region 3D
+	applicationSurface = Core.Surfaces.create(GuiWidth, GuiHeight, false);
+	x = 1024;
+	y = 1920;
+	z = 1024;
+	look_dir = 270;
+	look_pitch = -60;
+	viewMatrix = null;
+	projectionMatrix = null;
+	isMouseLookEnabled = false
+	mouseLook = method(this, function() {
+		
+		this.isMouseLookEnabled = keyboard_check_pressed(vk_space)
+			? !this.isMouseLookEnabled 
+			: this.isMouseLookEnabled;
+		
+		if (this.isMouseLookEnabled) {
+			
+			this.look_dir -= (window_mouse_get_x() - window_get_width() / 2) / 10;
+		    this.look_pitch -= (window_mouse_get_y() - window_get_height() / 2) / 10;
+		    this.look_pitch = clamp(this.look_pitch, -85, 85);
+		    window_mouse_set(window_get_width() / 2, window_get_height() / 2);
+		}
+
+	    var move_speed = 4;
+	    var dx = 0;
+	    var dy = 0;
+		
+	    if (keyboard_check(ord("A"))) {
+	        dx += dsin(look_dir) * move_speed;
+	        dy += dcos(look_dir) * move_speed;
+	    }
+
+	    if (keyboard_check(ord("D"))) {
+	        dx -= dsin(look_dir) * move_speed;
+	        dy -= dcos(look_dir) * move_speed;
+	    }
+
+	    if (keyboard_check(ord("W"))) {
+	        dx -= dcos(look_dir) * move_speed;
+	        dy += dsin(look_dir) * move_speed;
+	    }
+
+	    if (keyboard_check(ord("S"))) {
+	        dx += dcos(look_dir) * move_speed;
+	        dy -= dsin(look_dir) * move_speed;
+	    }
+		
+		if (keyboard_check(ord("Q"))) {
+	        this.z += 1;
+	    }
+
+	    if (keyboard_check(ord("E"))) {
+	        this.z -= 1;
+	    }
+		
+		this.x += dx;
+		this.y += dy;
+		
+		//print(look_dir, look_pitch, this.x, this.y, this.z);
+	});
+	
+	gpu_set_ztestenable(true);
+	gpu_set_zwriteenable(true);
+	gpu_set_cullmode(cull_counterclockwise);
+	application_surface_draw_enable(false);
+	
+	vertex_format_begin();
+	vertex_format_add_position_3d();
+	vertex_format_add_normal();
+	vertex_format_add_texcoord();
+	vertex_format_add_color();
+	vertexFormat = vertex_format_end();
+	vertexBuffer = vertex_create_buffer();
+	vertex_begin(vertexBuffer, vertexFormat);
+	var s = 2048;
+	for (var i = 0; i < room_width; i += s) {
+	    for (var j = 0; j < room_height; j += s) {
+	        var color = c_white;
+        
+	        #region add data to the vertex buffer
+	        appendPointToVertexBuffer(vertexBuffer, i, j, 0,                  0, 0, 1,        0, 0,       color, 1);
+	        appendPointToVertexBuffer(vertexBuffer, i + s, j, 0,              0, 0, 1,        1, 0,       color, 1);
+	        appendPointToVertexBuffer(vertexBuffer, i + s, j + s, 0,          0, 0, 1,        1, 1,       color, 1);
+
+	        appendPointToVertexBuffer(vertexBuffer, i + s, j + s, 0,          0, 0, 1,        1, 1,       color, 1);
+	        appendPointToVertexBuffer(vertexBuffer, i, j + s, 0,              0, 0, 1,        0, 1,       color, 1);
+	        appendPointToVertexBuffer(vertexBuffer, i, j, 0,                  0, 0, 1,        0, 0,       color, 1);
+	        #endregion
+	    }
+	}
+	vertex_end(vertexBuffer);
+	#endregion

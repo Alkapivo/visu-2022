@@ -413,6 +413,7 @@
     {"id":{"name":"ParticleEvent","path":"scripts/ParticleEvent/ParticleEvent.yy",},"order":0,},
     {"id":{"name":"managerTaskDispatcher","path":"scripts/managerTaskDispatcher/managerTaskDispatcher.yy",},"order":3,},
     {"id":{"name":"getGenericManagerPrototype","path":"scripts/getGenericManagerPrototype/getGenericManagerPrototype.yy",},"order":2,},
+    {"id":{"name":"PlaygroundControllerStatic","path":"scripts/PlaygroundControllerStatic/PlaygroundControllerStatic.yy",},"order":1,},
     {"id":{"name":"getManagerEventPipeline","path":"scripts/getManagerEventPipeline/getManagerEventPipeline.yy",},"order":0,},
     {"id":{"name":"getManagerTaskReactor","path":"scripts/getManagerTaskReactor/getManagerTaskReactor.yy",},"order":1,},
     {"id":{"name":"injectGenericManager","path":"scripts/injectGenericManager/injectGenericManager.yy",},"order":3,},
