@@ -1055,7 +1055,7 @@ function initializeGlobals() {
 			resetTarget: gpuResetSurfaceTarget,
 		},
 		Sprites: {
-			render: drawSprite,
+			render: _renderSprite,
 		},
 		GPU: {
 			renderClearColor: function(color, alpha = 1.0) {
