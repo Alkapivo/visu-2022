@@ -348,7 +348,7 @@ function createEventsRecorder() {
 				audio.trackPosition = Core.Collections.Maps.get(jsonAudio, "trackPosition");
 				audio.name = Core.Collections.Maps.get(jsonAudio, "name");
 				
-				if (!isAudio(Core.Asset.Texture.fetch(audio.name))) {
+				if (!isAudio(Core.Assets.Texture.fetch(audio.name))) {
 				
 					throw(stringParams("Audio not found: {0}", audio.name));
 				}
@@ -861,7 +861,7 @@ function actionSpawnShroom(name) {
 	
 	var config = {
 		name: template.name,
-		texture: Core.Asset.Texture.fetch(Core.Collections.Arrays.getRandomValue(template.texture)),
+		texture: Core.Assets.Texture.fetch(Core.Collections.Arrays.getRandomValue(template.texture)),
 		position: spawnPositionData.position,
 		spawnPosition: spawnPosition,
 		horizontalSpeed: spawnPositionData.horizontalSpeed,

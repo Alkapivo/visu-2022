@@ -934,7 +934,15 @@ function initializeGlobals() {
 			},
 			toArray: function(list) {
 				return convertListToArray(list);
-			}
+			},
+			forEach: function(list, handler, data = null) {
+				var size = Core.Collections.Lists.size(list)
+				for (var index = 0; index < size; index++) {
+					var element = Core.Collections.Lists.get(list, index);
+					handler(element, data);
+				}
+			},
+			create: createList
 		},
 		Queues: {
 			getTail: function(queue) {
@@ -1000,17 +1008,72 @@ function initializeGlobals() {
 	}
 	
 	global.__core = {
-		Asset: {
+		Assets: {
 			Texture: {
+				getWidth: sprite_get_width,
+				getHeight: sprite_get_height,
 				fetch: function(name) {
 					return getAssetIndex(name, AssetTexture, asset_texture_empty)
-				}
+				},
 			},
 			Font: {
 				fetch: function(name) {
 					return getAssetIndex(name, AssetFont, asset_font_default);	
 				}
-			}
+			},
+		},
+		Structs: {
+			get: function(struct, name, defaultValue = null) {
+				return getValueFromStruct(struct, name, defaultValue);
+			},
+			contains: structVariableExists,
+			is: isSurfaceValid,
+			getFields: getStructVariableNames,
+		},
+		Numbers: {
+			isBetween: isNumberInRange,
+		},
+		Surfaces: {
+			create: createSurface,
+			get: getSurface,
+			getWidth: surface_get_width,
+			getHeight: surface_get_height,
+			is: isSurfaceValid,
+			render: renderSurface,
+			renderToSurface: function(surface, handler, data = null) {
+				
+				if (Core.Surfaces.getTarget(surface) != -1) {
+					throw "Surface cannot be rendered, because target wasn't reseted"
+				}
+				
+				Core.Surfaces.setTarget(surface);
+				handler(surface, data);
+				Core.Surfaces.resetTarget(surface);
+			},
+			setTarget: gpuSetSurfaceTarget,
+			getTarget: surface_get_target,
+			resetTarget: gpuResetSurfaceTarget,
+		},
+		Sprites: {
+			render: _renderSprite,
+		},
+		GPU: {
+			renderClearColor: function(color, alpha = 1.0) {
+				draw_clear_alpha(color, alpha);
+			},
+			setConfig: function(config = {}) {
+				if (Core.Structs.contains(config, "font")) {
+					draw_set_font(config.font);
+				}
+				
+				if (Core.Structs.contains(config, "horizontalAlign")) {
+					draw_set_halign(config.horizontalAlign);
+				}
+				
+				if (Core.Structs.contains(config, "verticalAlign")) {
+					draw_set_valign(config.verticalAlign);
+				}
+			},
 		},
 		JSON: global.__core_JSON,
 		File: global.__core_File,
@@ -1102,9 +1165,19 @@ function initializeMacros() {
 	#macro COLOR_TRANSPARENT	[ 0.0, 0.0, 0.0, 0.0 ]
 	#endregion
 	
+	
 	#region Settings
 	#macro SETTINGS_CONSOLE_REPOSITORY_ID "console"
 	#endregion
+	
+	#macro GM_COLOR_WHITE c_white
+	#macro GM_COLOR_BLACK c_black
+	#macro GM_HALIGN_LEFT fa_left
+	#macro GM_HALIGN_CENTER fa_center
+	#macro GM_HALIGN_RIGHT fa_right
+	#macro GM_VALIGN_TOP fa_top
+	#macro GM_VALIGN_CENTER fa_middle
+	#macro GM_VALIGN_BOTTOM fa_bottom
 }
 
 ///@function initialzieManagers()

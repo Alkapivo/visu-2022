@@ -43,23 +43,23 @@ function parseJsonLyrics(jsonString) {
 		}
 		
 		var template = {
-            name: Core.Collections.Maps.get(jsonObject, "name"),
-            font: Core.Asset.Font.fetch(Core.Collections.Maps.get(jsonObject, "font")),
-			charInterval: Core.Collections.Maps.get(jsonObject, "charInterval"),
-			charAmount: Core.Collections.Maps.get(jsonObject, "charAmount"),
-			verticalAlign: Core.Collections.Maps.get(jsonObject, "verticalAlign"),
-			horizontalAlign: Core.Collections.Maps.get(jsonObject, "horizontalAlign"),
-			color: colorHashToGMColor(Core.Collections.Maps.get(jsonObject, "color")),
-			useInvertedBackgroundColor: Core.Collections.Maps.get(jsonObject, "useInvertedBackgroundColor") == true,
-			useConsoleStackAsLines: Core.Collections.Maps.get(jsonObject, "useConsoleStackAsLines") == true,
-			shakeProbability: Core.Collections.Maps.get(jsonObject, "shakeProbability"),
-			shakeAmount: Core.Collections.Lists.toArray(Core.Collections.Maps.get(jsonObject, "shakeAmount")),
-			shakeDuration: Core.Collections.Lists.toArray(Core.Collections.Maps.get(jsonObject, "shakeDuration")),
-			alpha: Core.Collections.Maps.get(jsonObject, "alpha"),
-			linesPadding: Core.Collections.Maps.get(jsonObject, "linesPadding"),
-			area: parseArea(Core.Collections.Maps.get(jsonObject, "area")),
-			lines: Core.Collections.Lists.toArray(Core.Collections.Maps.get(jsonObject, "lines")),
-        }
+        name: Core.Collections.Maps.get(jsonObject, "name"),
+        font: Core.Assets.Font.fetch(Core.Collections.Maps.get(jsonObject, "font")),
+        charInterval: Core.Collections.Maps.get(jsonObject, "charInterval"),
+        charAmount: Core.Collections.Maps.get(jsonObject, "charAmount"),
+        verticalAlign: Core.Collections.Maps.get(jsonObject, "verticalAlign"),
+        horizontalAlign: Core.Collections.Maps.get(jsonObject, "horizontalAlign"),
+        color: colorHashToGMColor(Core.Collections.Maps.get(jsonObject, "color")),
+        useInvertedBackgroundColor: Core.Collections.Maps.get(jsonObject, "useInvertedBackgroundColor") == true,
+        useConsoleStackAsLines: Core.Collections.Maps.get(jsonObject, "useConsoleStackAsLines") == true,
+        shakeProbability: Core.Collections.Maps.get(jsonObject, "shakeProbability"),
+        shakeAmount: Core.Collections.Lists.toArray(Core.Collections.Maps.get(jsonObject, "shakeAmount")),
+        shakeDuration: Core.Collections.Lists.toArray(Core.Collections.Maps.get(jsonObject, "shakeDuration")),
+        alpha: Core.Collections.Maps.get(jsonObject, "alpha"),
+        linesPadding: Core.Collections.Maps.get(jsonObject, "linesPadding"),
+        area: parseArea(Core.Collections.Maps.get(jsonObject, "area")),
+        lines: Core.Collections.Lists.toArray(Core.Collections.Maps.get(jsonObject, "lines")),
+    }
 		return template;
 	}   
 

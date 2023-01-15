@@ -113,6 +113,42 @@ function drawSprite() {
 
 }
 
+///@function _renderSprite(sprite, xPosition, yPosition, [xScale], [yScale], [alpha], [angle], [color])
+///@description Wrapper for draw_sprite and Sprite entity. Draw animated sprite (side effect, mutate sprite).
+///@param {Sprite} sprite
+///@param {Number} xPosition
+///@param {Number} yPosition
+///@param {Number} [xScale]
+///@param {Number} [yScale]
+///@param {Number} [alpha]
+///@param {Number} [angle]
+///@param {Number} [color]
+function _renderSprite(sprite, xPosition, yPosition) {
+
+	var xScale = getSpriteXScale(sprite);
+	var yScale = getSpriteYScale(sprite);
+	var alpha = getSpriteAlpha(sprite);
+	var angle = getSpriteAngle(sprite);
+	var color = getSpriteColor(sprite);
+	var spriteIndex = getSpriteAssetIndex(sprite);
+	var spriteFrames = sprite_get_number(spriteIndex);
+	var animationSpeed = sprite_get_speed(spriteIndex);
+	var currentFrame = clamp(0, getSpriteCurrentFrame(sprite), spriteFrames);
+	setSpriteCurrentFrame(sprite, incrementTimer(currentFrame, spriteFrames, animationSpeed / GAME_FPS));
+		
+	draw_sprite_ext(
+		spriteIndex, 
+		currentFrame, 
+		xPosition, 
+		yPosition,
+		xScale,
+		yScale,
+		angle,
+		color,
+		alpha
+	);
+}
+
 ///@function drawSpritePolygon(sprite, polygon2D, alpha)
 ///@description Wrapper for draw_sprite_pos.
 ///@param {Sprite} sprite
