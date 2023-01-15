@@ -1,2 +1,4 @@
-///@description 
-__bktgtlich_ui_alarm();
+///@description GMObject.gmAlarm0()
+
+	this.GMObject.gmAlarm0();
+	

@@ -1252,6 +1252,7 @@
     {"folderPath":"folders/src/com.devhorizon.visu/controller/PlaygroundController.yy","order":6,"resourceVersion":"1.0","name":"PlaygroundController","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/asset/com.devhorizon.visu/texture/grid.yy","order":5,"resourceVersion":"1.0","name":"grid","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/asset/com.devhorizon.visu/texture/grid/line-default.yy","order":2,"resourceVersion":"1.0","name":"line-default","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/src/com.devhorizon.visu/controller/GridController.yy","order":7,"resourceVersion":"1.0","name":"GridController","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
