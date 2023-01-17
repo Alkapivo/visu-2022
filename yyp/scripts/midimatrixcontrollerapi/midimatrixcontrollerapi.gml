@@ -48,7 +48,17 @@ function createMidiMatrixController(config) {
 					&& (isOptionalPresent(getStructVariable(button, "pressed")))) {
 					
 					// asker imoiskar
-					button.pressed(button, key);
+					try {
+						button.pressed(button, key);
+					} catch (exception) {
+						
+						logger("\n{0}\n\n", LogType.ERROR, exception.message);
+						printStackTrace();
+						
+						getConsole().consoleHeightAcc = getConsole().consoleHeightMax;
+						getConsole().isConsoleDisplayed = true;
+						keyboard_string = "";
+					}
 					
 					var currentRecording = midiController.eventsRecorder.getCurrentRecording(midiController.eventsRecorder);
 					if (isStruct(currentRecording)) {
@@ -590,36 +600,6 @@ function sendShaderEvent(shaderEvent) {
 	}
 }
 
-function shroomButton(texture, speedValue) {
-
-	var __sprite = texture;//getRandomValueFromArray(arts);
-	var shroomTemplate = createShroomTemplate(
-		createSprite(
-			__sprite, 
-			irandom(sprite_get_number(__sprite)), 
-			1.0, 1.0, 
-			1.0, 
-			0.0, 
-			c_white
-		),
-		createMap(), 
-		[ 
-			speedValue * choose(1, 1, 2, 3, 5, 8, 13)
-		],
-		[ createTuple(GridElementInfoType.RAINBOW, colorHashToColor("#00ff00ff"))]
-	);
-		
-	spawnShroom(
-		shroomTemplate, 
-		createPosition(
-			irandom(100) / 100.0, 
-			getRandomValueFromArray([
-				0.013
-			])
-		)
-	);
-}
-
 function spawnVisuShroom(config) {
 	
 	var texture = config.texture;
@@ -641,8 +621,8 @@ function spawnVisuShroom(config) {
 		createSprite(
 			texture, 
 			irandom(sprite_get_number(texture)), 
-			1.0, 
-			1.0, 
+			2.0, 
+			2.0, 
 			1.0, 
 			0.0, 
 			c_white
@@ -768,19 +748,24 @@ function actionSwitchChangeGameplay() {
 		: getPropertyReal("gameRenderer.baseScaleResolution.platformer", 2048)
 	global.__baseScaleResolution = baseScaleResolution
 							
-	var jumbotronEvent = createJumbotronEvent(
-		stringParams(
-			" GAMEMODE\n\n>> {0} <<\n\n----------\n",
-			string_upper(gameplayType)
-		),
-		"message",
-		2.66
-	);
-	var gameRenderer = getGameRenderer();
-	gameRenderer.jumbotronEvent = jumbotronEvent;
-	gameRenderer.jumbotronEventTimer = 0.0;
-							
-	getGameController().godMode = incrementTimer(getGameController().godMode, getGameController().godModeDuration);
+	
+	
+	if (Core.Objects.is(getGameRenderer())) {
+		var jumbotronEvent = createJumbotronEvent(
+			stringParams(
+				" GAMEMODE\n\n>> {0} <<\n\n----------\n",
+				string_upper(gameplayType)
+			),
+			"message",
+			2.66
+		);
+		getSceneRenderer().jumbotronEvent = jumbotronEvent;
+		getSceneRenderer().jumbotronEventTimer = 0.0;
+	}
+	
+	if (Core.Objects.is(getGameController())) {
+		getGameController().godMode = incrementTimer(getGameController().godMode, getGameController().godModeDuration);	
+	}
 }
 
 function actionRemoveLastShader() {
@@ -876,6 +861,7 @@ function actionSpawnShroom(name) {
 		getPositionVertical(config.position), 
 		getAssetName(config.texture, AssetTexture)
 	);
+		
 	spawnVisuShroom(config)
 }
 

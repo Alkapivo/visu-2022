@@ -1,5 +1,11 @@
 ///@return {Repository<ShaderTemplate>}
 function fetchShaderTemplateRepository() {
 	
-	return getGameRenderer().shaderTemplateRepository;
+	if (isOptionalPresent(getPlaygroundController())) {
+		return getPlaygroundController().shaderTemplateRepository;
+	}
+	
+	if (isOptionalPresent(getGameRenderer())) {
+		return getGameRenderer().shaderTemplateRepository;
+	}
 }

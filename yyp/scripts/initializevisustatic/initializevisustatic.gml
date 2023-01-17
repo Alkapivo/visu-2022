@@ -151,6 +151,7 @@ function initializeVisuContexts() {
 	global.gameRendererContext = null;	
 	global.gridRendererContext = null;
 	global.lyricsRendererContext = null;
+	global.playgroundRendererContext = null;
 }
 
 function initializeVisuEnums() {
@@ -245,7 +246,7 @@ function initializeVisuGlobals() {
 	global.shroomVisuSpawnVerticalRange = createTuple(0.0, 1.0);
 	#macro SHROOM_SPAWN_V_RANGE global.shroomVisuSpawnVerticalRange
 	
-	global.shroomVisuSpawnSpeedRange = createTuple(0.005, 0.01);
+	global.shroomVisuSpawnSpeedRange = createTuple(0.0003, 0.0019);
 	#macro SHROOM_SPEED_RANGE global.shroomVisuSpawnSpeedRange
 	
 	
@@ -255,6 +256,9 @@ function initializeVisuGlobals() {
 	global.gameCounter = 0;
 	global.gamepadId = 0;
 	global.gameplayTimePrecise = 0;
+	global.screensFactorValues = [ 0.001, 0.002, 0.003, 0.05, 1 ];
+	global.topLinePositionFactorValues = [ 0.001, 0.002, 0.003, 0.05, 1 ];
+	global.bottomLinePositionFactorValues = [ 0.001, 0.002, 0.003, 0.05, 1 ];
 	
 	///@todo Remove
 	global.bulletAsset = asset_texture_visu_bullet_2;
@@ -283,15 +287,33 @@ function initializeVisuGlobals() {
 				
 				var from = getTupleKey(SHROOM_SPAWN_H_RANGE) * 100.0;
 				var to = getTupleValue(SHROOM_SPAWN_H_RANGE) * 100.0;
+				var horizontalPosition = 0.0;
+				var verticalPosition = 0.0;
+				
+				if (isOptionalPresent(getPlaygroundController())) {
+				
+					var grid = getPlaygroundController().GMObject.state.grid;
+					horizontalPosition = grid.view.x + ((from + irandom(to - from)) / 100.0);
+					verticalPosition = grid.view.y - 0.5;
+					if (horizontalPosition < 0.0) {
+						horizontalPosition = grid.width - (abs(horizontalPosition) - (floor(abs(horizontalPosition) / grid.width) * grid.width));
+					}
+				}
+				
+				if (isOptionalPresent(getGridRenderer())) {
+					horizontalPosition = (from + irandom(to - from)) / 100.0;
+					verticalPosition = 0.006;
+				}
+				
 				return {
 					verticalSpeed: random_range(
-						getPositionHorizontal(SHROOM_SPEED_RANGE), 
-						getPositionVertical(SHROOM_SPEED_RANGE)
+						getTupleKey(SHROOM_SPEED_RANGE), 
+						getTupleValue(SHROOM_SPEED_RANGE)
 					),
 					horizontalSpeed: choose(0.00001, 0.0001),
 					position: createPosition(
-						(from + irandom(to - from)) / 100.0,
-						0.006
+						horizontalPosition,
+						verticalPosition
 					)
 				}
 			}
@@ -302,6 +324,24 @@ function initializeVisuGlobals() {
 				
 				var from = getTupleKey(SHROOM_SPAWN_V_RANGE) * 100.0;
 				var to = getTupleValue(SHROOM_SPAWN_V_RANGE) * 100.0;
+				var horizontalPosition = 0.0;
+				var verticalPosition = 0.0;
+				
+				if (isOptionalPresent(getPlaygroundController())) {
+				
+					var grid = getPlaygroundController().GMObject.state.grid;
+					horizontalPosition = grid.view.x + grid.view.width + 1.66;
+					verticalPosition = grid.view.y + ((from + irandom(to - from)) / 100.0);
+					if (horizontalPosition > grid.width) {
+						horizontalPosition = abs(horizontalPosition) - (floor(abs(horizontalPosition) / grid.width) * grid.width);
+					}
+				}
+				
+				if (isOptionalPresent(getGridRenderer())) {
+					horizontalPosition = 1.33;
+					verticalPosition = (from + irandom(to - from)) / 100.0;
+				}
+				
 				return {
 					verticalSpeed: choose(0.00001, 0.001),
 					horizontalSpeed: -1.0 * random_range(
@@ -309,8 +349,8 @@ function initializeVisuGlobals() {
 						getPositionVertical(SHROOM_SPEED_RANGE)
 					),
 					position: createPosition(
-						1.33,
-						(from + irandom(to - from)) / 100.0,
+						horizontalPosition,
+						verticalPosition
 					)
 				}
 			}
@@ -321,6 +361,24 @@ function initializeVisuGlobals() {
 				
 				var from = getTupleKey(SHROOM_SPAWN_H_RANGE) * 100.0;
 				var to = getTupleValue(SHROOM_SPAWN_H_RANGE) * 100.0;
+				var horizontalPosition = 0.0;
+				var verticalPosition = 0.0;
+				
+				if (isOptionalPresent(getPlaygroundController())) {
+				
+					var grid = getPlaygroundController().GMObject.state.grid;
+					horizontalPosition = grid.view.x + ((from + irandom(to - from)) / 100.0);
+					verticalPosition = grid.height + 0.2;
+					if (horizontalPosition > grid.width) {
+						horizontalPosition = abs(horizontalPosition) - (floor(abs(horizontalPosition) / grid.width) * grid.width);
+					}
+				}
+				
+				if (isOptionalPresent(getGridRenderer())) {
+					horizontalPosition = (from + irandom(to - from)) / 100.0;
+					verticalPosition = 0.90;
+				}
+				
 				return {
 					verticalSpeed: -1.0 * random_range(
 						getPositionHorizontal(SHROOM_SPEED_RANGE), 
@@ -328,8 +386,8 @@ function initializeVisuGlobals() {
 					),
 					horizontalSpeed: choose(0.00001, 0.0001),
 					position: createPosition(
-						(from + irandom(to - from)) / 100.0,
-						0.90
+						horizontalPosition,
+						verticalPosition
 					)
 				}
 			}
@@ -340,15 +398,33 @@ function initializeVisuGlobals() {
 				
 				var from = getTupleKey(SHROOM_SPAWN_V_RANGE) * 100.0;
 				var to = getTupleValue(SHROOM_SPAWN_V_RANGE) * 100.0;
+				var horizontalPosition = 0.0;
+				var verticalPosition = 0.0;
+				
+				if (isOptionalPresent(getPlaygroundController())) {
+				
+					var grid = getPlaygroundController().GMObject.state.grid;
+					horizontalPosition = grid.view.x - 1.66;
+					verticalPosition = grid.view.y + ((from + irandom(to - from)) / 100.0);
+					if (horizontalPosition < 0.0) {
+						horizontalPosition = grid.width - (abs(horizontalPosition) - (floor(abs(horizontalPosition) / grid.width) * grid.width));
+					}
+				}
+				
+				if (isOptionalPresent(getGridRenderer())) {
+					horizontalPosition = -0.33;
+					verticalPosition = (from + irandom(to - from)) / 100.0;
+				}
+				
 				return {
-					verticalSpeed: choose(0.00001, 0.0001),
+					verticalSpeed: choose(0.00001, 0.001),
 					horizontalSpeed: random_range(
 						getPositionHorizontal(SHROOM_SPEED_RANGE), 
 						getPositionVertical(SHROOM_SPEED_RANGE)
 					),
 					position: createPosition(
-						-0.33,
-						(from + irandom(to - from)) / 100.0,
+						horizontalPosition,
+						verticalPosition
 					)
 				}
 			}

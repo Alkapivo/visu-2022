@@ -25,6 +25,21 @@
 				var speedValue = getBulletSpeedValue(bullet) + getBulletAcceleration(bullet) * getDeltaTimeValue();
 				var positionX = getPositionHorizontal(bulletPosition) + getXOnCircle(speedValue, angle);
 				var positionY = getPositionVertical(bulletPosition) + getYOnCircle(speedValue, angle);
+				if (isOptionalPresent(getPlaygroundController())) {
+							
+					var grid = getPlaygroundController().GMObject.state.grid;
+					if (positionX > grid.width) {
+						positionX = abs(positionX) - (floor(abs(positionX) / grid.width) * grid.width);
+					}
+					
+					if (positionX < 0.0) {
+						positionX = grid.width - (abs(positionX) - (floor(abs(positionX) / grid.width) * grid.width));
+					}
+					positionX = clamp(positionX, 0.0, grid.width);
+							
+				}
+						
+				
 				setPositionHorizontal(bulletPosition, positionX);
 				setPositionVertical(bulletPosition, positionY);
 				#endregion
@@ -103,29 +118,38 @@
 				}
 				#endregion
 				
-				if (!isAnyCollision) {
-					if ((positionY > 1.5) 
-						|| (positionY < -0.5)
-						|| (positionX < -0.5)
-						|| (positionX > 1.5)) {
-
+				if (isAnyCollision) {
+					destroyBullets = pushArray(destroyBullets, index);	
+				}
+				
+				if ((!isAnyCollision) && (isOptionalPresent(getPlaygroundController()))) {
+					var grid = getPlaygroundController().GMObject.state.grid;
+					if ((positionY > grid.height + 0.5)
+						|| (positionY < -0.5)) {
+							
 						destroyBullets = pushArray(destroyBullets, index);
-					} else {
-						
-						sendGridElementRenderRequest(bulletGridElement);	
+						isAnyCollision = true;
 					}
-				} else {
-					destroyBullets = pushArray(destroyBullets, index);
+				}
+				
+				if ((!isAnyCollision) && (isOptionalPresent(getGridRenderer()))) {
+					if ((positionY > 1.5) 
+							|| (positionY < -0.5)
+							|| (positionX < -0.5)
+							|| (positionX > 1.5)) {
+							
+						destroyBullets = pushArray(destroyBullets, index);
+						isAnyCollision = true;
+					}
+				}
+				
+				if (!isAnyCollision) {
+					sendGridElementRenderRequest(bulletGridElement);
 				}
 			}
 			
 			removeItemsFromList(this.bullets, destroyBullets, destroyBullet);
 			#endregion
-			
-
-
-
-
 
 		}),
 		cleanUp: method(this, function() {

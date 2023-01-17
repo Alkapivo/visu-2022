@@ -6,7 +6,7 @@
     "path": "folders/src/com.devhorizon.visu/controller/PlaygroundController.yy",
   },
   "resourceVersion": "1.0",
-  "name": "PlaygroundControllerStatic",
+  "name": "playgroundcontrollerstatic",
   "tags": [],
   "resourceType": "GMScript",
 }

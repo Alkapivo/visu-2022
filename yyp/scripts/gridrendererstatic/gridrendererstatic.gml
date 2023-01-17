@@ -487,41 +487,60 @@ function fetchMovedVerticalPositionOnGrid(argument0, argument1) {
 ///@description Return scale factor on grid
 ///@param {Number} verticalPosition
 ///@return {Number} scaleFactor
-function fetchVerticalProjectionScale(argument0) {
+function fetchVerticalProjectionScale(verticalPosition) {
 
-		var verticalPosition = argument0;
-
-		var gridAngle = getGridRenderer().gridAngle;
-		var verticalProjectionPowerFactor = clamp(gridAngle, 0.0, 1.0);		
-		var verticalProjectionScale = power(verticalPosition, verticalProjectionPowerFactor);
+	var gridRenderer = getGridRenderer();
+	if (!isOptionalPresent(gridRenderer)) {
+		return 1.0;
+	}
+		
+	var gridAngle = gridRenderer.gridAngle;
+	var verticalProjectionPowerFactor = clamp(gridAngle, 0.0, 1.0);		
+	var verticalProjectionScale = power(verticalPosition, verticalProjectionPowerFactor);
 	
-		if (is_nan(verticalProjectionScale)) {
-			verticalProjectionScale = 0.1
-		}
+	if (is_nan(verticalProjectionScale)) {
+		verticalProjectionScale = 0.1
+	}
 	
-		return clamp(verticalProjectionScale, 0.001, 1.0);
-	
-
-
-
+	return clamp(verticalProjectionScale, 0.001, 1.0);
 }
+
 ///@function sendGridElementRenderRequest(gridElement)
 ///@description Send gridElement to GridRenderer gridElementPipeline.
 ///@param {?GridElement} gridElement
-function sendGridElementRenderRequest(argument0) {
-
-		var gridElement = argument0;
-	
+function sendGridElementRenderRequest(gridElement) {
+		
+	if (isOptionalPresent(getGridRenderer())) {
 		var positionStamp = fetchGridElementPositionStamp(gridElement);
 		var gridElementPipeline = getGridRendererGridElementPipeline();
 	
 		addToPriorityQueue(gridElementPipeline, positionStamp, gridElement);
+	}
+	
+	if (isOptionalPresent(getPlaygroundController())) {
+		var positionStamp = fetchGridElementPositionStamp(gridElement);
+		var gridElementPipeline = getPlaygroundController().GMObject.state.grid.elements
+		
+		addToPriorityQueue(gridElementPipeline, positionStamp, gridElement);
+	}
 }
 
 ///@function fetchGridElementParticlePosition(gridElement, position)
 function fetchGridElementParticlePosition(gridElement, position) {
 
-	var gridRenderer = getGridRenderer();						
+	if (isOptionalPresent(getPlaygroundController())) {
+		
+		var gridPosition = getGridElementPosition(gridElement);
+		var positions = {
+			xStart: getPositionHorizontal(gridPosition) - 0.05,
+			yStart: getPositionVertical(gridPosition) - 0.05,
+			xEnd: getPositionHorizontal(gridPosition) + 0.05,
+			yEnd: getPositionVertical(gridPosition) + 0.05,
+		}
+		return positions;
+	}
+
+	var gridRenderer = getGridRenderer();
 	var viewWidth = ViewWidth;
 	var viewHeight = ViewHeight;
 	var pixelOffsetTop = gridRenderer.offsetTop * viewHeight;

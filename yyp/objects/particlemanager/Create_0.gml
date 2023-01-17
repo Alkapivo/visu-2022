@@ -18,8 +18,8 @@
 	
 	///@type {Surface}
 	particlesSurface = [
-		createSurface(global.viewWidth, global.viewHeight),
-		createSurface(global.viewWidth, global.viewHeight),
+		createSurface(1024, 1024),
+		createSurface(1024, 1024),
 	]
 	
 	///@type {ParticleSystem[]}

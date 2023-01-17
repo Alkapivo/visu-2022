@@ -23,6 +23,8 @@
 	//@type {Number}
 	debugMouseSpeed = 0.1;
 	
+	debugTimer = 0.0;
+	
 	#endregion
 	
 	jumpFactor = getPropertyReal("player.jumpFactor", 0.029);
@@ -44,16 +46,16 @@
 			#region Movement
 			var keyboardCheckRight = inputHandler != null ? (
 				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_RIGHT)) || 
-				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_D))) : false;
+				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_RIGHT))) : false;
 			var keyboardCheckLeft = inputHandler != null ? (
 				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_LEFT)) || 
-				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_A))) : false;
+				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_LEFT))) : false;
 			var keyboardCheckUp = inputHandler != null ? (
 				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_UP)) || 
-				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_W))) : false;
+				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_UP))) : false;
 			var keyboardCheckDown = inputHandler != null ? (
 				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_DOWN)) || 
-				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_S))) : false;
+				getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_DOWN))) : false;
 			var keyboardCheckBomb = getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_X));
 			var keyboardCheckSlow = getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_SHIFT));
 			
@@ -66,14 +68,32 @@
 			horizontalSpeed = keyboardCheckSlow == true
 				? horizontalSpeed * 0.67
 				: horizontalSpeed;
+			var horizontalPosition = getPositionHorizontal(playerPosition) + horizontalSpeed;
 			
-			var horizontalPosition = clamp(getPositionHorizontal(playerPosition) + horizontalSpeed, 0.0, 1.0);
+			if (isOptionalPresent(getPlaygroundController())) {
+				var grid = getPlaygroundController().GMObject.state.grid;
+				
+				if (horizontalPosition > grid.width) {
+					grid.view.x = grid.view.x - grid.width; // jump camera hack
+					horizontalPosition = abs(horizontalPosition) - (floor(abs(horizontalPosition) / grid.width) * grid.width);
+				}
+					
+				if (horizontalPosition < 0.0) {
+					grid.view.x = grid.view.x + grid.width; // jump camera hack
+					horizontalPosition = grid.width - (abs(horizontalPosition) - (floor(abs(horizontalPosition) / grid.width) * grid.width));
+				}
+				horizontalPosition = clamp(horizontalPosition, 0.0, grid.width);
+			}
+			
+			if (isOptionalPresent(getGridRenderer())) {
+				 horizontalPosition = clamp(getPositionHorizontal(playerPosition) + horizontalSpeed, 0.0, 1.0);
+			}
+			
 			setPositionHorizontal(playerPosition, horizontalPosition);
 			setVisuPlayerHorizontalSpeed(player, horizontalSpeed);
-      
+		
 			var veticalProjectionScale = fetchVerticalProjectionScale(playerPosition[1]);
-			var verticalPositionMin = 0.01;
-			var verticalPositionMax = 0.80;
+
 			var verticalFriction = getValueFromMap(playerState, "verticalFriction", 0.001) * veticalProjectionScale; 
 			var verticalMaxSpeed = getValueFromMap(playerState, "verticalMaxSpeed", 0.01) * veticalProjectionScale; 
 			var verticalSpeed = ((keyboardCheckUp) || (keyboardCheckDown)) ?
@@ -83,7 +103,20 @@
 			var verticalSpeed = keyboardCheckSlow == true
 				? verticalSpeed * 0.69 
 				: verticalSpeed;
-			var verticalPosition = clamp(getPositionVertical(playerPosition) + verticalSpeed, verticalPositionMin, verticalPositionMax);
+			var verticalPosition = getPositionVertical(playerPosition) + verticalSpeed 
+			
+			if (isOptionalPresent(getPlaygroundController())) {
+				var grid = getPlaygroundController().GMObject.state.grid;
+				verticalPosition = clamp(verticalPosition, 0.1, grid.height - 0.1);
+			}
+			
+			if (isOptionalPresent(getGridRenderer())) {
+				
+				var verticalPositionMin = 0.01;
+				var verticalPositionMax = 0.80;
+				verticalPosition = clamp(verticalPosition, verticalPositionMin, verticalPositionMax);
+			}
+			
 			setPositionVertical(playerPosition, verticalPosition);
 			setVisuPlayerVerticalSpeed(player, verticalSpeed);
 			#endregion
@@ -192,16 +225,16 @@
 			var input = {
 				keyboardCheckRight: inputHandler != null ? (
 					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_RIGHT)) || 
-					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_D))) : false,
+					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_RIGHT))) : false,
 				keyboardCheckLeft: inputHandler != null ? (
 					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_LEFT)) || 
-					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_A))) : false,
+					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_LEFT))) : false,
 				keyboardCheckUp: inputHandler != null ? (
 					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_UP)) || 
-					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_W))) : false,
+					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_UP))) : false,
 				keyboardCheckDown: inputHandler != null ? (
 					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_DOWN)) || 
-					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_S))) : false,
+					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_DOWN))) : false,
 				keyboardCheckAction: inputHandler != null ? (
 					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_UP)) || 
 					getKeyStateCheck(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_SPACE))) : false			
@@ -214,11 +247,29 @@
 				getVisuPlayerHorizontalSpeed(player) + (input.keyboardCheckLeft ? -1 : 1) * (getValueFromMap(playerState, "horizontalAcceleration", 0.005) * getDeltaTimeValue()) :
 				((abs(getVisuPlayerHorizontalSpeed(player)) - horizontalFriction < 0) ? 0 : getVisuPlayerHorizontalSpeed(player) - sign(getVisuPlayerHorizontalSpeed(player)) * horizontalFriction);
 			horizontalSpeed = sign(horizontalSpeed) * clamp(abs(horizontalSpeed), 0, horizontalMaxSpeed);
-			var horizontalPosition = clamp(getPositionHorizontal(playerPosition) + horizontalSpeed, 0.0, 1.0);
+			var horizontalPosition = horizontalPosition + horizontalSpeed;
+
+			if (isOptionalPresent(getPlaygroundController())) {
+				var grid = getPlaygroundController().GMObject.state.grid;
+				
+				if (horizontalPosition > grid.width) {
+					grid.view.x = grid.view.x - grid.width; // jump camera hack
+					horizontalPosition = abs(horizontalPosition) - (floor(abs(horizontalPosition) / grid.width) * grid.width);
+				}
+					
+				if (horizontalPosition < 0.0) {
+					grid.view.x = grid.view.x + grid.width; // jump camera hack
+					horizontalPosition = grid.width - (abs(horizontalPosition) - (floor(abs(horizontalPosition) / grid.width) * grid.width));
+				}
+				horizontalPosition = clamp(horizontalPosition, 0.0, grid.width);
+			}
+			
+			if (isOptionalPresent(getGridRenderer())) {
+				 horizontalPosition = clamp(getPositionHorizontal(playerPosition) + horizontalSpeed, 0.0, 1.0);
+			}
+			
 			setPositionHorizontal(playerPosition, horizontalPosition);
 			setVisuPlayerHorizontalSpeed(player, horizontalSpeed);
-			
-			//var gridSpeed = getInstanceVariable(getGridRenderer(), "separatorSpeed") / 0.008; //@todo remove magic number
 			
 			var verticalPosition = getPositionVertical(playerPosition);
 			var verticalSpeed = getVisuPlayerVerticalSpeed(player);
@@ -229,11 +280,19 @@
 			verticalSpeed = sign(verticalSpeed) * clamp(abs(verticalSpeed), 0.0, verticalSpeedMax);
 			var verticalPositionMin = -0.12;
 			var verticalPositionMax = 0.80;
-			verticalPosition = clamp(verticalPosition + verticalSpeed, verticalPositionMin, verticalPositionMax);
-			verticalSpeed = verticalPosition == verticalPositionMin ? 0.0 : verticalSpeed;
-			verticalSpeed = verticalPosition == verticalPositionMax ? 0.0 : verticalSpeed;
-			setVisuPlayerVerticalSpeed(player, verticalSpeed);
+			verticalPosition = verticalPosition + applyDeltaTime(verticalSpeed);
 			
+			if (isOptionalPresent(getPlaygroundController())) {
+				verticalPositionMax = getPlaygroundController().GMObject.state.grid.height;
+			}
+			
+			if (isOptionalPresent(getGridRenderer())) {
+				verticalPositionMax = 0.80;
+			}
+			
+			verticalSpeed = verticalPosition <= verticalPositionMin ? 0.0 : verticalSpeed;
+			verticalSpeed = verticalPosition >= verticalPositionMax ? 0.0 : verticalSpeed;
+			verticalPosition = clamp(verticalPosition, verticalPositionMin, verticalPositionMax);
 			var movedVerticalPosition = clamp(
 				fetchMovedVerticalPositionOnGrid(
 					verticalPosition, 
@@ -242,6 +301,8 @@
 				verticalPositionMin,
 				verticalPositionMax
 			);
+			
+			setVisuPlayerVerticalSpeed(player, verticalSpeed);
 			setPositionVertical(playerPosition, movedVerticalPosition);
 			
 			
@@ -306,7 +367,13 @@
 						var playerPosition = getGridElementPosition(playerGridElement)
 						var speedValue = getShroomSpeedValue(shroom);
 						var gridSpeed = getInstanceVariable(getGridRenderer(), "separatorSpeed");
-						speedValue = speedValue * (gridSpeed / 0.005);
+						if (isOptionalPresent(getPlaygroundController())) {
+							gridSpeed = 0.004;//getPlaygroundController().GMObject.state.grid.separators.speed;
+						}
+												
+						if (isOptionalPresent(getGridRenderer())) {
+							speedValue = speedValue * (gridSpeed / 0.005);
+						}
 									
 						setVisuPlayerVerticalSpeed(player, 0.0);
 						Core.Collections.Maps.set(playerState, "landedOnShroom", true);
@@ -315,7 +382,14 @@
 						
 						var shroomHorizontalSpeed = Core.Collections.Maps.get(getShroomState(shroom), "horizontalSpeed");
 						var gridSpeed = getInstanceVariable(getGridRenderer(), "separatorSpeed");
-						shroomHorizontalSpeed = shroomHorizontalSpeed * (gridSpeed / 0.005);
+						if (isOptionalPresent(getPlaygroundController())) {
+							gridSpeed = 0.004;//getPlaygroundController().GMObject.state.grid.separators.speed;
+						}
+												
+						if (isOptionalPresent(getGridRenderer())) {
+							shroomHorizontalSpeed = shroomHorizontalSpeed * (gridSpeed / 0.005);
+						}
+						
 						var movedHorizontalPosition = getPositionHorizontal(playerPosition) + shroomHorizontalSpeed;
 						setPositionHorizontal(playerPosition, movedHorizontalPosition);
 						
@@ -400,6 +474,16 @@
 				if (isOptionalPresent(gameplayHandler)) {
 					gameplayHandler(player);
 				}
+				
+				/// hack, only first player will set camera target
+				if ((index == 0) && (isOptionalPresent(getPlaygroundController()))) {
+					var gridElement = getVisuPlayerGridElement(player);
+					var position = getGridElementPosition(gridElement);
+					getPlaygroundController().GMObject.state.grid.view.follow.target = {
+						x: getPositionHorizontal(position),
+						y: getPositionVertical(position),
+					}
+				}
 			}
 			
 			if (keyboard_check_pressed(ord("N"))) {
@@ -408,22 +492,50 @@
 					? "platformer"
 					: "bullethell";
 							
-				var jumbotronEvent = createJumbotronEvent(
-					stringParams(
-						"  GAME  \n\n>> {0} <<\n\n--------\n",
-						string_upper(this.gameplayType)
-					),
-					"message",
-					2.66
-				);
-				var gameRenderer = getGameRenderer();
-				gameRenderer.jumbotronEvent = jumbotronEvent;
-				gameRenderer.jumbotronEventTimer = 0.0;
+				if (isOptionalPresent(getGameRenderer())) {
+					
+					var jumbotronEvent = createJumbotronEvent(
+						stringParams(
+							"  GAME  \n\n>> {0} <<\n\n--------\n",
+							string_upper(this.gameplayType)
+						),
+						"message",
+						2.66
+					);
+					getGameRenderer().jumbotronEvent = jumbotronEvent;
+					getGameRenderer().jumbotronEventTimer = 0.0;
+				}
 				
 				var baseScaleResolution = this.gameplayType == "bullethell"
 					? getPropertyReal("gameRenderer.baseScaleResolution.bullethell", 2048)
 					: getPropertyReal("gameRenderer.baseScaleResolution.platformer", 2048)
 				global.__baseScaleResolution = baseScaleResolution
+			}
+			
+			this.debugTimer = incrementTimer(this.debugTimer, 0.5);
+			if (timerFinished(this.debugTimer)) {
+			
+				var player = findPlayerByIndex(0);
+				var gridElement = getVisuPlayerGridElement(player);
+				var gridPosition = getGridElementPosition(gridElement);
+				var positions = {
+					xStart: getPositionHorizontal(gridPosition),
+					yStart: getPositionVertical(gridPosition),
+					xEnd: getPositionHorizontal(gridPosition),
+					yEnd: getPositionVertical(gridPosition),
+				}
+				var particleTask = createParticleTask(
+					"particle_shroom_explosion",
+					ParticleSystems.BACKGROUND,
+					64,
+					0.0,
+					1.0,
+					0.1,
+					0.0,
+					createPosition(positions.xStart, positions.yStart),
+					createPosition(positions.xEnd, positions.yEnd)
+				);
+				//sendParticleTask(particleTask);
 			}
 		}),
 		cleanUp: method(this, function() {

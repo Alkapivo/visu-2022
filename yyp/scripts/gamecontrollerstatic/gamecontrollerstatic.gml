@@ -1,6 +1,10 @@
 function respawnVisuPlayer() {
 
 	var gameController = getGameController();
+	if (!Core.Objects.is(gameController)) {
+		return;
+	}
+	
 	if (timerFinished(gameController.godMode)) {
 		
 		gameController.gameplayData.respawnCounter++;
@@ -14,8 +18,10 @@ function respawnVisuPlayer() {
 		);
 		
 		var gameRenderer = getGameRenderer();
-		gameRenderer.jumbotronEvent = jumbotronEvent;
-		gameRenderer.jumbotronEventTimer = 0.0;
+		if (Core.Objects.is(gameRenderer, GameRenderer)) {
+			gameRenderer.jumbotronEvent = jumbotronEvent;
+			gameRenderer.jumbotronEventTimer = 0.0;
+		}
 	}
 }
 
