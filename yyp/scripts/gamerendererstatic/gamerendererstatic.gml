@@ -3,40 +3,55 @@
 ///@return {Map<AssetShader::AssetScript>} shaderHandlers
 function getGameRendererShaderHandlers() {
 
-		return getGameRenderer().shaderHandlers;
+	if (isOptionalPresent(getPlaygroundController())) {
+		return getPlaygroundController().shaderHandlers;
+	}
 	
-
-
-
+	if (isOptionalPresent(getGameRenderer())) {
+		return getGameRenderer().shaderHandlers;
+	}
 }
+
 ///@function getGameRendererShaderPipelines()
 ///@description Getter.
 ///@return {Map<String::ShaderPipeline} shaderPipelines
 function getGameRendererShaderPipelines() {
 
-		return getGameRenderer().shaderPipelines
-
-
+	if (isOptionalPresent(getPlaygroundController())) {
+		return getPlaygroundController().shaderPipelines;
+	}
+	
+	if (isOptionalPresent(getGameRenderer())) {
+		return getGameRenderer().shaderPipelines;
+	}
 }
+
 ///@function getGameRendererShaderPipelinesNames()
 ///@description Getter.
 ///@return {List<String>}
 function getGameRendererShaderPipelinesNames() {
 
-		return getGameRenderer().shaderPipelinesNames;
+	if (isOptionalPresent(getPlaygroundController())) {
+		return getPlaygroundController().shaderPipelinesNames;
+	}
 	
-
-
-
+	if (isOptionalPresent(getGameRenderer())) {
+		return getGameRenderer().shaderPipelinesNames;
+	}	
 }
+
 ///@function getGameRendererShaderUniformSetters()
 ///@description Getter.
 ///@return {Map<AssetShader::AssetScript>} shaderUniformSetters
 function getGameRendererShaderUniformSetters() {
 
+	if (isOptionalPresent(getPlaygroundController())) {
+		return getPlaygroundController().shaderUniformSetters;
+	}
+	
+	if (isOptionalPresent(getGameRenderer())) {
 		return getGameRenderer().shaderUniformSetters;
-
-
+	}
 }
 ///@function jumbotronScoreboardHandler(state)
 ///@description Render and resolve logic of jumbotron scoreboard.
@@ -85,6 +100,7 @@ function jumbotronScoreboardHandler(argument0) {
 				getKeyStatePressed(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_S))
 			);
 			var actionKeyPressed = 
+				getKeyStatePressed(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_UP)) ||
 				getKeyStatePressed(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_Z)) ||
 				getKeyStatePressed(getInputHandlerKeyState(inputHandler, KeyboardKeyType.KEY_SPACE));
 		

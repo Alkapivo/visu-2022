@@ -4,6 +4,10 @@
             "packageName": "com.devhorizon.visu",
             "artifactName": "Visu",
             "context": "Visu",
+            "_scenes": [
+                "SceneGame",
+                "ScenePlayground"
+            ],
             "scenes": [
                 "ScenePlayground",
                 "SceneGame"

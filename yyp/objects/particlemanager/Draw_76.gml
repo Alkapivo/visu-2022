@@ -26,19 +26,19 @@
 		
 			#region @override guardSurface
 			if (!surface_exists(particleSurface)) {
-				particleSurface = createSurface(global.viewWidth, global.viewHeight, true);
+				particleSurface = createSurface(1024, 1024, true);
 				particlesSurface[particleSystemIndex] = particleSurface;
 			} else {
-				if ((surface_get_width(particleSurface) != global.viewWidth) || 
-					(surface_get_height(particleSurface) != global.viewHeight)) {
-					surface_resize(particleSurface, global.viewWidth, global.viewHeight);
+				if ((surface_get_width(particleSurface) != 1024) || 
+					(surface_get_height(particleSurface) != 1024)) {
+					surface_resize(particleSurface, 1024, 1024);
 				}
 			}
 			#endregion
 
 			#region Surface particleSurface[particleSystemIndex]
 			gpuSetSurfaceTarget(particleSurface);
-			drawClear(COLOR_TRANSPARENT);
+			Core.GPU.renderClearColor(GM_COLOR_BLACK, 0.0);
 			var particleTaskPipelineSize = getListSize(particleTaskPipeline);
 			for (var particleTaskIndex = 0; particleTaskIndex < particleTaskPipelineSize; particleTaskIndex++) {
 				var particleTask = particleTaskPipeline[| particleTaskIndex];
@@ -53,21 +53,30 @@
 				var particlePositionEnd = getParticleTaskPositionEnd(particleTask);
 				var particleEmitterTimer = getParticleTaskEmitterTimer(particleTask);
 			
+				var xOffset = 0;
+				var yOffset = 0;
+				if (isOptionalPresent(getPlaygroundController())) {
+					xOffset = getPlaygroundController().GMObject.state.grid.view.x
+					yOffset = getPlaygroundController().GMObject.state.grid.view.y
+				}
+			
 				if (particleEmitterTimer == 0.0) {
 					part_emitter_region(
 						particleSystem, 
 						particleEmitter,
-						particlePositionBegin[0] * global.viewWidth, 
-						particlePositionEnd[0] * global.viewWidth, 
-						particlePositionBegin[1] * global.viewHeight, 
-						particlePositionEnd[1] * global.viewHeight, 
+						(particlePositionBegin[0] -xOffset) * 1024,
+						(particlePositionEnd[0] - xOffset) * 1024,
+						(particlePositionBegin[1] - yOffset) * 1024,
+						(particlePositionEnd[1] - yOffset) * 1024,
 						ps_shape_rectangle, 
-						ps_distr_linear);
+						ps_distr_linear
+					);
 					part_emitter_burst(
 						particleSystem, 
 						particleEmitter, 
 						particleEffect, 
-						getParticleTaskAmount(particleTask));
+						getParticleTaskAmount(particleTask)
+					);
 				}
 				particleEmitterTimer = incrementTimer(particleEmitterTimer, getParticleTaskEmitterInterval(particleTask), 1 / GAME_FPS);
 				setParticleTaskEmitterTimer(particleTask, particleEmitterTimer);

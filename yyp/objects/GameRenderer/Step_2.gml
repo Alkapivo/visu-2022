@@ -1,4 +1,4 @@
- ///@description this.GMObject.updatePost()
+ ///@description GMObject.updatePost()
  
 	this.GMObject.updatePost();
 

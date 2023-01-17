@@ -1,16 +1,205 @@
 /// @description GMObject.create()
 
 	super()
+	
+	#region Renderer fields
+	shaderPipelinesNames = createList(); ///@description Index is priority, value is shaderPipelineName
+	shaderPipelines = createMap();
+	shaderHandlers = createMap();
+	shaderUniformSetters = createMap();
+	shaderTemplateRepository = createRepository("shaderTemplateRepository", "ShaderTemplate", createMap());
+	applicationSurface = createSurface(global.guiWidth, global.guiHeight);
+	screenSurface = createSurface(global.guiWidth, global.guiHeight);
+	gridSurface = createSurface(global.viewWidth, global.viewHeight);
+	gameSurface = createSurface(global.viewWidth, global.viewHeight);
+	shaderSurface = createSurface(global.viewWidth, global.viewHeight, true);
+	backgroundSurface = createSurface(GuiWidth, GuiHeight, true);
+	mouseXPosition = 0.0;
+	mouseYPosition = 0.0;
+	background = createSprite(asset_texture_visu_bkg_1, 0, 1.0, 1.0, 0.0, 0.0, c_white);
+	previousBackground = createSprite(asset_texture_visu_bkg_1, 0, 1.0, 1.0, 0.0, 0.0, c_white);
+	foreground = createSprite(asset_texture_empty, 0, 1.0, 1.0, 1.0, 0.0, c_white);
+	previousForeground = createSprite(asset_texture_empty, 0, 1.0, 1.0, 0.0, 0.0, c_white);
+	foregroundTheta = 0.0;
+	trackTimer = 0.0;
+	cameraTheta = 0.0;
+	texturesStack = createStack(
+		asset_texture_visu_bkg_1,
+		asset_texture_visu_bkg_2,
+		asset_texture_visu_bkg_3,
+		asset_texture_visu_bkg_4,
+		asset_texture_visu_shroom_01,
+		asset_texture_visu_shroom_02,
+		asset_texture_visu_shroom_03,
+		asset_texture_visu_shroom_04,
+		asset_texture_visu_shroom_05,
+		asset_texture_visu_shroom_06,
+		asset_texture_visu_shroom_07,
+		asset_texture_visu_shroom_08
+	);
+	blendModes = [
+		bm_zero,
+		bm_one,
+		bm_src_colour,
+		bm_inv_src_colour,
+		bm_src_alpha,
+		bm_inv_src_alpha,
+		bm_dest_alpha,
+		bm_inv_dest_alpha,
+		bm_dest_colour,
+		bm_inv_dest_colour,
+		bm_src_alpha_sat,
+	];
+	firstBlendPointer = 1;
+	secondBlendPointer = 3;
+	blendModesLength = getArrayLength(blendModes);
+	starsRenderType = StarsRenderTypes.POINT;
+	stars = createArray(255);
+	#region Shaders initialization
+	initializeShaderEmboss(this);
+	addToMap(this.shaderHandlers, shaderEmboss, shaderEmbossHandler);
+	addToMap(this.shaderUniformSetters, shaderEmboss, shaderEmbossUniformSetter);
+	
+	initializeShaderRevert(this);
+	addToMap(this.shaderHandlers, shaderRevert, shaderRevertHandler);
+	addToMap(this.shaderUniformSetters, shaderRevert, shaderRevertUniformSetter);
+	
+	initializeShaderLED(this);
+	addToMap(this.shaderHandlers, shaderLED, shaderLEDHandler);
+	addToMap(this.shaderUniformSetters, shaderLED, shaderLEDUniformSetter);
+	
+	initializeShaderMagnify(this);
+	addToMap(this.shaderHandlers, shaderMagnify, shaderMagnifyHandler);
+	addToMap(this.shaderUniformSetters, shaderMagnify, shaderMagnifyUniformSetter);
+	
+	initializeShaderMosaic(this);
+	addToMap(this.shaderHandlers, shaderMosaic, shaderMosaicHandler);
+	addToMap(this.shaderUniformSetters, shaderMosaic, shaderMosaicUniformSetter);
+	
+	initializeShaderPosterization(this);
+	addToMap(this.shaderHandlers, shaderPosterization, shaderPosterizationHandler);
+	addToMap(this.shaderUniformSetters, shaderPosterization, shaderPosterizationUniformSetter);
+	
+	initializeShaderRipple(this);
+	addToMap(this.shaderHandlers, shaderRipple, shaderRippleHandler);
+	addToMap(this.shaderUniformSetters, shaderRipple, shaderRippleUniformSetter);
+	
+	initializeShaderScanlines(this);
+	addToMap(this.shaderHandlers, shaderScanlines, shaderScanlinesHandler);
+	addToMap(this.shaderUniformSetters, shaderScanlines, shaderScanlinesUniformSetter);
+	
+	initializeShaderShockWave(this);
+	addToMap(this.shaderHandlers, shaderShockWave, shaderShockWaveHandler);
+	addToMap(this.shaderUniformSetters, shaderShockWave, shaderShockWaveUniformSetter);
+	
+	initializeShaderWave(this);
+	addToMap(this.shaderHandlers, shaderWave, shaderWaveHandler);
+	addToMap(this.shaderUniformSetters, shaderWave, shaderWaveUniformSetter);
+	
+	initializeShaderThermal(this);
+	addToMap(this.shaderHandlers, shaderThermal, shaderThermalHandler);
+	addToMap(this.shaderUniformSetters, shaderThermal, shaderThermalUniformSetter);
+	
+	initializeShaderSketch(this);
+	addToMap(this.shaderHandlers, shaderSketch, shaderSketchHandler);
+	addToMap(this.shaderUniformSetters, shaderSketch, shaderSketchUniformSetter);
+	
+	initializeShaderAbberation(this);
+	addToMap(this.shaderHandlers, shaderAbberation, shaderAbberationHandler);
+	addToMap(this.shaderUniformSetters, shaderAbberation, shaderAbberationUniformSetter);
+	#endregion
+	#endregion
 
 	GMObject = {
 		state: {
 			surface: null,
 			wireframeSurface: null,
 			grid: null,
+			midiMatrix: null,
 		},
+		shaderPipelineDispatcher: method(this, function() {
+	
+			var shaderPipelinesNamesSize = getListSize(this.shaderPipelinesNames);
+			this.shaderPipeCurrentSize = 0;
+			for (var index = 0; index < shaderPipelinesNamesSize; index++) {
+		
+				var shaderPipelineName = Core.Collections.Lists.get(this.shaderPipelinesNames, index);
+				var shaderPipeline = Core.Collections.Maps.get(this.shaderPipelines, shaderPipelineName);
+		
+				var pipe = getShaderPipelinePipe(shaderPipeline);
+				var buffer = getShaderPipelineBuffer(shaderPipeline);
+				var pipeSize = getStackSize(pipe);
+				var shaderLimit = 20;
+				var shaderLimitCounter = 0;
+				for (var taskIndex = 0; taskIndex < pipeSize; taskIndex++) {
+			
+					var task = popStack(pipe);
+					shaderLimitCounter++;
+					this.shaderPipeCurrentSize++;
+					if (shaderLimitCounter > shaderLimit) {
+						logger("[NullDispatcher<ShaderTask>] Shader limit reached. { limit: {0}, pipeSize: {1} }", LogType.WARNING, shaderLimit, shaderLimitCounter);
+						break;
+					}
+			
+					var cooldown = getShaderTaskCooldown(task);
+					if (cooldown > 0) {
+						cooldown -= (1 / GAME_FPS) * getDeltaTimeValue();
+						setShaderTaskCooldown(task, cooldown > 0 ? cooldown : 0.0);
+						if (cooldown > 0) {
+							pushStack(buffer, task);
+							continue;	
+						}	
+					}
+			
+					var countdown = getShaderTaskCountdown(task);
+					countdown -= (1 / GAME_FPS) * getDeltaTimeValue();
+					setShaderTaskCountdown(task, countdown);
+			
+					if (countdown > 0) {
+						var state = getShaderTaskState(task);
+						var shader = getShaderTaskShader(task);
+						var handler = fetchShaderTaskHandler(shader);
+				
+						if (handler != null) {
+							script_execute(handler, state);
+							pushStack(buffer, task);	
+						}
+					} else {
+						destroyShaderTask(task);
+					}
+			
+					var alpha = getShaderTaskAlpha(task);
+					var alphaFadeOutTimer = 0.8;
+					if (countdown > alphaFadeOutTimer) {
+						if (alpha < 1) {
+							alpha = clamp(alpha + applyDeltaTime(), 0.0, 1.0);
+							setShaderTaskAlpha(task, alpha);
+						}
+					} else {
+						alpha = countdown / alphaFadeOutTimer;
+						setShaderTaskAlpha(task, alpha);
+					}
+				}
+		
+				// Push buffer to pipe
+				var bufferSize = getStackSize(buffer);
+				for (var taskIndex = 0; taskIndex < bufferSize; taskIndex++) {
+					var task = popStack(buffer);
+					pushStack(pipe, task);	
+				}
+			}
+		}),
+		cleanUp: method(this, function() {
+
+			super();
+			deregisterSceneController();
+		}),
 		create: method(this, function(data) {
 			
+			registerSceneController(this);
+			
 			this.GMObject.state.grid = data.grid;
+			this.GMObject.state.midiMatrix = data.midiMatrix
 			this.GMObject.state.surface = Core.Surfaces.get(
 				this.GMObject.state.surface, 
 				this.GMObject.state.grid.pixelWidth, 
@@ -23,17 +212,39 @@
 				this.GMObject.state.grid.pixelHeight, 
 				true
 			);
+			
+			this.GMObject.state.grid.view.y = this.GMObject.state.grid.height - this.GMObject.state.grid.view.height
+			
+			var shaderTemplatesJsonString = Core.File.read({ 
+				path: "data", 
+				filename: "shader-templates.json", 
+				withDialog: false 
+			});
+			parseJsonShaderTemplates(shaderTemplatesJsonString);
+			var shaderPipelinesInitializationArray = [
+				createTuple("main", 3),
+				createTuple("captured", 1),
+			];
+			initializeShaderPipelines(shaderPipelinesInitializationArray);
+			
+			inject(BossManager);
+			inject(BulletManager);
+			inject(PlayerManager);
+			inject(ShroomManager);
+			inject(ParticleManager);
+			
+			inject(LyricsRenderer);
+			inject(PlaygroundRenderer);
 		}),
 		update: method(this, function() {
+			this.GMObject.shaderPipelineDispatcher();
 			this.GMObject.state.grid.update(this.GMObject.state.grid);
+			this.GMObject.state.midiMatrix.update(this.GMObject.state.midiMatrix);
 			this.mouseLook();
-					
-		    if (keyboard_check_direct(vk_escape)) {
-		        game_end();
-		    }
 		}),
 		preRender: method(this, function() {
 			
+			
 			this.GMObject.state.surface = Core.Surfaces.get(
 				this.GMObject.state.surface, 
 				this.GMObject.state.grid.pixelWidth, 
@@ -46,99 +257,377 @@
 				this.GMObject.state.grid.pixelHeight, 
 				true
 			);
-			
+			/*
 			this.GMObject.state.grid.render(
 				this.GMObject.state.grid, 
 				this.GMObject.state.surface, 
 				this.GMObject.state.wireframeSurface
 			);
+			*/
+			
+			this.GMObject.state.midiMatrix.preRender(this.GMObject.state.midiMatrix);
 		}),
 		render: method(this, function() {
 			
-			Core.Surfaces.setTarget(this.applicationSurface);
+			var renderShaderPipeline = function(context) {
+				
+				var cameraShake = 0.0; //getGridRenderer().cameraShake;
+			
+				var xDirection = cos(cameraShake) > 0 ? 1 : -1;
+				var yDirection = sin(cameraShake) > 0 ? 1 : -1;
+				var xCameraShake = cameraShake > 0 ? 
+					(random(cameraShake * 0.7) + (cameraShake * 0.3)) * xDirection :
+					0.0;
+				var yCameraShake = cameraShake > 0 ?
+					(random(cameraShake * 0.7) + (cameraShake * 0.3)) * yDirection :
+					0.0;
+				var shaderPipelinesNamesSize = getListSize(context.shaderPipelinesNames);
+				for (var index = 0; index < shaderPipelinesNamesSize; index++) {
+					var shaderPipelineName = Core.Collections.Lists.get(context.shaderPipelinesNames, index);
+					var shaderPipeline = Core.Collections.Maps.get(context.shaderPipelines, shaderPipelineName);
+
+					var pipe = getShaderPipelinePipe(shaderPipeline);
+					var buffer = getShaderPipelineBuffer(shaderPipeline);
+					var pipeSize = getStackSize(pipe);
+					for (var taskIndex = 0; taskIndex < pipeSize; taskIndex++) {
+						var task = popStack(pipe);
+						var state = getShaderTaskState(task);
+						var shader = getShaderTaskShader(task);
+						var uniformSetter = fetchShaderTaskUniformSetter(shader);
+	
+						if (uniformSetter != null) {
+	
+							var alpha = getShaderTaskAlpha(task);
+							if (alpha > 0) {						
+								// Render shader to texture
+								gpuSetSurfaceTarget(context.shaderSurface);
+								drawClear(COLOR_TRANSPARENT);
+								gpuSetShader(shader);
+			
+								runScript(uniformSetter, context, state, gridSurface);
+								//renderSurface(gameSurface);
+		
+								var mousePositionFactor = 0.001;
+								context.mouseXPosition = lerp(context.mouseXPosition, getMouseGuiX(), mousePositionFactor)
+								context.mouseYPosition = lerp(context.mouseYPosition, getMouseGuiY(), mousePositionFactor)
+								context.mouseXPosition = GuiWidth / 2.0;
+								context.mouseYPosition = GuiHeight / 2.0;
+								context.mouseXPosition = (GuiWidth / 2.0) + (sin(context.cameraTheta) * 64);
+								context.mouseYPosition = (GuiHeight / 2.0) + (cos(context.cameraTheta) * 64);
+		
+								drawSurface(
+									context.gameSurface,
+									xCameraShake + (context.mouseXPosition - (GuiWidth / 2.0)),
+									yCameraShake + (context.mouseYPosition - (GuiHeight / 2.0)),
+									1.0, //getGridRendererXScale(),
+									1.0, //getGridRendererYScale(),
+									0.0, //getGridRendererAngle() + gridRenderer.angleSwing, 
+									alpha,
+									c_white,
+									createPosition(0.5, 0.5)
+								);
+		
+								gpuResetShader();
+								gpuResetSurfaceTarget();
+							} else {						
+								gpuSetSurfaceTarget(context.shaderSurface);
+			
+								drawClear(COLOR_TRANSPARENT);
+								drawSurface(context.gameSurface, 0, 0);
+			
+								gpuResetSurfaceTarget();
+							}
+
+							// Render texture
+							
+							gpuSetSurfaceTarget(context.gameSurface);
+							drawSurface(context.shaderSurface, 0, 0, 1.0, 1.0, 0.0, alpha, c_white, [ 0.5, 0.5 ]);
+							global.shaderPipeLimit = 2;
+							if (pipeSize > global.shaderPipeLimit) {
+			
+								var gridRendererSurface = this.gridSurface
+								gpu_set_blendmode(bm_add);
+								renderSurface(
+									gridRendererSurface, 
+									xCameraShake + (context.mouseXPosition - (GuiWidth / 2.0)),
+									yCameraShake + (context.mouseYPosition - (GuiHeight / 2.0)),
+									1.0, //getGridRendererXScale(),
+									1.0, //getGridRendererYScale(),
+									0.0, //getGridRendererAngle() + gridRenderer.angleSwing, 
+									0.33,
+									c_white,
+									createPosition(0.5, 0.5)
+								);
+								gpu_set_blendmode(bm_normal);
+							}
+							gpuResetSurfaceTarget();
+	
+							pushStack(buffer, task);	
+						}
+					}
+
+					// Push buffer to pipe
+					var bufferSize = getStackSize(buffer);
+					for (var taskIndex = 0; taskIndex < bufferSize; taskIndex++) {
+						var task = popStack(buffer);
+						pushStack(pipe, task);	
+					}
+				}
+			}
+			
+			var renderGrid = function(context) {
+				
+				var camera = camera_get_active();
+				var cameraDistance = 160;
+			
+				var xto = context.x;
+				var yto = context.y;
+				var zto = context.z;
+				var xfrom = xto + cameraDistance * dcos(context.cameraDirection) * dcos(context.cameraPitch);
+				var yfrom = yto - cameraDistance * dsin(context.cameraDirection) * dcos(context.cameraPitch);
+				var zfrom = zto - cameraDistance * dsin(context.cameraPitch);
+			
+				context.viewMatrix = matrix_build_lookat(xfrom, yfrom, zfrom, xto, yto, zto, 0, 0, 1);
+				context.projectionMatrix = matrix_build_projection_perspective_fov(-60, -window_get_width() / window_get_height(), 1, 32000);
+				camera_set_view_mat(camera, context.viewMatrix);
+				camera_set_proj_mat(camera, context.projectionMatrix);
+				camera_apply(camera);
+				
+				matrix_set(matrix_world, matrix_build(
+					0, 0, 96, 
+					0, 0, 0, 
+					1, 1, 1
+				));
+				//vertex_submit(context.vertexBuffer, pr_trianglelist, surface_get_texture(context.GMObject.state.wireframeSurface));
+				context.GMObject.state.grid.renderWireframe(context.GMObject.state.grid);
+				matrix_set(matrix_world, matrix_build_identity());
+				
+				matrix_set(matrix_world, matrix_build(
+					0, 0, 240, 
+					0, 0, 0, 
+					1, 1, 1
+				));
+				if (isOptionalPresent(getParticleManager())) {
+					var particleSurface = getParticleManager().particlesSurface[ParticleSystems.BACKGROUND];
+					if (isSurfaceValid(particleSurface))  {
+						vertex_submit(context.vertexBuffer, pr_trianglelist, surface_get_texture(particleSurface));
+					}
+				}
+				matrix_set(matrix_world, matrix_build_identity());
+				
+				gpu_set_alphatestenable(true);
+				matrix_set(matrix_world, matrix_build(
+					0, 0, 480, 
+					0, 0, 0, 
+					1, 1, 1
+				));
+				//vertex_submit(context.vertexBuffer, pr_trianglelist, surface_get_texture(context.GMObject.state.surface));
+				context.GMObject.state.grid.renderShrooms(context.GMObject.state.grid);
+				matrix_set(matrix_world, matrix_build_identity());
+				
+				matrix_set(matrix_world, matrix_build(
+					0, 0, 512, 
+					0, 0, 0, 
+					1, 1, 1
+				));
+				//vertex_submit(context.vertexBuffer, pr_trianglelist, surface_get_texture(context.GMObject.state.surface));
+				context.GMObject.state.grid.renderPlayer(context.GMObject.state.grid);
+				matrix_set(matrix_world, matrix_build_identity());
+				gpu_set_alphatestenable(false);
+
+			}
+				
+			var renderBackground = function(context) {
+				var backgroundAlphaMargin = 0.25;
+				var backgroundAlpha = getSpriteAlpha(context.background);
+				backgroundAlpha = clamp(backgroundAlpha + applyDeltaTime(), 0.0, 1.0 - backgroundAlphaMargin);
+				setSpriteAlpha(context.background, backgroundAlpha);
+				setSpriteAlpha(context.previousBackground, 1.0 - backgroundAlphaMargin - backgroundAlpha);
+
+				if (getSpriteAlpha(context.previousBackground) > backgroundAlphaMargin) {
+		
+					var previousBackgroundScale = RealWidth > RealHeight 
+						? RealWidth / getTextureWidth(getSpriteAssetIndex(context.previousBackground)) 
+						: RealHeight / getTextureHeight(getSpriteAssetIndex(context.previousBackground)
+					);
+					drawSprite(
+						context.previousBackground,
+						RealWidth / 2.0,
+						RealHeight / 2.0,
+						previousBackgroundScale,
+						previousBackgroundScale,
+						getSpriteAlpha(context.previousBackground)	
+					);
+				}
+	
+				var backgroundScale = RealWidth > RealHeight 
+					? RealWidth / getTextureWidth(getSpriteAssetIndex(context.background)) 
+					: RealHeight / getTextureHeight(getSpriteAssetIndex(context.background)
+				);
+			
+				drawSprite(
+					context.background,
+					RealWidth / 2.0,
+					RealHeight / 2.0,
+					backgroundScale,
+					backgroundScale,
+					getSpriteAlpha(context.background)
+				);
+			}
+			
+			var renderForeground = function(context) {
+				gpu_set_blendmode(bm_add)
+				var foregroundAlphaMargin = 0.0;
+				var foregroundAlpha = getSpriteAlpha(context.foreground);
+				foregroundAlpha = clamp(foregroundAlpha + applyDeltaTime(), 0.0, 1.0 - foregroundAlphaMargin);
+				setSpriteAlpha(context.foreground, foregroundAlpha);
+		
+				context.foregroundTheta = incrementTimer(context.foregroundTheta, pi*2, 1 / (GAME_FPS * 3));
+				context.cameraTheta = incrementTimer(context.cameraTheta, pi*2, 1 / (GAME_FPS * 5));
+				var foregroundThetaFactor = 64;
+		
+				if (isOptionalPresent(context.previousForeground)) {
+			
+					setSpriteAlpha(context.previousForeground, 1.0 - foregroundAlphaMargin - foregroundAlpha)
+					if (getSpriteAlpha(context.previousForeground) > foregroundAlphaMargin) {
+		
+						var previousForegroundScale = RealWidth > RealHeight 
+							? RealWidth / getTextureWidth(getSpriteAssetIndex(context.previousForeground)) 
+							: RealHeight / getTextureHeight(getSpriteAssetIndex(context.previousForeground)
+						);
+						drawSprite(
+							context.previousForeground,
+							(RealWidth / 2.0) + cos(context.foregroundTheta) * foregroundThetaFactor,
+							(RealHeight / 2.0) + sin(context.foregroundTheta) * foregroundThetaFactor,
+							previousForegroundScale * 1.1,
+							previousForegroundScale * 1.1,
+							getSpriteAlpha(context.previousForeground)	
+						);
+					}
+				}
+		
+				var foregroundScale = RealWidth > RealHeight 
+					? RealWidth / getTextureWidth(getSpriteAssetIndex(context.foreground))
+					: RealHeight / getTextureHeight(getSpriteAssetIndex(context.foreground))
+				drawSprite(
+					context.foreground,
+					(RealWidth / 2.0) + cos(context.foregroundTheta) * foregroundThetaFactor,
+					(RealHeight / 2.0) + sin(context.foregroundTheta) * foregroundThetaFactor,
+					foregroundScale * 1.1,
+					foregroundScale * 1.1,
+					getSpriteAlpha(context.foreground)
+				);
+		
+				gpu_set_blendmode(bm_normal);
+			}
+			
+			this.backgroundSurface = Core.Surfaces.get(this.backgroundSurface, GuiWidth, GuiHeight, true);
+			this.shaderSurface = Core.Surfaces.get(this.shaderSurface, ViewWidth, ViewHeight, true);
+			this.gridSurface = Core.Surfaces.get(this.gridSurface, ViewWidth, ViewHeight, false);
+			this.gameSurface = Core.Surfaces.get(this.gameSurface, ViewWidth, ViewHeight, true);
+			this.screenSurface = Core.Surfaces.get(this.screenSurface, GuiWidth, GuiHeight, true);
+			
+			Core.Surfaces.setTarget(this.backgroundSurface);
 			Core.GPU.renderClearColor(GM_COLOR_BLACK, 1.0);
-			
-			var camera = camera_get_active();
-			var camera_distance = 160;
-			
-			var xto = this.x;
-			var yto = this.y;
-			var zto = this.z;
-			var xfrom = xto + camera_distance * dcos(this.cameraDirection) * dcos(this.cameraPitch);
-			var yfrom = yto - camera_distance * dsin(this.cameraDirection) * dcos(this.cameraPitch);
-			var zfrom = zto - camera_distance * dsin(this.cameraPitch);
-			
-			this.viewMatrix = matrix_build_lookat(xfrom, yfrom, zfrom, xto, yto, zto, 0, 0, 1);
-			this.projectionMatrix = matrix_build_projection_perspective_fov(-60, -window_get_width() / window_get_height(), 1, 32000);
-			camera_set_view_mat(camera, this.viewMatrix);
-			camera_set_proj_mat(camera, this.projectionMatrix);
-			camera_apply(camera);
-			
-			//(Core.Surfaces.getWidth(this.GMObject.state.wireframeSurface) * 0.5) / 2.0
-			matrix_set(matrix_world, matrix_build(
-				256, 0, 256, 
-				0, 0, 0, 
-				0.75, 1, 1
-			));
-			vertex_submit(this.vertexBuffer, pr_trianglelist, surface_get_texture(this.GMObject.state.wireframeSurface));
-			matrix_set(matrix_world, matrix_build_identity());
-			
-			
-			matrix_set(matrix_world, matrix_build(
-				0, 0, 512, 
-				0, 0, 0, 
-				1, 1, 1
-			));
-			vertex_submit(this.vertexBuffer, pr_trianglelist, surface_get_texture(this.GMObject.state.surface));
-			matrix_set(matrix_world, matrix_build_identity());
-			
+			renderBackground(this);
+			renderForeground(this);
 			Core.Surfaces.resetTarget();
+			
+			Core.Surfaces.setTarget(this.gridSurface);
+			Core.GPU.renderClearColor(GM_COLOR_BLACK, 0.0);
+			renderGrid(this);
+			Core.Surfaces.resetTarget();
+			
+			Core.Surfaces.setTarget(this.gameSurface);
+			Core.GPU.renderClearColor(GM_COLOR_BLACK, 0.0);
+			Core.Surfaces.render(this.backgroundSurface);
+			Core.Surfaces.render(this.gridSurface);
+			Core.Surfaces.resetTarget();
+			
+			renderShaderPipeline(this);
 		}),
 		renderGUI: method(this, function() {
 			
-			Core.GPU.renderClearColor(GM_COLOR_BLACK, 0.0);
-			Core.Surfaces.render(this.applicationSurface, 0.0, 0.0);
+			var renderDebugText = function(context) {
+				var grid = context.GMObject.state.grid;
+				var text = stringParams("view.x: {0}\nview.y: {1}\n{2}", 
+					grid.view.x, 
+					grid.view.y,
+					Core.Structs.is(grid.view.follow.target) 
+						? stringParams("target.x: {0}\ntarget.y: {1}", grid.view.follow.target.x, grid.view.follow.target.y)
+						: ""
+				);
+				if (Core.Collections.Lists.size(getShroomManager().shrooms) > 0) {
+					text = stringParams("{0}\nshrooms: {1}",
+						text,
+						Core.Collections.Lists.size(getShroomManager().shrooms),
+					);
+				}
+				Core.GPU.setConfig({
+					font: asset_font_ibm_ps2thin4,
+					horizontalAlign: GM_HALIGN_LEFT,
+					verticalAlign: GM_VALIGN_TOP,
+				});
+				Core.Fonts.Render.outlinedText(text, 32, 32);
+			}
 			
-			var grid = this.GMObject.state.grid;
-			var text = stringParams("view.x: {0}\nview.y: {1}\n{2}", 
-				grid.view.x, 
-				grid.view.y,
-				Core.Structs.is(grid.view.follow.target) 
-					? stringParams("target.x: {0}\ntarget.y: {1}", grid.view.follow.target.x, grid.view.follow.target.y)
-					: ""
-			);
-			Core.GPU.setConfig({
-				font: asset_font_ibm_ps2thin4,
-				horizontalAlign: GM_HALIGN_LEFT,
-				verticalAlign: GM_VALIGN_TOP,
-			});
-			Core.Fonts.Render.outlinedText(text, 32, 32);
+			this.applicationSurface = Core.Surfaces.get(this.applicationSurface, GuiWidth, GuiHeight);
+			
+			Core.Surfaces.setTarget(this.applicationSurface);
+			Core.Surfaces.render(this.gameSurface);
+			Core.Surfaces.resetTarget();
+			
+			Core.Surfaces.render(this.applicationSurface, 0.0, 0.0);
+			Core.Surfaces.render(this.gameSurface);
 		}),
 	}
 
-	this.GMObject.create({ grid: createGridManager() });
+	this.GMObject.create({ 
+		grid: createGridController(), 
+		midiMatrix: generateDefaultMidiMatrixController() 
+	});
 	
 	#region 3D
-	applicationSurface = Core.Surfaces.create(GuiWidth, GuiHeight, false);
+
 	x = 1024;
-	y = 2400;
-	z = 512;
+	y = 2560;
+	z = 1920;
 	cameraDirection = 270;
-	cameraPitch = -30;
+	cameraPitch = -60;
 	viewMatrix = null;
 	projectionMatrix = null;
 	isMouseLookEnabled = false
 	pitchTimer = 0.0;
 	directionTimer = 0.0;
+	shaderTimer = 0.0;
+	shaderDuration = random(8);
+	enableShader = false;
 	mouseLook = method(this, function() {
 		
-		this.pitchTimer = incrementTimer(this.pitchTimer, pi * 2);
+		this.pitchTimer = incrementTimer(this.pitchTimer, pi * 2, 1 / (GAME_FPS * 2));
 		this.directionTimer = incrementTimer(this.pitchTimer, pi * 2);
-		//this.cameraPitch -= 
-		//this.cameraDirection -= sin(this.directionTimer);
-		this.z += cos(this.pitchTimer) * 4.0;
+		this.cameraPitch += sin(this.pitchTimer) * 0.091;
+		this.cameraDirection -= sin(this.directionTimer) * 0.05;
+		var pitchTimerSize = 3;
+		this.z += cos(this.pitchTimer) * pitchTimerSize;
 		
-		this.isMouseLookEnabled = keyboard_check_pressed(vk_space)
+		if (keyboard_check_pressed(ord("G"))) {
+			this.enableShader = !this.enableShader;	
+		}
+		
+		if (this.enableShader) {
+			this.shaderTimer = incrementTimer(this.shaderTimer, this.shaderDuration);
+			if (timerFinished(this.shaderTimer)) {
+			
+				this.shaderDuration = random(6) + 1.3;
+				var shaderKeys = [ "0x4", "1x4", "2x4", "3x4", "0x5", "1x5", "2x5", "3x5" ];
+				var key = getRandomValueFromArray(shaderKeys);
+				var button = Core.Collections.Maps.get(this.GMObject.state.midiMatrix.keymapConfig, key);
+				button.pressed(button, key);
+			}
+		}
+		
+		this.isMouseLookEnabled = keyboard_check_pressed(vk_home)
 			? !this.isMouseLookEnabled 
 			: this.isMouseLookEnabled;
 		
@@ -194,56 +683,53 @@
 		this.z += dz;
 	});
 	
-	gpu_set_ztestenable(true);
-	gpu_set_zwriteenable(true);
+	gpu_set_ztestenable(false);
+	gpu_set_zwriteenable(false);
 	gpu_set_cullmode(cull_counterclockwise);
 	application_surface_draw_enable(false);
-	/*
+
+
 	vertex_format_begin();
-		vertex_format_add_position_3d();
-		vertex_format_add_normal();
-		vertex_format_add_texcoord();
-		vertex_format_add_color();
+	vertex_format_add_position_3d();
+	vertex_format_add_normal();
+	vertex_format_add_texcoord();
+	vertex_format_add_color();
 	vertexFormat = vertex_format_end();
 	vertexBuffer = vertex_create_buffer();
-		
 	vertex_begin(vertexBuffer, vertexFormat);
-		var _width = this.GMObject.state.grid.pixelWidth;
-		var _height = this.GMObject.state.grid.pixelHeight;
-		var color = GM_COLOR_WHITE;
-	
-		appendPointToVertexBuffer(vertexBuffer, 0, 0, 0, 0, 0, 1, 0, 0, color, 1);
-		appendPointToVertexBuffer(vertexBuffer, _width + _height, 0, 0, 0, 0, 1, 1, 0, color, 1);
-		appendPointToVertexBuffer(vertexBuffer, _width + _height, _width, 0, 0, 0, 1, 1, 1, color, 1);
+	var _width = this.GMObject.state.grid.pixelWidth;
+	var _height = this.GMObject.state.grid.pixelHeight;
+	var color = GM_COLOR_WHITE;
+		
+	appendPointToVertexBuffer(vertexBuffer, 0, 0, 0, 0, 0, 1, 0, 0, color, 1);
+    appendPointToVertexBuffer(vertexBuffer, _width, 0, 0,  0, 0, 1, 1, 0, color, 1);
+    appendPointToVertexBuffer(vertexBuffer, _width, _height, 0, 0, 0, 1, 1, 1, color, 1);
 
-		appendPointToVertexBuffer(vertexBuffer, _width + _height, _width, 0, 0, 0, 1, 1, 1, color, 1);
-		appendPointToVertexBuffer(vertexBuffer, 0, _width, 0, 0, 0, 1, 0, 1, color, 1);
-		appendPointToVertexBuffer(vertexBuffer, 0, 0, 0, 0, 0, 1, 0, 0, color, 1);
+    appendPointToVertexBuffer(vertexBuffer, _width, _height, 0, 0, 0, 1, 1, 1, color, 1);
+    appendPointToVertexBuffer(vertexBuffer, 0, _height, 0, 0, 0, 1, 0, 1, color, 1);
+    appendPointToVertexBuffer(vertexBuffer, 0, 0, 0, 0, 0, 1, 0, 0, color, 1);
 	vertex_end(vertexBuffer);
-	*/
+	
+	
 	vertex_format_begin();
-		vertex_format_add_position_3d();
-		vertex_format_add_normal();
-		vertex_format_add_texcoord();
-		vertex_format_add_color();
-	vertexFormat = vertex_format_end();
-	vertexBuffer = vertex_create_buffer();
+	vertex_format_add_position_3d();
+	vertex_format_add_normal();
+	vertex_format_add_texcoord();
+	vertex_format_add_color();
+	vertexFormatParticle = vertex_format_end();
+	vertexBufferParticle = vertex_create_buffer();
+	vertex_begin(vertexBufferParticle, vertexFormatParticle);
+	var _width = 1024;
+	var _height = 1024
+	var color = GM_COLOR_WHITE;
 		
-	vertex_begin(vertexBuffer, vertexFormat);
-		var _width = 512;
-		var _height = 512;
-		var color = GM_COLOR_WHITE;
-		
-		appendPointToVertexBuffer(vertexBuffer, 0, 0, 0, 0, 0, 1, 0, 0, color, 1);
-        appendPointToVertexBuffer(vertexBuffer, _width, 0, 0,  0, 0, 1, 1, 0, color, 1);
-        appendPointToVertexBuffer(vertexBuffer, _width, _height, 0, 0, 0, 1, 1, 1, color, 1);
+	appendPointToVertexBuffer(vertexBufferParticle, 0, 0, 0, 0, 0, 1, 0, 0, color, 1);
+    appendPointToVertexBuffer(vertexBufferParticle, _width, 0, 0,  0, 0, 1, 1, 0, color, 1);
+    appendPointToVertexBuffer(vertexBufferParticle, _width, _height, 0, 0, 0, 1, 1, 1, color, 1);
 
-        appendPointToVertexBuffer(vertexBuffer, _width, _height, 0, 0, 0, 1, 1, 1, color, 1);
-        appendPointToVertexBuffer(vertexBuffer, 0, _height, 0, 0, 0, 1, 0, 1, color, 1);
-        appendPointToVertexBuffer(vertexBuffer, 0, 0, 0, 0, 0, 1, 0, 0, color, 1);
-	vertex_end(vertexBuffer);
-	
-	var surfaceTexture = surface_get_texture(this.GMObject.state.wireframeSurface);
-	vertex_submit(this.vertexBuffer, pr_trianglelist, surfaceTexture);
+    appendPointToVertexBuffer(vertexBufferParticle, _width, _height, 0, 0, 0, 1, 1, 1, color, 1);
+    appendPointToVertexBuffer(vertexBufferParticle, 0, _height, 0, 0, 0, 1, 0, 1, color, 1);
+    appendPointToVertexBuffer(vertexBufferParticle, 0, 0, 0, 0, 0, 1, 0, 0, color, 1);
+	vertex_end(vertexBufferParticle);
 	
 	#endregion

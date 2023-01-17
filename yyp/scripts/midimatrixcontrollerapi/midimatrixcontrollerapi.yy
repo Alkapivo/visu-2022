@@ -6,7 +6,7 @@
     "path": "folders/src/com.devhorizon.visu/controller/MidiMatrixController.yy",
   },
   "resourceVersion": "1.0",
-  "name": "MidiMatrixControllerApi",
+  "name": "midimatrixcontrollerapi",
   "tags": [],
   "resourceType": "GMScript",
 }

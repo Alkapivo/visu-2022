@@ -166,7 +166,8 @@ function consoleCommandQuit(parameters) {
 function consoleCommandRestart(parameters) {
 	
 	audio_stop_all();
-	var loadingIntent = createLoadingIntent(SceneGame, createEmptyOptional());
+	
+	var loadingIntent = createLoadingIntent(global.startScene, createEmptyOptional());
 	sendLoadingIntent(loadingIntent);
 }
 

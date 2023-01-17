@@ -151,9 +151,15 @@ function registerPlayer(argument0) {
 function spawnVisuPlayer(name, inputHandler) {
 
 	var position = createPosition(0.5, 0.75);
+	if (isOptionalPresent(getPlaygroundController())) {
+		position = createPosition(
+			getPlaygroundController().GMObject.state.grid.view.width / 2.0,
+			getPlaygroundController().GMObject.state.grid.height - (getPlaygroundController().GMObject.state.grid.view.height / 4.0)
+		);
+	}
 	var spriteIndex = asset_texture_visu_player;
 	sprite_set_speed(spriteIndex, 10, spritespeed_framespersecond);
-	var sprite = createSprite(spriteIndex, 0, 1.0, 1.0, 1.0, 0.0, c_white);
+	var sprite = createSprite(spriteIndex, 0, 2.0, 2.0, 1.0, 0.0, c_white);
 	var gridElement = createGridElement(
 		position,
 		sprite,

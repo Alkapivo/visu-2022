@@ -986,6 +986,25 @@ function initializeGlobals() {
 			free: function(map) {
 				destroyDataStructure(map, Map);
 			}
+		},
+		PriorityQueues: {
+			create: createPriorityQueue,
+			add: addToPriorityQueue,
+			clear: clearPriorityQueue,
+			clone: clonePriorityQueue,
+			size: getPriorityQueueSize,
+			popMin: popMinPriorityQueue,
+			popMax: popMaxPriorityQueue,
+			remove: deleteValueFromPriorityQueue,
+			forEachFromMin: function(priorityQueue, handler, data = null) {
+				var size = Core.Collections.PriorityQueues.size(priorityQueue)
+				for (var index = 0; index < size; index++) {
+					var element = Core.Collections.PriorityQueues.popMin(priorityQueue);
+					handler(element, data);
+				}
+			},
+			toMap: convertPriorityQueueToMap,
+			free: destroyPriorityQueue,
 		}
 	}	
 	global.__PackageManager__ = {
@@ -1027,7 +1046,7 @@ function initializeGlobals() {
 				return getValueFromStruct(struct, name, defaultValue);
 			},
 			contains: structVariableExists,
-			is: isSurfaceValid,
+			is: isStruct,
 			getFields: getStructVariableNames,
 		},
 		Numbers: {
@@ -1061,6 +1080,53 @@ function initializeGlobals() {
 			renderClearColor: function(color, alpha = 1.0) {
 				draw_clear_alpha(color, alpha);
 			},
+			renderTexturedLine: function(xStart, yStart, xEnd, yEnd, thickness, alpha = 1.0, colorBlend = c_white, lineTexture = asset_texture_grid_line_default, cornerTexture = asset_texture_grid_line_corner_default) {
+				
+				var lineDirection = point_direction(xStart, yStart, xEnd, yEnd);
+				var length = point_distance(xStart, yStart, xEnd, yEnd);
+				var scale = length / Core.Assets.Texture.getWidth(lineTexture);
+				
+				// render first corner
+				draw_sprite_ext(
+					cornerTexture,
+					0,
+					xStart,
+					yStart,
+					thickness,
+					thickness,
+					lineDirection,
+					colorBlend,
+					alpha
+				);
+				
+				// render seccond corner
+				draw_sprite_ext(
+					cornerTexture,
+					0,
+					xEnd,
+					yEnd,
+					thickness,
+					thickness,
+					lineDirection + 180.0,
+					colorBlend,
+					alpha
+				);
+				
+				
+				// render line
+				draw_sprite_ext(
+					lineTexture,
+					0,
+					xStart,
+					yStart,
+					scale,
+					thickness,
+					lineDirection,
+					colorBlend,
+					alpha
+				);
+				
+			},
 			setConfig: function(config = {}) {
 				if (Core.Structs.contains(config, "font")) {
 					draw_set_font(config.font);
@@ -1079,6 +1145,15 @@ function initializeGlobals() {
 			Render: {
 				text: renderText,
 				outlinedText: renderTextOutline,
+			}
+		},
+		Objects: {
+			set: setInstanceVariable,
+			get: getInstanceVariable,
+			is: function(object, class = null) {
+				return class == null 
+					? instanceExists(object)
+					: instanceExists(object) && instanceOf(object, class);	
 			}
 		},
 		JSON: global.__core_JSON,

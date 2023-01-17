@@ -3,9 +3,6 @@
 ///@param {PriorityQueue<Object>} priorityQueue
 function destroyPriorityQueue(argument0) {
 
-		ds_priority_destroy(argument0);
-
-
-
-
+	ds_priority_destroy(argument0);
+	return null;
 }

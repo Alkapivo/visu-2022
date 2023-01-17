@@ -389,9 +389,9 @@
 		}),
 		render: method(this, function() {
 			
-			Core.Surfaces.get(this.shaderSurface, ViewWidth, ViewHeight, true);
-			Core.Surfaces.get(this.gameSurface, ViewWidth, ViewHeight, true);
-			Core.Surfaces.get(this.screenSurface, GuiWidth, GuiHeight, true);
+			this.shaderSurface = Core.Surfaces.get(this.shaderSurface, ViewWidth, ViewHeight, true);
+			this.gameSurface = Core.Surfaces.get(this.gameSurface, ViewWidth, ViewHeight, true);
+			this.screenSurface = Core.Surfaces.get(this.screenSurface, GuiWidth, GuiHeight, true);
 	
 			#region Draw to gameSurface
 			gpuSetSurfaceTarget(this.gameSurface);

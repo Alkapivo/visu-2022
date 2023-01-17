@@ -4,10 +4,6 @@
 	#region ///@interface Manager
 ///@public:
 
-	///@
-	global.shroomVisuSpawnHorizontalRange = createTuple(0.0, 1.0);
-	global.shroomVisuSpawnSpeedRange = createPosition(0.005, 0.01);	
-
 	//@type {List<GridElement>}
 	shrooms = createList();
 	
@@ -27,6 +23,7 @@
 
 	#endregion
 	
+	spawnTimer = -3;
 	GMObject = {
 		state: getShroomManager,
 		create: method(this, function() {
@@ -140,7 +137,7 @@
 		}),
 		update: method(this, function() {
 			super();
-		
+			
 			var destroyShrooms = [];
 			var shroomsSize = getListSize(shrooms);
 			for (var index = 0; index < shroomsSize; index++) {
@@ -157,9 +154,13 @@
 						#region Movement
 						var speedValue = getShroomSpeedValue(shroom);
 						var gridSpeed = getInstanceVariable(getGridRenderer(), "separatorSpeed");
-						speedValue = speedValue * (gridSpeed / 0.005);
-				
+						if (isOptionalPresent(getPlaygroundController())) {
+							gridSpeed = 0.004;//getPlaygroundController().GMObject.state.grid.separators.speed;
+						}
 						
+						if (isOptionalPresent(getGridRenderer())) {
+							speedValue = speedValue * (gridSpeed / 0.005);
+						}
 						
 						var isZigzagMovement = getValueFromMap(shroomState, "isZigzagMovement", false);
 						var verticalSpeed = getValueFromMap(shroomState, "verticalSpeed", 0); 
@@ -189,25 +190,104 @@
 						}
 						
 						var movedHorizontalPosition = getPositionHorizontal(shroomPosition) + (applyDeltaTime(horizontalSpeed  * (gridSpeed / 0.005)));
+						var movedVerticalPosition = fetchMovedVerticalPositionOnGrid(getPositionVertical(shroomPosition), speedValue) + applyDeltaTime(verticalSpeed);
+							
+						if (isOptionalPresent(getPlaygroundController())) {
+							
+							var destroyCurrentShroom = false;
+							var grid = getPlaygroundController().GMObject.state.grid;
+							if (movedHorizontalPosition > grid.width) {
+								
+								var rewindCounter = Core.Collections.Maps.getDefault(shroomState, "horizontalRewindCounter", 0) + 1;
+								movedHorizontalPosition = abs(movedHorizontalPosition) - (floor(abs(movedHorizontalPosition) / grid.width) * grid.width);
+								Core.Collections.Maps.set(shroomState, "horizontalRewindCounter", rewindCounter);
+							}
+					
+							if (movedHorizontalPosition < 0.0) {
+								var rewindCounter = Core.Collections.Maps.getDefault(shroomState, "horizontalRewindCounter", 0) + 1;
+								movedHorizontalPosition = grid.width - (abs(movedHorizontalPosition) - (floor(abs(movedHorizontalPosition) / grid.width) * grid.width));
+								Core.Collections.Maps.set(shroomState, "horizontalRewindCounter", rewindCounter);
+							}
+							movedHorizontalPosition = clamp(movedHorizontalPosition, 0.0, grid.width);
+							
+							var scanMargin = 2.0
+							var rewindCounter = Core.Collections.Maps.getDefault(shroomState, "horizontalRewindCounter", 0)
+							if (rewindCounter > 1) {
+								
+								
+								var elementX = movedHorizontalPosition;
+								var elementWidth = scanMargin;
+								var viewX = grid.view.x;
+								var viewWidth = grid.view.width;
+								x1s = viewX - scanMargin;
+								x1e = viewX + viewWidth + scanMargin;
+								x2s = x1s;
+								x2e = x1e;
+								
+								if (viewX - scanMargin < 0) {
+								
+									x1s = grid.width - viewX - scanMargin;
+									x1e = grid.width;
+									x2s = 0.0;
+									x2e = viewX + viewWidth + scanMargin;
+								}
+								
+								if (viewX + viewWidth + scanMargin > grid.width) {
+									
+									x1s = grid.width - viewX - scanMargin;
+									x1e = grid.width;
+									x2s = 0.0;
+									x2e = viewX + viewWidth + scanMargin;
+								}
+								
+								
+								if ((!Core.Numbers.isBetween(elementX, x1s, x1e))
+									&& (!Core.Numbers.isBetween(elementX, x2s, x2e))) {
+									destroyShrooms = pushArray(destroyShrooms, index)	
+								}
+								
+							}
+							if (rewindCounter > 2) {
+								if (spawnPosition != SpawnPosition_TOP) {
+									Core.Collections.Maps.set(shroomState, "verticalSpeed", horizontalSpeed);
+									Core.Collections.Maps.set(shroomState, "horizontalSpeed", verticalSpeed);
+									Core.Collections.Maps.set(shroomState, "spawnPosition", SpawnPosition_TOP);
+								}	
+							}
+							
+							if ((movedVerticalPosition > grid.height + scanMargin)
+								|| (movedVerticalPosition < -1 * scanMargin)) {
+								
+								destroyCurrentShroom = true;
+							}
+							
+							if (destroyCurrentShroom) {
+								logger("Shroom destroyed", LogType.INFO);
+								destroyShrooms = pushArray(destroyShrooms, index);
+							} else {
+								sendGridElementRenderRequest(shroomGridElement);	
+							}
+						}
+						
+						if (isOptionalPresent(getGridRenderer())) {
+							
+							if ((movedVerticalPosition >= -1.5) &&
+								(movedVerticalPosition <= 1.5)) {
+						
+								sendGridElementRenderRequest(shroomGridElement);
+							} else {
+								destroyShrooms = pushArray(destroyShrooms, index);
+							}
+						
+							if ((movedHorizontalPosition <= -1.5) &&
+								(movedHorizontalPosition >= 1.5)) {
+						
+								destroyShrooms = pushArray(destroyShrooms, index);
+							}
+						}
+						
 						setPositionHorizontal(shroomPosition, movedHorizontalPosition);
-						
-						var movedVerticalPosition = fetchMovedVerticalPositionOnGrid(getPositionVertical(shroomPosition), speedValue)
-							+ applyDeltaTime(verticalSpeed);
 						setPositionVertical(shroomPosition, movedVerticalPosition);
-				
-						if ((movedVerticalPosition >= -1.5) &&
-							(movedVerticalPosition <= 1.5)) {
-						
-							sendGridElementRenderRequest(shroomGridElement);
-						} else {
-							destroyShrooms = pushArray(destroyShrooms, index);
-						}
-						
-						if ((movedHorizontalPosition <= -1.5) &&
-							(movedHorizontalPosition >= 1.5)) {
-						
-							destroyShrooms = pushArray(destroyShrooms, index);
-						}
 						#endregion
 						
 						if (getPlayerManager().gameplayType == "bullethell") {
@@ -298,9 +378,12 @@
 						break;
 					case "end":
 			
-						getGameController().gameplayData.shroomCounter++;
+						if (isOptionalPresent(getGameController())) {
+							getGameController().gameplayData.shroomCounter++;
+						}
 			
 						var instantKill = getValueFromMap(shroomState, "instantKill", false);
+						instantKill = true;
 						if (instantKill) {
 				
 							destroyShrooms = pushArray(destroyShrooms, index);
@@ -342,7 +425,7 @@
 									createPosition(positions.xStart, positions.yStart),
 									createPosition(positions.xEnd, positions.yEnd)
 								);
-								sendParticleTask(particleTask);	
+								//sendParticleTask(particleTask);	
 								break;
 							} else {
 					
@@ -354,6 +437,9 @@
 						#region Movement
 						var speedValue = getShroomSpeedValue(shroom) / (bulletTaken + 1.5);
 						var gridSpeed = getInstanceVariable(getGridRenderer(), "separatorSpeed");
+						if (isOptionalPresent(getPlaygroundController())) {
+							gridSpeed = getPlaygroundController().GMObject.state.grid.separators.speed;
+						}
 						speedValue = speedValue * (gridSpeed / 0.005);
 				
 						var movedVerticalPosition = fetchMovedVerticalPositionOnGrid(
@@ -379,7 +465,17 @@
 
 			}
 	
-			removeItemsFromList(shrooms, destroyShrooms, destroyShroom);	
+			removeItemsFromList(shrooms, destroyShrooms, destroyShroom);
+			
+			this.spawnTimer = incrementTimer(this.spawnTimer, 2.0);
+			if (timerFinished(this.spawnTimer)) {
+			//if (keyboard_check_pressed(ord("P"))) {
+				var templates = [ "shroom-01", "shroom-02", "shroom-03", "shroom-04" ];
+				repeat(choose(1, 1, 2, 0)) {
+					var shroomTemplate = Core.Collections.Arrays.getRandomValue(templates);
+					actionSpawnShroom(shroomTemplate);
+				}
+			}
 		}),
 		cleanUp: method(this, function() {
 	
