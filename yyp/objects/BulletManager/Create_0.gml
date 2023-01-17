@@ -52,12 +52,20 @@
 						for (var playerIndex = 0; playerIndex < playersSize; playerIndex++) {
 							var player = players[| playerIndex];
 							var playerGridElement = getVisuPlayerGridElement(player);
-							var isCollision = checkCirclesCollision(
-								getGridElementPosition(playerGridElement),
-								getVisuPlayerCollisionRadius(player) * 0.81,
-								bulletPosition,
-								getBulletCollisionRadius(bullet)
-							);
+							
+							var isCollision = false;
+							if (isOptionalPresent(getGridRenderer())) {
+								isCollision = checkCirclesCollision(
+									getGridElementPosition(playerGridElement),
+									getVisuPlayerCollisionRadius(player) * 0.81,
+									bulletPosition,
+									getBulletCollisionRadius(bullet)
+								);
+							}
+							
+							if (isOptionalPresent(getPlaygroundController())) {
+								isCollision = checkCollisionBetweenGridElements(playerGridElement, getBulletGridElement(bullet), 2048); 	
+							}
 								
 							if (isCollision) {
 								
@@ -79,7 +87,24 @@
 									getGridElementPosition(shroomGridElement),
 									getShroomRadius(shroom),
 									bulletPosition,
-									getBulletCollisionRadius(bullet));
+									getBulletCollisionRadius(bullet)
+								);
+								
+								
+								var isCollision = false;
+								if (isOptionalPresent(getGridRenderer())) {
+									isCollision = checkCirclesCollision(
+										getGridElementPosition(shroomGridElement),
+										getShroomRadius(shroom),
+										bulletPosition,
+										getBulletCollisionRadius(bullet)
+									);
+								}
+							
+								if (isOptionalPresent(getPlaygroundController())) {
+									isCollision = checkCollisionBetweenGridElements(shroomGridElement, getBulletGridElement(bullet), 2048); 	
+								}
+								
 								if (isCollision) {
 									isAnyCollision = true;
 									shroomIndex = shroomsSize;
@@ -92,11 +117,21 @@
 									var shroom = shrooms[| shroomIndex];
 									var shroomGridElement = getShroomGridElement(shroom);
 									var playerBulletRadius = isAnyCollision ? 3.5 : 1.0;
-									var isCollision = checkCirclesCollision(
-										getGridElementPosition(shroomGridElement),
-										getShroomRadius(shroom),
-										bulletPosition,
-										getBulletCollisionRadius(bullet) * playerBulletRadius);
+		
+									var isCollision = false;
+									if (isOptionalPresent(getGridRenderer())) {
+										isCollision = checkCirclesCollision(
+											getGridElementPosition(shroomGridElement),
+											getShroomRadius(shroom),
+											bulletPosition,
+											getBulletCollisionRadius(bullet) * playerBulletRadius
+										);
+									}
+							
+									if (isOptionalPresent(getPlaygroundController())) {
+										isCollision = checkCollisionBetweenGridElements(shroomGridElement, getBulletGridElement(bullet), 2048); 	
+									}
+										
 									if (isCollision) {
 										var shroomState = getShroomState(shroom);	
 										

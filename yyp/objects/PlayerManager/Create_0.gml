@@ -161,11 +161,21 @@
 				var shroom = shrooms[| shroomIndex];
 				var shroomGridElement = getShroomGridElement(shroom);
 				var shroomGridElementPosition = getGridElementPosition(shroomGridElement);
-				isCollision = (shroomGridElementPosition[1] < playerPosition[1]) && checkCirclesCollision( //@todo replace arrays with getters
-					shroomGridElementPosition,
-					getShroomRadius(shroom),
-					playerPosition,
-					getVisuPlayerCollisionRadius(player));
+				
+				if (isOptionalPresent(getGameRenderer())) {
+				
+					isCollision = (shroomGridElementPosition[1] < playerPosition[1]) && checkCirclesCollision(
+						shroomGridElementPosition,
+						getShroomRadius(shroom),
+						playerPosition,
+						getVisuPlayerCollisionRadius(player)
+					);
+				}
+				
+				if (isOptionalPresent(getPlaygroundController())) {
+				
+					isCollision = checkCollisionBetweenGridElements(playerGridElement, shroomGridElement, 2048);
+				}
 				
 				if (isCollision) {
 					var shroomState = getShroomState(shroom);
@@ -339,12 +349,20 @@
 				var shroomGridElement = getShroomGridElement(shroom);
 				var shroomGridElementPosition = getGridElementPosition(shroomGridElement);
 				
-				isCollision = checkCirclesCollision(
-					shroomGridElementPosition,
-					getShroomRadius(shroom),
-					playerPosition,
-					getVisuPlayerCollisionRadius(player)
-				);
+				if (isOptionalPresent(getGameRenderer())) {
+				
+					isCollision = checkCirclesCollision(
+						shroomGridElementPosition,
+						getShroomRadius(shroom),
+						playerPosition,
+						getVisuPlayerCollisionRadius(player)
+					);
+				}
+				
+				if (isOptionalPresent(getPlaygroundController())) {
+				
+					isCollision = checkCollisionBetweenGridElements(playerGridElement, shroomGridElement, 2048);
+				}
 				
 				var texture = getSpriteAssetIndex(getGridElementSprite(shroomGridElement));
 				var shroomTextureWidth = getShroomRadius(shroom) * 1.5;
@@ -432,7 +450,6 @@
 						}
 					}
 					
-					//killAndDoubleJump(player, shroom, playerState, jumpFactor);
 					stayOnShroom(player, shroom, playerState, jumpFactor, input);
 					
 					break;

@@ -2,8 +2,8 @@
     {
         "name" : "shroom-01",
         "texture" : [ "asset_texture_visu_shroom_01" ],
-        "spawnPosition" : [ "top", "right", "bottom", "left" ],
-        "baseSpeed" : [ 0.1 ],
+        "spawnPosition" : [ "top" ],
+        "baseSpeed" : [ 0.5 ],
         "features" : {
             "isZigzagMovement": true,
             "zigzagAmount": 0.003,

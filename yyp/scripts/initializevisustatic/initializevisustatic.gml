@@ -246,7 +246,7 @@ function initializeVisuGlobals() {
 	global.shroomVisuSpawnVerticalRange = createTuple(0.0, 1.0);
 	#macro SHROOM_SPAWN_V_RANGE global.shroomVisuSpawnVerticalRange
 	
-	global.shroomVisuSpawnSpeedRange = createTuple(0.0003, 0.0019);
+	global.shroomVisuSpawnSpeedRange = createTuple(0.003, 0.005);
 	#macro SHROOM_SPEED_RANGE global.shroomVisuSpawnSpeedRange
 	
 	
@@ -330,7 +330,7 @@ function initializeVisuGlobals() {
 				if (isOptionalPresent(getPlaygroundController())) {
 				
 					var grid = getPlaygroundController().GMObject.state.grid;
-					horizontalPosition = grid.view.x + grid.view.width + 1.66;
+					horizontalPosition = grid.view.x + grid.view.width + 0.66;
 					verticalPosition = grid.view.y + ((from + irandom(to - from)) / 100.0);
 					if (horizontalPosition > grid.width) {
 						horizontalPosition = abs(horizontalPosition) - (floor(abs(horizontalPosition) / grid.width) * grid.width);
@@ -404,7 +404,7 @@ function initializeVisuGlobals() {
 				if (isOptionalPresent(getPlaygroundController())) {
 				
 					var grid = getPlaygroundController().GMObject.state.grid;
-					horizontalPosition = grid.view.x - 1.66;
+					horizontalPosition = grid.view.x - 0.66;
 					verticalPosition = grid.view.y + ((from + irandom(to - from)) / 100.0);
 					if (horizontalPosition < 0.0) {
 						horizontalPosition = grid.width - (abs(horizontalPosition) - (floor(abs(horizontalPosition) / grid.width) * grid.width));

@@ -468,13 +468,12 @@
 			removeItemsFromList(shrooms, destroyShrooms, destroyShroom);
 			
 			this.spawnTimer = incrementTimer(this.spawnTimer, 2.0);
-			if (timerFinished(this.spawnTimer)) {
-			//if (keyboard_check_pressed(ord("P"))) {
-				var templates = [ "shroom-01", "shroom-02", "shroom-03", "shroom-04" ];
-				repeat(choose(1, 1, 2, 0)) {
-					var shroomTemplate = Core.Collections.Arrays.getRandomValue(templates);
-					actionSpawnShroom(shroomTemplate);
-				}
+			//if (timerFinished(this.spawnTimer)) {
+			if (keyboard_check_pressed(ord("P"))) {
+				var templates = [ "shroom-01" ];
+				
+				var shroomTemplate = Core.Collections.Arrays.getRandomValue(templates);
+				actionSpawnShroom(shroomTemplate);
 			}
 		}),
 		cleanUp: method(this, function() {

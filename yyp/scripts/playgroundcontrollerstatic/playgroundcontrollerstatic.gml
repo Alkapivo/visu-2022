@@ -3,12 +3,12 @@
 function createGridController() {
 	
 	var grid = {
-		width: 5.0,
+		width: 10.0,
 		height: 2.0,
 		channels: 10,
 		separators: {
-			amount: 20,
-			speed: 0.001,
+			amount: 16,
+			speed: 0.007,
 			timer: 0.0,
 		},
 		pixelWidth: 2048,
@@ -232,13 +232,13 @@ function createGridController() {
 					var yStart = (index * separatorHeight) + timer - viewY - scanMargin
 					var xEnd = 5.0;
 					var yEnd = yStart;
-					var thickness = 1.0;
+					var thickness = 2.0;
 					xStart *= surfaceWidth;
 					yStart *= surfaceHeight;
 					xEnd *= surfaceWidth;
 					yEnd *= surfaceHeight;
 							
-					Core.GPU.renderTexturedLine(xStart, yStart, xEnd, yEnd, thickness, 1.0, c_blue);
+					Core.GPU.renderTexturedLine(xStart, yStart, xEnd, yEnd, thickness, 1.0, c_red);
 				}
 			}
 			
@@ -253,7 +253,7 @@ function createGridController() {
 					var yStart = -5.0;
 					var xEnd = xStart;
 					var yEnd = grid.view.height + 5.0;
-					var thickness = 4.0;
+					var thickness = 5.0;
 					xStart *= surfaceWidth;
 					yStart *= surfaceHeight;
 					xEnd *= surfaceWidth;
@@ -276,7 +276,7 @@ function createGridController() {
 					var yStart = -5.0;
 					var xEnd = xStart;
 					var yEnd = grid.view.height + 5.0;
-					var thickness = 1.0;
+					var thickness = 2.0;
 					xStart *= surfaceWidth;
 					yStart *= surfaceHeight;
 					xEnd *= surfaceWidth;
@@ -294,7 +294,7 @@ function createGridController() {
 					var yStart = -5.0;
 					var xEnd = xStart;
 					var yEnd = grid.view.height + 5.0;
-					var thickness = 1.0;
+					var thickness = 2.0;
 					xStart *= surfaceWidth;
 					yStart *= surfaceHeight;
 					xEnd *= surfaceWidth;
@@ -703,4 +703,38 @@ function appendPointToVertexBuffer(vbuffer, xx, yy, zz, nx, ny, nz, utex, vtex, 
 	vertex_normal(vbuffer, nx, ny, nz);
 	vertex_texcoord(vbuffer, utex, vtex);
 	vertex_color(vbuffer, color, alpha);
+}
+
+///@param {GridElement} elementA
+///@param {GridElement} elementB
+///@param {Number} resolution
+///@return {Boolean}
+function checkCollisionBetweenGridElements(elementA, elementB, resolution) {
+				
+	var spriteA = getGridElementSprite(elementA)
+	var spriteB = getGridElementSprite(elementB)
+	var textureA = getSpriteAssetIndex(spriteA);
+	var textureB = getSpriteAssetIndex(spriteB);
+	var positionA = getGridElementPosition(elementA)
+	var positionB = getGridElementPosition(elementB)
+	var widthA = Core.Assets.Texture.getWidth(textureA);
+	var heightA = Core.Assets.Texture.getHeight(textureA);
+	var widthB = Core.Assets.Texture.getWidth(textureB);
+	var heightB = Core.Assets.Texture.getHeight(textureB);
+	var scaleXA = getSpriteXScale(spriteA);
+	var scaleYA = getSpriteYScale(spriteA);
+	var scaleXB = getSpriteXScale(spriteB);
+	var scaleYB = getSpriteYScale(spriteB);
+					
+	var xStartA = (positionA[0] * resolution) + (widthA * 0.5) * scaleXA;
+	var yStartA = (positionA[1] * resolution) + (heightA * 0.5) * scaleYA;
+	var xEndA = (positionA[0] * resolution) - (widthA * 0.5) * scaleXA;
+	var yEndA = (positionA[1] * resolution) - (heightA * 0.5) * scaleYA;
+	var xStartB = (positionB[0] * resolution) + (widthB * 0.5) * scaleXB;
+	var yStartB = (positionB[1] * resolution) + (heightB * 0.5) * scaleYB;
+	var xEndB = (positionB[0] * resolution) - (widthB * 0.5) * scaleXB;
+	var yEndB = (positionB[1] * resolution) - (heightB * 0.5) * scaleYB;
+					
+	var result = rectangle_in_rectangle(xStartA, yStartA, xEndA, yEndA, xStartB, yStartB, xEndB, yEndB);
+	return result;
 }
