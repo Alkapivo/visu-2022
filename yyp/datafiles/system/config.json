@@ -5,8 +5,8 @@
             "artifactName": "Visu",
             "context": "Visu",
             "scenes": [
-                "ScenePlayground",
-                "SceneGame"
+                "SceneGame",
+                "ScenePlayground"
             ]
         }
     ]

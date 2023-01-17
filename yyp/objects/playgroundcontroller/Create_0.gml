@@ -422,7 +422,7 @@
 				horizontalAlign: GM_HALIGN_LEFT,
 				verticalAlign: GM_VALIGN_TOP,
 			});
-			Core.Fonts.Render.outlinedText(text, 32, 32);
+			//Core.Fonts.Render.outlinedText(text, 32, 32);
 		}),
 	}
 
