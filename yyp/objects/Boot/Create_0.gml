@@ -14,7 +14,7 @@
 	global.entityClassNames = createMap();
 	
 	///@type {JsonDecoderType}
-	global.jsonDecoderType = JsonDecoderType.TJSON;
+	global.jsonDecoderType = JsonDecoderType.GMJSON;
 	
 	#region Initialization scripts
 	initializeContexts();
@@ -29,7 +29,7 @@
 	global.isLoggerEnabled = getPropertyBoolean("isLoggerEnabled", false);
 	
 	logger("Target device info: { \"isMobile\": {0}, \"isHtml5\": {1} }", LogType.INFO, 
-		convertBooleanToString(isMobile()), convertBooleanToString(isHtml5));
+	convertBooleanToString(isMobile()), convertBooleanToString(isHtml5));
 	#endregion
 	
 	#region Load config.json

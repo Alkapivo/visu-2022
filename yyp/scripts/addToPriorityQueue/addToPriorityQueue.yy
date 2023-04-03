@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "addToPriorityQueue",
   "isCompatibility": false,
+  "isDnD": false,
   "parent": {
     "name": "PriorityQueue",
     "path": "folders/src/com.devhorizon.core/util/collection/PriorityQueue.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "addToPriorityQueue",
-  "tags": [],
-  "resourceType": "GMScript",
 }

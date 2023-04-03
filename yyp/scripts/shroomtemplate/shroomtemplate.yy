@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "ShroomTemplate",
   "isCompatibility": false,
+  "isDnD": false,
   "parent": {
     "name": "entity",
     "path": "folders/src/com.devhorizon.visu/manager/ShroomManager/entity.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "ShroomTemplate",
-  "tags": [],
-  "resourceType": "GMScript",
 }

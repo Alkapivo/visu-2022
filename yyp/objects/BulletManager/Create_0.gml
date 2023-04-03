@@ -159,9 +159,11 @@
 				
 				if ((!isAnyCollision) && (isOptionalPresent(getPlaygroundController()))) {
 					var grid = getPlaygroundController().GMObject.state.grid;
-					if ((positionY > grid.height + 0.5)
-						|| (positionY < -0.5)) {
-							
+					if (positionX < grid.view.x - grid.view.width
+						|| positionX > grid.view.x + grid.view.width + grid.view.width
+						|| positionY < grid.view.y - grid.view.height
+						|| positionY > grid.view.y + grid.view.height + grid.view.height) {
+						
 						destroyBullets = pushArray(destroyBullets, index);
 						isAnyCollision = true;
 					}

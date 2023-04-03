@@ -29,6 +29,7 @@
 	
 	jumpFactor = getPropertyReal("player.jumpFactor", 0.029);
 	gravityFactor = getPropertyReal("player.gravityFactor", 0.0011);
+	playerBullet = createSprite(global.bulletAsset, 0, 1.0, 1.0, 1.0, 0.0, c_white)
 
 	GMObject = {
 		create: method(this, function() {
@@ -74,13 +75,11 @@
 				var grid = getPlaygroundController().GMObject.state.grid;
 				
 				if (horizontalPosition > grid.width) {
-					grid.view.x = grid.view.x - grid.width; // jump camera hack
-					horizontalPosition = abs(horizontalPosition) - (floor(abs(horizontalPosition) / grid.width) * grid.width);
+					horizontalPosition = grid.width / 2.0;
 				}
 					
 				if (horizontalPosition < 0.0) {
-					grid.view.x = grid.view.x + grid.width; // jump camera hack
-					horizontalPosition = grid.width - (abs(horizontalPosition) - (floor(abs(horizontalPosition) / grid.width) * grid.width));
+					horizontalPosition = grid.width / 2.0;
 				}
 				horizontalPosition = clamp(horizontalPosition, 0.0, grid.width);
 			}
@@ -130,23 +129,36 @@
 			if ((keyboardCheckAction)
 				&& (bulletsCooldown == 0)) {
 
-				bulletsCooldown = 9;
-				spawnBullet(createPosition(
-						getPositionHorizontal(playerPosition) - 0.015, 
-						getPositionVertical(playerPosition)),
+				bulletsCooldown = 8;
+				spawnBullet(
+					createPosition(
+						getPositionHorizontal(playerPosition) - 0.003, 
+						getPositionVertical(playerPosition)
+					),
 					BulletProducer.PLAYER,
-					90 + 7
+					90 + 7,
+					this.playerBullet,
+					0.029
 				);
-				spawnBullet(createPosition(
-						getPositionHorizontal(playerPosition), 
-						getPositionVertical(playerPosition)),
-					BulletProducer.PLAYER
-				);
-				spawnBullet(createPosition(
-						getPositionHorizontal(playerPosition) + 0.015, 
-						getPositionVertical(playerPosition)),
+				spawnBullet(
+					createPosition(
+						getPositionHorizontal(playerPosition) - 0.003, 
+						getPositionVertical(playerPosition)
+					),
 					BulletProducer.PLAYER,
-					90 - 7
+					90,
+					this.playerBullet,
+					0.03
+				);
+				spawnBullet(
+					createPosition(
+						getPositionHorizontal(playerPosition) - 0.003, 
+						getPositionVertical(playerPosition)
+					),
+					BulletProducer.PLAYER,
+					90 - 7,
+					this.playerBullet,
+					0.029
 				);
 			}
 			
@@ -180,7 +192,7 @@
 				if (isCollision) {
 					var shroomState = getShroomState(shroom);
 					Core.Collections.Maps.set(shroomState, "status", "end");
-					Core.Collections.Maps.set(shroomState, "instantKill", true);
+					Core.Collections.Maps.set(shroomState, "instantKill", false);
 					global.__deaths++;
 					continue;
 				}
@@ -199,10 +211,15 @@
 				&& (keyboardCheckBomb)) {
 				
 				bombTimer = incrementTimer(bombTimer, bombTimerDuration);
-				getGridRenderer().cameraShake = 64;
-				clearList(getShroomManager().shrooms);
+				fetchGridRenderer().cameraShake = 64;
+				var shrooms = getShroomManager().shrooms
+				var shroomsSize = getListSize(shrooms);
+				for (var index = 0; index < shroomsSize; index++) {
+					var shroom = Core.Collections.Lists.get(shrooms, index);
+					Core.Collections.Maps.set(getShroomState(shroom), "status", "end");
+				}
 				
-				var gameController = getGameController();
+				var gameController = fetchGameController();
 				gameController.godMode = incrementTimer(gameController.godMode, gameController.godModeDuration);
 				
 				var shaderEvent = createShaderEvent(
@@ -223,10 +240,32 @@
 			Core.Collections.Maps.set(playerState, "bombTimer", bombTimer);
 			#endregion
 			
-			sendGridElementRenderRequest(playerGridElement);
+			if (isOptionalPresent(getPlaygroundController())) {
+				
+				var sprite = getGridElementSprite(playerGridElement); 
+				var ghostGridElement = createGridElement(
+					getGridElementPosition(playerGridElement),
+					createSprite(
+						getSpriteAssetIndex(sprite),
+						getSpriteCurrentFrame(sprite),
+						getSpriteXScale(sprite) * 2.0,
+						getSpriteYScale(sprite) * 2.0,
+						getSpriteAlpha(sprite) * 0.5,
+						getSpriteAngle(sprite),
+						getSpriteColor(sprite)
+					),
+					getGridElementInfo(playerGridElement)
+				);
+				sendGridElementRenderRequest(ghostGridElement);
+				
+			} else {
+				sendGridElementRenderRequest(playerGridElement);
+			}
 		}),
 		platformer: method(this, function(player) {
 			
+			var verticalPositionMin = -0.12;
+			var verticalPositionMax = 0.80;
 			var playerState = getVisuPlayerState(player);
 			var playerGridElement = getVisuPlayerGridElement(player);
 			var playerPosition = getGridElementPosition(playerGridElement);
@@ -284,13 +323,16 @@
 			var verticalPosition = getPositionVertical(playerPosition);
 			var verticalSpeed = getVisuPlayerVerticalSpeed(player);
 			var verticalSpeedMax = 1.0;
-			var _gravityFactor = applyDeltaTime(gravityFactor);
+			var _gravityFactor = applyDeltaTime(this.gravityFactor);
 			
-			verticalSpeed += _gravityFactor;
-			verticalSpeed = sign(verticalSpeed) * clamp(abs(verticalSpeed), 0.0, verticalSpeedMax);
-			var verticalPositionMin = -0.12;
-			var verticalPositionMax = 0.80;
-			verticalPosition = verticalPosition + applyDeltaTime(verticalSpeed);
+			var landedOnShroom = Core.Collections.Maps.get(playerState, "landedOnShroom") == true;
+			if (!landedOnShroom) {
+				verticalSpeed += _gravityFactor;
+				verticalSpeed = sign(verticalSpeed) * clamp(abs(verticalSpeed), 0.0, verticalSpeedMax);
+				var verticalPositionMin = -0.12;
+				var verticalPositionMax = 0.80;
+				verticalPosition = verticalPosition + applyDeltaTime(verticalSpeed);
+			}
 			
 			if (isOptionalPresent(getPlaygroundController())) {
 				verticalPositionMax = getPlaygroundController().GMObject.state.grid.height;
@@ -312,9 +354,10 @@
 				verticalPositionMax
 			);
 			
-			setVisuPlayerVerticalSpeed(player, verticalSpeed);
-			setPositionVertical(playerPosition, movedVerticalPosition);
-			
+			if (!landedOnShroom) {
+				setVisuPlayerVerticalSpeed(player, verticalSpeed);
+				setPositionVertical(playerPosition, movedVerticalPosition);
+			}
 			
 			if ((input.keyboardCheckAction)
 				&& (verticalPosition >= verticalPositionMax)) {
@@ -349,6 +392,10 @@
 				var shroomGridElement = getShroomGridElement(shroom);
 				var shroomGridElementPosition = getGridElementPosition(shroomGridElement);
 				
+				if (Core.Collections.Maps.get(getShroomState(shroom), "status") != "run") {
+					continue;
+				}
+				
 				if (isOptionalPresent(getGameRenderer())) {
 				
 					isCollision = checkCirclesCollision(
@@ -380,51 +427,26 @@
 					&& (isCollision)) {
 					
 					var stayOnShroom = function(player, shroom, playerState, jumpFactor, input) {
+						var movedVerticalPosition = 0;
+						//setVisuPlayerVerticalSpeed(player, 0.0);
+						Core.Collections.Maps.set(playerState, "landedOnShroom", true);
+						Core.Collections.Maps.set(getShroomState(shroom), "playerLanded", true);
 						
 						var playerGridElement = getVisuPlayerGridElement(player);
 						var playerPosition = getGridElementPosition(playerGridElement)
-						var speedValue = getShroomSpeedValue(shroom);
-						var gridSpeed = getInstanceVariable(getGridRenderer(), "separatorSpeed");
-						if (isOptionalPresent(getPlaygroundController())) {
-							gridSpeed = 0.004;//getPlaygroundController().GMObject.state.grid.separators.speed;
-						}
-												
-						if (isOptionalPresent(getGridRenderer())) {
-							speedValue = speedValue * (gridSpeed / 0.005);
-						}
-									
-						setVisuPlayerVerticalSpeed(player, 0.0);
-						Core.Collections.Maps.set(playerState, "landedOnShroom", true);
-						
-						Core.Collections.Maps.set(getShroomState(shroom), "playerLanded", true);
-						
 						var shroomHorizontalSpeed = Core.Collections.Maps.get(getShroomState(shroom), "horizontalSpeed");
-						var gridSpeed = getInstanceVariable(getGridRenderer(), "separatorSpeed");
-						if (isOptionalPresent(getPlaygroundController())) {
-							gridSpeed = 0.004;//getPlaygroundController().GMObject.state.grid.separators.speed;
-						}
-												
-						if (isOptionalPresent(getGridRenderer())) {
-							shroomHorizontalSpeed = shroomHorizontalSpeed * (gridSpeed / 0.005);
-						}
-						
-						var movedHorizontalPosition = getPositionHorizontal(playerPosition) + shroomHorizontalSpeed;
-						setPositionHorizontal(playerPosition, movedHorizontalPosition);
-						
-						var calcVerticalPosition = getPositionVertical(playerPosition)
-							+ ((getPositionVertical(getGridElementPosition(getShroomGridElement(shroom))) - getPositionVertical(playerPosition))
-								/ 1.33)
-						var movedVerticalPosition = fetchMovedVerticalPositionOnGrid(
-							calcVerticalPosition,
-				 			speedValue 
-						);
-						setPositionVertical(playerPosition, movedVerticalPosition);
+						var shroomVerticalSpeed = Core.Collections.Maps.get(getShroomState(shroom), "verticalSpeed");
+						var movedHorizontal = getPositionHorizontal(playerPosition) + applyDeltaTime(shroomHorizontalSpeed) * getPlaygroundController().GMObject.state.grid.speed
+						var movedVertical = getPositionVertical(playerPosition) + applyDeltaTime(shroomVerticalSpeed) * getPlaygroundController().GMObject.state.grid.speed
+						setPositionHorizontal(playerPosition, movedHorizontal);
+						setPositionVertical(playerPosition, movedVertical);
+						movedVerticalPosition = movedVertical;
 						
 						if (input.keyboardCheckAction) {
 							///@todo shroom.kill();
 							var shroomState = getShroomState(shroom);
 							Core.Collections.Maps.set(shroomState, "status", "end");
-							Core.Collections.Maps.set(shroomState, "instantKill", true);
+							Core.Collections.Maps.set(shroomState, "instantKill", false);
 					
 							///@todo player.jump(factor);
 							setVisuPlayerVerticalSpeed(player, -1.0 * jumpFactor);
@@ -438,7 +460,7 @@
 							///@todo shroom.kill();
 							var shroomState = getShroomState(shroom);
 							Core.Collections.Maps.set(shroomState, "status", "end");
-							Core.Collections.Maps.set(shroomState, "instantKill", true);
+							Core.Collections.Maps.set(shroomState, "instantKill", false);
 						}
 						
 						if (movedVerticalPosition <= -0.01) {
@@ -446,7 +468,7 @@
 							///@todo shroom.kill();
 							var shroomState = getShroomState(shroom);
 							Core.Collections.Maps.set(shroomState, "status", "end");
-							Core.Collections.Maps.set(shroomState, "instantKill", true);
+							Core.Collections.Maps.set(shroomState, "instantKill", false);
 						}
 					}
 					
@@ -461,21 +483,39 @@
 				}
 			}
 
-			var landedOnShroom = Core.Collections.Maps.get(playerState, "landedOnShroom") == true;
-			if ((movedVerticalPosition >= verticalPositionMax)
-				&& (!isCollision)
-				&& (landedOnShroom)) {
-				
+			if (!isCollision) {
 				Core.Collections.Maps.set(playerState, "landedOnShroom", false)
+			}
+			
+			if (movedVerticalPosition >= verticalPositionMax) {
 				respawnVisuPlayer();
 			}
 			
-			if ((movedVerticalPosition <= -0.01) && (landedOnShroom)) {
-			
+			if (movedVerticalPosition <= -0.01) {
 				Core.Collections.Maps.set(playerState, "landedOnShroom", false)
 			}
 			
-			sendGridElementRenderRequest(playerGridElement);
+			if (isOptionalPresent(getPlaygroundController())) {
+				
+				var sprite = getGridElementSprite(playerGridElement); 
+				var ghostGridElement = createGridElement(
+					getGridElementPosition(playerGridElement),
+					createSprite(
+						getSpriteAssetIndex(sprite),
+						getSpriteCurrentFrame(sprite),
+						getSpriteXScale(sprite) * 2.0,
+						getSpriteYScale(sprite) * 2.0,
+						getSpriteAlpha(sprite) * 0.5,
+						getSpriteAngle(sprite),
+						getSpriteColor(sprite)
+					),
+					getGridElementInfo(playerGridElement)
+				);
+				sendGridElementRenderRequest(ghostGridElement);
+				
+			} else {
+				sendGridElementRenderRequest(playerGridElement);
+			}
 		}),
 		update: method(this, function() {
 			
@@ -527,32 +567,6 @@
 					? getPropertyReal("gameRenderer.baseScaleResolution.bullethell", 2048)
 					: getPropertyReal("gameRenderer.baseScaleResolution.platformer", 2048)
 				global.__baseScaleResolution = baseScaleResolution
-			}
-			
-			this.debugTimer = incrementTimer(this.debugTimer, 0.5);
-			if (timerFinished(this.debugTimer)) {
-			
-				var player = findPlayerByIndex(0);
-				var gridElement = getVisuPlayerGridElement(player);
-				var gridPosition = getGridElementPosition(gridElement);
-				var positions = {
-					xStart: getPositionHorizontal(gridPosition),
-					yStart: getPositionVertical(gridPosition),
-					xEnd: getPositionHorizontal(gridPosition),
-					yEnd: getPositionVertical(gridPosition),
-				}
-				var particleTask = createParticleTask(
-					"particle_shroom_explosion",
-					ParticleSystems.BACKGROUND,
-					64,
-					0.0,
-					1.0,
-					0.1,
-					0.0,
-					createPosition(positions.xStart, positions.yStart),
-					createPosition(positions.xEnd, positions.yEnd)
-				);
-				//sendParticleTask(particleTask);
 			}
 		}),
 		cleanUp: method(this, function() {

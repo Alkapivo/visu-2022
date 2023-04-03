@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "checkFacts",
   "isCompatibility": false,
+  "isDnD": false,
   "parent": {
     "name": "method",
     "path": "folders/src/com.devhorizon.core/manager/FactsManager/FactManagerMethods/method.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "checkFacts",
-  "tags": [],
-  "resourceType": "GMScript",
 }

@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "setVirtualJoystickFixedYPosition",
   "isCompatibility": false,
+  "isDnD": false,
   "parent": {
     "name": "setter",
     "path": "folders/src/com.devhorizon.core/instance/VirtualJoystick/VirtualJoystickMethods/setter.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "setVirtualJoystickFixedYPosition",
-  "tags": [],
-  "resourceType": "GMScript",
 }

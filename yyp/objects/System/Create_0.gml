@@ -49,7 +49,7 @@
 	}
 	settingsRepository = deserializeRepository(settingsString);
 	
-	var systemSettings = findInRepositoryById(getSettingsRepository(), "system");
+	var systemSettings = findInRepositoryById(settingsRepository, "system");
 	var attributes = systemSettings != null ? getSettingsAttributes(systemSettings) : null;
 	var settingsVersion = attributes != null ? attributes[? "version"] : null;
 	if ((isUndefined(settingsVersion)) ||
@@ -60,9 +60,8 @@
 	}
 	#endregion
 	
-	var settings = findInRepositoryById(getSettingsRepository(), "system");
+	var settings = findInRepositoryById(settingsRepository, "system");
 	var attributes = getSettingsAttributes(settings);
-	
 	global.isDebugMode = attributes[? "enableDebugOverlay"] == "true";
 	show_debug_overlay(global.isDebugMode);
 	#endregion

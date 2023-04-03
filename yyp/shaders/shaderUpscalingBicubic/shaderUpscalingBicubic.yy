@@ -1,11 +1,10 @@
 {
-  "type": 1,
+  "resourceType": "GMShader",
+  "resourceVersion": "1.0",
+  "name": "shaderUpscalingBicubic",
   "parent": {
     "name": "upscaling",
     "path": "folders/asset/com.devhorizon.core/shader/upscaling.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "shaderUpscalingBicubic",
-  "tags": [],
-  "resourceType": "GMShader",
+  "type": 1,
 }

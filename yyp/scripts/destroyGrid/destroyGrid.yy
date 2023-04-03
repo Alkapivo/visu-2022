@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "destroyGrid",
   "isCompatibility": false,
+  "isDnD": false,
   "parent": {
     "name": "Grid",
     "path": "folders/src/com.devhorizon.core/util/collection/Grid.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "destroyGrid",
-  "tags": [],
-  "resourceType": "GMScript",
 }

@@ -165,11 +165,13 @@
 	
 	///@type {Boolean}
 	isFlat = false;
+	
+	///@type {Number}
+	gridAngle = 0.0;
 
 ///@private:
 
-	///@type {Number}
-	gridAngle = 0.0;
+
 			
 	///@type {Integer}
 	separatorFrameTimer = 0;
@@ -235,6 +237,8 @@
 	}
 	
 	playerGridElement = null;
+	
+	enableVideo = false;
 	
 	#endregion
 	

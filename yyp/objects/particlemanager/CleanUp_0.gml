@@ -10,11 +10,7 @@
 		}
 		destroyDataStructure(particleTaskPipeline, List, "Unable to destroy particleTaskPipeline");
 	}
-		for (var index = 0; index < getArrayLength(particlesSurface); index++) {
-		var particleSurface = particlesSurface[index];
-		destroySurface(particleSurface);
-	}
-	
+
 	for (var key = mapFirst(particleEffects); iteratorFinish(key); key = mapNext(particleEffects, key)) {
 		var particle = particleEffects[? key];
 		

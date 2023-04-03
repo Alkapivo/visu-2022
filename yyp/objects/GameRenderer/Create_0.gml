@@ -587,19 +587,8 @@
 			#region Render particleSurface BACKGROUND
 			var particleManager = getParticleManager();
 			if (isOptionalPresent(particleManager)) {
-				var particleSurface = particleManager.particlesSurface[ParticleSystems.BACKGROUND];
-				if (isSurfaceValid(particleSurface))  {
-					drawSurface(
-						particleSurface,
-						0,
-						0,
-						getGridRendererXScale(),
-						getGridRendererYScale(),
-						getGridRendererAngle(),
-						1.0,
-						c_white,
-						createPosition(0.5, 0.5));
-				}
+				var particleSystem = getParticleManager().particleSystems[0]
+				part_system_drawit(particleSystem);
 			}
 			#endregion
 
@@ -664,19 +653,9 @@
 			#endregion
 	
 			#region Render particleSurface FOREGROUND
-			if (isSurfaceValid(particleSurface))  {
-				var particleSurface = particleManager.particlesSurface[ParticleSystems.FOREGROUND];
-				drawSurface(
-					particleSurface,
-					0,
-					0,
-					getGridRendererXScale(),
-					getGridRendererYScale(),
-					getGridRendererAngle(),
-					1.0,
-					c_white,
-					createPosition(0.5, 0.5)
-				);
+			if (isOptionalPresent(getParticleManager()))  {
+				var particleSystem = getParticleManager().particleSystems[1]
+				part_system_drawit(particleSystem);
 			}
 			#endregion
 			

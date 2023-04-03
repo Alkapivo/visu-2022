@@ -5,9 +5,4 @@ function initializeShaderThermal(argument0) {
 
 		var context = argument0;
 
-		///@SuppressWarning
-	
-
-
-
 }

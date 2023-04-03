@@ -50,15 +50,20 @@
 						throw (stringParams("Lyrics weren't found: {0}", lyricsEvent.name));
 					}
 					
+					var removeLyrics = false
 					for (var lyricsJob = getReactorFirstElement(this.lyricsReactor);
 						iteratorFinish(lyricsJob);
 						lyricsJob = getReactorNextElement(this.lyricsReactor)) {
 						
 						if (lyricsJob.lyrics.name == lyricsEvent.name) {
 							removeReactorElement(this.lyricsReactor);	
+							removeLyrics = true;
 						}
 					}
 					resolveReactor(this.lyricsReactor);
+					if (removeLyrics) {
+						continue;	
+					}
 					
 					var lyricsJob = {
 						timer: 0.0,
@@ -212,7 +217,7 @@
 							draw_set_valign(fa_bottom);
 						}
 					
-						var colorGridBackground = getInstanceVariable(getGridRenderer(), "colorGridBackground");
+						var colorGridBackground = getInstanceVariable(fetchGridRenderer(), "colorGridBackground");
 						var invertedColorGridBackground = colorGridBackground;
 
 						if (isNumber(colorGridBackground)) { // in gamemaker color is a number :)
@@ -248,20 +253,21 @@
 							this.shake.timer = incrementTimer(this.shake.timer, this.shake.duration);
 						}
 					
-						draw_text_ext_color(
-							xPosition + this.shake.xOffset,
-							yPosition + this.shake.yOffset,
-							lyricsJob.stringBuffer,
-							lyricsJob.lyrics.linesPadding,
-							(lyricsJob.lyrics.area.xEnd - lyricsJob.lyrics.area.xStart) * GuiWidth,
-							color,
-							color,
-							color,
-							color,
-							lyricsJob.lyrics.alpha
-						);
+						if (string_length(lyricsJob.stringBuffer) > 0) {
+							draw_text_ext_color(
+								xPosition + this.shake.xOffset,
+								yPosition + this.shake.yOffset,
+								lyricsJob.stringBuffer,
+								lyricsJob.lyrics.linesPadding,
+								(lyricsJob.lyrics.area.xEnd - lyricsJob.lyrics.area.xStart) * GuiWidth,
+								color,
+								color,
+								color,
+								color,
+								lyricsJob.lyrics.alpha
+							);
+						}
 					} catch (exception) {
-					
 						logger(exception.message, LogType.ERROR);
 						printStackTrace();
 					}

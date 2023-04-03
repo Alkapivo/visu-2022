@@ -2,13 +2,14 @@
 ///@return {Struct<Grid>}
 function createGridController() {
 	
-	var grid = {
-		width: 10.0,
-		height: 2.0,
-		channels: 10,
+	var grid = {		
+		width: 1000000.0,
+		height: 100.0,
+		channels: 1,
+		speed: 1.0,
 		separators: {
-			amount: 16,
-			speed: 0.007,
+			amount: 12,
+			speed: 0.008,
 			timer: 0.0,
 		},
 		pixelWidth: 2048,
@@ -20,24 +21,28 @@ function createGridController() {
 			y: 0.0,
 			follow: {
 				target: null,
-				xMargin: 0.33,
-				yMargin: 0.5
+				xMargin: 0.25,
+				yMargin: 0.40
 			},
 			update: function(grid) {
 
 				if (Core.Structs.is(grid.view.follow.target)) {
+					
 					var viewX = grid.view.x;
 					var viewWidth = grid.view.width;
 					var viewXMargin = grid.view.follow.xMargin;
 					var targetX = grid.view.follow.target.x;
+					var smoothFactor = 64;
 					if (targetX >= viewX + viewWidth - viewXMargin) {
 						var viewXTarget = targetX + viewXMargin - viewWidth;
-						grid.view.x = viewXTarget;
+						//grid.view.x = viewXTarget;
+						grid.view.x += ((targetX - 1.0 / 2.0) - grid.view.x) / smoothFactor;
 					}
 					
 					if (targetX <= viewX + viewXMargin) {
 						var viewXTarget = targetX - viewXMargin;
-						grid.view.x = viewXTarget;
+						//grid.view.x = viewXTarget;
+						grid.view.x += ((targetX - 1.0 / 2.0) - grid.view.x) / smoothFactor;
 					}
 					
 					var viewY = grid.view.y;
@@ -45,16 +50,54 @@ function createGridController() {
 					var viewYMargin = grid.view.follow.yMargin;
 					var targetY = grid.view.follow.target.y;
 					if (targetY >= viewY + viewHeight - viewYMargin) {
-						grid.view.y = targetY + viewYMargin - viewHeight;
+						//grid.view.y = targetY + viewYMargin - viewHeight;
+						grid.view.y += ((targetY - 1.0 / 2.0) - grid.view.y) / smoothFactor;
 					}
 					
 					if (targetY <= viewY + viewYMargin) {
-						grid.view.y = targetY - viewYMargin;
+						//grid.view.y = targetY - viewYMargin;
+						grid.view.y += ((targetY - 1.0 / 2.0) - grid.view.y) / smoothFactor;
 					}
 					
 				}
 				grid.view.x = clamp(grid.view.x, -1 * grid.view.width, grid.width);
 				grid.view.y = clamp(grid.view.y, 0.0, grid.height - grid.view.height);
+			}
+		},
+		debug: {
+			a: 0,
+			b: 0,
+			c: 1,
+			update: function(debug) {
+			
+				var value = 10;
+				if (keyboard_check(ord("R"))) {
+					debug.a += value;	
+					print("debug.a", debug.a);
+				}
+				if (keyboard_check(ord("F"))) {
+					debug.a -= value;	
+					print("debug.a", debug.a);
+				}
+				
+				if (keyboard_check(ord("T"))) {
+					debug.b += value;	
+					print("debug.b", debug.b);
+				}
+				if (keyboard_check(ord("G"))) {
+					debug.b -= value;	
+					print("debug.b", debug.b)
+				}
+				
+				var value = 0.1;
+				if (keyboard_check(ord("Y"))) {
+					debug.c += value;	
+					print("debug.c", debug.c);
+				}
+				if (keyboard_check(ord("H"))) {
+					debug.c -= value;	
+					print("debug.c", debug.c)
+				}
 			}
 		},
 		elements: Core.Collections.PriorityQueues.create(),
@@ -202,6 +245,10 @@ function createGridController() {
 			},
 		),
 		#endregion
+		create: function(grid) {
+			grid.view.x = (grid.width - grid.view.width) / 2.0
+			grid.view.y = grid.height - grid.view.height;
+		},
 		free: function(grid) {
 			
 			grid.elements = Core.Collections.PriorityQueues.free(grid.elements);
@@ -213,35 +260,51 @@ function createGridController() {
 				}, grid);
 			grid.view.update(grid);
 		},
+		stars: createList(),
 		renderWireframe: function(grid) {
 			var surfaceWidth = 2048;
 			var surfaceHeight = 2048;
+			var primaryColor = colorToGMColor(getPlaygroundController().colorPrimaryLines);
+			var secondaryColor = colorToGMColor(getPlaygroundController().colorSecondaryLines);
+			var colors = {
+				a: primaryColor,
+				b: secondaryColor,
+				c: primaryColor,
+				d: secondaryColor,
+			}
+			
+			#region Transform colors in gridColorWheel
+			var controller = getPlaygroundController();
+			if (controller.isGridWheelEnabled) {
+				colors.a = colorToGMColor(controller.gridColorWheel[0]);
+				colors.b = colorToGMColor(controller.gridColorWheel[1]);
+				colors.c = colorToGMColor(controller.gridColorWheel[2]);
+				colors.d = colorToGMColor(controller.gridColorWheel[3]);
+			}
+			#endregion
+			
 			if (grid.separators.amount > 0) {
-					
-				var viewY = grid.view.y;
-				var scanMargin = 2.0
-				var separatorHeight = (grid.height * scanMargin) / grid.separators.amount;
+				var separatorHeight = (grid.view.height * 2) / grid.separators.amount;
 				var timer = grid.separators.timer;
-				timer += applyDeltaTime(grid.separators.speed);
+				timer += applyDeltaTime(grid.speed * grid.separators.speed);
 				grid.separators.timer = timer > separatorHeight
 					? timer - separatorHeight
 					: timer;
-				for (var index = 0; index <= grid.separators.amount; index++) {
-						
-					var xStart = -5.0;
-					var yStart = (index * separatorHeight) + timer - viewY - scanMargin
-					var xEnd = 5.0;
-					var yEnd = yStart;
-					var thickness = 2.0;
+				for (var index = 0; index <= grid.separators.amount * 3; index++) {
+					var offset = (grid.view.y - floor(grid.view.y))
+					var xStart = -5.0
+					var yStart = -3 * (grid.view.height) + index * separatorHeight + offset + timer
+					var xEnd = 5.0
+					var yEnd = yStart
+					var thickness = 6.0
 					xStart *= surfaceWidth;
 					yStart *= surfaceHeight;
 					xEnd *= surfaceWidth;
 					yEnd *= surfaceHeight;
-							
-					Core.GPU.renderTexturedLine(xStart, yStart, xEnd, yEnd, thickness, 1.0, c_red);
+					Core.GPU.renderTexturedLine(xStart, yStart, xEnd, yEnd, thickness, 1.0, colors.b);	
 				}
 			}
-			
+
 			if (grid.channels > 0) {
 						
 				var channelWidth = grid.view.width / grid.channels;
@@ -253,7 +316,7 @@ function createGridController() {
 					var yStart = -5.0;
 					var xEnd = xStart;
 					var yEnd = grid.view.height + 5.0;
-					var thickness = 5.0;
+					var thickness = 8.0;
 					xStart *= surfaceWidth;
 					yStart *= surfaceHeight;
 					xEnd *= surfaceWidth;
@@ -264,9 +327,9 @@ function createGridController() {
 						scale = grid.channels - index;
 					}
 							
-					Core.GPU.renderTexturedLine(xStart, yStart, xEnd, yEnd, thickness + scale, 1.0, c_fuchsia);
+					Core.GPU.renderTexturedLine(xStart, yStart, xEnd, yEnd, thickness + scale, 1.0, colors.a);
 				}
-				
+
 				// left
 				var viewXOffset =  viewX + 2.0 - (floor(viewX / channelWidth) * channelWidth);
 				var amount = grid.channels * 2.0;
@@ -276,13 +339,13 @@ function createGridController() {
 					var yStart = -5.0;
 					var xEnd = xStart;
 					var yEnd = grid.view.height + 5.0;
-					var thickness = 2.0;
+					var thickness = 4.0;
 					xStart *= surfaceWidth;
 					yStart *= surfaceHeight;
 					xEnd *= surfaceWidth;
 					yEnd *= surfaceHeight;
 							
-					Core.GPU.renderTexturedLine(xStart, yStart, xEnd, yEnd, thickness, 1.0, c_lime);
+					Core.GPU.renderTexturedLine(xStart, yStart, xEnd, yEnd, thickness, 0.75, colors.c);
 				}	
 				
 				// right
@@ -294,15 +357,30 @@ function createGridController() {
 					var yStart = -5.0;
 					var xEnd = xStart;
 					var yEnd = grid.view.height + 5.0;
-					var thickness = 2.0;
+					var thickness = 4.0;
 					xStart *= surfaceWidth;
 					yStart *= surfaceHeight;
 					xEnd *= surfaceWidth;
 					yEnd *= surfaceHeight;
 							
-					Core.GPU.renderTexturedLine(xStart, yStart, xEnd, yEnd, thickness, 1.0, c_red);
+					Core.GPU.renderTexturedLine(xStart, yStart, xEnd, yEnd, thickness, 0.75, colors.d);
 				}
+				
 			}
+		
+			#region Borders
+			var xStart = 0 - grid.view.x * surfaceWidth;
+			Core.GPU.renderTexturedLine(xStart, -8192, xStart, 8192, 64, 1.0, c_lime);
+			
+			var xStart = (grid.width - grid.view.x) * surfaceWidth
+			Core.GPU.renderTexturedLine(xStart, -8192, xStart, 8192, 64, 1.0, c_red);
+			
+			var yStart = (grid.height - grid.view.y) * surfaceHeight
+			Core.GPU.renderTexturedLine(-8192, yStart, 8192, yStart, 32, 1.0, c_red);
+			
+			var yStart = (-1.0 * grid.view.y) * surfaceHeight
+			Core.GPU.renderTexturedLine(-8192, yStart, 8192, yStart, 32, 1.0, c_red)
+			#endregion
 		},
 		renderPlayer: function(grid) {
 			
@@ -328,43 +406,9 @@ function createGridController() {
 			var elementY = getPositionVertical(position);
 			var viewWidth = grid.view.width;
 							
-			var renderXPosition = null;
-			var renderYPosition = null;
-			if ((Core.Numbers.isBetween(elementX + (elementWidth / 2.0), viewX, viewX + viewWidth))
-				|| (Core.Numbers.isBetween(elementX - (elementWidth / 2.0), viewX, viewX + viewWidth))) {
-							
-				renderXPosition = (elementX - viewX) * surfaceWidth;
-				renderYPosition = (elementY - viewY) * surfaceHeight;
-			}
-							
-			if ((!isNumber(renderXPosition)) 
-				&& (viewX < 0.0)) {
-									
-				var viewXOffset = grid.width + viewX;
-				if ((Core.Numbers.isBetween(elementX + (elementWidth / 2.0), viewXOffset, grid.width))
-					|| (Core.Numbers.isBetween(elementX - (elementWidth / 2.0), viewXOffset, grid.width))) {
-									
-					renderXPosition = ((elementX - grid.width) - viewX) * surfaceWidth;
-					renderYPosition = ((elementY) - viewY) * surfaceHeight;
-				}
-			}
-							
-			if ((!isNumber(renderXPosition)) 
-				&& (viewX + viewWidth + (elementWidth / 2.0) > grid.width)) {
-								
-				var viewXOffset = viewWidth - (grid.width - viewX);
-				if ((Core.Numbers.isBetween(elementX + (elementWidth / 2.0), -1 * (elementWidth / 2.0), viewXOffset))
-					|| (Core.Numbers.isBetween(elementX - (elementWidth / 2.0), -1 * (elementWidth / 2.0), viewXOffset))) {
-									
-					renderXPosition = ((elementX + grid.width) - viewX) * surfaceWidth;
-					renderYPosition = ((elementY) - viewY) * surfaceHeight;
-									
-				}
-			}
-							
-			if (isNumber(renderXPosition)) {
-				Core.Sprites.render(sprite, renderXPosition, renderYPosition);
-			}
+			var renderXPosition = (elementX - viewX) * surfaceWidth;
+			var renderYPosition = (elementY - viewY) * surfaceHeight;
+			Core.Sprites.render(sprite, renderXPosition, renderYPosition);
 		},
 		renderShrooms: function(grid) {
 			if (Core.Collections.PriorityQueues.size(grid.elements)) {
@@ -378,6 +422,8 @@ function createGridController() {
 					var surfaceWidth = data.surfaceWidth;
 					var surfaceHeight = data.surfaceHeight;
 					var texture = getSpriteAssetIndex(sprite);
+					setSpriteXScale(sprite, 1.5);
+					setSpriteYScale(sprite, 1.5);
 					var xScale = getSpriteXScale(sprite);
 					var yScale = getSpriteYScale(sprite);
 					var elementWidth = (Core.Assets.Texture.getWidth(texture) / surfaceWidth) * xScale;
@@ -388,8 +434,11 @@ function createGridController() {
 					var elementY = getPositionVertical(position);
 					var viewWidth = grid.view.width;
 							
-					var renderXPosition = null;
-					var renderYPosition = null;
+					var renderXPosition = (elementX - viewX) * surfaceWidth;
+					var renderYPosition = (elementY - viewY) * surfaceHeight;
+
+					Core.Sprites.render(sprite, renderXPosition, renderYPosition);
+					/*
 					if ((Core.Numbers.isBetween(elementX + (elementWidth / 2.0), viewX, viewX + viewWidth))
 						|| (Core.Numbers.isBetween(elementX - (elementWidth / 2.0), viewX, viewX + viewWidth))) {
 							
@@ -425,6 +474,7 @@ function createGridController() {
 					if (isNumber(renderXPosition)) {
 						Core.Sprites.render(sprite, renderXPosition, renderYPosition);
 					}
+					*/
 				}, { grid: grid, surfaceWidth: 2048, surfaceHeight: 2048 });
 			}
 		},
@@ -676,6 +726,9 @@ function createGridController() {
 			cameraShakeFactor: 0.5,	
 		},
 	};
+	
+	grid.create(grid);
+	
 	return grid;
 }
 
@@ -738,3 +791,4 @@ function checkCollisionBetweenGridElements(elementA, elementB, resolution) {
 	var result = rectangle_in_rectangle(xStartA, yStartA, xEndA, yEndA, xStartB, yStartB, xEndB, yEndB);
 	return result;
 }
+	

@@ -182,7 +182,7 @@
 				this.cameraXPosition = clamp(this.cameraXPosition, 0, worldWidth);
 				this.cameraYPosition = clamp(this.cameraYPosition, 0, worldHeight);
 		
-				print(this.cameraXPosition, this.cameraYPosition, this.cameraZPosition, this.cameraDirection, this.cameraPitch);
+				//print(this.cameraXPosition, this.cameraYPosition, this.cameraZPosition, this.cameraDirection, this.cameraPitch);
 				#endregion
 		
 			} else {

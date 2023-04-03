@@ -9,7 +9,7 @@ function setInstanceVariable(argument0, argument1, argument2) {
 		var name = argument1;
 		var value = argument2;
 	
-		if (isNumber(instance)) {
+		if (!isUndefined(instance)) {
 			variable_instance_set(instance, string(name), value);	
 		}
 	

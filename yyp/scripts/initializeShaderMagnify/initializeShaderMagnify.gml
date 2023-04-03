@@ -11,14 +11,4 @@ function initializeShaderMagnify(argument0) {
 		variable_instance_set(context, "shaderMagnifyUniformMinZoom", shader_get_uniform(shaderMagnify, "minZoom"));
 		variable_instance_set(context, "shaderMagnifyUniformMaxZoom", shader_get_uniform(shaderMagnify, "maxZoom"));
 
-		///@SuppressWarning
-		context.shaderMagnifyUniformResolution = context.shaderMagnifyUniformResolution;
-		context.shaderMagnifyUniformPosition = context.shaderMagnifyUniformPosition;
-		context.shaderMagnifyUniformRadius = context.shaderMagnifyUniformRadius;
-		context.shaderMagnifyUniformMinZoom = context.shaderMagnifyUniformMinZoom;
-		context.shaderMagnifyUniformMaxZoom = context.shaderMagnifyUniformMaxZoom;
-	
-
-
-
 }

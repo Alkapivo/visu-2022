@@ -9,12 +9,6 @@ function initializeShaderMosaic(argument0) {
 		variable_instance_set(context, "shaderMosaicUniformAmount", shader_get_uniform(shaderMosaic, "amount"));
 
 
-		///@SuppressWarning
-		context.shaderMosaicUniformResolution = context.shaderMosaicUniformResolution;
-		context.shaderMosaicUniformAmount = context.shaderMosaicUniformAmount;
-	
-
-
 
 }
 

@@ -239,7 +239,7 @@ function particleShroomExplosion() {
 	part_type_alpha3(particleEffect, 0.58, 1, 0);
 	part_type_blend(particleEffect, 1);
 	part_type_life(particleEffect, 20, 60);
-	part_type_speed(particleEffect, 1, 4, 0, 0);
+	part_type_speed(particleEffect, 1, 12, 0, 0);
 	part_type_direction(particleEffect, 0, 360, 0, 0);
 	part_type_gravity(particleEffect, 0.22, 90);
 

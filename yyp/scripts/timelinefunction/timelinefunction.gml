@@ -1,6 +1,6 @@
 function visuTrackDefaultHandler() {
 
-	var gridRenderer = getGridRenderer();
+	var gridRenderer = fetchGridRenderer();
 
 	gridRenderer.xScale = getPropertyReal("gridRenderer.xScale", 1.07);
 	gridRenderer.yScale = getPropertyReal("gridRenderer.yScale", 1.07);

@@ -13,6 +13,19 @@
         ]
     },
     {
+        "name": "Mosaic-2",
+        "shader": "Mosaic",
+        "parameters": [
+            {
+                "name": "amount",
+                "start": 96.0,
+                "end": 1024.0,
+                "factor": 0.5,
+                "increment": 0.0
+            }
+        ]
+    },
+    {
         "name": "LED-1",
         "shader": "LED",
         "parameters": [

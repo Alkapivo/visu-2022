@@ -152,9 +152,11 @@ function spawnVisuPlayer(name, inputHandler) {
 
 	var position = createPosition(0.5, 0.75);
 	if (isOptionalPresent(getPlaygroundController())) {
+		
+		var grid = getPlaygroundController().GMObject.state.grid;
 		position = createPosition(
-			getPlaygroundController().GMObject.state.grid.view.width / 2.0,
-			getPlaygroundController().GMObject.state.grid.height - (getPlaygroundController().GMObject.state.grid.view.height / 4.0)
+			grid.width / 2.0,
+			(grid.height - grid.view.height * 2)
 		);
 	}
 	var spriteIndex = asset_texture_visu_player;

@@ -8,7 +8,7 @@ function getInstanceVariable(argument0, argument1) {
 	var instance = argument0;
 	var name = argument1;
 	
-	if (isNumber(instance)) {
+	if (!isUndefined(instance)) {
 		var value = variable_instance_get(instance, string(name));
 		return isUndefined(value) ? createEmptyOptional() : value;	
 	} else {
