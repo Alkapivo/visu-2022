@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "removeFromList",
   "isCompatibility": false,
+  "isDnD": false,
   "parent": {
     "name": "List",
     "path": "folders/src/com.devhorizon.core/util/collection/List.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "removeFromList",
-  "tags": [],
-  "resourceType": "GMScript",
 }

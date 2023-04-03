@@ -45,6 +45,7 @@ function logger() {
 	*/
 	
 	
+	
 	var caller = "";
 	try {
 			

@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "net_cmd_init",
   "isCompatibility": false,
+  "isDnD": false,
   "parent": {
     "name": "method",
     "path": "folders/src/com.devhorizon.core/manager/NetworkManager/NetworkManagerMethods/method.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "net_cmd_init",
-  "tags": [],
-  "resourceType": "GMScript",
 }

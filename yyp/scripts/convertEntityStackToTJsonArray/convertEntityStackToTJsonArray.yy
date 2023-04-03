@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "convertEntityStackToTJsonArray",
   "isCompatibility": false,
+  "isDnD": false,
   "parent": {
     "name": "Converter",
     "path": "folders/src/com.devhorizon.core/lang/json/@deprecated/Converter.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "convertEntityStackToTJsonArray",
-  "tags": [],
-  "resourceType": "GMScript",
 }

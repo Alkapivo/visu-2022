@@ -8,11 +8,5 @@ function initializeShaderScanlines(argument0) {
 		variable_instance_set(context, "shaderScanlinesUniformResolution", shader_get_uniform(shaderScanlines, "resolution"));
 		variable_instance_set(context, "shaderScanlinesUniformColor", shader_get_uniform(shaderScanlines, "color"));
 
-		///@SuppressWarning
-		context.shaderScanlinesUniformResolution = context.shaderScanlinesUniformResolution;
-		context.shaderScanlinesUniformColor = context.shaderScanlinesUniformColor;
-	
-
-
 
 }

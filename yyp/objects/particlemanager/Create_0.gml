@@ -16,12 +16,6 @@
 		ParticleSystems.FOREGROUND,
 	]
 	
-	///@type {Surface}
-	particlesSurface = [
-		createSurface(1024, 1024),
-		createSurface(1024, 1024),
-	]
-	
 	///@type {ParticleSystem[]}
 	particleSystems = [];
 

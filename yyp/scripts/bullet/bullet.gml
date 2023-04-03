@@ -24,7 +24,6 @@ function createBullet(gridElement, angle, speedValue, acceleration, producer, co
 	setBulletCollisionRadius(bullet, assertNoOptional(collisionRadius));
 
 	return bullet;
-	
 }
 ///@function serializeBullet(bullet)
 ///@description Serialize Bullet to JSON string.

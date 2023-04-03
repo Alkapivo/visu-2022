@@ -3,52 +3,30 @@
     "layout": [
         {
             "key": "0x0",
-            "displayName": "set screens 0x0",
+            "displayName": "add grid channel",
 			"keyboardMapping": [ "1", "5" ],
             "actions": [
                 {
-                    "name": "actionSetScreensTarget",
-                    "parameters": [ 1.0 ]
+                    "name": "actionAddGridChannels",
+                    "parameters": [ 1.0, 0.03 ]
                 }
             ]
         },
         {
             "key": "1x0",
-            "displayName": "set screens 2x2",
+            "displayName": "add grid separator",
             "keyboardMapping": [ "2", "5" ],
             "actions": [
                 {
-                    "name": "actionSetScreensTarget",
-                    "parameters": [ 2.0 ]
+                    "name": "actionAddGridSeparators",
+                    "parameters": [ 1.0, 0.03 ]
                 }
             ]
         },
         {
             "key": "2x0",
-            "displayName": "set screens 3x3",
+            "displayName": "enable/disable grid rendering",
             "keyboardMapping": [ "3", "5" ],
-            "actions": [
-                {
-                    "name": "actionSetScreensTarget",
-                    "parameters": [ 3.0 ]
-                }
-            ]
-        },
-        {
-            "key": "3x0",
-            "displayName": "set screens 4x4",
-            "keyboardMapping": [ "4", "5" ],
-            "actions": [
-                {
-                    "name": "actionSetScreensTarget",
-                    "parameters": [ 4.0 ]
-                }
-            ]
-        },
-        {
-            "key": "4x0",
-            "displayName": "set enable-grid-rendering",
-            "keyboardMapping": [ "1", "6" ],
             "actions": [
                 {
                     "name": "actionSwitchEnableGridRendering",
@@ -57,12 +35,34 @@
             ]
         },
         {
+            "key": "3x0",
+            "displayName": "enable/disable grid color",
+            "keyboardMapping": [ "4", "5" ],
+            "actions": [
+                {
+                    "name": "actionSwitchEnableGridColorWheel",
+                    "parameters": []
+                }
+            ]
+        },
+        {
+            "key": "4x0",
+            "displayName": "enable/disable grid frame clear",
+            "keyboardMapping": [ "1", "6" ],
+            "actions": [
+                {
+                    "name": "actionSwitchEnableGridFrameCleaned",
+                    "parameters": []
+                }
+            ]
+        },
+        {
             "key": "5x0",
-            "displayName": "set enable-lyrics-rendering",
+            "displayName": "enable/disable video rendering",
             "keyboardMapping": [ "2", "6" ],
             "actions": [
                 {
-                    "name": "actionSwitchEnableLyricsRendering",
+                    "name": "actionEnableVideo",
                     "parameters": []
                 }
             ]
@@ -80,7 +80,7 @@
         },
         {
             "key": "7x0",
-            "displayName": "start recording track",
+            "displayName": "start/stop recording track",
             "keyboardMapping": [ "4", "6" ],
             "actions": [
                 {
@@ -91,67 +91,67 @@
         },
         {
             "key": "0x1",
-            "displayName": "set screens-speed",
+            "displayName": "remove grid channel",
             "keyboardMapping": [ "Q", "5" ],
             "actions": [
                 {
-                    "name": "actionSetScreenFactor",
-                    "parameters": [ 0.001 ]
+                    "name": "actionAddGridChannels",
+                    "parameters": [ -1.0, 0.03 ]
                 }
             ]
         },
         {
             "key": "1x1",
-            "displayName": "set screens-speed",
+            "displayName": "remvoe grid separator",
             "keyboardMapping": [ "W", "5" ],
             "actions": [
                 {
-                    "name": "actionSetScreenFactor",
-                    "parameters": [ 0.004 ]
+                    "name": "actionAddGridSeparators",
+                    "parameters": [ -1.0, 0.03 ]
                 }
             ]
         },
         {
             "key": "2x1",
-            "displayName": "set screens-speed",
+            "displayName": "enable/disable lyrics rendering",
             "keyboardMapping": [ "E", "5" ],
             "actions": [
                 {
-                    "name": "actionSetScreenFactor",
-                    "parameters": [ 0.05 ]
+                    "name": "actionSwitchEnableLyricsRendering",
+                    "parameters": []
                 }
             ]
         },
         {
             "key": "3x1",
-            "displayName": "set screens-speed",
+            "displayName": "spawn lyrics",
             "keyboardMapping": [ "R", "5" ],
             "actions": [
                 {
-                    "name": "actionSetScreenFactor",
-                    "parameters": [ 0.075 ]
+                    "name": "actionSendLyricsEvent",
+                    "parameters": [ "lyrics-01" ]
                 }
             ]
         },
         {
             "key": "4x1",
-            "displayName": "set enable-grid-frame-cleaned",
+            "displayName": "spawn lyrics",
             "keyboardMapping": [ "Q", "6" ],
             "actions": [
                 {
-                    "name": "actionSwitchEnableGridFrameCleaned",
-                    "parameters": []
+                    "name": "actionSendLyricsEvent",
+                    "parameters": [ "lyrics-02" ]
                 }
             ]
         },
         {
             "key": "5x1",
-            "displayName": "set enable-grid-frame-cleaned",
+            "displayName": "spawn lyrics",
             "keyboardMapping": [ "W", "6" ],
             "actions": [
                 {
-                    "name": "actionSwitchEnableGridColorWheel",
-                    "parameters": []
+                    "name": "actionSendLyricsEvent",
+                    "parameters": [ "lyrics-03" ]
                 }
             ]
         },
@@ -168,7 +168,7 @@
         },
         {
             "key": "7x1",
-            "displayName": "Remove last shader",
+            "displayName": "remove shader",
             "keyboardMapping": [ "R", "6" ],
             "actions": [
                 {
@@ -179,243 +179,8 @@
         },
         {
             "key": "0x2",
-            "displayName": "set angle-target",
+            "displayName": "spawn shader",
             "keyboardMapping": [ "A", "5" ],
-            "actions": [
-                {
-                    "name": "actionSetAngleTarget",
-                    "parameters": [ 90 ]
-                }
-            ]
-        },
-        {
-            "key": "1x2",
-            "displayName": "set angle-target",
-            "keyboardMapping": [ "S", "5" ],
-            "actions": [
-                {
-                    "name": "actionSetAngleTarget",
-                    "parameters": [ -90 ]
-                }
-            ]
-        },
-        {
-            "key": "2x2",
-            "displayName": "set angle-target",
-            "keyboardMapping": [ "D", "5" ],
-            "actions": [
-                {
-                    "name": "actionSetAngleTarget",
-                    "parameters": [ 45 ]
-                }
-            ]
-        },
-        {
-            "key": "3x2",
-            "displayName": "set angle-target",
-            "keyboardMapping": [ "F", "5" ],
-            "actions": [
-                {
-                    "name": "actionSetAngleTarget",
-                    "parameters": [ -45 ]
-                }
-            ]
-        },
-        {
-            "key": "4x2",
-            "displayName": "set grid-shape",
-            "keyboardMapping": [ "A", "6" ],
-            "actions": [
-                {
-                    "name": "actionSetGridTopLineWidth",
-                    "parameters": [ 0.36, 0.001 ]
-                },
-                {
-                    "name": "actionSetGridBottomLineWidth",
-                    "parameters": [ 0.37, 0.001 ]
-                },
-                {
-                    "name": "actionSetGridXScale",
-                    "parameters": [ 0.85, 0.0008 ]
-                },
-                {
-                    "name": "actionSetGridYScale",
-                    "parameters": [ 0.85, 0.0008 ]
-                }
-            ]
-        },
-        {
-            "key": "5x2",
-            "displayName": "set grid-shape",
-            "keyboardMapping": [ "S", "6" ],
-            "actions": [
-                {
-                    "name": "actionSetGridTopLineWidth",
-                    "parameters": [ 0.37, 0.001 ]
-                },
-                {
-                    "name": "actionSetGridBottomLineWidth",
-                    "parameters": [ 0.69, 0.001 ]
-                },
-                {
-                    "name": "actionSetGridXScale",
-                    "parameters": [ 0.90, 0.0008 ]
-                },
-                {
-                    "name": "actionSetGridYScale",
-                    "parameters": [ 0.90, 0.0008 ]
-                }
-            ]
-        },
-        {
-            "key": "6x2",
-            "displayName": "set grid-shape",
-            "keyboardMapping": [ "D", "6" ],
-            "actions": [
-                {
-                    "name": "actionSetGridTopLineWidth",
-                    "parameters": [ 0.70, 0.001 ]
-                },
-                {
-                    "name": "actionSetGridBottomLineWidth",
-                    "parameters": [ 0.96, 0.001 ]
-                },
-                {
-                    "name": "actionSetGridXScale",
-                    "parameters": [ 0.95, 0.0008 ]
-                },
-                {
-                    "name": "actionSetGridYScale",
-                    "parameters": [ 0.95, 0.0008 ]
-                }
-            ]
-        },
-        {
-            "key": "7x2",
-            "displayName": "set grid-shape",
-            "keyboardMapping": [ "F", "6" ],
-            "actions": [
-                {
-                    "name": "actionSetGridTopLineWidth",
-                    "parameters": [ 0.89, 0.001 ]
-                },
-                {
-                    "name": "actionSetGridBottomLineWidth",
-                    "parameters": [ 0.93, 0.001 ]
-                },
-                {
-                    "name": "actionSetGridXScale",
-                    "parameters": [ 1.03, 0.0008 ]
-                },
-                {
-                    "name": "actionSetGridYScale",
-                    "parameters": [ 1.03, 0.0008 ]
-                }
-            ]
-        },
-        {
-            "key": "0x3",
-            "displayName": "set angle-factor",
-            "keyboardMapping": [ "Z", "5" ],
-            "actions": [
-                {
-                    "name": "actionSetAngleFactor",
-                    "parameters": [ 0.11 ]
-                }
-            ]
-        },
-        {
-            "key": "1x3",
-            "displayName": "set angle-factor",
-            "keyboardMapping": [ "X", "5" ],
-            "actions": [
-                {
-                    "name": "actionSetAngleFactor",
-                    "parameters": [ 0.33 ]
-                }
-            ]
-        },
-        {
-            "key": "2x3",
-            "displayName": "set angle-factor",
-            "keyboardMapping": [ "C", "5" ],
-            "actions": [
-                {
-                    "name": "actionSetAngleFactor",
-                    "parameters": [ 0.77 ]
-                }
-            ]
-        },
-        {
-            "key": "3x3",
-            "displayName": "set angle-factor",
-            "keyboardMapping": [ "V", "5" ],
-            "actions": [
-                {
-                    "name": "actionSetAngleFactor",
-                    "parameters": [ 1.61 ]
-                }
-            ]
-        },
-        {
-            "key": "4x3",
-            "displayName": "set grid-speed",
-            "keyboardMapping": [ "Z", "6" ],
-            "actions": [
-                {
-                    "name": "actionSetGridSpeed",
-                    "parameters": [ 0.002 ]
-                }
-            ]
-        },
-        {
-            "key": "5x3",
-            "displayName": "set grid-speed",
-            "keyboardMapping": [ "X", "6" ],
-            "actions": [
-                {
-                    "name": "actionSetGridSpeed",
-                    "parameters": [ 0.003 ]
-                }
-            ]
-        },
-        {
-            "key": "6x3",
-            "displayName": "set grid-speed",
-            "keyboardMapping": [ "C", "6" ],
-            "actions": [
-                {
-                    "name": "actionSetGridSpeed",
-                    "parameters": [ 0.005 ]
-                }
-            ]
-        },
-        {
-            "key": "7x3",
-            "displayName": "set grid-speed",
-            "keyboardMapping": [ "V", "6" ],
-            "actions": [
-                {
-                    "name": "actionSetGridSpeed",
-                    "parameters": [ 0.0075 ]
-                }
-            ]
-        },
-        {
-            "key": "0x4",
-            "displayName": "spawn shader",
-            "keyboardMapping": [ "1", "7" ],
-            "actions": [
-                {
-                    "name": "actionStartShader",
-                    "parameters": [ "Mosaic-1", 5.6 ]
-                }
-            ]
-        },
-        {
-            "key": "1x4",
-            "displayName": "spawn shader",
-            "keyboardMapping": [ "2", "7" ],
             "actions": [
                 {
                     "name": "actionStartShader",
@@ -424,9 +189,9 @@
             ]
         },
         {
-            "key": "2x4",
+            "key": "1x2",
             "displayName": "spawn shader",
-            "keyboardMapping": [ "3", "7" ],
+            "keyboardMapping": [ "S", "5" ],
             "actions": [
                 {
                     "name": "actionStartShader",
@@ -435,9 +200,31 @@
             ]
         },
         {
-            "key": "3x4",
+            "key": "2x2",
             "displayName": "spawn shader",
-            "keyboardMapping": [ "4", "7" ],
+            "keyboardMapping": [ "D", "5" ],
+            "actions": [
+                {
+                    "name": "actionStartShader",
+                    "parameters": [ "Mosaic-1", 5.6 ]
+                }
+            ]
+        },
+        {
+            "key": "3x2",
+            "displayName": "spawn shader",
+            "keyboardMapping": [ "F", "5" ],
+            "actions": [
+                {
+                    "name": "actionStartShader",
+                    "parameters": [ "Mosaic-2", 5.6 ]
+                }
+            ]
+        },
+        {
+            "key": "4x2",
+            "displayName": "spawn shader",
+            "keyboardMapping": [ "A", "6" ],
             "actions": [
                 {
                     "name": "actionStartShader",
@@ -446,64 +233,9 @@
             ]
         },
         {
-            "key": "4x4",
-            "displayName": "set grid-pulse",
-            "keyboardMapping": [ "1", "8" ],
-            "actions": [
-                {
-                    "name": "actionSpawnGridPulse",
-                    "parameters": [ 150.0 ]
-                }
-            ]
-        },
-        {
-            "key": "5x4",
-            "displayName": "set grid-pulse",
-            "keyboardMapping": [ "2", "8" ],
-            "actions": [
-                {
-                    "name": "actionSpawnGridPulse",
-                    "parameters": [ 60.0 ]
-                }
-            ]
-        },
-        {
-            "key": "6x4",
-            "displayName": "add grid-channel",
-            "keyboardMapping": [ "3", "8" ],
-            "actions": [
-                {
-                    "name": "actionAddGridChannels",
-                    "parameters": [ -1.0, 0.05 ]
-                }
-            ]
-        },
-        {
-            "key": "7x4",
-            "displayName": "add grid-channel",
-            "keyboardMapping": [ "4", "8" ],
-            "actions": [
-                {
-                    "name": "actionAddGridChannels",
-                    "parameters": [ 1.0, 0.05 ]
-                }
-            ]
-        },
-        {
-            "key": "0x5",
+            "key": "5x2",
             "displayName": "spawn shader",
-            "keyboardMapping": [ "Q", "7" ],
-            "actions": [
-                {
-                    "name": "actionStartShader",
-                    "parameters": [ "Ripple-1", 6.8 ]
-                }
-            ]
-        },
-        {
-            "key": "1x5",
-            "displayName": "spawn shader",
-            "keyboardMapping": [ "W", "7" ],
+            "keyboardMapping": [ "S", "6" ],
             "actions": [
                 {
                     "name": "actionStartShader",
@@ -512,20 +244,9 @@
             ]
         },
         {
-            "key": "2x5",
+            "key": "6x2",
             "displayName": "spawn shader",
-            "keyboardMapping": [ "E", "7" ],
-            "actions": [
-                {
-                    "name": "actionStartShader",
-                    "parameters": [ "Revert", 4.4 ]
-                }
-            ]
-        },
-        {
-            "key": "3x5",
-            "displayName": "spawn shader",
-            "keyboardMapping": [ "R", "7" ],
+            "keyboardMapping": [ "D", "6" ],
             "actions": [
                 {
                     "name": "actionStartShader",
@@ -534,166 +255,20 @@
             ]
         },
         {
-            "key": "4x5",
-            "displayName": "set background",
-            "keyboardMapping": [ "Q", "8" ],
+            "key": "7x2",
+            "displayName": "spawn shader",
+            "keyboardMapping": [ "F", "6" ],
             "actions": [
                 {
-                    "name": "actionSetBackgroundColor",
-                    "parameters": [ "background_color_01" ]
-                },
-                {
-                    "name": "actionSetBackgroundTexture",
-                    "parameters": [ "background_texture_01" ]
+                    "name": "actionStartShader",
+                    "parameters": [ "Revert", 6.4 ]
                 }
             ]
         },
         {
-            "key": "5x5",
-            "displayName": "set background",
-            "keyboardMapping": [ "W", "8" ],
-            "actions": [
-                {
-                    "name": "actionSetBackgroundColor",
-                    "parameters": [ "background_color_02" ]
-                },
-                {
-                    "name": "actionSetBackgroundTexture",
-                    "parameters": [ "background_texture_02" ]
-                }
-            ]
-        },
-        {
-            "key": "6x5",
-            "displayName": "set foreground",
-            "keyboardMapping": [ "E", "8" ],
-            "actions": [
-                {
-                    "name": "actionSetBackgroundColor",
-                    "parameters": [ "background_color_03" ]
-                },
-                {
-                    "name": "actionSetForegroundTexture",
-                    "parameters": [ "background_texture_03" ]
-                }
-            ]
-        },
-        {
-            "key": "7x5",
-            "displayName": "set foreground",
-            "keyboardMapping": [ "R", "8" ],
-            "actions": [
-                {
-                    "name": "actionSetBackgroundColor",
-                    "parameters": [ "background_color_04" ]
-                },
-                {
-                    "name": "actionSetForegroundTexture",
-                    "parameters": [ "background_texture_04" ]
-                }
-            ]
-        },
-        {
-            "key": "0x6",
-            "displayName": "set spawn ranges",
-            "keyboardMapping": [ "A", "7" ],
-            "actions": [
-                {
-                    "name": "actionSetSpawnHRange",
-                    "parameters": [ 0.05, 0.2 ]
-                },
-                {
-                    "name": "actionSetSpawnVRange",
-                    "parameters": [ 0.3, 0.45 ]
-                }
-            ]
-        },
-        {
-            "key": "1x6",
-            "displayName": "set spawn ranges",
-            "keyboardMapping": [ "S", "7" ],
-            "actions": [
-                {
-                    "name": "actionSetSpawnHRange",
-                    "parameters": [ 0.3, 0.45 ]
-                },
-                {
-                    "name": "actionSetSpawnVRange",
-                    "parameters": [ 0.55, 0.7 ]
-                }
-            ]
-        },
-        {
-            "key": "2x6",
-            "displayName": "set spawn ranges",
-            "keyboardMapping": [ "D", "7" ],
-            "actions": [
-                {
-                    "name": "actionSetSpawnHRange",
-                    "parameters": [ 0.55, 0.7 ]
-                },
-                {
-                    "name": "actionSetSpawnVRange",
-                    "parameters": [ 0.3, 0.45 ]
-                }
-            ]
-        },
-        {
-            "key": "3x6",
-            "displayName": "set spawn ranges",
-            "keyboardMapping": [ "F", "7" ],
-            "actions": [
-                {
-                    "name": "actionSetSpawnHRange",
-                    "parameters": [ 0.8, 0.95 ]
-                },
-                {
-                    "name": "actionSetSpawnVRange",
-                    "parameters": [ 0.05, 0.2 ]
-                }
-            ]
-        },
-        {
-            "key": "4x6",
-            "displayName": "set spawn ranges",
-            "keyboardMapping": [ "A", "8" ],
-            "actions": [
-                {
-                    "name": "actionSetSpawnHRange",
-                    "parameters": [ 0.0, 1.0 ]
-                },
-                {
-                    "name": "actionSetSpawnVRange",
-                    "parameters": [ 0.0, 1.0 ]
-                }
-            ]
-        },
-        {
-            "key": "5x6",
-            "displayName": "set spawn-shroom-speed",
-            "keyboardMapping": [ "S", "8" ],
-            "actions": [
-                {
-                    "name": "actionSetSpawnSpeed",
-                    "parameters": [ 0.002, 0.003 ]
-                }
-            ]
-        },
-        {
-            "key": "6x6",
-            "displayName": "set spawn-shroom-speed",
-            "keyboardMapping": [ "D", "8" ],
-            "actions": [
-                {
-                    "name": "actionSetSpawnSpeed",
-                    "parameters": [ 0.006, 0.007 ]
-                }
-            ]
-        },
-        {
-            "key": "7x6",
-            "displayName": "spawn random glitch",
-            "keyboardMapping": [ "F", "8" ],
+            "key": "0x3",
+            "displayName": "spawn glitch",
+            "keyboardMapping": [ "Z", "5", "L" ],
             "actions": [
                 {
                     "name": "actionSpawnRandomGlitch",
@@ -702,9 +277,161 @@
             ]
         },
         {
-            "key": "0x7",
+            "key": "0x8",
+            "displayName": "set foreground",
+            "keyboardMapping": [ "Z", "5" ],
+            "actions": [
+                {
+                    "name": "actionSetBackgroundColor",
+                    "parameters": [ "background_color_02" ]
+                },
+                {
+                    "name": "actionSetForegroundTexture",
+                    "parameters": [ "background_texture_06", true ]
+                }
+            ]
+        },
+        {
+            "key": "1x3",
+            "displayName": "set grid speed",
+            "keyboardMapping": [ "X", "5" ],
+            "actions": [
+                {
+                    "name": "actionSetGridSpeed",
+                    "parameters": [ 0.5 ]
+                }
+            ]
+        },
+        {
+            "key": "2x3",
+            "displayName": "reset background & foreground",
+            "keyboardMapping": [ "C", "5" ],
+            "actions": [
+                {
+                    "name": "actionSetBackgroundTexture",
+                    "parameters": [ "background_texture_05", true ]
+                },
+                {
+                    "name": "actionSetForegroundTexture",
+                    "parameters": [ "background_texture_05", true ]
+                }
+            ]
+        },
+        {
+            "key": "3x3",
+            "displayName": "reset spawn position horizontal & vertical",
+            "keyboardMapping": [ "V", "5" ],
+            "actions": [
+                {
+                    "name": "actionSetSpawnHRange",
+                    "parameters": [ 0.0, 1.0 ]
+                },
+                {
+                    "name": "actionSetSpawnVRange",
+                    "parameters": [ 0.0, 1.0 ]
+                }
+            ]
+        },
+        {
+            "key": "4x3",
+            "displayName": "set spawn position horizontal",
+            "keyboardMapping": [ "Z", "6" ],
+            "actions": [
+                {
+                    "name": "actionSetSpawnHRange",
+                    "parameters": [ 0.105, 0.145 ]
+                }
+            ]
+        },
+        {
+            "key": "5x3",
+            "displayName": "set spawn position horizontal",
+            "keyboardMapping": [ "X", "6" ],
+            "actions": [
+                {
+                    "name": "actionSetSpawnHRange",
+                    "parameters": [ 0.355, 0.395 ]
+                }
+            ]
+        },
+        {
+            "key": "6x3",
+            "displayName": "set spawn position horizontal",
+            "keyboardMapping": [ "C", "6" ],
+            "actions": [
+                {
+                    "name": "actionSetSpawnHRange",
+                    "parameters": [ 0.605, 0.645 ]
+                }
+            ]
+        },
+        {
+            "key": "7x3",
+            "displayName": "set spawn position horizontal",
+            "keyboardMapping": [ "V", "6" ],
+            "actions": [
+                {
+                    "name": "actionSetSpawnHRange",
+                    "parameters": [ 0.855, 0.895 ]
+                }
+            ]
+        },
+        {
+            "key": "0x4",
+            "displayName": "set grid zoom",
+            "keyboardMapping": [ "1", "7" ],
+            "actions": [
+                {
+                    "name": "actionSetGridXScale",
+                    "parameters": [ 0.75, 0.003 ]
+                },
+                {
+                    "name": "actionSetGridYScale",
+                    "parameters": [ 0.75, 0.003 ]
+                }
+            ]
+        },
+        {
+            "key": "1x4",
+            "displayName": "set grid speed",
+            "keyboardMapping": [ "2", "7" ],
+            "actions": [
+                {
+                    "name": "actionSetGridSpeed",
+                    "parameters": [ 0.75 ]
+                }
+            ]
+        },
+        {
+            "key": "2x4",
+            "displayName": "set background",
+            "keyboardMapping": [ "3", "7" ],
+            "actions": [
+                {
+                    "name": "actionSetBackgroundColor",
+                    "parameters": [ "background_color_01" ]
+                },
+                {
+                    "name": "actionSetBackgroundTexture",
+                    "parameters": [ "background_texture_01", true ]
+                }
+            ]
+        },
+        {
+            "key": "3x4",
+            "displayName": "set spawn position vertical",
+            "keyboardMapping": [ "4", "7" ],
+            "actions": [
+                {
+                    "name": "actionSetSpawnVRange",
+                    "parameters": [ 0.105, 0.145 ]
+                }
+            ]
+        },
+        {
+            "key": "4x4",
             "displayName": "spawn shroom",
-            "keyboardMapping": [ "Z", "7" ],
+            "keyboardMapping": [ "1", "8" ],
             "actions": [
                 {
                     "name": "actionSpawnShroom",
@@ -713,9 +440,9 @@
             ]
         },
         {
-            "key": "1x7",
+            "key": "5x4",
             "displayName": "spawn shroom",
-            "keyboardMapping": [ "X", "7" ],
+            "keyboardMapping": [ "2", "8" ],
             "actions": [
                 {
                     "name": "actionSpawnShroom",
@@ -724,9 +451,9 @@
             ]
         },
         {
-            "key": "2x7",
+            "key": "6x4",
             "displayName": "spawn shroom",
-            "keyboardMapping": [ "C", "7" ],
+            "keyboardMapping": [ "3", "8" ],
             "actions": [
                 {
                     "name": "actionSpawnShroom",
@@ -735,13 +462,257 @@
             ]
         },
         {
-            "key": "3x7",
+            "key": "7x4",
             "displayName": "spawn shroom",
-            "keyboardMapping": [ "V", "7" ],
+            "keyboardMapping": [ "4", "8" ],
             "actions": [
                 {
                     "name": "actionSpawnShroom",
                     "parameters": [ "shroom-04" ]
+                }
+            ]
+        },
+        {
+            "key": "0x5",
+            "displayName": "set grid zoom",
+            "keyboardMapping": [ "Q", "7" ],
+            "actions": [
+                {
+                    "name": "actionSetGridXScale",
+                    "parameters": [ 1,0, 0.003 ]
+                },
+                {
+                    "name": "actionSetGridYScale",
+                    "parameters": [ 1.0, 0.003 ]
+                }
+            ]
+        },
+        {
+            "key": "1x5",
+            "displayName": "set grid speed",
+            "keyboardMapping": [ "W", "7" ],
+            "actions": [
+                {
+                    "name": "actionSetGridSpeed",
+                    "parameters": [ 1.0 ]
+                }
+            ]
+        },
+        {
+            "key": "2x5",
+            "displayName": "set background",
+            "keyboardMapping": [ "E", "7" ],
+            "actions": [
+                {
+                    "name": "actionSetBackgroundColor",
+                    "parameters": [ "background_color_02" ]
+                },
+                {
+                    "name": "actionSetBackgroundTexture",
+                    "parameters": [ "background_texture_02", true ]
+                }
+            ]
+        },
+        {
+            "key": "3x5",
+            "displayName": "set spawn position vertical",
+            "keyboardMapping": [ "R", "7" ],
+            "actions": [
+                {
+                    "name": "actionSetSpawnVRange",
+                    "parameters": [ 0.355, 0.395 ]
+                }
+            ]
+        },
+        {
+            "key": "4x5",
+            "displayName": "spawn shroom",
+            "keyboardMapping": [ "Q", "8" ],
+            "actions": [
+                {
+                    "name": "actionSpawnShroom",
+                    "parameters": [ "shroom-05" ]
+                }
+            ]
+        },
+        {
+            "key": "5x5",
+            "displayName": "spawn shroom",
+            "keyboardMapping": [ "W", "8" ],
+            "actions": [
+                {
+                    "name": "actionSpawnShroom",
+                    "parameters": [ "shroom-06" ]
+                }
+            ]
+        },
+        {
+            "key": "6x5",
+            "displayName": "spawn shroom",
+            "keyboardMapping": [ "E", "8" ],
+            "actions": [
+                {
+                    "name": "actionSpawnShroom",
+                    "parameters": [ "shroom-07" ]
+                }
+            ]
+        },
+        {
+            "key": "7x5",
+            "displayName": "spawn shroom",
+            "keyboardMapping": [ "R", "8" ],
+            "actions": [
+                {
+                    "name": "actionSpawnShroom",
+                    "parameters": [ "shroom-08" ]
+                }
+            ]
+        },
+        {
+            "key": "0x6",
+            "displayName": "set view zoom",
+            "keyboardMapping": [ "A", "7" ],
+            "actions": [
+                {
+                    "name": "actionSetGridXScale",
+                    "parameters": [ 1.3, 0.003 ]
+                },
+                {
+                    "name": "actionSetGridYScale",
+                    "parameters": [ 1,3, 0.003 ]
+                }
+            ]
+        },
+        {
+            "key": "1x6",
+            "displayName": "set grid speed",
+            "keyboardMapping": [ "S", "7" ],
+            "actions": [
+                {
+                    "name": "actionSetGridSpeed",
+                    "parameters": [ 1.2 ]
+                }
+            ]
+        },
+        {
+            "key": "2x6",
+            "displayName": "set foreground",
+            "keyboardMapping": [ "D", "7" ],
+            "actions": [
+                {
+                    "name": "actionSetBackgroundColor",
+                    "parameters": [ "background_color_03" ]
+                },
+                {
+                    "name": "actionSetForegroundTexture",
+                    "parameters": [ "background_texture_03", true ]
+                }
+            ]
+        },
+        {
+            "key": "3x6",
+            "displayName": "set spawn position vertical",
+            "keyboardMapping": [ "F", "7" ],
+            "actions": [
+                {
+                    "name": "actionSetSpawnVRange",
+                    "parameters": [ 0.605, 0.645 ]
+                }
+            ]
+        },
+        {
+            "key": "4x6",
+            "displayName": "spawn shroom",
+            "keyboardMapping": [ "A", "8" ],
+            "actions": [
+                {
+                    "name": "actionSpawnShroom",
+                    "parameters": [ "shroom-09" ]
+                }
+            ]
+        },
+        {
+            "key": "5x6",
+            "displayName": "spawn shroom",
+            "keyboardMapping": [ "S", "8" ],
+            "actions": [
+                {
+                    "name": "actionSpawnShroom",
+                    "parameters": [ "shroom-10" ]
+                }
+            ]
+        },
+        {
+            "key": "6x6",
+            "displayName": "spawn shroom",
+            "keyboardMapping": [ "D", "8" ],
+            "actions": [
+                {
+                    "name": "actionSpawnShroom",
+                    "parameters": [ "shroom-11" ]
+                }
+            ]
+        },
+        {
+            "key": "7x6",
+            "displayName": "spawn shroom",
+            "keyboardMapping": [ "F", "8" ],
+            "actions": [
+                {
+                    "name": "actionSpawnShroom",
+                    "parameters": [ "shroom-12" ]
+                }
+            ]
+        },
+        {
+            "key": "0x7",
+            "displayName": "set view zoom",
+            "keyboardMapping": [ "Z", "7" ],
+            "actions": [
+                {
+                    "name": "actionSetGridXScale",
+                    "parameters": [ 1.6, 0.003 ]
+                },
+                {
+                    "name": "actionSetGridYScale",
+                    "parameters": [ 1.6, 0.003 ]
+                }
+            ]
+        },
+        {
+            "key": "1x7",
+            "displayName": "set grid speed",
+            "keyboardMapping": [ "X", "7" ],
+            "actions": [
+                {
+                    "name": "actionSetGridSpeed",
+                    "parameters": [ 1.5 ]
+                }
+            ]
+        },
+        {
+            "key": "2x7",
+            "displayName": "set foreground",
+            "keyboardMapping": [ "C", "7" ],
+            "actions": [
+                {
+                    "name": "actionSetBackgroundColor",
+                    "parameters": [ "background_color_04" ]
+                },
+                {
+                    "name": "actionSetForegroundTexture",
+                    "parameters": [ "background_texture_04", true ]
+                }
+            ]
+        },
+        {
+            "key": "3x7",
+            "displayName": "set spawn position vertical",
+            "keyboardMapping": [ "V", "7" ],
+            "actions": [
+                {
+                    "name": "actionSetSpawnVRange",
+                    "parameters": [ 0.855, 0.895 ]
                 }
             ]
         },
@@ -752,7 +723,7 @@
             "actions": [
                 {
                     "name": "actionSpawnShroom",
-                    "parameters": [ "shroom-05" ]
+                    "parameters": [ "shroom-13" ]
                 }
             ]
         },
@@ -763,7 +734,7 @@
             "actions": [
                 {
                     "name": "actionSpawnShroom",
-                    "parameters": [ "shroom-06" ]
+                    "parameters": [ "shroom-14" ]
                 }
             ]
         },
@@ -774,7 +745,7 @@
             "actions": [
                 {
                     "name": "actionSpawnShroom",
-                    "parameters": [ "shroom-07" ]
+                    "parameters": [ "shroom-15" ]
                 }
             ]
         },
@@ -785,7 +756,7 @@
             "actions": [
                 {
                     "name": "actionSpawnShroom",
-                    "parameters": [ "shroom-08" ]
+                    "parameters": [ "shroom-16" ]
                 }
             ]
         }

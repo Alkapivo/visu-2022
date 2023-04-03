@@ -13,6 +13,7 @@
 		);
 		
 		
+		
 		var console = getConsole();
 		
 		var commandHistory = getInstanceVariable(console, "commandHistory");

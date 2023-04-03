@@ -178,6 +178,24 @@ function createEventsPlayer() {
 				var sound = getAssetIndex(name, AssetSound);
 				if ((isAudio(sound)) && (isNumber(trackPosition))) {
 					
+					fetchGameController().video = video_open("data/video.mp4");
+					video_set_volume(0.0);
+					if (trackPosition > 0) {
+						video_pause();
+						var rewindSteps = floor(trackPosition);
+						repeat(rewindSteps) {
+							video_seek_to(trackPosition * 1000.0);
+							video_draw();
+							print("VHS: ", video_get_position());
+							if (video_get_position() >= trackPosition * 1000.0) {
+								
+								break;	
+							}
+						}
+						video_resume();
+					}
+					video_enable_loop(true);
+					
 					audio_stop_all();
 					var soundInstanceId = audio_play_sound(sound, 100, false);
 					audio_sound_set_track_position(soundInstanceId, trackPosition);
@@ -246,7 +264,7 @@ function sendMidiMatrixEvent(eventsPlayer, keymapConfig,  key, timestamp) {
 								
 	setStructVariable(eventsPlayer.cache, key, 1.0);
 								
-	var midiController = getGameController().midiMatrixController
+	var midiController = fetchGameController().midiMatrixController
 	midiController.eventsRecorder.registerEvent(
 		midiController.eventsRecorder, { 
 			name: "MidiControllerButtonEvent", 
@@ -325,7 +343,7 @@ function createEventsRecorder() {
 				
 				var jsonObject = Core.JSON.decode(jsonString);
 				var timer = Core.Collections.Maps.get(jsonObject, "timer");
-				setInstanceVariable(getGameRenderer(), "trackTimer", timer);
+				setInstanceVariable(fetchGameRenderer(), "trackTimer", timer);
 				var events = [];
 				var jsonEvents = Core.Collections.Maps.get(jsonObject, "events");
 				if (jsonEvents != null) {
@@ -414,7 +432,6 @@ function parseJsonLaunchpadLayout(jsonString) {
     }
 
 	var gmJsonLayout = Core.Collections.Maps.get(gmJsonObject, "layout");
-	var ddd = gmJsonLayout[| 0];
     var layout = [];
     for (var index = 0; index < Core.Collections.Lists.size(gmJsonLayout); index++) {
 
@@ -438,7 +455,7 @@ function parseJsonLaunchpadLayout(jsonString) {
 						
 						for (var index = 0; index < getArrayLength(button.actions); index++) {
 						
-							var action = actions[index];
+							var action = button.actions[index];
 							var fun = getAssetIndex(action.name, AssetScript);
 							var parametersLength = getArrayLength(action.parameters)
 							switch (parametersLength) {
@@ -508,70 +525,76 @@ function fetchPreviousValueFromSortedAscendingArray(array, value) {
 
 function getScreensFactor() {
 				
-	return getInstanceVariable(getGridRenderer(), "screensFactor");
+	return getInstanceVariable(fetchGridRenderer(), "screensFactor");
 }
 
 function setScreensFactor(value) {
 				
-	setInstanceVariable(getGridRenderer(), "screensFactor", value);
+	setInstanceVariable(fetchGridRenderer(), "screensFactor", value);
 }
 
 function setScreensTarget(value) {
 				
-	var factor = getInstanceVariable(getGridRenderer(), "screensFactor");
-	var task = createFieldModifierTask(getGridRenderer(), "screens", value, factor, 1, 0);
+	var factor = getInstanceVariable(fetchGridRenderer(), "screensFactor");
+	var task = createFieldModifierTask(fetchGridRenderer(), "screens", value, factor, 1, 0);
 	sendFieldModifierTask(task);
 }
 
 function setAngleFactor(value) {
 	
-	setInstanceVariable(getGridRenderer(), "angleFactor", value);
+	setInstanceVariable(fetchGridRenderer(), "angleFactor", value);
 }
 
 function setAngleTarget(value) {
 				
-	var factor = getInstanceVariable(getGridRenderer(), "angleFactor");
-	var task = createFieldModifierTask(getGridRenderer(), "angle", value, factor, 1, 0);
+	var factor = getInstanceVariable(fetchGridRenderer(), "angleFactor");
+	var task = createFieldModifierTask(fetchGridRenderer(), "angle", value, factor, 1, 0);
 	sendFieldModifierTask(task);
 }
 
 function setTopLinePositionTarget(value) {
 
-	var factor = getInstanceVariable(getGridRenderer(), "topLinePositionFactor");
-	var task = createFieldModifierTask(getGridRenderer(), "topLinePosition", value, factor, 1, 0);
+	var factor = getInstanceVariable(fetchGridRenderer(), "topLinePositionFactor");
+	var task = createFieldModifierTask(fetchGridRenderer(), "topLinePosition", value, factor, 1, 0);
 	sendFieldModifierTask(task);
 }
 
 function getTopLinePositionFactor() {
 
-	return getInstanceVariable(getGridRenderer(), "topLinePositionFactor");
+	return getInstanceVariable(fetchGridRenderer(), "topLinePositionFactor");
 }
 
 function setTopLinePositionFactor(value) {
 
-	setInstanceVariable(getGridRenderer(), "topLinePositionFactor", value);
+	setInstanceVariable(fetchGridRenderer(), "topLinePositionFactor", value);
 }
 
 function setBottomLinePositionTarget(value) {
 
-	var factor = getInstanceVariable(getGridRenderer(), "bottomLinePositionFactor");
-	var task = createFieldModifierTask(getGridRenderer(), "bottomLinePosition", value, factor, 1, 0);
+	var factor = getInstanceVariable(fetchGridRenderer(), "bottomLinePositionFactor");
+	var task = createFieldModifierTask(fetchGridRenderer(), "bottomLinePosition", value, factor, 1, 0);
 	sendFieldModifierTask(task);
 }
 
 function getBottomLinePositionFactor() {
 
-	return getInstanceVariable(getGridRenderer(), "bottomLinePositionFactor");
+	return getInstanceVariable(fetchGridRenderer(), "bottomLinePositionFactor");
 }
 
 function setBottomLinePositionFactor(value) {
 
-	setInstanceVariable(getGridRenderer(), "bottomLinePositionFactor", value);
+	setInstanceVariable(fetchGridRenderer(), "bottomLinePositionFactor", value);
 }
 
 function setChannelsTarget(value, factor) {
 				
-	var task = createFieldModifierTask(getGridRenderer(), "channels", value, factor, 1, 0);
+	var task = createFieldModifierTask(fetchGridRenderer(), "channels", value, factor, 1, 0);
+	sendFieldModifierTask(task);
+}
+
+function setSeparatorsTarget(value, factor) {
+				
+	var task = createFieldModifierTask(fetchGridRenderer(), "separators", value, factor, 1, 0);
 	sendFieldModifierTask(task);
 }
 
@@ -606,33 +629,49 @@ function spawnVisuShroom(config) {
 	var position = config.position;
 	var horizontalSpeed = config.horizontalSpeed;
 	var verticalSpeed = config.verticalSpeed;
-	
 	var shroomState = createMap();
+	Core.Collections.Maps.set(shroomState, "horizontalSpeed", horizontalSpeed);
+	Core.Collections.Maps.set(shroomState, "verticalSpeed", verticalSpeed);
 	Core.Collections.Maps.set(shroomState, "spawnPosition", config.spawnPosition);
 	Core.Collections.Maps.set(shroomState, "bulletTaken", 0);
 	Core.Collections.Maps.set(shroomState, "isShooting", getValueFromStruct(config.features, "isShooting", false));
+	Core.Collections.Maps.set(shroomState, "shootingInterval", getValueFromStruct(config.features, "shootingInterval", 1.0));
 	Core.Collections.Maps.set(shroomState, "isZigzagMovement", getValueFromStruct(config.features, "isZigzagMovement", false));
 	Core.Collections.Maps.set(shroomState, "zigzagAmount", getValueFromStruct(config.features, "zigzagAmount", 0.002));
 	Core.Collections.Maps.set(shroomState, "zigzagSpeed", getValueFromStruct(config.features, "zigzagSpeed", 0.2));
 	Core.Collections.Maps.set(shroomState, "bulletFollowPlayer", getValueFromStruct(config.features, "bulletFollowPlayer", false));
 	Core.Collections.Maps.set(shroomState, "slideAwayAfterLanding", getValueFromStruct(config.features, "slideAwayAfterLanding", false));
-	
-	var shroomTemplate = createShroomTemplate(
-		createSprite(
-			texture, 
-			irandom(sprite_get_number(texture)), 
-			2.0, 
-			2.0, 
-			1.0, 
-			0.0, 
-			c_white
-		),
-		createMap(),
-		[ verticalSpeed ],
-		[ createTuple(GridElementInfoType.RAINBOW, colorHashToColor("#00ff00ff")) ]
+
+	var gridElement = createGridElement(
+		position,
+		createSprite(texture, irandom(sprite_get_number(texture)), 2.0, 2.0, 0.0, 0.0, c_white),
+		createGridElementInfo(true, GridElementInfoType.DEFAULT, c_white, "")
 	);
-	
-	spawnShroom(shroomTemplate, position, horizontalSpeed, shroomState);
+	var radius = fetchCollisionRadiusFromSprite(getGridElementSprite(gridElement));
+	var speedValue = verticalSpeed > horizontalSpeed ? verticalSpeed : horizontalSpeed;
+	var text = createEmptyOptional();
+	var updateHandler = function() {	
+		logger("///@todo updateHandler implement", LogType.DEBUG);	
+	}
+	var bulletCollisionHandler = function() {
+		logger("///@todo bulletCollisionHandler implement", LogType.DEBUG);	
+	}
+	var playerCollisionHandler = function() {
+		logger("///@todo playerCollisionHandler implement", LogType.DEBUG);
+	}
+		
+	var shroom = createShroom(
+		gridElement,
+		radius,
+		speedValue,
+		shroomState,
+		text,
+		updateHandler,
+		bulletCollisionHandler,
+		playerCollisionHandler
+	);
+		
+	addToList(fetchShrooms(), shroom);
 }
 
 function actionSetScreensTarget(screens) {
@@ -682,10 +721,10 @@ function actionSwitchEnableLyricsRendering() {
 function actionLoadRecordingFromFile() {
 
 	try {
-		var eventsRecorder = getGameController().midiMatrixController.eventsRecorder;
+		var eventsRecorder = fetchGameController().midiMatrixController.eventsRecorder;
 		var text = Core.File.read({ withDialog: true });
 		var eventsRecording = eventsRecorder.parseRecording(eventsRecorder, text);
-		var eventsPlayer = getGameController().midiMatrixController.eventsPlayer;
+		var eventsPlayer = fetchGameController().midiMatrixController.eventsPlayer;
 		eventsPlayer.play(eventsPlayer, eventsRecording);
 	} catch(exception) {
 		logger(exception.message, LogType.INFO);
@@ -696,7 +735,7 @@ function actionLoadRecordingFromFile() {
 function actionStartRecordingToFile() {
 	
 	try {	
-		var eventsRecorder = getGameController().midiMatrixController.eventsRecorder;
+		var eventsRecorder = fetchGameController().midiMatrixController.eventsRecorder;
 		if isStruct(eventsRecorder.getCurrentRecording(eventsRecorder)) {
 								
 			eventsRecorder.stopRecording(eventsRecorder);	
@@ -707,7 +746,7 @@ function actionStartRecordingToFile() {
 								
 		global.isGameplayStarted = true;
 		global.__hackWithRecorder = true;
-		getGameController().isGameplayStarted = global.isGameplayStarted;
+		fetchGameController().isGameplayStarted = global.isGameplayStarted;
 	} catch(exception) {
 		logger(exception.message, LogType.INFO);
 		printStackTrace();
@@ -716,23 +755,23 @@ function actionStartRecordingToFile() {
 
 function actionSwitchEnableGridFrameCleaned() {
 	
-	var value = !getGridRendererIsGridFrameCleaned();
+	var value = !fetchGameRenderer().isGridFrameCleaned
 	logger("Set grid-frame-cleaned: {0}", LogType.INFO, value ? "true" : "false");
-	setGridRendererIsGridFrameCleaned(value);
+	fetchGameRenderer().isGridFrameCleaned = value;
 }
 
 function actionSwitchEnableGridColorWheel() {
 	
-	var value = !getGridRendererIsGridWheelEnabled();
+	var value = !fetchGameRenderer().isGridWheelEnabled;
 	logger("Set grid-wheel-enabled: {0}", LogType.INFO, value ? "true" : "false");
-	setGridRendererIsGridWheelEnabled(value);
+	fetchGameRenderer().isGridWheelEnabled = value;
 }
 
 function actionSwitchEnableGridSwing() {
 	
-	var swingGrid = getInstanceVariable(getGridRenderer(), "swingGrid");
+	var swingGrid = getInstanceVariable(fetchGridRenderer(), "swingGrid");
 	logger("Set swingGrid: {0}", LogType.INFO, swingGrid ? "true" : "false");
-	setInstanceVariable(getGridRenderer(), "swingGrid", !(swingGrid == true));
+	setInstanceVariable(fetchGridRenderer(), "swingGrid", !(swingGrid == true));
 }
 
 function actionSwitchChangeGameplay() {
@@ -750,7 +789,7 @@ function actionSwitchChangeGameplay() {
 							
 	
 	
-	if (Core.Objects.is(getGameRenderer())) {
+	if (Core.Objects.is(fetchGameRenderer())) {
 		var jumbotronEvent = createJumbotronEvent(
 			stringParams(
 				" GAMEMODE\n\n>> {0} <<\n\n----------\n",
@@ -763,8 +802,8 @@ function actionSwitchChangeGameplay() {
 		getSceneRenderer().jumbotronEventTimer = 0.0;
 	}
 	
-	if (Core.Objects.is(getGameController())) {
-		getGameController().godMode = incrementTimer(getGameController().godMode, getGameController().godModeDuration);	
+	if (Core.Objects.is(fetchGameController())) {
+		fetchGameController().godMode = incrementTimer(fetchGameController().godMode, fetchGameController().godModeDuration);	
 	}
 }
 
@@ -776,28 +815,28 @@ function actionRemoveLastShader() {
 
 function actionSetGridTopLineWidth(width, factor) {
 
-	var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "topLineWidth", width, factor, 1, 0);
+	var fieldModifierTask = createFieldModifierTask(fetchGridRenderer(), "topLineWidth", width, factor, 1, 0);
 	logger("Set topLineWidth: {0}", LogType.INFO, width);
 	sendFieldModifierTask(fieldModifierTask);
 }
 
 function actionSetGridBottomLineWidth(width, factor) {
 	
-	var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "bottomLineWidth", width, factor, 1, 0);
+	var fieldModifierTask = createFieldModifierTask(fetchGridRenderer(), "bottomLineWidth", width, factor, 1, 0);
 	logger("Set bottomLineWidth: {0}", LogType.INFO, width);
 	sendFieldModifierTask(fieldModifierTask);
 }
 
 function actionSetGridXScale(scale, factor) {
 	
-	var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "xScale", scale, factor, 1, 0)
+	var fieldModifierTask = createFieldModifierTask(fetchGridRenderer(), "xScale", scale, factor, 1, 0)
 	logger("Set xScale: {0}", LogType.INFO, scale);
 	sendFieldModifierTask(fieldModifierTask);
 }
 
 function actionSetGridYScale(scale, factor) {
 
-	var fieldModifierTask = createFieldModifierTask(getGridRenderer(), "yScale", scale, factor, 1, 0)
+	var fieldModifierTask = createFieldModifierTask(fetchGridRenderer(), "yScale", scale, factor, 1, 0)
 	logger("Set yScale: {0}", LogType.INFO, scale);
 	sendFieldModifierTask(fieldModifierTask);
 }
@@ -805,7 +844,8 @@ function actionSetGridYScale(scale, factor) {
 function actionSetGridSpeed(gridSpeed) {
 	
 	logger("Set gridSpeed to: {0}", LogType.INFO, gridSpeed);
-	setInstanceVariable(getGridRenderer(), "separatorSpeed", gridSpeed);
+	setInstanceVariable(fetchGridRenderer(), "separatorSpeed", gridSpeed);
+	getPlaygroundController().GMObject.state.grid.speed = gridSpeed
 }
 
 function actionStartShader(name, duration) {
@@ -833,7 +873,6 @@ function actionSpawnShroom(name) {
 	
 	var spawnPosition = Core.Collections.Arrays.getRandomValue(template.spawnPosition);
 	if (!Core.Collections.Arrays.contains(SpawnPositionFields, spawnPosition)) {
-		
 		logger("Shroom spawn positon not found: {0}", LogType.WARNING, spawnPosition);
 	}
 
@@ -842,8 +881,7 @@ function actionSpawnShroom(name) {
 		spawnPosition,
 		Core.Collections.Maps.get(SpawnPositionDispatcher, SpawnPosition_DEFAULT)
 	);
-	var spawnPositionData = spawnPositionDispatcher();
-	
+	var spawnPositionData = spawnPositionDispatcher(template);
 	var config = {
 		name: template.name,
 		texture: Core.Assets.Texture.fetch(Core.Collections.Arrays.getRandomValue(template.texture)),
@@ -868,7 +906,7 @@ function actionSpawnShroom(name) {
 function actionSpawnRandomGlitch() {
 	
 	logger("Sending bkt glitch event", LogType.INFO);
-	setInstanceVariable(getGameRenderer(), "__isKeyPressed", true);
+	setInstanceVariable(fetchGameRenderer(), "__isKeyPressed", true);
 }
 
 function actionSetSpawnSpeed(from, to) {
@@ -891,15 +929,15 @@ function actionSetSpawnVRange(from, to) {
 
 function actionSetBackgroundColor(name) {
 	
-	var color = getInstanceVariable(getGridRenderer(), name)
+	var color = getInstanceVariable(fetchGridRenderer(), name)
 	logger("Set colorGridBackground to: {0}", LogType.INFO, gmColorToColorHash(color));
-	setInstanceVariable(getGridRenderer(), "colorGridBackground", color);
+	setInstanceVariable(fetchGridRenderer(), "colorGridBackground", color);
 }
 
 function actionSetForegroundTexture(name, isRandomFrame) {
 
-	var texture = getInstanceVariable(getGridRenderer(), name);
-	var foreground = getInstanceVariable(getGameRenderer(), "foreground");
+	var texture = getInstanceVariable(fetchGridRenderer(), name);
+	var foreground = getInstanceVariable(fetchGameRenderer(), "foreground");
 	var frame = irandom(sprite_get_number(texture));
 	if (isRandomFrame) {
 		try {
@@ -914,8 +952,8 @@ function actionSetForegroundTexture(name, isRandomFrame) {
 			logger(exception.message, LogType.ERROR);	
 		}
 	}
-	setInstanceVariable(getGameRenderer(), "previousForeground", foreground);
-	setInstanceVariable(getGameRenderer(), "foreground", getRandomValueFromArray([
+	setInstanceVariable(fetchGameRenderer(), "previousForeground", foreground);
+	setInstanceVariable(fetchGameRenderer(), "foreground", getRandomValueFromArray([
 		createSprite(
 			texture, 
 			frame, 
@@ -930,9 +968,9 @@ function actionSetForegroundTexture(name, isRandomFrame) {
 
 function actionSetBackgroundTexture(name, isOnOff) {
 
-	var texture = getInstanceVariable(getGridRenderer(), name);					
-	var background = getInstanceVariable(getGameRenderer(), "background");
-	var previousBackground = getInstanceVariable(getGameRenderer(), "previousBackground");
+	var texture = getInstanceVariable(fetchGridRenderer(), name);					
+	var background = getInstanceVariable(fetchGameRenderer(), "background");
+	var previousBackground = getInstanceVariable(fetchGameRenderer(), "previousBackground");
 	var frame = irandom(sprite_get_number(texture));
 	try {
 		var currentTexture = getSpriteAssetIndex(background);
@@ -946,14 +984,15 @@ function actionSetBackgroundTexture(name, isOnOff) {
 		logger(exception.message, LogType.ERROR);	
 	}
 	
+	
 	var newTexture = isOnOff
 		? (getSpriteAssetIndex(background) == getSpriteAssetIndex(previousBackground)
 			? asset_texture_empty
 			: texture)
 		: texture
 	
-	setInstanceVariable(getGameRenderer(), "previousBackground", background);
-	setInstanceVariable(getGameRenderer(), "background", getRandomValueFromArray([
+	setInstanceVariable(fetchGameRenderer(), "previousBackground", background);
+	setInstanceVariable(fetchGameRenderer(), "background", getRandomValueFromArray([
 		createSprite(
 			newTexture,
 			frame, 
@@ -964,7 +1003,7 @@ function actionSetBackgroundTexture(name, isOnOff) {
 			c_white
 		)
 	]));
-	setInstanceVariable(getGameRenderer(), "foreground", createSprite(asset_texture_empty, 0, 1.0, 1.0, 1.0, 0.0, c_white));
+	setInstanceVariable(fetchGameRenderer(), "foreground", createSprite(asset_texture_empty, 0, 1.0, 1.0, 1.0, 0.0, c_white));
 }
 
 function actionSetGridChannels(value, factor) {
@@ -975,21 +1014,62 @@ function actionSetGridChannels(value, factor) {
 
 function actionAddGridChannels(value, factor) {
 	
-	var currentValue = ceil(getInstanceVariable(getGridRenderer(), "channels"));
-	var newValue = clamp(currentValue + value, 1, 1000);
+	var currentValue = ceil(getInstanceVariable(fetchGridRenderer(), "channels"));
+	var newValue = clamp(currentValue + value, 0, 512);
 	logger("Set channels target: {0}", LogType.INFO, newValue);
 	setChannelsTarget(newValue, factor);		
+}
+
+function actionSetGridSeparators(value, factor) {
+	
+	logger("Set separators target: {0}", LogType.INFO, value);
+	setSeparatorsTarget(value, factor);	
+}
+
+function actionAddGridSeparators(value, factor) {
+	
+	var currentValue = ceil(getInstanceVariable(fetchGridRenderer(), "separators"));
+	var newValue = clamp(currentValue + value, 0, 64);
+	logger("Set separators target: {0}", LogType.INFO, newValue);
+	setSeparatorsTarget(newValue, factor);		
 }
 
 function actionSpawnGridPulse(amount) {
 	
 	logger("Send GridPulse: {0}", LogType.INFO, amount);
-	setInstanceVariable(getGridRenderer(), "wavePulseAmount", amount); 
+	setInstanceVariable(fetchGridRenderer(), "wavePulseAmount", amount); 
 }
 
 function actionSendLyricsEvent(name) {
 
 	logger("Send LyricsEvent: {0}", LogType.INFO, name);
 	sendLyricsEventToLyricsRenderer({ name: name })
+}
+
+function actionEnableVideo() {
 	
+	var controller = fetchGameController();
+	logger("Set enableVideo: {0}", LogType.INFO, !controller.enableVideo);
+	controller.enableVideo = !controller.enableVideo;
+}
+
+function fetchGameController() {
+
+	return room == ScenePlayground 
+		? getPlaygroundController() 
+		: getGameController();
+}
+	
+function fetchGridRenderer() {
+
+	return room == ScenePlayground 
+		? getPlaygroundController() 
+		: getGridRenderer();
+}
+	
+function fetchGameRenderer() {
+
+	return room == ScenePlayground 
+		? getPlaygroundController() 
+		: getGameRenderer();
 }

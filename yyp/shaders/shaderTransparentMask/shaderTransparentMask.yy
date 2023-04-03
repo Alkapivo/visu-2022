@@ -1,11 +1,10 @@
 {
-  "type": 1,
+  "resourceType": "GMShader",
+  "resourceVersion": "1.0",
+  "name": "shaderTransparentMask",
   "parent": {
     "name": "shader",
     "path": "folders/asset/com.devhorizon.core/shader.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "shaderTransparentMask",
-  "tags": [],
-  "resourceType": "GMShader",
+  "type": 1,
 }

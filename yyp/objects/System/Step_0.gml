@@ -132,6 +132,7 @@
 			setFieldModifierTaskCurrentTick(fieldModifierTask, 0);
 			
 			if (currentModifierDirection != sign(targetValue - getInstanceVariable(instance, fieldName))) {
+				setInstanceVariable(instance, fieldName, targetValue);
 				removeReactorElement(instanceFieldModifierTaskReactor);
 			}
 		}		

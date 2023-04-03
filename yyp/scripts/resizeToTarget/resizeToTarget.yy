@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "resizeToTarget",
   "isCompatibility": false,
+  "isDnD": false,
   "parent": {
     "name": "method",
     "path": "folders/src/com.devhorizon.core/renderer/Renderer/RendererMethods/method.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "resizeToTarget",
-  "tags": [],
-  "resourceType": "GMScript",
 }

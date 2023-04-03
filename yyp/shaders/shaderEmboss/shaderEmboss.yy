@@ -1,11 +1,10 @@
 {
-  "type": 1,
+  "resourceType": "GMShader",
+  "resourceVersion": "1.0",
+  "name": "shaderEmboss",
   "parent": {
     "name": "shader",
     "path": "folders/asset/com.devhorizon.visu/shader.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "shaderEmboss",
-  "tags": [],
-  "resourceType": "GMShader",
+  "type": 1,
 }

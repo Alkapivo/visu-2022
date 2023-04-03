@@ -68,3 +68,20 @@ function isStruct(struct) {
 
 	return is_struct(struct);
 }
+
+
+function Utils() constructor {
+	static includes = function(arr, searchItem, comparator = function(a, b) { return a == b }) {
+        var size = array_length(arr)
+        var found = false
+        for (var index = 0; index < size; index++) {
+            var item = arr[index]
+            if (comparator(item, searchItem)) {
+                found = true
+                break
+            }
+        }
+        return found
+    }	
+}
+

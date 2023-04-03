@@ -3,77 +3,178 @@
         "name" : "shroom-01",
         "texture" : [ "asset_texture_visu_shroom_01" ],
         "spawnPosition" : [ "top" ],
-        "baseSpeed" : [ 0.5 ],
+        "baseSpeed" : [ 0.009, 0.011 ],
         "features" : {
-            "isZigzagMovement": true,
-            "zigzagAmount": 0.003,
-            "zigzagSpeed": 0.11
+            "slideAwayAfterLanding": true
         }
     },
     {
         "name" : "shroom-02",
         "texture" : [ "asset_texture_visu_shroom_02" ],
-        "spawnPosition" : [ "top", "right", "bottom", "left" ],
-        "baseSpeed" : [ 0.1 ],
+        "spawnPosition" : [ "top" ],
+        "baseSpeed" : [ 0.009, 0.011 ],
         "features" : {
-            "isZigzagMovement": true,
-            "isShooting": true
+            "isShooting": true,
+            "shootingInterval": 1
         }
     },
     {
         "name" : "shroom-03",
-        "texture" : [ "asset_texture_visu_shroom_03" ],
-        "spawnPosition" : [ "top", "right", "bottom", "left" ],
-        "baseSpeed" : [ 0.1 ],
+        "texture" : [ "asset_texture_visu_shroom_04" ],
+        "spawnPosition" : [ "left" ],
+        "baseSpeed" : [ 0.01, 0.011 ],
         "features" : {
             "isZigzagMovement": true,
-            "zigzagAmount": 0.0100,
-            "zigzagSpeed": 0.0137
+            "zigzagAmount": 0.009,
+            "zigzagSpeed": 0.13
         }
     },
     {
         "name" : "shroom-04",
         "texture" : [ "asset_texture_visu_shroom_04" ],
-        "spawnPosition" : [ "top", "right", "bottom", "left" ],
-        "baseSpeed" : [ 0.1 ],
+        "spawnPosition" : [ "right" ],
+        "baseSpeed" : [ 0.01, 0.011  ],
         "features" : {
-            "isZigzagMovement": false
+            "isZigzagMovement": true,
+            "zigzagAmount": 0.017,
+            "zigzagSpeed": 0.08
         }
     },
     {
         "name" : "shroom-05",
-        "texture" : [ "asset_texture_visu_shroom_05" ],
+        "texture" : [ "asset_texture_visu_shroom_05", "asset_texture_visu_shroom_04" ],
         "spawnPosition" : [ "top" ],
-        "baseSpeed" : [ 0.1 ],
+        "baseSpeed" : [ 0.01 ],
         "features" : {
-            "isZigzagMovement": false
+            "isShooting": true,
+            "shootingInterval": 0.5,
+            "bulletFollowPlayer": true
         }
     },
     {
         "name" : "shroom-06",
-        "texture" : [ "asset_texture_visu_shroom_06" ],
+        "texture" : [ "asset_texture_visu_shroom_06", "asset_texture_visu_shroom_04" ],
         "spawnPosition" : [ "top" ],
-        "baseSpeed" : [ 0.1 ],
+        "baseSpeed" : [ 0.014 ],
         "features" : {
-            "isZigzagMovement": false
+            "isZigzagMovement": true,
+            "zigzagAmount": 0.02,
+            "zigzagSpeed": 0.01
         }
     },
     {
         "name" : "shroom-07",
-        "texture" : [ "asset_texture_visu_shroom_07" ],
-        "spawnPosition" : [ "top" ],
-        "baseSpeed" : [ 0.1 ],
+        "texture" : [ "asset_texture_visu_shroom_01", "asset_texture_visu_shroom_08", "asset_texture_visu_shroom_07" ],
+        "spawnPosition" : [ "left" ],
+        "baseSpeed" : [ 0.012 ],
         "features" : {
-            "isZigzagMovement": false
+            "slideAwayAfterLanding": true,
+            "isShooting": true,
+            "shootingInterval": 0.3
         }
     },
     {
         "name" : "shroom-08",
-        "texture" : [ "asset_texture_visu_shroom_08" ],
-        "spawnPosition" : [ "top" ],
-        "baseSpeed" : [ 0.1 ],
+        "texture" : [ "asset_texture_visu_shroom_02", "asset_texture_visu_shroom_08", "asset_texture_visu_shroom_07" ],
+        "spawnPosition" : [ "right" ],
+        "baseSpeed" : [ 0.012 ],
         "features" : {
-            "isZigzagMovement": false
+            "isShooting": true,
+            "shootingInterval": 0.6,
+            "bulletFollowPlayer": true,
+            "slideAwayAfterLanding": true
+        }
+    },
+    {
+        "name" : "shroom-09",
+        "texture" : [ "asset_texture_visu_shroom_03", "asset_texture_visu_shroom_06" ],
+        "spawnPosition" : [ "top" ],
+        "baseSpeed" : [ 0.013, 0.015 ],
+        "features" : {
+            "isShooting": true,
+            "shootingInterval": 0.3
+        }
+    },
+    {
+        "name" : "shroom-10",
+        "texture" : [ "asset_texture_visu_shroom_03", "asset_texture_visu_shroom_06" ],
+        "spawnPosition" : [ "top" ],
+        "baseSpeed" : [ 0.015 ],
+        "features" : {
+            "isShooting": false,
+            "isZigzagMovement": true,
+            "zigzagAmount": 0.035,
+            "zigzagSpeed": 0.01
+        }
+    },
+    {
+        "name" : "shroom-11",
+        "texture" : [ "asset_texture_visu_shroom_07", "asset_texture_visu_shroom_08", "asset_texture_visu_shroom_07" ],
+        "spawnPosition" : [ "left" ],
+        "baseSpeed" : [ 0.012, 0.013 ],
+        "features" : {
+            "isShooting": false,
+            "slideAwayAfterLanding": true
+        }
+    },
+    {
+        "name" : "shroom-12",
+        "texture" : [ "asset_texture_visu_shroom_07", "asset_texture_visu_shroom_08", "asset_texture_visu_shroom_07" ],
+        "spawnPosition" : [ "right" ],
+        "baseSpeed" : [ 0.012, 0.013 ],
+        "features" : {
+            "isShooting": false,
+            "slideAwayAfterLanding": true
+        }
+    },
+    {
+        "name" : "shroom-13",
+        "texture" : [ "asset_texture_visu_shroom_02", "asset_texture_visu_shroom_03", "asset_texture_visu_shroom_08"],
+        "spawnPosition" : [ "bottom" ],
+        "baseSpeed" : [ 0.013, 0.014 ],
+        "features" : {
+            "isShooting": true,
+            "shootingInterval": 2,
+            "bulletFollowPlayer": true,
+            "slideAwayAfterLanding": true
+        }
+    },
+    {
+        "name" : "shroom-14",
+        "texture" : [ "asset_texture_visu_shroom_06", "asset_texture_visu_shroom_07", "asset_texture_visu_shroom_08" ],
+        "spawnPosition" : [ "bottom" ],
+        "baseSpeed" : [ 0.015, 0.016 ],
+        "features" : {
+            "slideAwayAfterLanding": true,
+            "isZigzagMovement": true,
+            "zigzagAmount": 0.008,
+            "zigzagSpeed": 0.11
+        }
+    },
+    {
+        "name" : "shroom-15",
+        "texture" : [ "asset_texture_visu_shroom_01", "asset_texture_visu_shroom_02", "asset_texture_visu_shroom_06" ],
+        "spawnPosition" : [ "left" ],
+        "baseSpeed" : [ 0.01 ],
+        "features" : {
+            "isShooting": true,
+            "shootingInterval": 1.1,
+            "isZigzagMovement": true,
+            "zigzagAmount": 0.04,
+            "zigzagSpeed": 0.01
+        }
+    },
+    {
+        "name" : "shroom-16",
+        "texture" : [ "asset_texture_visu_shroom_01", "asset_texture_visu_shroom_02", "asset_texture_visu_shroom_06" ],
+        "spawnPosition" : [ "right" ],
+        "baseSpeed" : [ 0.01 ],
+        "features" : {
+            "isShooting": true,
+            "shootingInterval": 1.1,
+            "isZigzagMovement": true,
+            "zigzagAmount": 0.03,
+            "zigzagSpeed": 0.01
         }
     }
 ]

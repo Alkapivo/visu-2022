@@ -6,7 +6,7 @@ function isClass(argument0) {
 
 		var classType = argument0;
 	
-		return isNumber(classType) ? object_exists(classType) : false;
+		return object_exists(classType);
 	
 
 

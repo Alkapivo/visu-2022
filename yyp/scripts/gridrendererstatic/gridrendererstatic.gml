@@ -14,7 +14,7 @@ function sendGridEvent(gridEvent) {
 ///@param {ColorTransformTask} colorTransformTask
 function sendGridRendererColorTransformTask(colorTransformTask) {
 
-	var colorTransformPipeline = getInstanceVariable(getGridRenderer(), GridRenderer_colorTransformPipeline)
+	var colorTransformPipeline = getInstanceVariable(fetchGameController(), GridRenderer_colorTransformPipeline)
 	if (isDataStructure(colorTransformPipeline, List)) {
 		
 		addToList(colorTransformPipeline, colorTransformTask);	
@@ -47,13 +47,15 @@ function getGridRendererEnableGridElementsRendering() {
 
 function getGridRendererEnableGridRendering() {
 
-	return getInstanceVariable(getGridRenderer(), "enableGridRendering");
+	return getInstanceVariable(fetchGridRenderer(), "enableGridRendering");
 }
 
 function setGridRendererEnableGridRendering(value) {
 
-	setInstanceVariable(getGridRenderer(), "enableGridRendering", value);
-}///@function getGridRendererEnableSeparatorsRendering()
+	setInstanceVariable(fetchGridRenderer(), "enableGridRendering", value);
+}
+
+///@function getGridRendererEnableSeparatorsRendering()
 ///@description Getter.
 ///@return {Boolean} enableSeparatorsRendering
 function getGridRendererEnableSeparatorsRendering() {
@@ -532,10 +534,10 @@ function fetchGridElementParticlePosition(gridElement, position) {
 		
 		var gridPosition = getGridElementPosition(gridElement);
 		var positions = {
-			xStart: getPositionHorizontal(gridPosition) - 0.05,
-			yStart: getPositionVertical(gridPosition) - 0.05,
-			xEnd: getPositionHorizontal(gridPosition) + 0.05,
-			yEnd: getPositionVertical(gridPosition) + 0.05,
+			xStart: getPositionHorizontal(gridPosition) - 0.00,
+			yStart: getPositionVertical(gridPosition) - 0.00,
+			xEnd: getPositionHorizontal(gridPosition) + 0.00,
+			yEnd: getPositionVertical(gridPosition) + 0.00,
 		}
 		return positions;
 	}

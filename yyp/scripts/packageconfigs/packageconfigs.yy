@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "PackageConfigs",
   "isCompatibility": false,
+  "isDnD": false,
   "parent": {
     "name": "boot",
     "path": "folders/src/com.devhorizon.core/entity/boot.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "PackageConfigs",
-  "tags": [],
-  "resourceType": "GMScript",
 }

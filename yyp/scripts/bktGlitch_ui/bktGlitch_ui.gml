@@ -293,7 +293,7 @@ function __bktgtlich_ui_init() {
 		    for (var i = 0; i < array_length_1d(attr); i++){
 		        if (i != prop.intensity){
 		            valTo[i]  = random_range(limit[i, 0], limit[i, 1]); 
-					print(limit[i, 0], limit[i, 1], valTo[i]);
+					//print(limit[i, 0], limit[i, 1], valTo[i]);
 		        }
 		    }   
 		}

@@ -873,6 +873,7 @@ function initializeGlobals() {
 				json_encode(value) :
 				json_stringify(value);
 		}
+		
 	}
 	global.__core_File = {
 	
@@ -896,9 +897,8 @@ function initializeGlobals() {
 				return readStringFromFile(working_directory + data.path, data.filename);
 			}
 		}
-	}
+	}           
 	global.__core_Collections = {
-		
 		Arrays: {
 			push: function(array, value) {
 				return pushArray(array, value)
@@ -1034,6 +1034,7 @@ function initializeGlobals() {
 				fetch: function(name) {
 					return getAssetIndex(name, AssetTexture, asset_texture_empty)
 				},
+				
 			},
 			Font: {
 				fetch: function(name) {
@@ -1085,7 +1086,6 @@ function initializeGlobals() {
 				var lineDirection = point_direction(xStart, yStart, xEnd, yEnd);
 				var length = point_distance(xStart, yStart, xEnd, yEnd);
 				var scale = length / Core.Assets.Texture.getWidth(lineTexture);
-				
 				// render first corner
 				draw_sprite_ext(
 					cornerTexture,

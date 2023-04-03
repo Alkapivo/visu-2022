@@ -27,17 +27,7 @@ function initializeShaderCRT(argument0) {
 
 		setInstanceVariable(context, "shaderCRTUniformTimer", shader_get_uniform(shaderCRT, "uni_timer"));
 
-	
-		///@SuppressWarning
-		context.shaderCRTUniformEnableScanlines = context.shaderCRTUniformEnableScanlines;
-		context.shaderCRTUniformSize = context.shaderCRTUniformSize;
-		context.shaderCRTUniformDistortionAmount = context.shaderCRTUniformDistortionAmount;
-		context.shaderCRTUniformCornerSize = context.shaderCRTUniformCornerSize;
-		context.shaderCRTUniformCornerSmoothness = context.shaderCRTUniformCornerSmoothness;
-		context.shaderCRTUniformBrightness = context.shaderCRTUniformBrightness;
-		context.shaderCRTUniformNoiseSize = context.shaderCRTUniformNoiseSize;
-		context.shaderCRTUniformTimer = context.shaderCRTUniformTimer;
-	
+
 
 
 

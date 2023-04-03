@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "readStringFromFile",
   "isCompatibility": false,
+  "isDnD": false,
   "parent": {
     "name": "file",
     "path": "folders/src/com.devhorizon.core/service/System/file.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "readStringFromFile",
-  "tags": [],
-  "resourceType": "GMScript",
 }

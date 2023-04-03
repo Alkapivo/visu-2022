@@ -66,7 +66,6 @@
 	#endregion
 	
 	#region Dependencies
-	inject(BossManager);
 	inject(LyricsRenderer);
 	inject(GridRenderer);
 	inject(ShroomManager);
@@ -89,7 +88,8 @@
 	
 			if (!this.isGameplayStarted) {
 
-				if (mouse_check_button_pressed(mb_any)) {			
+				if (mouse_check_button_pressed(mb_any)
+					|| keyboard_check_pressed(vk_anykey)) {			
 					this.mouseCounter++;
 				}
 		

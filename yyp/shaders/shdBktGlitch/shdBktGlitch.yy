@@ -1,11 +1,10 @@
 {
-  "type": 1,
+  "resourceType": "GMShader",
+  "resourceVersion": "1.0",
+  "name": "shdBktGlitch",
   "parent": {
     "name": "Shaders",
     "path": "folders/lib/com.janvorisek.bktglitch/Shaders.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "shdBktGlitch",
-  "tags": [],
-  "resourceType": "GMShader",
+  "type": 1,
 }
