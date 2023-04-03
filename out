@@ -1,0 +1,1607 @@
+On branch nfract/deadlight
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   gd/icon.png.import
+	modified:   gd/project.godot
+	modified:   package-lock.json
+	modified:   package.json
+	modified:   yyp/datafiles/data/launchpad-layout.json
+	modified:   yyp/datafiles/data/lyrics.json
+	modified:   yyp/datafiles/data/properties.json
+	modified:   yyp/datafiles/data/shader-templates.json
+	modified:   yyp/datafiles/data/shroom-templates.json
+	modified:   yyp/extensions/JSUtil/JSUtil.yy
+	modified:   yyp/extensions/WebStorage/WebStorage.yy
+	modified:   yyp/fonts/asset_font_default/asset_font_default.yy
+	modified:   yyp/fonts/asset_font_ibm_ps2thin4/asset_font_ibm_ps2thin4.yy
+	modified:   yyp/fonts/asset_font_ibm_vga9/asset_font_ibm_vga9.yy
+	modified:   yyp/fonts/asset_font_lyrics_renderer_base/asset_font_lyrics_renderer_base.old.png
+	modified:   yyp/fonts/asset_font_lyrics_renderer_base/asset_font_lyrics_renderer_base.old.yy
+	modified:   yyp/fonts/asset_font_lyrics_renderer_base/asset_font_lyrics_renderer_base.png
+	modified:   yyp/fonts/asset_font_lyrics_renderer_base/asset_font_lyrics_renderer_base.yy
+	deleted:    yyp/fonts/asset_font_start_screen/ShareTechMono-Regular.ttf
+	modified:   yyp/fonts/asset_font_start_screen/asset_font_start_screen.old.png
+	modified:   yyp/fonts/asset_font_start_screen/asset_font_start_screen.old.yy
+	modified:   yyp/fonts/asset_font_start_screen/asset_font_start_screen.yy
+	modified:   yyp/fonts/asset_font_tandy_tv2y/asset_font_tandy_tv2y.png
+	modified:   yyp/fonts/asset_font_tandy_tv2y/asset_font_tandy_tv2y.yy
+	modified:   yyp/fonts/fntMain/fntMain.yy
+	modified:   yyp/fonts/fntTop/fntTop.yy
+	modified:   yyp/fonts/fntValue/fntValue.yy
+	modified:   yyp/notes/README/README.yy
+	modified:   yyp/objects/AudioManager/AudioManager.yy
+	modified:   yyp/objects/Boot/Boot.yy
+	modified:   yyp/objects/Boot/Create_0.gml
+	modified:   yyp/objects/BossManager/BossManager.yy
+	modified:   yyp/objects/BulletManager/BulletManager.yy
+	modified:   yyp/objects/BulletManager/Create_0.gml
+	modified:   yyp/objects/CalendarManager/CalendarManager.yy
+	modified:   yyp/objects/Camera/Camera.yy
+	modified:   yyp/objects/Camera/Create_0.gml
+	modified:   yyp/objects/Console/Console.yy
+	modified:   yyp/objects/Console/Other_5.gml
+	modified:   yyp/objects/Controller/Controller.yy
+	modified:   yyp/objects/DeltaTime/DeltaTime.yy
+	modified:   yyp/objects/DialogueManager/DialogueManager.yy
+	modified:   yyp/objects/FactManager/FactManager.yy
+	modified:   yyp/objects/GameController/Create_0.gml
+	modified:   yyp/objects/GameController/GameController.yy
+	modified:   yyp/objects/GameRenderer/Create_0.gml
+	modified:   yyp/objects/GameRenderer/GameRenderer.yy
+	modified:   yyp/objects/GenericManager/GenericManager.yy
+	modified:   yyp/objects/GridRenderer/Create_0.gml
+	modified:   yyp/objects/GridRenderer/GridRenderer.yy
+	modified:   yyp/objects/InputHandler/InputHandler.yy
+	modified:   yyp/objects/KeyboardInputHandler/KeyboardInputHandler.yy
+	modified:   yyp/objects/LangManager/LangManager.yy
+	modified:   yyp/objects/LoadingHandler/LoadingHandler.yy
+	modified:   yyp/objects/LoggerWriter/LoggerWriter.yy
+	modified:   yyp/objects/LyricsRenderer/Create_0.gml
+	modified:   yyp/objects/LyricsRenderer/LyricsRenderer.yy
+	modified:   yyp/objects/Manager/Manager.yy
+	modified:   yyp/objects/MouseManager/MouseManager.yy
+	modified:   yyp/objects/NetworkManager/NetworkManager.yy
+	modified:   yyp/objects/PlayerManager/Create_0.gml
+	modified:   yyp/objects/PlayerManager/PlayerManager.yy
+	modified:   yyp/objects/RecordInputHandler/RecordInputHandler.yy
+	modified:   yyp/objects/Renderer/Renderer.yy
+	modified:   yyp/objects/ResourceManager/ResourceManager.yy
+	modified:   yyp/objects/RuntimeExceptionSceneRenderer/RuntimeExceptionSceneRenderer.yy
+	modified:   yyp/objects/ShroomManager/Create_0.gml
+	modified:   yyp/objects/ShroomManager/ShroomManager.yy
+	modified:   yyp/objects/System/Create_0.gml
+	modified:   yyp/objects/System/Step_0.gml
+	modified:   yyp/objects/System/System.yy
+	modified:   yyp/objects/TouchInputHandler/TouchInputHandler.yy
+	modified:   yyp/objects/UiManager/UiManager.yy
+	modified:   yyp/objects/UiPanel/UiPanel.yy
+	modified:   yyp/objects/VirtualJoystick/VirtualJoystick.yy
+	modified:   yyp/objects/VirtualKeyDriverInputHandler/VirtualKeyDriverInputHandler.yy
+	modified:   yyp/objects/objBktGlitchDemo/objBktGlitchDemo.yy
+	modified:   yyp/objects/objSimpleExample/objSimpleExample.yy
+	modified:   yyp/objects/particlemanager/CleanUp_0.gml
+	modified:   yyp/objects/particlemanager/Create_0.gml
+	modified:   yyp/objects/particlemanager/Draw_76.gml
+	modified:   yyp/objects/particlemanager/particlemanager.yy
+	modified:   yyp/objects/playgroundcontroller/Create_0.gml
+	modified:   yyp/objects/playgroundcontroller/playgroundcontroller.yy
+	modified:   yyp/objects/playgroundrenderer/playgroundrenderer.yy
+	modified:   yyp/options/amazonfire/options_amazonfire.yy
+	modified:   yyp/options/android/options_android.yy
+	modified:   yyp/options/html5/options_html5.yy
+	modified:   yyp/options/ios/options_ios.yy
+	modified:   yyp/options/linux/options_linux.yy
+	modified:   yyp/options/mac/options_mac.yy
+	modified:   yyp/options/main/options_main.yy
+	modified:   yyp/options/operagx/options_operagx.yy
+	modified:   yyp/options/tvos/options_tvos.yy
+	modified:   yyp/options/windows/options_windows.yy
+	modified:   yyp/rooms/SceneBoot/SceneBoot.yy
+	modified:   yyp/rooms/SceneGame/SceneGame.yy
+	modified:   yyp/rooms/SceneRuntimeException/SceneRuntimeException.yy
+	modified:   yyp/rooms/rmFullDemo/rmFullDemo.yy
+	modified:   yyp/rooms/rmSimpleExample/rmSimpleExample.yy
+	modified:   yyp/rooms/sceneplayground/sceneplayground.yy
+	modified:   yyp/scripts/AudioManagerMethods/AudioManagerMethods.yy
+	modified:   yyp/scripts/CalendarManagerMethods/CalendarManagerMethods.yy
+	modified:   yyp/scripts/CollectionUtils/CollectionUtils.yy
+	modified:   yyp/scripts/ConsoleCommands/ConsoleCommands.yy
+	modified:   yyp/scripts/ConsoleMethods/ConsoleMethods.yy
+	modified:   yyp/scripts/ControllerMethods/ControllerMethods.yy
+	modified:   yyp/scripts/DeltaTimeMethods/DeltaTimeMethods.yy
+	modified:   yyp/scripts/LoadingHandlerMethods/LoadingHandlerMethods.yy
+	modified:   yyp/scripts/LoggerWriterMethods/LoggerWriterMethods.yy
+	modified:   yyp/scripts/Property/Property.yy
+	modified:   yyp/scripts/StructMethods/StructMethods.gml
+	modified:   yyp/scripts/StructMethods/StructMethods.yy
+	modified:   yyp/scripts/SystemMethods/SystemMethods.yy
+	modified:   yyp/scripts/_foreach/_foreach.yy
+	modified:   yyp/scripts/addElementToPipeline/addElementToPipeline.yy
+	modified:   yyp/scripts/addElementToReactor/addElementToReactor.yy
+	modified:   yyp/scripts/addFactSubscriber/addFactSubscriber.yy
+	modified:   yyp/scripts/addNodeToLinkedList/addNodeToLinkedList.yy
+	modified:   yyp/scripts/addResource/addResource.yy
+	modified:   yyp/scripts/addToArrayMap/addToArrayMap.yy
+	modified:   yyp/scripts/addToLinkedList/addToLinkedList.yy
+	modified:   yyp/scripts/addToList/addToList.yy
+	modified:   yyp/scripts/addToMap/addToMap.yy
+	modified:   yyp/scripts/addToPriorityQueue/addToPriorityQueue.yy
+	modified:   yyp/scripts/addUiPanelToUiManager/addUiPanelToUiManager.yy
+	modified:   yyp/scripts/appendEntityToJsonObject/appendEntityToJsonObject.yy
+	modified:   yyp/scripts/appendFieldToJsonObject/appendFieldToJsonObject.yy
+	modified:   yyp/scripts/appendToJsonArray/appendToJsonArray.yy
+	modified:   yyp/scripts/appendToString/appendToString.yy
+	modified:   yyp/scripts/applyInMap/applyInMap.yy
+	modified:   yyp/scripts/applyLangPack/applyLangPack.yy
+	modified:   yyp/scripts/applyMouseManagerMouseCursorData/applyMouseManagerMouseCursorData.yy
+	modified:   yyp/scripts/areArraysEqual/areArraysEqual.yy
+	modified:   yyp/scripts/areArraysEqualValues/areArraysEqualValues.yy
+	modified:   yyp/scripts/areKeysStateChanged/areKeysStateChanged.yy
+	modified:   yyp/scripts/areListsEqualValues/areListsEqualValues.yy
+	modified:   yyp/scripts/arrayContain/arrayContain.yy
+	modified:   yyp/scripts/arrayMapContains/arrayMapContains.yy
+	modified:   yyp/scripts/arraymap/arraymap.yy
+	modified:   yyp/scripts/assertEqual/assertEqual.yy
+	modified:   yyp/scripts/assertNoOptional/assertNoOptional.yy
+	modified:   yyp/scripts/audiocontext/audiocontext.yy
+	modified:   yyp/scripts/audioevent/audioevent.yy
+	modified:   yyp/scripts/audiomanagerstate/audiomanagerstate.yy
+	modified:   yyp/scripts/bktGlitch/bktGlitch.yy
+	modified:   yyp/scripts/bktGlitch_inline/bktGlitch_inline.yy
+	modified:   yyp/scripts/bktGlitch_ui/bktGlitch_ui.gml
+	modified:   yyp/scripts/bktGlitch_ui/bktGlitch_ui.yy
+	modified:   yyp/scripts/boss/boss.yy
+	modified:   yyp/scripts/bossevent/bossevent.yy
+	modified:   yyp/scripts/bossmanagerstatic/bossmanagerstatic.yy
+	modified:   yyp/scripts/bossstage/bossstage.yy
+	modified:   yyp/scripts/bpmcontroller/bpmcontroller.yy
+	modified:   yyp/scripts/bullet/bullet.gml
+	modified:   yyp/scripts/bullet/bullet.yy
+	modified:   yyp/scripts/bulletmanagerstatic/bulletmanagerstatic.yy
+	modified:   yyp/scripts/button/button.yy
+	modified:   yyp/scripts/calculateMat2Det/calculateMat2Det.yy
+	modified:   yyp/scripts/calendarmanagerstate/calendarmanagerstate.yy
+	modified:   yyp/scripts/cameraapi/cameraapi.yy
+	modified:   yyp/scripts/capitalToLowerCase/capitalToLowerCase.yy
+	modified:   yyp/scripts/capitalToUpperCase/capitalToUpperCase.yy
+	modified:   yyp/scripts/cast/cast.yy
+	modified:   yyp/scripts/catchException/catchException.yy
+	modified:   yyp/scripts/centerCoord/centerCoord.yy
+	modified:   yyp/scripts/centerWindow/centerWindow.yy
+	modified:   yyp/scripts/charwrapString/charwrapString.yy
+	modified:   yyp/scripts/checkArgumentCount/checkArgumentCount.yy
+	modified:   yyp/scripts/checkFact/checkFact.yy
+	modified:   yyp/scripts/checkFacts/checkFacts.yy
+	modified:   yyp/scripts/checkLimiter/checkLimiter.yy
+	modified:   yyp/scripts/checkListener/checkListener.yy
+	modified:   yyp/scripts/checkUiPanelMouseActionEvent/checkUiPanelMouseActionEvent.yy
+	modified:   yyp/scripts/chooseFromArray/chooseFromArray.yy
+	modified:   yyp/scripts/chronosevent/chronosevent.yy
+	modified:   yyp/scripts/chronostask/chronostask.yy
+	modified:   yyp/scripts/clearArrayMap/clearArrayMap.yy
+	modified:   yyp/scripts/clearException/clearException.yy
+	modified:   yyp/scripts/clearGrid/clearGrid.yy
+	modified:   yyp/scripts/clearList/clearList.yy
+	modified:   yyp/scripts/clearMap/clearMap.yy
+	modified:   yyp/scripts/clearPriorityQueue/clearPriorityQueue.yy
+	modified:   yyp/scripts/clearQueue/clearQueue.yy
+	modified:   yyp/scripts/clearReactor/clearReactor.yy
+	modified:   yyp/scripts/clearStack/clearStack.yy
+	modified:   yyp/scripts/cloneArray/cloneArray.yy
+	modified:   yyp/scripts/cloneArrayMap/cloneArrayMap.yy
+	modified:   yyp/scripts/cloneEntity/cloneEntity.yy
+	modified:   yyp/scripts/cloneGrid/cloneGrid.yy
+	modified:   yyp/scripts/cloneList/cloneList.yy
+	modified:   yyp/scripts/cloneMap/cloneMap.yy
+	modified:   yyp/scripts/clonePriorityQueue/clonePriorityQueue.yy
+	modified:   yyp/scripts/cloneQueue/cloneQueue.yy
+	modified:   yyp/scripts/cloneStack/cloneStack.yy
+	modified:   yyp/scripts/color/color.yy
+	modified:   yyp/scripts/colortransformtask/colortransformtask.yy
+	modified:   yyp/scripts/compareBy/compareBy.yy
+	modified:   yyp/scripts/consoleCommandGetMouseData/consoleCommandGetMouseData.yy
+	modified:   yyp/scripts/consoleCommandSpawnShaderEvent/consoleCommandSpawnShaderEvent.yy
+	modified:   yyp/scripts/consolecommand/consolecommand.yy
+	modified:   yyp/scripts/consolecommandconfig/consolecommandconfig.yy
+	modified:   yyp/scripts/consolecommandconfigs/consolecommandconfigs.yy
+	modified:   yyp/scripts/construct/construct.yy
+	modified:   yyp/scripts/controlVariableKey/controlVariableKey.yy
+	modified:   yyp/scripts/controlVariableKeyPressed/controlVariableKeyPressed.yy
+	modified:   yyp/scripts/convertArrayMapToMap/convertArrayMapToMap.yy
+	modified:   yyp/scripts/convertArrayToList/convertArrayToList.yy
+	modified:   yyp/scripts/convertArrayToString/convertArrayToString.yy
+	modified:   yyp/scripts/convertBooleanToString/convertBooleanToString.yy
+	modified:   yyp/scripts/convertByteArrayToHex/convertByteArrayToHex.yy
+	modified:   yyp/scripts/convertByteToHex/convertByteToHex.yy
+	modified:   yyp/scripts/convertEntityArrayToTJsonArray/convertEntityArrayToTJsonArray.yy
+	modified:   yyp/scripts/convertEntityGridToTJsonArray/convertEntityGridToTJsonArray.yy
+	modified:   yyp/scripts/convertEntityListToTJsonArray/convertEntityListToTJsonArray.yy
+	modified:   yyp/scripts/convertEntityMapToTJsonObject/convertEntityMapToTJsonObject.yy
+	modified:   yyp/scripts/convertEntityPriorityQueueToTJsonMap/convertEntityPriorityQueueToTJsonMap.yy
+	modified:   yyp/scripts/convertEntityQueueToTJsonArray/convertEntityQueueToTJsonArray.yy
+	modified:   yyp/scripts/convertEntityStackToTJsonArray/convertEntityStackToTJsonArray.yy
+	modified:   yyp/scripts/convertEntityToTJsonObject/convertEntityToTJsonObject.yy
+	modified:   yyp/scripts/convertFixedDelimiterStringToArray/convertFixedDelimiterStringToArray.yy
+	modified:   yyp/scripts/convertGMJsonFieldToArray/convertGMJsonFieldToArray.yy
+	modified:   yyp/scripts/convertGMJsonFieldToEntity/convertGMJsonFieldToEntity.yy
+	modified:   yyp/scripts/convertGMJsonFieldToEntityArray/convertGMJsonFieldToEntityArray.yy
+	modified:   yyp/scripts/convertGMJsonFieldToEntityGrid/convertGMJsonFieldToEntityGrid.yy
+	modified:   yyp/scripts/convertGMJsonFieldToEntityList/convertGMJsonFieldToEntityList.yy
+	modified:   yyp/scripts/convertGMJsonFieldToEntityMap/convertGMJsonFieldToEntityMap.yy
+	modified:   yyp/scripts/convertGMJsonFieldToEntityPriorityQueue/convertGMJsonFieldToEntityPriorityQueue.yy
+	modified:   yyp/scripts/convertGMJsonFieldToEntityQueue/convertGMJsonFieldToEntityQueue.yy
+	modified:   yyp/scripts/convertGMJsonFieldToEntityStack/convertGMJsonFieldToEntityStack.yy
+	modified:   yyp/scripts/convertGMJsonFieldToGrid/convertGMJsonFieldToGrid.yy
+	modified:   yyp/scripts/convertGMJsonFieldToList/convertGMJsonFieldToList.yy
+	modified:   yyp/scripts/convertGMJsonFieldToMap/convertGMJsonFieldToMap.yy
+	modified:   yyp/scripts/convertGMJsonFieldToPriorityQueue/convertGMJsonFieldToPriorityQueue.yy
+	modified:   yyp/scripts/convertGMJsonFieldToQueue/convertGMJsonFieldToQueue.yy
+	modified:   yyp/scripts/convertGMJsonFieldToStack/convertGMJsonFieldToStack.yy
+	modified:   yyp/scripts/convertGridToArray/convertGridToArray.yy
+	modified:   yyp/scripts/convertGridToTJsonArray/convertGridToTJsonArray.yy
+	modified:   yyp/scripts/convertKeysStateToTJsonObject/convertKeysStateToTJsonObject.yy
+	modified:   yyp/scripts/convertListToArray/convertListToArray.yy
+	modified:   yyp/scripts/convertMapToArrayMap/convertMapToArrayMap.yy
+	modified:   yyp/scripts/convertMapToTJsonObject/convertMapToTJsonObject.yy
+	modified:   yyp/scripts/convertNumericMapToArray/convertNumericMapToArray.yy
+	modified:   yyp/scripts/convertPriorityQueueToMap/convertPriorityQueueToMap.yy
+	modified:   yyp/scripts/convertPriorityQueueToTJsonObject/convertPriorityQueueToTJsonObject.yy
+	modified:   yyp/scripts/convertQueueToArray/convertQueueToArray.yy
+	modified:   yyp/scripts/convertQueueToTJsonArray/convertQueueToTJsonArray.yy
+	modified:   yyp/scripts/convertStackToArray/convertStackToArray.yy
+	modified:   yyp/scripts/convertStackToTJsonArray/convertStackToTJsonArray.yy
+	modified:   yyp/scripts/convertStringToBoolean/convertStringToBoolean.yy
+	modified:   yyp/scripts/convertTJsonBooleanToBoolean/convertTJsonBooleanToBoolean.yy
+	modified:   yyp/scripts/convertTJsonFieldToArray/convertTJsonFieldToArray.yy
+	modified:   yyp/scripts/convertTJsonFieldToEntity/convertTJsonFieldToEntity.yy
+	modified:   yyp/scripts/convertTJsonFieldToEntityArray/convertTJsonFieldToEntityArray.yy
+	modified:   yyp/scripts/convertTJsonFieldToEntityGrid/convertTJsonFieldToEntityGrid.yy
+	modified:   yyp/scripts/convertTJsonFieldToEntityList/convertTJsonFieldToEntityList.yy
+	modified:   yyp/scripts/convertTJsonFieldToEntityMap/convertTJsonFieldToEntityMap.yy
+	modified:   yyp/scripts/convertTJsonFieldToEntityPriorityQueue/convertTJsonFieldToEntityPriorityQueue.yy
+	modified:   yyp/scripts/convertTJsonFieldToEntityQueue/convertTJsonFieldToEntityQueue.yy
+	modified:   yyp/scripts/convertTJsonFieldToEntityStack/convertTJsonFieldToEntityStack.yy
+	modified:   yyp/scripts/convertTJsonFieldToGrid/convertTJsonFieldToGrid.yy
+	modified:   yyp/scripts/convertTJsonFieldToList/convertTJsonFieldToList.yy
+	modified:   yyp/scripts/convertTJsonFieldToMap/convertTJsonFieldToMap.yy
+	modified:   yyp/scripts/convertTJsonFieldToPriorityQueue/convertTJsonFieldToPriorityQueue.yy
+	modified:   yyp/scripts/convertTJsonFieldToQueue/convertTJsonFieldToQueue.yy
+	modified:   yyp/scripts/convertTJsonFieldToStack/convertTJsonFieldToStack.yy
+	modified:   yyp/scripts/coordsInRectangle/coordsInRectangle.yy
+	modified:   yyp/scripts/copyArray/copyArray.yy
+	modified:   yyp/scripts/copyStack/copyStack.yy
+	modified:   yyp/scripts/countRepository/countRepository.yy
+	modified:   yyp/scripts/createArray/createArray.yy
+	modified:   yyp/scripts/createDialogueManager/createDialogueManager.yy
+	modified:   yyp/scripts/createEmptyOptional/createEmptyOptional.yy
+	modified:   yyp/scripts/createEntity/createEntity.yy
+	modified:   yyp/scripts/createFactManager/createFactManager.yy
+	modified:   yyp/scripts/createGrid/createGrid.yy
+	modified:   yyp/scripts/createInputHandler/createInputHandler.yy
+	modified:   yyp/scripts/createJsonArray/createJsonArray.yy
+	modified:   yyp/scripts/createJsonObject/createJsonObject.yy
+	modified:   yyp/scripts/createLangManager/createLangManager.yy
+	modified:   yyp/scripts/createLayer/createLayer.yy
+	modified:   yyp/scripts/createLinkedList/createLinkedList.yy
+	modified:   yyp/scripts/createList/createList.yy
+	modified:   yyp/scripts/createMap/createMap.yy
+	modified:   yyp/scripts/createMouseManager/createMouseManager.yy
+	modified:   yyp/scripts/createNetworkManager/createNetworkManager.yy
+	modified:   yyp/scripts/createPriorityQueue/createPriorityQueue.yy
+	modified:   yyp/scripts/createQueue/createQueue.yy
+	modified:   yyp/scripts/createResourceManager/createResourceManager.yy
+	modified:   yyp/scripts/createStack/createStack.yy
+	modified:   yyp/scripts/createTilemapLayer/createTilemapLayer.yy
+	modified:   yyp/scripts/createVirtualJoystick/createVirtualJoystick.yy
+	modified:   yyp/scripts/decodeJson/decodeJson.yy
+	modified:   yyp/scripts/decrementArrayViewBeginIndex/decrementArrayViewBeginIndex.yy
+	modified:   yyp/scripts/defaultContextInstanceConstructor/defaultContextInstanceConstructor.yy
+	modified:   yyp/scripts/defaultDialgoueEventExceptionHandler/defaultDialgoueEventExceptionHandler.yy
+	modified:   yyp/scripts/defaultResizeStrategy/defaultResizeStrategy.yy
+	modified:   yyp/scripts/defaultUiManagerMouseActionEventHandler/defaultUiManagerMouseActionEventHandler.yy
+	modified:   yyp/scripts/deleteFromList/deleteFromList.yy
+	modified:   yyp/scripts/deleteValueFromPriorityQueue/deleteValueFromPriorityQueue.yy
+	modified:   yyp/scripts/deregisterContext/deregisterContext.yy
+	modified:   yyp/scripts/deregisterCurrentDialogueContext/deregisterCurrentDialogueContext.yy
+	modified:   yyp/scripts/deregisterMouseAction/deregisterMouseAction.yy
+	modified:   yyp/scripts/deregisterMouseViewContainer/deregisterMouseViewContainer.yy
+	modified:   yyp/scripts/deregisterSceneRenderer/deregisterSceneRenderer.yy
+	modified:   yyp/scripts/deserializeGrid/deserializeGrid.yy
+	modified:   yyp/scripts/deserializeList/deserializeList.yy
+	modified:   yyp/scripts/deserializeMap/deserializeMap.yy
+	modified:   yyp/scripts/deserializePriorityQueue/deserializePriorityQueue.yy
+	modified:   yyp/scripts/deserializeQueue/deserializeQueue.yy
+	modified:   yyp/scripts/deserializeStack/deserializeStack.yy
+	modified:   yyp/scripts/destroy/destroy.yy
+	modified:   yyp/scripts/destroyDataStructure/destroyDataStructure.yy
+	modified:   yyp/scripts/destroyGrid/destroyGrid.yy
+	modified:   yyp/scripts/destroyJsonArray/destroyJsonArray.yy
+	modified:   yyp/scripts/destroyJsonObject/destroyJsonObject.yy
+	modified:   yyp/scripts/destroyList/destroyList.yy
+	modified:   yyp/scripts/destroyMap/destroyMap.yy
+	modified:   yyp/scripts/destroyPriorityQueue/destroyPriorityQueue.yy
+	modified:   yyp/scripts/destroyQueue/destroyQueue.yy
+	modified:   yyp/scripts/destroyStack/destroyStack.yy
+	modified:   yyp/scripts/dialogue/dialogue.yy
+	modified:   yyp/scripts/dialogueActionAddExperienceHandler/dialogueActionAddExperienceHandler.yy
+	modified:   yyp/scripts/dialogueActionAddItemHandler/dialogueActionAddItemHandler.yy
+	modified:   yyp/scripts/dialogueActionAddLevelHandler/dialogueActionAddLevelHandler.yy
+	modified:   yyp/scripts/dialogueActionAddQuestEntryHandler/dialogueActionAddQuestEntryHandler.yy
+	modified:   yyp/scripts/dialogueActionAddStatisticPoints/dialogueActionAddStatisticPoints.yy
+	modified:   yyp/scripts/dialogueActionCompleteQuestHandler/dialogueActionCompleteQuestHandler.yy
+	modified:   yyp/scripts/dialogueActionDropItemHandler/dialogueActionDropItemHandler.yy
+	modified:   yyp/scripts/dialogueActionEndDialogueHandler/dialogueActionEndDialogueHandler.yy
+	modified:   yyp/scripts/dialogueActionEqContainsHandler/dialogueActionEqContainsHandler.yy
+	modified:   yyp/scripts/dialogueActionExchangeItemHandler/dialogueActionExchangeItemHandler.yy
+	modified:   yyp/scripts/dialogueActionFailedQuestHandler/dialogueActionFailedQuestHandler.yy
+	modified:   yyp/scripts/dialogueActionNpcToMobHandler/dialogueActionNpcToMobHandler.yy
+	modified:   yyp/scripts/dialogueActionNpcTradeHandler/dialogueActionNpcTradeHandler.yy
+	modified:   yyp/scripts/dialogueActionPlayCutscene/dialogueActionPlayCutscene.yy
+	modified:   yyp/scripts/dialogueActionRequireFactHandler/dialogueActionRequireFactHandler.yy
+	modified:   yyp/scripts/dialogueActionRequireTime/dialogueActionRequireTime.yy
+	modified:   yyp/scripts/dialogueActionRewindTime/dialogueActionRewindTime.yy
+	modified:   yyp/scripts/dialogueActionSendNotificationHandler/dialogueActionSendNotificationHandler.yy
+	modified:   yyp/scripts/dialogueActionSetFactHandler/dialogueActionSetFactHandler.yy
+	modified:   yyp/scripts/dialogueActionSetMobStatisticResistanceHandler/dialogueActionSetMobStatisticResistanceHandler.yy
+	modified:   yyp/scripts/dialogueActionStartQuestHandler/dialogueActionStartQuestHandler.yy
+	modified:   yyp/scripts/dialogueActionStartSequence/dialogueActionStartSequence.yy
+	modified:   yyp/scripts/dialogueActionTeleportHandler/dialogueActionTeleportHandler.yy
+	modified:   yyp/scripts/dialogueContextHandler/dialogueContextHandler.yy
+	modified:   yyp/scripts/dialogueManagerMouseViewContainerStepHandler/dialogueManagerMouseViewContainerStepHandler.yy
+	modified:   yyp/scripts/dialoguechoice/dialoguechoice.yy
+	modified:   yyp/scripts/dialoguecontext/dialoguecontext.yy
+	modified:   yyp/scripts/dialoguedisplaychoice/dialoguedisplaychoice.yy
+	modified:   yyp/scripts/dialoguedisplaycontext/dialoguedisplaycontext.yy
+	modified:   yyp/scripts/dialogueevent/dialogueevent.yy
+	modified:   yyp/scripts/dialoguenode/dialoguenode.yy
+	modified:   yyp/scripts/dialogueoperation/dialogueoperation.yy
+	modified:   yyp/scripts/dialogueoperations/dialogueoperations.yy
+	modified:   yyp/scripts/dialoguepackage/dialoguepackage.yy
+	modified:   yyp/scripts/dialogueprototype/dialogueprototype.yy
+	modified:   yyp/scripts/dispatchDialogueEventChanceBranch/dispatchDialogueEventChanceBranch.yy
+	modified:   yyp/scripts/dispatchDialogueEventChoose/dispatchDialogueEventChoose.yy
+	modified:   yyp/scripts/dispatchDialogueEventConditionBranch/dispatchDialogueEventConditionBranch.yy
+	modified:   yyp/scripts/dispatchDialogueEventEnd/dispatchDialogueEventEnd.yy
+	modified:   yyp/scripts/dispatchDialogueEventExecute/dispatchDialogueEventExecute.yy
+	modified:   yyp/scripts/dispatchDialogueEventGotoNode/dispatchDialogueEventGotoNode.yy
+	modified:   yyp/scripts/dispatchDialogueEventMessage/dispatchDialogueEventMessage.yy
+	modified:   yyp/scripts/dispatchDialogueEventRandomBranch/dispatchDialogueEventRandomBranch.yy
+	modified:   yyp/scripts/dispatchDialogueEventStart/dispatchDialogueEventStart.yy
+	modified:   yyp/scripts/drawText/drawText.yy
+	modified:   yyp/scripts/encodeJson/encodeJson.yy
+	modified:   yyp/scripts/exception/exception.yy
+	modified:   yyp/scripts/existsInRepositoryById/existsInRepositoryById.yy
+	modified:   yyp/scripts/fact/fact.yy
+	modified:   yyp/scripts/factintent/factintent.yy
+	modified:   yyp/scripts/factmanagerstate/factmanagerstate.yy
+	modified:   yyp/scripts/fetchArrayViewBeginIndex/fetchArrayViewBeginIndex.yy
+	modified:   yyp/scripts/fetchArrayViewIndex/fetchArrayViewIndex.yy
+	modified:   yyp/scripts/fetchCurrentLangCode/fetchCurrentLangCode.yy
+	modified:   yyp/scripts/fetchDialogue/fetchDialogue.yy
+	modified:   yyp/scripts/fetchDialogueChoiceOperations/fetchDialogueChoiceOperations.yy
+	modified:   yyp/scripts/fetchDialogueEventDispatcher/fetchDialogueEventDispatcher.yy
+	modified:   yyp/scripts/fetchDialogueNode/fetchDialogueNode.yy
+	modified:   yyp/scripts/fetchDialogueNodeType/fetchDialogueNodeType.yy
+	modified:   yyp/scripts/fetchDialogueOperations/fetchDialogueOperations.yy
+	modified:   yyp/scripts/fetchFontFamily/fetchFontFamily.yy
+	modified:   yyp/scripts/fetchMouseCursor/fetchMouseCursor.yy
+	modified:   yyp/scripts/fetchTranslation/fetchTranslation.yy
+	modified:   yyp/scripts/fieldmodifier/fieldmodifier.yy
+	modified:   yyp/scripts/fieldmodifiertask/fieldmodifiertask.yy
+	modified:   yyp/scripts/fileExists/fileExists.yy
+	modified:   yyp/scripts/filterCollection/filterCollection.yy
+	modified:   yyp/scripts/findByPriorityInPriorityQueue/findByPriorityInPriorityQueue.yy
+	modified:   yyp/scripts/findEntityClassByName/findEntityClassByName.yy
+	modified:   yyp/scripts/findFirstInMap/findFirstInMap.yy
+	modified:   yyp/scripts/findInRepositoryById/findInRepositoryById.yy
+	modified:   yyp/scripts/findLastInMap/findLastInMap.yy
+	modified:   yyp/scripts/findMaxInPriorityQueue/findMaxInPriorityQueue.yy
+	modified:   yyp/scripts/findMinInPriorityQueue/findMinInPriorityQueue.yy
+	modified:   yyp/scripts/findNextInMap/findNextInMap.yy
+	modified:   yyp/scripts/findPreviousInMap/findPreviousInMap.yy
+	modified:   yyp/scripts/findPriorityByValueInPriorityQueue/findPriorityByValueInPriorityQueue.yy
+	modified:   yyp/scripts/findUiManagerUiPanel/findUiManagerUiPanel.yy
+	modified:   yyp/scripts/findValueInGrid/findValueInGrid.yy
+	modified:   yyp/scripts/findValueInList/findValueInList.yy
+	modified:   yyp/scripts/findValueInMap/findValueInMap.yy
+	modified:   yyp/scripts/findValueIndexInArray/findValueIndexInArray.yy
+	modified:   yyp/scripts/gamecontrollerstatic/gamecontrollerstatic.yy
+	modified:   yyp/scripts/gameevent/gameevent.yy
+	modified:   yyp/scripts/gamerendererstatic/gamerendererstatic.yy
+	modified:   yyp/scripts/generateMouseActionEventFromMouseAction/generateMouseActionEventFromMouseAction.yy
+	modified:   yyp/scripts/generatePipeline/generatePipeline.yy
+	modified:   yyp/scripts/generateReactor/generateReactor.yy
+	modified:   yyp/scripts/generateUUID/generateUUID.yy
+	modified:   yyp/scripts/genericentity/genericentity.yy
+	modified:   yyp/scripts/genericentitycollection/genericentitycollection.yy
+	modified:   yyp/scripts/genericevent/genericevent.yy
+	modified:   yyp/scripts/genericmanagerentity/genericmanagerentity.yy
+	modified:   yyp/scripts/generictask/generictask.yy
+	modified:   yyp/scripts/getAngleBetweenCoords/getAngleBetweenCoords.yy
+	modified:   yyp/scripts/getAngleBetweenInstances/getAngleBetweenInstances.yy
+	modified:   yyp/scripts/getAngleBetweenPoints/getAngleBetweenPoints.yy
+	modified:   yyp/scripts/getArrayLength/getArrayLength.yy
+	modified:   yyp/scripts/getArrayMapSize/getArrayMapSize.yy
+	modified:   yyp/scripts/getArrayMapValueDefault/getArrayMapValueDefault.yy
+	modified:   yyp/scripts/getAssetIndex/getAssetIndex.yy
+	modified:   yyp/scripts/getAssetName/getAssetName.yy
+	modified:   yyp/scripts/getClassName/getClassName.yy
+	modified:   yyp/scripts/getCosNorm/getCosNorm.yy
+	modified:   yyp/scripts/getCurrentRendererSize/getCurrentRendererSize.yy
+	modified:   yyp/scripts/getDefaultJsonDecoderType/getDefaultJsonDecoderType.yy
+	modified:   yyp/scripts/getDefaultValue/getDefaultValue.yy
+	modified:   yyp/scripts/getDialogueContext/getDialogueContext.yy
+	modified:   yyp/scripts/getDialogueDisplayContext/getDialogueDisplayContext.yy
+	modified:   yyp/scripts/getDialogueManager/getDialogueManager.yy
+	modified:   yyp/scripts/getDistanceBetweenCoords/getDistanceBetweenCoords.yy
+	modified:   yyp/scripts/getDistanceBetweenInstances/getDistanceBetweenInstances.yy
+	modified:   yyp/scripts/getDistanceBetweenPoints/getDistanceBetweenPoints.yy
+	modified:   yyp/scripts/getEntityClass/getEntityClass.yy
+	modified:   yyp/scripts/getEntityClassCreateHandler/getEntityClassCreateHandler.yy
+	modified:   yyp/scripts/getEntityClassDeserializeHandler/getEntityClassDeserializeHandler.yy
+	modified:   yyp/scripts/getEntityClassDestroyHandler/getEntityClassDestroyHandler.yy
+	modified:   yyp/scripts/getEntityClassName/getEntityClassName.yy
+	modified:   yyp/scripts/getEntityClassSerializeHandler/getEntityClassSerializeHandler.yy
+	modified:   yyp/scripts/getEntityCreateHandler/getEntityCreateHandler.yy
+	modified:   yyp/scripts/getEntityDeserializeHandler/getEntityDeserializeHandler.yy
+	modified:   yyp/scripts/getEntityDestroyHandler/getEntityDestroyHandler.yy
+	modified:   yyp/scripts/getEntityFields/getEntityFields.yy
+	modified:   yyp/scripts/getEntityPrototype/getEntityPrototype.yy
+	modified:   yyp/scripts/getEntitySerializeHandler/getEntitySerializeHandler.yy
+	modified:   yyp/scripts/getFact/getFact.yy
+	modified:   yyp/scripts/getFactManager/getFactManager.yy
+	modified:   yyp/scripts/getFactNotify/getFactNotify.yy
+	modified:   yyp/scripts/getFactRepository/getFactRepository.yy
+	modified:   yyp/scripts/getFontHeight/getFontHeight.yy
+	modified:   yyp/scripts/getFromGrid/getFromGrid.yy
+	modified:   yyp/scripts/getFromList/getFromList.yy
+	modified:   yyp/scripts/getFromMap/getFromMap.yy
+	modified:   yyp/scripts/getGenericManagerPrototype/getGenericManagerPrototype.yy
+	modified:   yyp/scripts/getGlobalVariable/getGlobalVariable.yy
+	modified:   yyp/scripts/getGridHeight/getGridHeight.yy
+	modified:   yyp/scripts/getGridWidth/getGridWidth.yy
+	modified:   yyp/scripts/getHeadOfQueue/getHeadOfQueue.yy
+	modified:   yyp/scripts/getHtml5MouseGuiX/getHtml5MouseGuiX.yy
+	modified:   yyp/scripts/getHtml5MouseGuiY/getHtml5MouseGuiY.yy
+	modified:   yyp/scripts/getInputHandlerKeyState/getInputHandlerKeyState.yy
+	modified:   yyp/scripts/getInputHandlerKeysState/getInputHandlerKeysState.yy
+	modified:   yyp/scripts/getInstanceClass/getInstanceClass.yy
+	modified:   yyp/scripts/getInstanceClassName/getInstanceClassName.yy
+	modified:   yyp/scripts/getInstanceType/getInstanceType.yy
+	modified:   yyp/scripts/getInstanceVariable/getInstanceVariable.gml
+	modified:   yyp/scripts/getInstanceVariable/getInstanceVariable.yy
+	modified:   yyp/scripts/getInstanceVariableNames/getInstanceVariableNames.yy
+	modified:   yyp/scripts/getJsonArrayData/getJsonArrayData.yy
+	modified:   yyp/scripts/getJsonArrayDecoder/getJsonArrayDecoder.yy
+	modified:   yyp/scripts/getJsonArrayEntry/getJsonArrayEntry.yy
+	modified:   yyp/scripts/getJsonArraySize/getJsonArraySize.yy
+	modified:   yyp/scripts/getJsonEntityType/getJsonEntityType.yy
+	modified:   yyp/scripts/getJsonObjectData/getJsonObjectData.yy
+	modified:   yyp/scripts/getJsonObjectDecoder/getJsonObjectDecoder.yy
+	modified:   yyp/scripts/getJsonObjectFieldValue/getJsonObjectFieldValue.yy
+	modified:   yyp/scripts/getJsonObjectKeys/getJsonObjectKeys.yy
+	modified:   yyp/scripts/getJsonObjectSize/getJsonObjectSize.yy
+	modified:   yyp/scripts/getKeyIndexFromArrayMapByKey/getKeyIndexFromArrayMapByKey.yy
+	modified:   yyp/scripts/getKeyIndexFromArrayMapByValue/getKeyIndexFromArrayMapByValue.yy
+	modified:   yyp/scripts/getLangCode/getLangCode.yy
+	modified:   yyp/scripts/getLangManager/getLangManager.yy
+	modified:   yyp/scripts/getLangPack/getLangPack.yy
+	modified:   yyp/scripts/getLangPacks/getLangPacks.yy
+	modified:   yyp/scripts/getLayerVisibility/getLayerVisibility.yy
+	modified:   yyp/scripts/getLinesIntersectionPosition/getLinesIntersectionPosition.yy
+	modified:   yyp/scripts/getListSize/getListSize.yy
+	modified:   yyp/scripts/getLoggerQueue/getLoggerQueue.yy
+	modified:   yyp/scripts/getManagerEventPipeline/getManagerEventPipeline.yy
+	modified:   yyp/scripts/getManagerPrototypeRepository/getManagerPrototypeRepository.yy
+	modified:   yyp/scripts/getManagerTaskReactor/getManagerTaskReactor.yy
+	modified:   yyp/scripts/getMapKeys/getMapKeys.yy
+	modified:   yyp/scripts/getMapSize/getMapSize.yy
+	modified:   yyp/scripts/getMapValueDefault/getMapValueDefault.yy
+	modified:   yyp/scripts/getMouseGuiX/getMouseGuiX.yy
+	modified:   yyp/scripts/getMouseGuiY/getMouseGuiY.yy
+	modified:   yyp/scripts/getMouseManager/getMouseManager.yy
+	modified:   yyp/scripts/getMouseManagerMouseCursor/getMouseManagerMouseCursor.yy
+	modified:   yyp/scripts/getMouseViewX/getMouseViewX.yy
+	modified:   yyp/scripts/getMouseViewY/getMouseViewY.yy
+	modified:   yyp/scripts/getNetworkManager/getNetworkManager.yy
+	modified:   yyp/scripts/getNumber/getNumber.yy
+	modified:   yyp/scripts/getNumericTupleDirectionBetweenKeys/getNumericTupleDirectionBetweenKeys.yy
+	modified:   yyp/scripts/getNumericTupleDirectionBetweenValues/getNumericTupleDirectionBetweenValues.yy
+	modified:   yyp/scripts/getPipelineFirstElement/getPipelineFirstElement.yy
+	modified:   yyp/scripts/getPipelineNextElement/getPipelineNextElement.yy
+	modified:   yyp/scripts/getPipelineSize/getPipelineSize.yy
+	modified:   yyp/scripts/getPixelScale/getPixelScale.yy
+	modified:   yyp/scripts/getPriorityQueueSize/getPriorityQueueSize.yy
+	modified:   yyp/scripts/getQueueSize/getQueueSize.yy
+	modified:   yyp/scripts/getRandomIndexFromArray/getRandomIndexFromArray.yy
+	modified:   yyp/scripts/getRandomValueFromArray/getRandomValueFromArray.yy
+	modified:   yyp/scripts/getReactorFirstElement/getReactorFirstElement.yy
+	modified:   yyp/scripts/getReactorNextElement/getReactorNextElement.yy
+	modified:   yyp/scripts/getReactorSize/getReactorSize.yy
+	modified:   yyp/scripts/getRendererResizeState/getRendererResizeState.yy
+	modified:   yyp/scripts/getRendererResizeStrategyHandler/getRendererResizeStrategyHandler.yy
+	modified:   yyp/scripts/getResourceManager/getResourceManager.yy
+	modified:   yyp/scripts/getRightAngle/getRightAngle.yy
+	modified:   yyp/scripts/getScene/getScene.yy
+	modified:   yyp/scripts/getSceneRenderer/getSceneRenderer.yy
+	modified:   yyp/scripts/getShader/getShader.yy
+	modified:   yyp/scripts/getSinNorm/getSinNorm.yy
+	modified:   yyp/scripts/getSoundIndex/getSoundIndex.yy
+	modified:   yyp/scripts/getSpriteIndex/getSpriteIndex.yy
+	modified:   yyp/scripts/getStackSize/getStackSize.yy
+	modified:   yyp/scripts/getStorableInstanceRestoreHandler/getStorableInstanceRestoreHandler.yy
+	modified:   yyp/scripts/getStorableInstanceStoreHandler/getStorableInstanceStoreHandler.yy
+	modified:   yyp/scripts/getStringFileSizeAsFormattedString/getStringFileSizeAsFormattedString.yy
+	modified:   yyp/scripts/getTJsonEntity/getTJsonEntity.yy
+	modified:   yyp/scripts/getTJsonEntityArray/getTJsonEntityArray.yy
+	modified:   yyp/scripts/getTJsonEntityMap/getTJsonEntityMap.yy
+	modified:   yyp/scripts/getTJsonMap/getTJsonMap.yy
+	modified:   yyp/scripts/getTJsonValue/getTJsonValue.yy
+	modified:   yyp/scripts/getTailOfQueue/getTailOfQueue.yy
+	modified:   yyp/scripts/getTextureHeight/getTextureHeight.yy
+	modified:   yyp/scripts/getTextureWidth/getTextureWidth.yy
+	modified:   yyp/scripts/getTopOfStack/getTopOfStack.yy
+	modified:   yyp/scripts/getTouchInputHandlerVirtualActionKeyHeight/getTouchInputHandlerVirtualActionKeyHeight.yy
+	modified:   yyp/scripts/getTouchInputHandlerVirtualActionKeyWidth/getTouchInputHandlerVirtualActionKeyWidth.yy
+	modified:   yyp/scripts/getTouchInputHandlerVirtualActionKeyXPosition/getTouchInputHandlerVirtualActionKeyXPosition.yy
+	modified:   yyp/scripts/getTouchInputHandlerVirtualActionKeyYPosition/getTouchInputHandlerVirtualActionKeyYPosition.yy
+	modified:   yyp/scripts/getTouchInputHandlerVirtualJoystick/getTouchInputHandlerVirtualJoystick.yy
+	modified:   yyp/scripts/getTypeOfBase/getTypeOfBase.yy
+	modified:   yyp/scripts/getTypeOfNested/getTypeOfNested.yy
+	modified:   yyp/scripts/getTypeParent/getTypeParent.yy
+	modified:   yyp/scripts/getUiManagerMouseViewContainer/getUiManagerMouseViewContainer.yy
+	modified:   yyp/scripts/getUiManagerMouseViewContainerHandler/getUiManagerMouseViewContainerHandler.yy
+	modified:   yyp/scripts/getUiManagerUiPanels/getUiManagerUiPanels.yy
+	modified:   yyp/scripts/getUiPanelArea/getUiPanelArea.yy
+	modified:   yyp/scripts/getUiPanelIsActive/getUiPanelIsActive.yy
+	modified:   yyp/scripts/getUiPanelMouseActionEventHandler/getUiPanelMouseActionEventHandler.yy
+	modified:   yyp/scripts/getUiPanelPrerenderHandler/getUiPanelPrerenderHandler.yy
+	modified:   yyp/scripts/getUiPanelRenderHandler/getUiPanelRenderHandler.yy
+	modified:   yyp/scripts/getUiPanelStepHandler/getUiPanelStepHandler.yy
+	modified:   yyp/scripts/getUiPanelUiActionEventHandler/getUiPanelUiActionEventHandler.yy
+	modified:   yyp/scripts/getValueFromArray/getValueFromArray.yy
+	modified:   yyp/scripts/getValueFromArrayMap/getValueFromArrayMap.yy
+	modified:   yyp/scripts/getValueFromMap/getValueFromMap.yy
+	modified:   yyp/scripts/getVirtualJoystickFixedXPosition/getVirtualJoystickFixedXPosition.yy
+	modified:   yyp/scripts/getVirtualJoystickFixedYPosition/getVirtualJoystickFixedYPosition.yy
+	modified:   yyp/scripts/getVirtualJoystickIsPositionFixed/getVirtualJoystickIsPositionFixed.yy
+	modified:   yyp/scripts/getVirtualJoystickPointerDirection/getVirtualJoystickPointerDirection.yy
+	modified:   yyp/scripts/getVirtualJoystickPointerMaxDistance/getVirtualJoystickPointerMaxDistance.yy
+	modified:   yyp/scripts/getVirtualJoystickPointerMinDistance/getVirtualJoystickPointerMinDistance.yy
+	modified:   yyp/scripts/getVirtualJoystickPointerXPosition/getVirtualJoystickPointerXPosition.yy
+	modified:   yyp/scripts/getVirtualJoystickPointerYPosition/getVirtualJoystickPointerYPosition.yy
+	modified:   yyp/scripts/getVirtualJoystickState/getVirtualJoystickState.yy
+	modified:   yyp/scripts/getVirtualJoystickTouchDeviceIndex/getVirtualJoystickTouchDeviceIndex.yy
+	modified:   yyp/scripts/getVirtualJoystickXPosition/getVirtualJoystickXPosition.yy
+	modified:   yyp/scripts/getVirtualJoystickYPosition/getVirtualJoystickYPosition.yy
+	modified:   yyp/scripts/getXOnCircle/getXOnCircle.yy
+	modified:   yyp/scripts/getYOnCircle/getYOnCircle.yy
+	modified:   yyp/scripts/getstringlength/getstringlength.yy
+	modified:   yyp/scripts/globalVariableExists/globalVariableExists.yy
+	modified:   yyp/scripts/gmcallback/gmcallback.yy
+	modified:   yyp/scripts/gridelement/gridelement.yy
+	modified:   yyp/scripts/gridelementinfo/gridelementinfo.yy
+	modified:   yyp/scripts/gridevent/gridevent.yy
+	modified:   yyp/scripts/gridrendererstatic/gridrendererstatic.gml
+	modified:   yyp/scripts/gridrendererstatic/gridrendererstatic.yy
+	modified:   yyp/scripts/handleConnect/handleConnect.yy
+	modified:   yyp/scripts/handleMessage/handleMessage.yy
+	modified:   yyp/scripts/handleRegister/handleRegister.yy
+	modified:   yyp/scripts/handleUnregister/handleUnregister.yy
+	modified:   yyp/scripts/herenderlib/herenderlib.yy
+	modified:   yyp/scripts/html5inlinefiles/html5inlinefiles.yy
+	modified:   yyp/scripts/incrementArrayViewBeginIndex/incrementArrayViewBeginIndex.yy
+	modified:   yyp/scripts/incrementLoop/incrementLoop.yy
+	modified:   yyp/scripts/incrementTimer/incrementTimer.yy
+	modified:   yyp/scripts/initializeLimiter/initializeLimiter.yy
+	modified:   yyp/scripts/initializeShaderAbberation/initializeShaderAbberation.gml
+	modified:   yyp/scripts/initializeShaderAbberation/initializeShaderAbberation.yy
+	modified:   yyp/scripts/initializeShaderCRT/initializeShaderCRT.gml
+	modified:   yyp/scripts/initializeShaderCRT/initializeShaderCRT.yy
+	modified:   yyp/scripts/initializeShaderEmboss/initializeShaderEmboss.gml
+	modified:   yyp/scripts/initializeShaderEmboss/initializeShaderEmboss.yy
+	modified:   yyp/scripts/initializeShaderLED/initializeShaderLED.gml
+	modified:   yyp/scripts/initializeShaderLED/initializeShaderLED.yy
+	modified:   yyp/scripts/initializeShaderMagnify/initializeShaderMagnify.gml
+	modified:   yyp/scripts/initializeShaderMagnify/initializeShaderMagnify.yy
+	modified:   yyp/scripts/initializeShaderMosaic/initializeShaderMosaic.gml
+	modified:   yyp/scripts/initializeShaderMosaic/initializeShaderMosaic.yy
+	modified:   yyp/scripts/initializeShaderPosterization/initializeShaderPosterization.gml
+	modified:   yyp/scripts/initializeShaderPosterization/initializeShaderPosterization.yy
+	modified:   yyp/scripts/initializeShaderRevert/initializeShaderRevert.gml
+	modified:   yyp/scripts/initializeShaderRevert/initializeShaderRevert.yy
+	modified:   yyp/scripts/initializeShaderRipple/initializeShaderRipple.gml
+	modified:   yyp/scripts/initializeShaderRipple/initializeShaderRipple.yy
+	modified:   yyp/scripts/initializeShaderScanlines/initializeShaderScanlines.gml
+	modified:   yyp/scripts/initializeShaderScanlines/initializeShaderScanlines.yy
+	modified:   yyp/scripts/initializeShaderShockWave/initializeShaderShockWave.gml
+	modified:   yyp/scripts/initializeShaderShockWave/initializeShaderShockWave.yy
+	modified:   yyp/scripts/initializeShaderSketch/initializeShaderSketch.gml
+	modified:   yyp/scripts/initializeShaderSketch/initializeShaderSketch.yy
+	modified:   yyp/scripts/initializeShaderThermal/initializeShaderThermal.gml
+	modified:   yyp/scripts/initializeShaderThermal/initializeShaderThermal.yy
+	modified:   yyp/scripts/initializeShaderUpscalingBicubic/initializeShaderUpscalingBicubic.gml
+	modified:   yyp/scripts/initializeShaderUpscalingBicubic/initializeShaderUpscalingBicubic.yy
+	modified:   yyp/scripts/initializeShaderUpscalingHQ4X/initializeShaderUpscalingHQ4X.gml
+	modified:   yyp/scripts/initializeShaderUpscalingHQ4X/initializeShaderUpscalingHQ4X.yy
+	modified:   yyp/scripts/initializeShaderWave/initializeShaderWave.gml
+	modified:   yyp/scripts/initializeShaderWave/initializeShaderWave.yy
+	modified:   yyp/scripts/initializeShaders/initializeShaders.yy
+	modified:   yyp/scripts/initializeUiManager/initializeUiManager.yy
+	modified:   yyp/scripts/initializestatic/initializestatic.gml
+	modified:   yyp/scripts/initializestatic/initializestatic.yy
+	modified:   yyp/scripts/initializevisustatic/initializevisustatic.gml
+	modified:   yyp/scripts/initializevisustatic/initializevisustatic.yy
+	modified:   yyp/scripts/inject/inject.yy
+	modified:   yyp/scripts/injectGenericManager/injectGenericManager.yy
+	modified:   yyp/scripts/injectInstanceVariable/injectInstanceVariable.yy
+	modified:   yyp/scripts/insertToList/insertToList.yy
+	modified:   yyp/scripts/instanceExists/instanceExists.yy
+	modified:   yyp/scripts/instanceOf/instanceOf.yy
+	modified:   yyp/scripts/instanceVariableExists/instanceVariableExists.yy
+	modified:   yyp/scripts/invalidWorldStateExceptionHandler/invalidWorldStateExceptionHandler.yy
+	modified:   yyp/scripts/invokeLimiter/invokeLimiter.yy
+	modified:   yyp/scripts/isArray/isArray.yy
+	modified:   yyp/scripts/isArrayMapEmpty/isArrayMapEmpty.yy
+	modified:   yyp/scripts/isArrayViewDecrementBeginIndexEnabled/isArrayViewDecrementBeginIndexEnabled.yy
+	modified:   yyp/scripts/isArrayViewIncrementBeginIndexEnabled/isArrayViewIncrementBeginIndexEnabled.yy
+	modified:   yyp/scripts/isAsset/isAsset.yy
+	modified:   yyp/scripts/isAudio/isAudio.yy
+	modified:   yyp/scripts/isBoolean/isBoolean.yy
+	modified:   yyp/scripts/isClass/isClass.gml
+	modified:   yyp/scripts/isClass/isClass.yy
+	modified:   yyp/scripts/isDataStructure/isDataStructure.yy
+	modified:   yyp/scripts/isEntity/isEntity.yy
+	modified:   yyp/scripts/isEqual/isEqual.yy
+	modified:   yyp/scripts/isException/isException.yy
+	modified:   yyp/scripts/isGreater/isGreater.yy
+	modified:   yyp/scripts/isGreaterOrEqual/isGreaterOrEqual.yy
+	modified:   yyp/scripts/isHtml5/isHtml5.gml
+	modified:   yyp/scripts/isHtml5/isHtml5.yy
+	modified:   yyp/scripts/isInstance/isInstance.yy
+	modified:   yyp/scripts/isInstanceChildOf/isInstanceChildOf.yy
+	modified:   yyp/scripts/isInstanceDirectChildOf/isInstanceDirectChildOf.yy
+	modified:   yyp/scripts/isInstanceTypeOf/isInstanceTypeOf.yy
+	modified:   yyp/scripts/isJsonArray/isJsonArray.yy
+	modified:   yyp/scripts/isJsonObject/isJsonObject.yy
+	modified:   yyp/scripts/isLess/isLess.yy
+	modified:   yyp/scripts/isLessOrEqual/isLessOrEqual.yy
+	modified:   yyp/scripts/isListEmpty/isListEmpty.yy
+	modified:   yyp/scripts/isListenerCheckerTick/isListenerCheckerTick.yy
+	modified:   yyp/scripts/isMapEmpty/isMapEmpty.yy
+	modified:   yyp/scripts/isMobile/isMobile.yy
+	modified:   yyp/scripts/isMouseUpdated/isMouseUpdated.yy
+	modified:   yyp/scripts/isNestedType/isNestedType.yy
+	modified:   yyp/scripts/isNumber/isNumber.yy
+	modified:   yyp/scripts/isNumberInRange/isNumberInRange.yy
+	modified:   yyp/scripts/isNumericTuple/isNumericTuple.yy
+	modified:   yyp/scripts/isOptionalPresent/isOptionalPresent.yy
+	modified:   yyp/scripts/isParent/isParent.yy
+	modified:   yyp/scripts/isPriorityQueueEmpty/isPriorityQueueEmpty.yy
+	modified:   yyp/scripts/isQueueEmpty/isQueueEmpty.yy
+	modified:   yyp/scripts/isResizeRequired/isResizeRequired.yy
+	modified:   yyp/scripts/isScene/isScene.yy
+	modified:   yyp/scripts/isSceneLayer/isSceneLayer.yy
+	modified:   yyp/scripts/isScript/isScript.yy
+	modified:   yyp/scripts/isStackEmpty/isStackEmpty.yy
+	modified:   yyp/scripts/isString/isString.yy
+	modified:   yyp/scripts/isStringNumber/isStringNumber.yy
+	modified:   yyp/scripts/isTJsonArray/isTJsonArray.yy
+	modified:   yyp/scripts/isTJsonBoolean/isTJsonBoolean.yy
+	modified:   yyp/scripts/isTJsonObject/isTJsonObject.yy
+	modified:   yyp/scripts/isTexture/isTexture.yy
+	modified:   yyp/scripts/isTilemapRegionEmpty/isTilemapRegionEmpty.yy
+	modified:   yyp/scripts/isUndefined/isUndefined.yy
+	modified:   yyp/scripts/iteratorFinish/iteratorFinish.yy
+	modified:   yyp/scripts/jsonObjectContainKey/jsonObjectContainKey.yy
+	modified:   yyp/scripts/jumbotronevent/jumbotronevent.yy
+	modified:   yyp/scripts/keystate/keystate.yy
+	modified:   yyp/scripts/langpack/langpack.yy
+	modified:   yyp/scripts/layergroup/layergroup.yy
+	modified:   yyp/scripts/linkedlistnode/linkedlistnode.yy
+	modified:   yyp/scripts/listener/listener.yy
+	modified:   yyp/scripts/loadResource/loadResource.yy
+	modified:   yyp/scripts/loadResourcePack/loadResourcePack.yy
+	modified:   yyp/scripts/loadScene/loadScene.yy
+	modified:   yyp/scripts/loadingintent/loadingintent.yy
+	modified:   yyp/scripts/loadingstage/loadingstage.yy
+	modified:   yyp/scripts/logger/logger.gml
+	modified:   yyp/scripts/logger/logger.yy
+	modified:   yyp/scripts/lyricsevent/lyricsevent.yy
+	modified:   yyp/scripts/lyricsrendererstatic/lyricsrendererstatic.yy
+	modified:   yyp/scripts/managerEventDispatcher/managerEventDispatcher.yy
+	modified:   yyp/scripts/managerTaskDispatcher/managerTaskDispatcher.yy
+	modified:   yyp/scripts/managerprototype/managerprototype.yy
+	modified:   yyp/scripts/mapCollection/mapCollection.yy
+	modified:   yyp/scripts/mapContains/mapContains.yy
+	modified:   yyp/scripts/mapFirst/mapFirst.yy
+	modified:   yyp/scripts/mapLast/mapLast.yy
+	modified:   yyp/scripts/mapNext/mapNext.yy
+	modified:   yyp/scripts/mapPrevious/mapPrevious.yy
+	modified:   yyp/scripts/margin/margin.yy
+	modified:   yyp/scripts/matchAny/matchAny.yy
+	modified:   yyp/scripts/mergeArrays/mergeArrays.yy
+	modified:   yyp/scripts/methodintent/methodintent.yy
+	modified:   yyp/scripts/midimatrixcontrollerapi/midimatrixcontrollerapi.gml
+	modified:   yyp/scripts/midimatrixcontrollerapi/midimatrixcontrollerapi.yy
+	modified:   yyp/scripts/midimatrixcontrollerconfig/midimatrixcontrollerconfig.yy
+	modified:   yyp/scripts/mouseActionLeftDragHandler/mouseActionLeftDragHandler.yy
+	modified:   yyp/scripts/mouseActionLeftDropHandler/mouseActionLeftDropHandler.yy
+	modified:   yyp/scripts/mouseActionLeftPressedHandler/mouseActionLeftPressedHandler.yy
+	modified:   yyp/scripts/mouseActionLeftReleasedHandler/mouseActionLeftReleasedHandler.yy
+	modified:   yyp/scripts/mouseActionRightDragHandler/mouseActionRightDragHandler.yy
+	modified:   yyp/scripts/mouseActionRightDropHandler/mouseActionRightDropHandler.yy
+	modified:   yyp/scripts/mouseActionRightPressedHandler/mouseActionRightPressedHandler.yy
+	modified:   yyp/scripts/mouseActionRightReleasedHandler/mouseActionRightReleasedHandler.yy
+	modified:   yyp/scripts/mouseActionScrollDownHandler/mouseActionScrollDownHandler.yy
+	modified:   yyp/scripts/mouseActionScrollUpHandler/mouseActionScrollUpHandler.yy
+	modified:   yyp/scripts/mouseaction/mouseaction.yy
+	modified:   yyp/scripts/mouseactionevent/mouseactionevent.yy
+	modified:   yyp/scripts/mousecursor/mousecursor.yy
+	modified:   yyp/scripts/mousecursordata/mousecursordata.yy
+	modified:   yyp/scripts/mouseevent/mouseevent.yy
+	modified:   yyp/scripts/mouseviewcontainer/mouseviewcontainer.yy
+	modified:   yyp/scripts/moveNumericTuple/moveNumericTuple.yy
+	modified:   yyp/scripts/net_cmd_add_handler/net_cmd_add_handler.yy
+	modified:   yyp/scripts/net_cmd_init/net_cmd_init.yy
+	modified:   yyp/scripts/net_cmd_parse/net_cmd_parse.yy
+	modified:   yyp/scripts/net_cmd_resolve/net_cmd_resolve.yy
+	modified:   yyp/scripts/net_cmd_send/net_cmd_send.yy
+	modified:   yyp/scripts/net_connect/net_connect.yy
+	modified:   yyp/scripts/net_handle_command/net_handle_command.yy
+	modified:   yyp/scripts/net_init/net_init.yy
+	modified:   yyp/scripts/netresponse/netresponse.yy
+	modified:   yyp/scripts/networkDebugClickHandler/networkDebugClickHandler.yy
+	modified:   yyp/scripts/notifyFactSubscriber/notifyFactSubscriber.yy
+	modified:   yyp/scripts/packageconfig/packageconfig.yy
+	modified:   yyp/scripts/packageconfigs/packageconfigs.yy
+	modified:   yyp/scripts/parseBossTypeEnumToString/parseBossTypeEnumToString.yy
+	modified:   yyp/scripts/parseBossTypeStringToEnum/parseBossTypeStringToEnum.yy
+	modified:   yyp/scripts/parseCollectionToString/parseCollectionToString.yy
+	modified:   yyp/scripts/parseGridElementInfoTypeEnumToString/parseGridElementInfoTypeEnumToString.yy
+	modified:   yyp/scripts/parseGridElementInfoTypeStringToEnum/parseGridElementInfoTypeStringToEnum.yy
+	modified:   yyp/scripts/parseKeyboardKeyTypeStringToEnum/parseKeyboardKeyTypeStringToEnum.yy
+	modified:   yyp/scripts/parseNumberFromString/parseNumberFromString.yy
+	modified:   yyp/scripts/parseParticleSystemsEnumToString/parseParticleSystemsEnumToString.yy
+	modified:   yyp/scripts/parseParticleSystemsStringToEnum/parseParticleSystemsStringToEnum.yy
+	modified:   yyp/scripts/parseShroomTypeEnumToString/parseShroomTypeEnumToString.yy
+	modified:   yyp/scripts/parseShroomTypeStringToEnum/parseShroomTypeStringToEnum.yy
+	modified:   yyp/scripts/particleevent/particleevent.yy
+	modified:   yyp/scripts/particlemanagerstatic/particlemanagerstatic.gml
+	modified:   yyp/scripts/particlemanagerstatic/particlemanagerstatic.yy
+	modified:   yyp/scripts/particletask/particletask.yy
+	modified:   yyp/scripts/pipeline/pipeline.yy
+	modified:   yyp/scripts/player/player.yy
+	modified:   yyp/scripts/playerDeadExceptionHandler/playerDeadExceptionHandler.yy
+	modified:   yyp/scripts/playerevent/playerevent.yy
+	modified:   yyp/scripts/playermanagerstatic/playermanagerstatic.gml
+	modified:   yyp/scripts/playermanagerstatic/playermanagerstatic.yy
+	modified:   yyp/scripts/playgroundcontrollerstatic/playgroundcontrollerstatic.gml
+	modified:   yyp/scripts/playgroundcontrollerstatic/playgroundcontrollerstatic.yy
+	modified:   yyp/scripts/playgroundrendererstatic/playgroundrendererstatic.yy
+	modified:   yyp/scripts/popMaxPriorityQueue/popMaxPriorityQueue.yy
+	modified:   yyp/scripts/popMinPriorityQueue/popMinPriorityQueue.yy
+	modified:   yyp/scripts/popQueue/popQueue.yy
+	modified:   yyp/scripts/popStack/popStack.yy
+	modified:   yyp/scripts/position/position.yy
+	modified:   yyp/scripts/prerenderUiManager/prerenderUiManager.yy
+	modified:   yyp/scripts/print/print.yy
+	modified:   yyp/scripts/printArray/printArray.yy
+	modified:   yyp/scripts/printStackTrace/printStackTrace.yy
+	modified:   yyp/scripts/pushArray/pushArray.yy
+	modified:   yyp/scripts/pushQueue/pushQueue.yy
+	modified:   yyp/scripts/pushStack/pushStack.yy
+	modified:   yyp/scripts/reactor/reactor.yy
+	modified:   yyp/scripts/readStringFromFile/readStringFromFile.gml
+	modified:   yyp/scripts/readStringFromFile/readStringFromFile.yy
+	modified:   yyp/scripts/readStringFromFileDialog/readStringFromFileDialog.gml
+	modified:   yyp/scripts/readStringFromFileDialog/readStringFromFileDialog.yy
+	modified:   yyp/scripts/rectangle/rectangle.yy
+	modified:   yyp/scripts/recursiveIsTypeChildOf/recursiveIsTypeChildOf.yy
+	modified:   yyp/scripts/reduceList/reduceList.yy
+	modified:   yyp/scripts/reduceMap/reduceMap.yy
+	modified:   yyp/scripts/registerContext/registerContext.yy
+	modified:   yyp/scripts/registerCurrentDialogueContext/registerCurrentDialogueContext.yy
+	modified:   yyp/scripts/registerInstanceFactIntentsSubscriber/registerInstanceFactIntentsSubscriber.yy
+	modified:   yyp/scripts/registerLangPack/registerLangPack.yy
+	modified:   yyp/scripts/registerManagerPrototype/registerManagerPrototype.yy
+	modified:   yyp/scripts/registerMouseAction/registerMouseAction.yy
+	modified:   yyp/scripts/registerMouseViewContainer/registerMouseViewContainer.yy
+	modified:   yyp/scripts/registerSceneRenderer/registerSceneRenderer.yy
+	modified:   yyp/scripts/removeEntitiesFromMap/removeEntitiesFromMap.yy
+	modified:   yyp/scripts/removeFromArrayMap/removeFromArrayMap.yy
+	modified:   yyp/scripts/removeFromLinkedList/removeFromLinkedList.yy
+	modified:   yyp/scripts/removeFromList/removeFromList.yy
+	modified:   yyp/scripts/removeFromMap/removeFromMap.yy
+	modified:   yyp/scripts/removeFromRepositoryById/removeFromRepositoryById.yy
+	modified:   yyp/scripts/removeItemsFromList/removeItemsFromList.yy
+	modified:   yyp/scripts/removeReactorElement/removeReactorElement.yy
+	modified:   yyp/scripts/removeUiPanelFromUiManager/removeUiPanelFromUiManager.yy
+	modified:   yyp/scripts/removeUiPanelFromUiManagerByClass/removeUiPanelFromUiManagerByClass.yy
+	modified:   yyp/scripts/removeUiPanelFromUiManagerByInstanceId/removeUiPanelFromUiManagerByInstanceId.yy
+	modified:   yyp/scripts/renderDialogueSurface/renderDialogueSurface.yy
+	modified:   yyp/scripts/renderUiManager/renderUiManager.yy
+	modified:   yyp/scripts/repository/repository.yy
+	modified:   yyp/scripts/resizeGrid/resizeGrid.yy
+	modified:   yyp/scripts/resizeToTarget/resizeToTarget.yy
+	modified:   yyp/scripts/resizestrategy/resizestrategy.yy
+	modified:   yyp/scripts/resolution/resolution.yy
+	modified:   yyp/scripts/resolutions/resolutions.yy
+	modified:   yyp/scripts/resolveDialogueOperation/resolveDialogueOperation.yy
+	modified:   yyp/scripts/resolveDialogueOperations/resolveDialogueOperations.yy
+	modified:   yyp/scripts/resolveLimiter/resolveLimiter.yy
+	modified:   yyp/scripts/resolveListener/resolveListener.yy
+	modified:   yyp/scripts/resolveMouseViewContainerMouseAction/resolveMouseViewContainerMouseAction.yy
+	modified:   yyp/scripts/resolveReactor/resolveReactor.yy
+	modified:   yyp/scripts/resolveUiManagerMouseActionEvent/resolveUiManagerMouseActionEvent.yy
+	modified:   yyp/scripts/resourcepack/resourcepack.yy
+	modified:   yyp/scripts/resourcepackentry/resourcepackentry.yy
+	modified:   yyp/scripts/restoreFactManagerHandler/restoreFactManagerHandler.yy
+	modified:   yyp/scripts/runMethodIntent/runMethodIntent.yy
+	modified:   yyp/scripts/runMethodIntents/runMethodIntents.yy
+	modified:   yyp/scripts/runRestoreHandler/runRestoreHandler.yy
+	modified:   yyp/scripts/runScript/runScript.yy
+	modified:   yyp/scripts/runStoreHandler/runStoreHandler.yy
+	modified:   yyp/scripts/runTest/runTest.yy
+	modified:   yyp/scripts/runTestSuite/runTestSuite.yy
+	modified:   yyp/scripts/runtimeExceptionHandler/runtimeExceptionHandler.yy
+	modified:   yyp/scripts/saveInRepository/saveInRepository.yy
+	modified:   yyp/scripts/sendDialogueEvent/sendDialogueEvent.yy
+	modified:   yyp/scripts/sendGenericManagerEvent/sendGenericManagerEvent.yy
+	modified:   yyp/scripts/sendGenericManagerTask/sendGenericManagerTask.yy
+	modified:   yyp/scripts/sendManagerEvent/sendManagerEvent.yy
+	modified:   yyp/scripts/sendManagerTask/sendManagerTask.yy
+	modified:   yyp/scripts/sendMessage/sendMessage.yy
+	modified:   yyp/scripts/sendMouseActionEvent/sendMouseActionEvent.yy
+	modified:   yyp/scripts/sendRegister/sendRegister.yy
+	modified:   yyp/scripts/sendUiPanelUiActionEvent/sendUiPanelUiActionEvent.yy
+	modified:   yyp/scripts/sendUnregister/sendUnregister.yy
+	modified:   yyp/scripts/serializeGrid/serializeGrid.yy
+	modified:   yyp/scripts/serializeList/serializeList.yy
+	modified:   yyp/scripts/serializeMap/serializeMap.yy
+	modified:   yyp/scripts/serializePriorityQueue/serializePriorityQueue.yy
+	modified:   yyp/scripts/serializeQueue/serializeQueue.yy
+	modified:   yyp/scripts/serializeStack/serializeStack.yy
+	modified:   yyp/scripts/setDefaultJsonDecoderType/setDefaultJsonDecoderType.yy
+	modified:   yyp/scripts/setDialogueDisplayContext/setDialogueDisplayContext.yy
+	modified:   yyp/scripts/setGlobalVariable/setGlobalVariable.yy
+	modified:   yyp/scripts/setInGrid/setInGrid.yy
+	modified:   yyp/scripts/setInMap/setInMap.yy
+	modified:   yyp/scripts/setInputHandlerKeyState/setInputHandlerKeyState.yy
+	modified:   yyp/scripts/setInputHandlerKeysState/setInputHandlerKeysState.yy
+	modified:   yyp/scripts/setInstanceVariable/setInstanceVariable.gml
+	modified:   yyp/scripts/setInstanceVariable/setInstanceVariable.yy
+	modified:   yyp/scripts/setLayerVisibility/setLayerVisibility.yy
+	modified:   yyp/scripts/setMouseManagerMouseCursor/setMouseManagerMouseCursor.yy
+	modified:   yyp/scripts/setRendererResizeStrategyHandler/setRendererResizeStrategyHandler.yy
+	modified:   yyp/scripts/setTextureSpeed/setTextureSpeed.yy
+	modified:   yyp/scripts/setTouchInputHandlerVirtualActionKeyHeight/setTouchInputHandlerVirtualActionKeyHeight.yy
+	modified:   yyp/scripts/setTouchInputHandlerVirtualActionKeyWidth/setTouchInputHandlerVirtualActionKeyWidth.yy
+	modified:   yyp/scripts/setTouchInputHandlerVirtualActionKeyXPosition/setTouchInputHandlerVirtualActionKeyXPosition.yy
+	modified:   yyp/scripts/setTouchInputHandlerVirtualActionKeyYPosition/setTouchInputHandlerVirtualActionKeyYPosition.yy
+	modified:   yyp/scripts/setTouchInputHandlerVirtualJoystick/setTouchInputHandlerVirtualJoystick.yy
+	modified:   yyp/scripts/setValueInArrayMap/setValueInArrayMap.yy
+	modified:   yyp/scripts/setVirtualJoystickFixedXPosition/setVirtualJoystickFixedXPosition.yy
+	modified:   yyp/scripts/setVirtualJoystickFixedYPosition/setVirtualJoystickFixedYPosition.yy
+	modified:   yyp/scripts/setVirtualJoystickIsPositionFixed/setVirtualJoystickIsPositionFixed.yy
+	modified:   yyp/scripts/setVirtualJoystickPointerDirection/setVirtualJoystickPointerDirection.yy
+	modified:   yyp/scripts/setVirtualJoystickPointerMaxDistance/setVirtualJoystickPointerMaxDistance.yy
+	modified:   yyp/scripts/setVirtualJoystickPointerMinDistance/setVirtualJoystickPointerMinDistance.yy
+	modified:   yyp/scripts/setVirtualJoystickPointerXPosition/setVirtualJoystickPointerXPosition.yy
+	modified:   yyp/scripts/setVirtualJoystickPointerYPosition/setVirtualJoystickPointerYPosition.yy
+	modified:   yyp/scripts/setVirtualJoystickState/setVirtualJoystickState.yy
+	modified:   yyp/scripts/setVirtualJoystickTouchDeviceIndex/setVirtualJoystickTouchDeviceIndex.yy
+	modified:   yyp/scripts/setVirtualJoystickXPosition/setVirtualJoystickXPosition.yy
+	modified:   yyp/scripts/setVirtualJoystickYPosition/setVirtualJoystickYPosition.yy
+	modified:   yyp/scripts/settings/settings.yy
+	modified:   yyp/scripts/shaderevent/shaderevent.yy
+	modified:   yyp/scripts/shaderpipeline/shaderpipeline.yy
+	modified:   yyp/scripts/shadertask/shadertask.yy
+	modified:   yyp/scripts/shadertemplaterepository/shadertemplaterepository.yy
+	modified:   yyp/scripts/shroom/shroom.yy
+	modified:   yyp/scripts/shroomemitter/shroomemitter.yy
+	modified:   yyp/scripts/shroomemitterevent/shroomemitterevent.yy
+	modified:   yyp/scripts/shroomevent/shroomevent.yy
+	modified:   yyp/scripts/shroommanagerstatic/shroommanagerstatic.yy
+	modified:   yyp/scripts/shroomtemplate/shroomtemplate.yy
+	modified:   yyp/scripts/shroomtemplaterepository/shroomtemplaterepository.yy
+	modified:   yyp/scripts/sortArray/sortArray.yy
+	modified:   yyp/scripts/sortGrid/sortGrid.yy
+	modified:   yyp/scripts/sortList/sortList.yy
+	modified:   yyp/scripts/spawnUiPanel/spawnUiPanel.yy
+	modified:   yyp/scripts/splitStringToArray/splitStringToArray.yy
+	modified:   yyp/scripts/sprite/sprite.yy
+	modified:   yyp/scripts/star/star.yy
+	modified:   yyp/scripts/startDialogue/startDialogue.yy
+	modified:   yyp/scripts/startupLogo/startupLogo.yy
+	modified:   yyp/scripts/storeFactManagerHandler/storeFactManagerHandler.yy
+	modified:   yyp/scripts/stringContains/stringContains.yy
+	modified:   yyp/scripts/stringParams/stringParams.yy
+	modified:   yyp/scripts/striptexture/striptexture.yy
+	modified:   yyp/scripts/super/super.yy
+	modified:   yyp/scripts/surfaceview/surfaceview.yy
+	modified:   yyp/scripts/systemevent/systemevent.yy
+	modified:   yyp/scripts/theme/theme.yy
+	modified:   yyp/scripts/throwException/throwException.yy
+	modified:   yyp/scripts/tiledlayer/tiledlayer.yy
+	modified:   yyp/scripts/tiledmap/tiledmap.yy
+	modified:   yyp/scripts/tiledobject/tiledobject.yy
+	modified:   yyp/scripts/timeline/timeline.yy
+	modified:   yyp/scripts/timelineentry/timelineentry.yy
+	modified:   yyp/scripts/timelineevent/timelineevent.yy
+	modified:   yyp/scripts/timelinefunction/timelinefunction.gml
+	modified:   yyp/scripts/timelinefunction/timelinefunction.yy
+	modified:   yyp/scripts/timerFinished/timerFinished.yy
+	modified:   yyp/scripts/tjson/tjson.yy
+	modified:   yyp/scripts/tuple/tuple.yy
+	modified:   yyp/scripts/typeOf/typeOf.yy
+	modified:   yyp/scripts/uiactionevent/uiactionevent.yy
+	modified:   yyp/scripts/uielement/uielement.yy
+	modified:   yyp/scripts/updateFact/updateFact.yy
+	modified:   yyp/scripts/updateFacts/updateFacts.yy
+	modified:   yyp/scripts/updateTouchInputHandler/updateTouchInputHandler.yy
+	modified:   yyp/scripts/vertexbuffergroup/vertexbuffergroup.yy
+	modified:   yyp/scripts/vertexbufferpack/vertexbufferpack.yy
+	modified:   yyp/scripts/vertexobjectbuffer/vertexobjectbuffer.yy
+	modified:   yyp/scripts/viewelement/viewelement.yy
+	modified:   yyp/scripts/windowgridvalue/windowgridvalue.yy
+	modified:   yyp/scripts/wordwrapString/wordwrapString.yy
+	modified:   yyp/scripts/worldActionEndGame/worldActionEndGame.yy
+	modified:   yyp/scripts/worldActionMineCollapse/worldActionMineCollapse.yy
+	modified:   yyp/scripts/worldActionPrologueEnd/worldActionPrologueEnd.yy
+	modified:   yyp/scripts/worldActionRageMode/worldActionRageMode.yy
+	modified:   yyp/scripts/writeStringToFile/writeStringToFile.yy
+	modified:   yyp/scripts/writeStringToFileDialog/writeStringToFileDialog.yy
+	modified:   yyp/shaders/shaderAbberation/shaderAbberation.yy
+	modified:   yyp/shaders/shaderBlendModeAdd/shaderBlendModeAdd.yy
+	modified:   yyp/shaders/shaderCRT/shaderCRT.yy
+	modified:   yyp/shaders/shaderDefault/shaderDefault.yy
+	modified:   yyp/shaders/shaderEmboss/shaderEmboss.yy
+	modified:   yyp/shaders/shaderHue/shaderHue.yy
+	modified:   yyp/shaders/shaderLED/shaderLED.yy
+	modified:   yyp/shaders/shaderLUT/shaderLUT.yy
+	modified:   yyp/shaders/shaderMagnify/shaderMagnify.yy
+	modified:   yyp/shaders/shaderMosaic/shaderMosaic.yy
+	modified:   yyp/shaders/shaderPosterization/shaderPosterization.yy
+	modified:   yyp/shaders/shaderRevert/shaderRevert.yy
+	modified:   yyp/shaders/shaderRipple/shaderRipple.yy
+	modified:   yyp/shaders/shaderScanlines/shaderScanlines.yy
+	modified:   yyp/shaders/shaderShockWave/shaderShockWave.yy
+	modified:   yyp/shaders/shaderSketch/shaderSketch.yy
+	modified:   yyp/shaders/shaderThermal/shaderThermal.yy
+	modified:   yyp/shaders/shaderTransparentMask/shaderTransparentMask.yy
+	modified:   yyp/shaders/shaderUpscalingBicubic/shaderUpscalingBicubic.yy
+	modified:   yyp/shaders/shaderUpscalingHQ4X/shaderUpscalingHQ4X.yy
+	modified:   yyp/shaders/shaderWave/shaderWave.yy
+	modified:   yyp/shaders/shdBktGlitch/shdBktGlitch.yy
+	modified:   yyp/sounds/asset_sound_empty/asset_sound_empty.yy
+	modified:   yyp/sounds/asset_sound_visu_ost/asset_sound_visu_ost.mp3
+	modified:   yyp/sounds/asset_sound_visu_ost/asset_sound_visu_ost.yy
+	modified:   yyp/sprites/asset_texture_empty/asset_texture_empty.yy
+	modified:   yyp/sprites/asset_texture_grid_line_corner_default/asset_texture_grid_line_corner_default.yy
+	modified:   yyp/sprites/asset_texture_grid_line_default/asset_texture_grid_line_default.yy
+	modified:   yyp/sprites/asset_texture_particle_devhorizon/asset_texture_particle_devhorizon.yy
+	modified:   yyp/sprites/asset_texture_star_1/asset_texture_star_1.yy
+	modified:   yyp/sprites/asset_texture_visu_bkg_1/asset_texture_visu_bkg_1.yy
+	deleted:    yyp/sprites/asset_texture_visu_bkg_1/dde72d30-7386-40d0-b4d4-735b6d046727.png
+	deleted:    yyp/sprites/asset_texture_visu_bkg_1/layers/dde72d30-7386-40d0-b4d4-735b6d046727/04e00223-88e7-4197-8164-c1e913a9323d.png
+	modified:   yyp/sprites/asset_texture_visu_bkg_2/asset_texture_visu_bkg_2.yy
+	deleted:    yyp/sprites/asset_texture_visu_bkg_2/cf916f33-005d-4ae5-84ec-99a442821e82.png
+	deleted:    yyp/sprites/asset_texture_visu_bkg_2/layers/cf916f33-005d-4ae5-84ec-99a442821e82/a4a30fea-bbdc-4e21-b1f4-67ed6568092f.png
+	deleted:    yyp/sprites/asset_texture_visu_bkg_3/91490c1e-b18d-43ef-8945-13aa624f5eae.png
+	modified:   yyp/sprites/asset_texture_visu_bkg_3/asset_texture_visu_bkg_3.yy
+	deleted:    yyp/sprites/asset_texture_visu_bkg_3/layers/91490c1e-b18d-43ef-8945-13aa624f5eae/87d11a3e-e4e3-45ff-9e6d-aeb78abbf8f4.png
+	deleted:    yyp/sprites/asset_texture_visu_bkg_4/3369ebdb-336d-4095-a845-0c7c5d1bef92.png
+	modified:   yyp/sprites/asset_texture_visu_bkg_4/asset_texture_visu_bkg_4.yy
+	deleted:    yyp/sprites/asset_texture_visu_bkg_4/layers/3369ebdb-336d-4095-a845-0c7c5d1bef92/4e8536d4-ba46-4244-be78-d5e989f91722.png
+	modified:   yyp/sprites/asset_texture_visu_bkg_5/asset_texture_visu_bkg_5.yy
+	modified:   yyp/sprites/asset_texture_visu_bkg_6/asset_texture_visu_bkg_6.yy
+	deleted:    yyp/sprites/asset_texture_visu_bkg_6/c17adaba-887b-45be-861b-dc680d618eae.png
+	deleted:    yyp/sprites/asset_texture_visu_bkg_6/layers/c17adaba-887b-45be-861b-dc680d618eae/6fd0c0fd-727c-470f-98b1-ee4504f897e4.png
+	modified:   yyp/sprites/asset_texture_visu_bkg_7/asset_texture_visu_bkg_7.yy
+	modified:   yyp/sprites/asset_texture_visu_bkg_8/asset_texture_visu_bkg_8.yy
+	modified:   yyp/sprites/asset_texture_visu_bullet_1/asset_texture_visu_bullet_1.yy
+	modified:   yyp/sprites/asset_texture_visu_bullet_2/asset_texture_visu_bullet_2.yy
+	modified:   yyp/sprites/asset_texture_visu_button_1/asset_texture_visu_button_1.yy
+	modified:   yyp/sprites/asset_texture_visu_button_bkg_1/asset_texture_visu_button_bkg_1.yy
+	modified:   yyp/sprites/asset_texture_visu_player/asset_texture_visu_player.yy
+	modified:   yyp/sprites/asset_texture_visu_player_glow/asset_texture_visu_player_glow.yy
+	deleted:    yyp/sprites/asset_texture_visu_shroom_01/140b2bac-2563-429c-a612-c4d2c35c7e54.png
+	modified:   yyp/sprites/asset_texture_visu_shroom_01/asset_texture_visu_shroom_01.yy
+	deleted:    yyp/sprites/asset_texture_visu_shroom_01/ba9a5508-14db-460f-8b4d-60b89e4d249a.png
+	deleted:    yyp/sprites/asset_texture_visu_shroom_01/layers/140b2bac-2563-429c-a612-c4d2c35c7e54/28e6f1fd-8c2c-436d-af70-e8de784e804d.png
+	deleted:    yyp/sprites/asset_texture_visu_shroom_02/a35afc83-6375-4024-9d4f-f5ffeda6b027.png
+	modified:   yyp/sprites/asset_texture_visu_shroom_02/asset_texture_visu_shroom_02.yy
+	deleted:    yyp/sprites/asset_texture_visu_shroom_02/layers/a35afc83-6375-4024-9d4f-f5ffeda6b027/2a0849fa-0dee-46b2-a9ec-5996af408417.png
+	modified:   yyp/sprites/asset_texture_visu_shroom_03/asset_texture_visu_shroom_03.yy
+	deleted:    yyp/sprites/asset_texture_visu_shroom_03/c5ed1570-a1f5-4004-9df6-a3a2ed047637.png
+	deleted:    yyp/sprites/asset_texture_visu_shroom_03/layers/c5ed1570-a1f5-4004-9df6-a3a2ed047637/6d4608fb-49b7-482f-8645-2aa0de6fb1cf.png
+	deleted:    yyp/sprites/asset_texture_visu_shroom_04/3233c0c3-fc38-49c8-a054-b30d98d32cd8.png
+	modified:   yyp/sprites/asset_texture_visu_shroom_04/asset_texture_visu_shroom_04.yy
+	deleted:    yyp/sprites/asset_texture_visu_shroom_04/layers/3233c0c3-fc38-49c8-a054-b30d98d32cd8/02b934cb-482b-4357-87d8-7777c6aaf280.png
+	deleted:    yyp/sprites/asset_texture_visu_shroom_05/886e02e8-1f15-42f3-bd76-d7a1d7c9c197.png
+	modified:   yyp/sprites/asset_texture_visu_shroom_05/asset_texture_visu_shroom_05.yy
+	deleted:    yyp/sprites/asset_texture_visu_shroom_05/layers/886e02e8-1f15-42f3-bd76-d7a1d7c9c197/7b9974ae-9c42-4b56-aa49-c60df0fdecfb.png
+	modified:   yyp/sprites/asset_texture_visu_shroom_06/asset_texture_visu_shroom_06.yy
+	deleted:    yyp/sprites/asset_texture_visu_shroom_06/c4994058-390f-4825-847c-3df4011e60f4.png
+	deleted:    yyp/sprites/asset_texture_visu_shroom_06/layers/c4994058-390f-4825-847c-3df4011e60f4/841dc7f5-3484-4f30-a3f1-01d87f36229c.png
+	deleted:    yyp/sprites/asset_texture_visu_shroom_07/0df323da-d2ca-4349-99eb-c569e0422c79.png
+	modified:   yyp/sprites/asset_texture_visu_shroom_07/asset_texture_visu_shroom_07.yy
+	deleted:    yyp/sprites/asset_texture_visu_shroom_07/layers/0df323da-d2ca-4349-99eb-c569e0422c79/7b09c5c7-6e74-418d-b497-30d11e3608d3.png
+	deleted:    yyp/sprites/asset_texture_visu_shroom_08/65646dba-2393-402a-8e9d-31d04c972f1a.png
+	modified:   yyp/sprites/asset_texture_visu_shroom_08/asset_texture_visu_shroom_08.yy
+	deleted:    yyp/sprites/asset_texture_visu_shroom_08/layers/65646dba-2393-402a-8e9d-31d04c972f1a/a0bfca06-0825-4c35-8942-0dc793cfb26b.png
+	deleted:    yyp/sprites/asset_texture_visu_shroom_09/a6e4c646-1414-4935-b657-699bdec019b8.png
+	modified:   yyp/sprites/asset_texture_visu_shroom_09/asset_texture_visu_shroom_09.yy
+	deleted:    yyp/sprites/asset_texture_visu_shroom_09/layers/a6e4c646-1414-4935-b657-699bdec019b8/77137000-99c1-47c4-a562-1403bae837d5.png
+	modified:   yyp/sprites/asset_texture_visu_shroom_10/asset_texture_visu_shroom_10.yy
+	modified:   yyp/sprites/asset_texture_visu_shroom_12/asset_texture_visu_shroom_12.yy
+	modified:   yyp/sprites/asset_texture_visu_shroom_13/asset_texture_visu_shroom_13.yy
+	modified:   yyp/sprites/asset_texture_visu_shroom_14/asset_texture_visu_shroom_14.yy
+	modified:   yyp/sprites/asset_texture_visu_shroom_15/asset_texture_visu_shroom_15.yy
+	modified:   yyp/sprites/asset_texture_visu_shroom_16/asset_texture_visu_shroom_16.yy
+	modified:   yyp/sprites/ide_camera_abstract_icon/ide_camera_abstract_icon.yy
+	modified:   yyp/sprites/ide_camera_icon/ide_camera_icon.yy
+	modified:   yyp/sprites/ide_console_icon/ide_console_icon.yy
+	modified:   yyp/sprites/ide_controller_icon/ide_controller_icon.yy
+	modified:   yyp/sprites/ide_controller_interface_icon/ide_controller_interface_icon.yy
+	modified:   yyp/sprites/ide_deltatime_icon/ide_deltatime_icon.yy
+	modified:   yyp/sprites/ide_input_handler/ide_input_handler.yy
+	modified:   yyp/sprites/ide_input_handler_interface/ide_input_handler_interface.yy
+	modified:   yyp/sprites/ide_instance_abstract_icon/ide_instance_abstract_icon.yy
+	modified:   yyp/sprites/ide_instance_icon/ide_instance_icon.yy
+	modified:   yyp/sprites/ide_instance_interface_icon/ide_instance_interface_icon.yy
+	modified:   yyp/sprites/ide_lightsource_icon/ide_lightsource_icon.yy
+	modified:   yyp/sprites/ide_lightsource_interface_icon/ide_lightsource_interface_icon.yy
+	modified:   yyp/sprites/ide_loadinghandler_icon/ide_loadinghandler_icon.yy
+	modified:   yyp/sprites/ide_loadinghandler_interface_icon/ide_loadinghandler_interface_icon.yy
+	modified:   yyp/sprites/ide_loggerwriter_icon/ide_loggerwriter_icon.yy
+	modified:   yyp/sprites/ide_manager_abstract_icon/ide_manager_abstract_icon.yy
+	modified:   yyp/sprites/ide_manager_icon/ide_manager_icon.yy
+	modified:   yyp/sprites/ide_manager_interface_icon/ide_manager_interface_icon.yy
+	modified:   yyp/sprites/ide_renderer_icon/ide_renderer_icon.yy
+	modified:   yyp/sprites/ide_renderer_interface_icon/ide_renderer_interface_icon.yy
+	modified:   yyp/sprites/ide_system_icon/ide_system_icon.yy
+	modified:   yyp/sprites/ide_window_element_icon/ide_window_element_icon.yy
+	modified:   yyp/sprites/ide_window_element_interface_icon/ide_window_element_interface_icon.yy
+	modified:   yyp/sprites/ide_window_icon/ide_window_icon.yy
+	modified:   yyp/sprites/ide_window_interface_icon/ide_window_interface_icon.yy
+	modified:   yyp/sprites/sprGame/sprGame.yy
+	modified:   yyp/sprites/sprOverlay/sprOverlay.yy
+	modified:   yyp/sprites/sprTop/sprTop.yy
+	modified:   yyp/visu.yyp
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	chart-parser.js
+	game-asset/asset_texture_visu_shroom_01/
+	game-asset/asset_texture_visu_shroom_02/
+	game-asset/asset_texture_visu_shroom_03/
+	game-asset/asset_texture_visu_shroom_04/
+	game-asset/asset_texture_visu_shroom_05/
+	game-asset/asset_texture_visu_shroom_06/
+	game-asset/asset_texture_visu_shroom_07/
+	game-asset/asset_texture_visu_shroom_08/
+	notes.chart
+	notes.json
+	out
+	yyp/datafiles/data/bkg_128-170.json
+	yyp/datafiles/data/bkg_80-128.json
+	yyp/datafiles/data/grid-speed.json
+	yyp/datafiles/data/merge-timelines.js
+	yyp/datafiles/data/nfract1.json
+	yyp/datafiles/data/nfract2.json
+	yyp/datafiles/data/nfract3.json
+	yyp/datafiles/data/preview.json
+	yyp/datafiles/data/shaders.json
+	yyp/datafiles/data/shroom-templates2.json
+	yyp/datafiles/data/shrooms.json
+	yyp/datafiles/data/shrooms1.json
+	yyp/datafiles/data/shrooms2.json
+	yyp/datafiles/data/video.mp4
+	yyp/fonts/asset_font_lyrics_renderer_accent/
+	yyp/fonts/asset_font_tandy_tv2y/asset_font_tandy_tv2y.old.png
+	yyp/fonts/asset_font_tandy_tv2y/asset_font_tandy_tv2y.old.yy
+	yyp/objects/playgroundcontroller/Alarm_0.gml
+	yyp/objects/playgroundrenderer/CleanUp_0.gml
+	yyp/options/extensions/
+	yyp/sprites/asset_texture_visu_bkg_1/06c9a5ab-ce8e-4210-9018-f43fe150e06e.png
+	yyp/sprites/asset_texture_visu_bkg_1/0b18bfca-94da-41b1-931a-a8ebb57acfe2.png
+	yyp/sprites/asset_texture_visu_bkg_1/10c35201-b8c4-44a9-85be-9f009c1163da.png
+	yyp/sprites/asset_texture_visu_bkg_1/13b47de7-6f3a-49cc-bd87-d46fbb378737.png
+	yyp/sprites/asset_texture_visu_bkg_1/1751074a-de2c-4faa-a338-4399f0280264.png
+	yyp/sprites/asset_texture_visu_bkg_1/1cf50d04-e466-4f18-b477-2a1353e11e61.png
+	yyp/sprites/asset_texture_visu_bkg_1/20c9a48f-a4d4-4bbc-88a5-987f857cb927.png
+	yyp/sprites/asset_texture_visu_bkg_1/22368e6e-ab21-4154-96cc-3ac8e3cb8b2e.png
+	yyp/sprites/asset_texture_visu_bkg_1/2684b85b-b180-46b4-8b70-1fd8166e59e4.png
+	yyp/sprites/asset_texture_visu_bkg_1/2a491aed-3885-4009-9bd6-eea6d56ebe00.png
+	yyp/sprites/asset_texture_visu_bkg_1/2a95a11d-0a14-448c-8dd3-a00b0cc485ab.png
+	yyp/sprites/asset_texture_visu_bkg_1/2aa0bdfc-b0f2-48ca-8f36-7422a1dd86b0.png
+	yyp/sprites/asset_texture_visu_bkg_1/32d2b9c7-9b29-4823-8054-029f3abd14d2.png
+	yyp/sprites/asset_texture_visu_bkg_1/3a2169a5-25e7-4f8d-99ef-1d1dabd1602a.png
+	yyp/sprites/asset_texture_visu_bkg_1/402c673f-2c35-4a29-a128-62350eddf9ee.png
+	yyp/sprites/asset_texture_visu_bkg_1/4185a8cb-a691-416b-8288-e5c56081c5d5.png
+	yyp/sprites/asset_texture_visu_bkg_1/42754ce0-7773-4c7a-8ff2-ee44a7598fe7.png
+	yyp/sprites/asset_texture_visu_bkg_1/432dd004-2398-4564-87a2-97c34902a305.png
+	yyp/sprites/asset_texture_visu_bkg_1/4339d7f8-d5c1-41e4-8e19-f02dfb520860.png
+	yyp/sprites/asset_texture_visu_bkg_1/46b04fa4-2732-4b28-b83c-6afd7d3b7460.png
+	yyp/sprites/asset_texture_visu_bkg_1/49e51a0a-d20b-43c1-8a47-60692c5392f3.png
+	yyp/sprites/asset_texture_visu_bkg_1/4d79fdc1-e15a-4b4e-8ddd-02060a97c293.png
+	yyp/sprites/asset_texture_visu_bkg_1/4e0a684b-87e8-4af7-9b7a-765f0f9f8e58.png
+	yyp/sprites/asset_texture_visu_bkg_1/4ebaf8b7-fce4-49d0-a114-bbf900728879.png
+	yyp/sprites/asset_texture_visu_bkg_1/54fc45aa-624f-4f09-ab6d-ef844234332d.png
+	yyp/sprites/asset_texture_visu_bkg_1/5f58af8a-5e38-4bf8-9101-f3f0a4052909.png
+	yyp/sprites/asset_texture_visu_bkg_1/61525195-fc3f-48f6-a378-d3d515ff5d23.png
+	yyp/sprites/asset_texture_visu_bkg_1/61855c90-2ccf-489b-91f3-9b06923d841f.png
+	yyp/sprites/asset_texture_visu_bkg_1/69cd4529-3a36-457c-b51b-22a1ecf1958c.png
+	yyp/sprites/asset_texture_visu_bkg_1/6ac4bf27-61de-460b-b954-dbd26850b1f6.png
+	yyp/sprites/asset_texture_visu_bkg_1/6fc7db60-a311-4008-8aa9-1ad2c8c115db.png
+	yyp/sprites/asset_texture_visu_bkg_1/7159748c-0691-4616-9be7-0fca4153201a.png
+	yyp/sprites/asset_texture_visu_bkg_1/7c131672-8d20-4f14-b68d-1565e32c293b.png
+	yyp/sprites/asset_texture_visu_bkg_1/804fd8b2-245e-4914-9930-c5e93495ffd6.png
+	yyp/sprites/asset_texture_visu_bkg_1/807ee8c8-f2ab-4c72-a838-1a87e2e84678.png
+	yyp/sprites/asset_texture_visu_bkg_1/847bbb25-fac3-4451-8f4b-cf32962d6644.png
+	yyp/sprites/asset_texture_visu_bkg_1/8761046c-7a4b-44c2-9918-77e545deaf58.png
+	yyp/sprites/asset_texture_visu_bkg_1/8f5171bb-03bf-4774-b2d5-d2e87562c37a.png
+	yyp/sprites/asset_texture_visu_bkg_1/9a744f84-6708-450e-a393-121a9e66baee.png
+	yyp/sprites/asset_texture_visu_bkg_1/9c441e19-56c2-40a7-9b88-8e2f6f4d663d.png
+	yyp/sprites/asset_texture_visu_bkg_1/a193a8b2-f536-41d8-82b5-3766d632e42b.png
+	yyp/sprites/asset_texture_visu_bkg_1/a2e4fe91-854f-4625-860c-77c03d039e4d.png
+	yyp/sprites/asset_texture_visu_bkg_1/a41a9ffb-372b-4236-8d05-a87efa173028.png
+	yyp/sprites/asset_texture_visu_bkg_1/a70f24e2-ef60-4ef4-a568-890ff1d6ede4.png
+	yyp/sprites/asset_texture_visu_bkg_1/ac0aa46d-bc53-4e79-a2d7-d6d21db92609.png
+	yyp/sprites/asset_texture_visu_bkg_1/aefc4e80-c217-4eee-b243-04dbaf6005e1.png
+	yyp/sprites/asset_texture_visu_bkg_1/b00c0c6b-7924-4e82-bea7-6365d1353a8a.png
+	yyp/sprites/asset_texture_visu_bkg_1/b1be998f-6eea-41bc-8c42-c63cb8e32fc0.png
+	yyp/sprites/asset_texture_visu_bkg_1/b74b25a9-4d80-43fc-b6e3-44476251b266.png
+	yyp/sprites/asset_texture_visu_bkg_1/b8c657d9-62a5-4c02-b68f-81d25dfd1b17.png
+	yyp/sprites/asset_texture_visu_bkg_1/b9d268be-40cb-4ac7-8a16-77df7ce1c0a1.png
+	yyp/sprites/asset_texture_visu_bkg_1/bd2ed929-9b05-43d2-9c68-127b057003df.png
+	yyp/sprites/asset_texture_visu_bkg_1/bf47c8d5-abf4-4781-95e7-34e7f6ad9f67.png
+	yyp/sprites/asset_texture_visu_bkg_1/c1ab73f5-6144-4529-b1fa-2812479b8359.png
+	yyp/sprites/asset_texture_visu_bkg_1/c202e41c-6c95-4036-84c3-e8b4ac8698c8.png
+	yyp/sprites/asset_texture_visu_bkg_1/cb1f377f-e677-43cb-8bfc-c67760f23f88.png
+	yyp/sprites/asset_texture_visu_bkg_1/cce519a3-053b-40cf-80c1-ceaeeb75ab36.png
+	yyp/sprites/asset_texture_visu_bkg_1/d7ef447c-82d2-428d-a01e-6d0883c3e31d.png
+	yyp/sprites/asset_texture_visu_bkg_1/e10fe1f8-b42c-4252-bd9b-d77b0d07a7c8.png
+	yyp/sprites/asset_texture_visu_bkg_1/e1757a86-7234-4924-abb0-8b4d6f2062d9.png
+	yyp/sprites/asset_texture_visu_bkg_1/e292eba8-83e9-43e2-a06d-f824a7fc2e08.png
+	yyp/sprites/asset_texture_visu_bkg_1/e2e69244-81d0-403c-967f-f23bd53ca540.png
+	yyp/sprites/asset_texture_visu_bkg_1/e48c0df5-31ba-4750-a1bd-c1df58a554ee.png
+	yyp/sprites/asset_texture_visu_bkg_1/e5c1bc14-8590-46f9-8e75-0a821cb8861e.png
+	yyp/sprites/asset_texture_visu_bkg_1/eab2cc77-03d9-4264-be15-12292d292070.png
+	yyp/sprites/asset_texture_visu_bkg_1/eaf1dd44-5f16-4ea4-8b37-5e5b71fe972e.png
+	yyp/sprites/asset_texture_visu_bkg_1/eb31f2ac-3b23-4f10-a3dc-cdaf2c5de990.png
+	yyp/sprites/asset_texture_visu_bkg_1/ecc8fe0e-2e70-4237-85cd-0f2adf6556d9.png
+	yyp/sprites/asset_texture_visu_bkg_1/ecd3b0dd-4ded-4573-8753-4e5fe141a45f.png
+	yyp/sprites/asset_texture_visu_bkg_1/f4d244ce-fca9-49fc-9540-000861a4f360.png
+	yyp/sprites/asset_texture_visu_bkg_1/f645da6a-7c2d-479c-a085-9a229736b7f6.png
+	yyp/sprites/asset_texture_visu_bkg_1/f68abd37-682e-4d7e-8434-96ee2ee137bd.png
+	yyp/sprites/asset_texture_visu_bkg_1/fc44a05b-aaa5-44b7-99b6-6da70d8d42bb.png
+	yyp/sprites/asset_texture_visu_bkg_1/layers/06c9a5ab-ce8e-4210-9018-f43fe150e06e/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/0b18bfca-94da-41b1-931a-a8ebb57acfe2/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/10c35201-b8c4-44a9-85be-9f009c1163da/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/13b47de7-6f3a-49cc-bd87-d46fbb378737/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/1751074a-de2c-4faa-a338-4399f0280264/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/1cf50d04-e466-4f18-b477-2a1353e11e61/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/20c9a48f-a4d4-4bbc-88a5-987f857cb927/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/22368e6e-ab21-4154-96cc-3ac8e3cb8b2e/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/2684b85b-b180-46b4-8b70-1fd8166e59e4/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/2a491aed-3885-4009-9bd6-eea6d56ebe00/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/2a95a11d-0a14-448c-8dd3-a00b0cc485ab/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/2aa0bdfc-b0f2-48ca-8f36-7422a1dd86b0/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/32d2b9c7-9b29-4823-8054-029f3abd14d2/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/3a2169a5-25e7-4f8d-99ef-1d1dabd1602a/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/402c673f-2c35-4a29-a128-62350eddf9ee/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/4185a8cb-a691-416b-8288-e5c56081c5d5/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/42754ce0-7773-4c7a-8ff2-ee44a7598fe7/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/432dd004-2398-4564-87a2-97c34902a305/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/4339d7f8-d5c1-41e4-8e19-f02dfb520860/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/46b04fa4-2732-4b28-b83c-6afd7d3b7460/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/49e51a0a-d20b-43c1-8a47-60692c5392f3/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/4d79fdc1-e15a-4b4e-8ddd-02060a97c293/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/4e0a684b-87e8-4af7-9b7a-765f0f9f8e58/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/4ebaf8b7-fce4-49d0-a114-bbf900728879/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/54fc45aa-624f-4f09-ab6d-ef844234332d/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/5f58af8a-5e38-4bf8-9101-f3f0a4052909/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/61525195-fc3f-48f6-a378-d3d515ff5d23/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/61855c90-2ccf-489b-91f3-9b06923d841f/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/69cd4529-3a36-457c-b51b-22a1ecf1958c/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/6ac4bf27-61de-460b-b954-dbd26850b1f6/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/6fc7db60-a311-4008-8aa9-1ad2c8c115db/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/7159748c-0691-4616-9be7-0fca4153201a/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/7c131672-8d20-4f14-b68d-1565e32c293b/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/804fd8b2-245e-4914-9930-c5e93495ffd6/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/807ee8c8-f2ab-4c72-a838-1a87e2e84678/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/847bbb25-fac3-4451-8f4b-cf32962d6644/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/8761046c-7a4b-44c2-9918-77e545deaf58/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/8f5171bb-03bf-4774-b2d5-d2e87562c37a/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/9a744f84-6708-450e-a393-121a9e66baee/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/9c441e19-56c2-40a7-9b88-8e2f6f4d663d/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/a193a8b2-f536-41d8-82b5-3766d632e42b/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/a2e4fe91-854f-4625-860c-77c03d039e4d/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/a41a9ffb-372b-4236-8d05-a87efa173028/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/a70f24e2-ef60-4ef4-a568-890ff1d6ede4/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/ac0aa46d-bc53-4e79-a2d7-d6d21db92609/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/aefc4e80-c217-4eee-b243-04dbaf6005e1/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/b00c0c6b-7924-4e82-bea7-6365d1353a8a/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/b1be998f-6eea-41bc-8c42-c63cb8e32fc0/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/b74b25a9-4d80-43fc-b6e3-44476251b266/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/b8c657d9-62a5-4c02-b68f-81d25dfd1b17/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/b9d268be-40cb-4ac7-8a16-77df7ce1c0a1/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/bd2ed929-9b05-43d2-9c68-127b057003df/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/bf47c8d5-abf4-4781-95e7-34e7f6ad9f67/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/c1ab73f5-6144-4529-b1fa-2812479b8359/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/c202e41c-6c95-4036-84c3-e8b4ac8698c8/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/cb1f377f-e677-43cb-8bfc-c67760f23f88/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/cce519a3-053b-40cf-80c1-ceaeeb75ab36/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/d7ef447c-82d2-428d-a01e-6d0883c3e31d/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/e10fe1f8-b42c-4252-bd9b-d77b0d07a7c8/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/e1757a86-7234-4924-abb0-8b4d6f2062d9/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/e292eba8-83e9-43e2-a06d-f824a7fc2e08/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/e2e69244-81d0-403c-967f-f23bd53ca540/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/e48c0df5-31ba-4750-a1bd-c1df58a554ee/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/e5c1bc14-8590-46f9-8e75-0a821cb8861e/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/eab2cc77-03d9-4264-be15-12292d292070/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/eaf1dd44-5f16-4ea4-8b37-5e5b71fe972e/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/eb31f2ac-3b23-4f10-a3dc-cdaf2c5de990/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/ecc8fe0e-2e70-4237-85cd-0f2adf6556d9/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/ecd3b0dd-4ded-4573-8753-4e5fe141a45f/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/f4d244ce-fca9-49fc-9540-000861a4f360/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/f645da6a-7c2d-479c-a085-9a229736b7f6/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/f68abd37-682e-4d7e-8434-96ee2ee137bd/
+	yyp/sprites/asset_texture_visu_bkg_1/layers/fc44a05b-aaa5-44b7-99b6-6da70d8d42bb/
+	yyp/sprites/asset_texture_visu_bkg_2/05d5db64-a74f-4a41-9d56-fbd8c1136b8d.png
+	yyp/sprites/asset_texture_visu_bkg_2/0695cee1-d280-41c7-a094-d252f563c18b.png
+	yyp/sprites/asset_texture_visu_bkg_2/06b4e221-a088-4ead-b6a2-5acdfb01f71e.png
+	yyp/sprites/asset_texture_visu_bkg_2/0b18a30c-0d59-46cc-8eee-25eaeed6729e.png
+	yyp/sprites/asset_texture_visu_bkg_2/0e714436-b8c7-4be8-9c91-b1839f7fdad5.png
+	yyp/sprites/asset_texture_visu_bkg_2/10cf9712-a1e4-4f7e-b950-72ec9d65c5c7.png
+	yyp/sprites/asset_texture_visu_bkg_2/164de06c-30d8-48f7-89a8-202efae3a56b.png
+	yyp/sprites/asset_texture_visu_bkg_2/1ad2b3b5-bb21-40bd-aaac-b0d1f7c4e6dc.png
+	yyp/sprites/asset_texture_visu_bkg_2/1eac3b3f-3342-47f6-bb97-a000d2e2c54b.png
+	yyp/sprites/asset_texture_visu_bkg_2/2002fbdd-4b35-4344-8a74-9d7838f2c804.png
+	yyp/sprites/asset_texture_visu_bkg_2/20659b78-d8e2-4030-b501-cf39990bd66f.png
+	yyp/sprites/asset_texture_visu_bkg_2/239ec397-3260-47ee-9f09-e7a7173b3df3.png
+	yyp/sprites/asset_texture_visu_bkg_2/24b48001-58be-455b-bd14-80c7635340c3.png
+	yyp/sprites/asset_texture_visu_bkg_2/28ec83f3-2e2e-4d3c-b203-8a79e11533f5.png
+	yyp/sprites/asset_texture_visu_bkg_2/3268316b-3d2f-4a60-b0ea-f734e904bbc5.png
+	yyp/sprites/asset_texture_visu_bkg_2/34f6c413-1443-49a6-98f2-0b4a3608f1f4.png
+	yyp/sprites/asset_texture_visu_bkg_2/39cc6107-0611-4096-b136-f7be0095f0c0.png
+	yyp/sprites/asset_texture_visu_bkg_2/3dc906d4-0f6e-4e5a-b792-a5ff57eea76b.png
+	yyp/sprites/asset_texture_visu_bkg_2/3ebb8cb0-bbba-492f-925e-e037de8df175.png
+	yyp/sprites/asset_texture_visu_bkg_2/4240ec99-baf4-4a96-aad8-c936f21742d8.png
+	yyp/sprites/asset_texture_visu_bkg_2/445e9596-e79e-4d14-b1bf-6a9e9d990618.png
+	yyp/sprites/asset_texture_visu_bkg_2/49bff432-06a1-441d-868a-6f347881e909.png
+	yyp/sprites/asset_texture_visu_bkg_2/4e966053-8c7b-4cbe-bb4e-dd168940a284.png
+	yyp/sprites/asset_texture_visu_bkg_2/518d144d-c84f-4501-88ce-eff7352059e3.png
+	yyp/sprites/asset_texture_visu_bkg_2/5320d4e9-d30f-457b-9029-1567a3b03580.png
+	yyp/sprites/asset_texture_visu_bkg_2/541fbc20-e049-4ef0-a619-918ce18399a2.png
+	yyp/sprites/asset_texture_visu_bkg_2/5762a25d-faa9-48eb-a5c7-1737f510bf1e.png
+	yyp/sprites/asset_texture_visu_bkg_2/5a5ebf88-da25-4cab-aa41-c4a3260738d1.png
+	yyp/sprites/asset_texture_visu_bkg_2/5a798f13-1e55-445e-93a2-369c4e96d923.png
+	yyp/sprites/asset_texture_visu_bkg_2/5f3a60a6-8c3b-4cb7-8817-ebc19215019c.png
+	yyp/sprites/asset_texture_visu_bkg_2/6108fa9d-c7f6-41c5-9aef-9488602818f0.png
+	yyp/sprites/asset_texture_visu_bkg_2/6b05f09b-1f02-4521-bd63-6e58b2995c03.png
+	yyp/sprites/asset_texture_visu_bkg_2/7298b50f-915e-405b-9106-207a161c3fbe.png
+	yyp/sprites/asset_texture_visu_bkg_2/73f89e9d-1ddb-413d-9417-dcf4a1eb7658.png
+	yyp/sprites/asset_texture_visu_bkg_2/766255b7-1f09-44da-9e95-8f6ab87226d2.png
+	yyp/sprites/asset_texture_visu_bkg_2/78546246-6d29-4969-807e-b054c48d6dbc.png
+	yyp/sprites/asset_texture_visu_bkg_2/874b1727-2406-4d3f-bfda-a18b1706ce2d.png
+	yyp/sprites/asset_texture_visu_bkg_2/893215ef-f429-41a0-b390-f98524b337ea.png
+	yyp/sprites/asset_texture_visu_bkg_2/8b1a71be-27ef-479f-a6ef-22e4ea9a5319.png
+	yyp/sprites/asset_texture_visu_bkg_2/8f62159c-8b81-44e3-97f2-fbb951f93e9d.png
+	yyp/sprites/asset_texture_visu_bkg_2/900ee8e5-cda7-4415-bfa8-4a063e8c879d.png
+	yyp/sprites/asset_texture_visu_bkg_2/93c86c6d-2851-4865-b20d-198455266b37.png
+	yyp/sprites/asset_texture_visu_bkg_2/98947700-fd2f-417a-a1fe-fcb395049dda.png
+	yyp/sprites/asset_texture_visu_bkg_2/989feb57-3cf6-4d47-868d-de86286a3a47.png
+	yyp/sprites/asset_texture_visu_bkg_2/996a7357-f212-4b2b-ac71-1d3077d383cd.png
+	yyp/sprites/asset_texture_visu_bkg_2/9aad2d9e-cfbd-4b86-905e-1f0f98604793.png
+	yyp/sprites/asset_texture_visu_bkg_2/9b1b23c1-9fbc-4f75-8ee2-e64ff7d95cbf.png
+	yyp/sprites/asset_texture_visu_bkg_2/9b9ffadf-73b2-49ad-96e1-ac4b29b0d2f8.png
+	yyp/sprites/asset_texture_visu_bkg_2/9d9adf11-6288-41f4-be64-993d3375eeda.png
+	yyp/sprites/asset_texture_visu_bkg_2/abc095e1-ecdc-421e-912f-872f455ed852.png
+	yyp/sprites/asset_texture_visu_bkg_2/b0904a12-b1ad-42a4-b413-fa4cf772c020.png
+	yyp/sprites/asset_texture_visu_bkg_2/b8ab5c0d-34ac-4ee8-acfb-daf617e83be6.png
+	yyp/sprites/asset_texture_visu_bkg_2/be3d4d8e-d67f-468d-824b-54cf01becb7d.png
+	yyp/sprites/asset_texture_visu_bkg_2/cc9bf4b2-5801-4f9d-94d5-146e16a44282.png
+	yyp/sprites/asset_texture_visu_bkg_2/ccf34539-df8a-426e-9e38-d918202fe763.png
+	yyp/sprites/asset_texture_visu_bkg_2/ce8211a6-9aff-4ee1-8f81-3a44d80fbada.png
+	yyp/sprites/asset_texture_visu_bkg_2/cf9762a4-7842-4e09-803b-fdd7e7149efd.png
+	yyp/sprites/asset_texture_visu_bkg_2/d542ec2f-b53c-42d2-b4cc-fb031c1768ce.png
+	yyp/sprites/asset_texture_visu_bkg_2/d5830892-de1a-4ae2-ba2a-2f3747bb3819.png
+	yyp/sprites/asset_texture_visu_bkg_2/d6a04772-6f75-484e-9091-a9748315d792.png
+	yyp/sprites/asset_texture_visu_bkg_2/d7efa744-65ec-4bba-a230-4753128bffd7.png
+	yyp/sprites/asset_texture_visu_bkg_2/d90efac2-e4e7-4701-9804-a2a7bcbcd908.png
+	yyp/sprites/asset_texture_visu_bkg_2/daed64f9-d32c-414f-bbfa-9d4ee87f5c96.png
+	yyp/sprites/asset_texture_visu_bkg_2/e39f95db-7607-4705-9166-daf0f2edb76d.png
+	yyp/sprites/asset_texture_visu_bkg_2/e54360eb-d17c-430e-938d-f9b8a1ddd105.png
+	yyp/sprites/asset_texture_visu_bkg_2/e846b410-18ed-4357-a74c-572db733a00d.png
+	yyp/sprites/asset_texture_visu_bkg_2/edb52a62-a80c-4a9d-a05e-b44a91fc0a2c.png
+	yyp/sprites/asset_texture_visu_bkg_2/f673a69c-5f2e-4f16-9482-0406c69080f9.png
+	yyp/sprites/asset_texture_visu_bkg_2/fcc1cf02-b75e-4c8c-925f-c335e5276fd8.png
+	yyp/sprites/asset_texture_visu_bkg_2/fd18aabf-4aa0-45dc-a8df-e99d3b3996b9.png
+	yyp/sprites/asset_texture_visu_bkg_2/fe18922c-ff6c-4e4d-9c22-d8041f9d7caa.png
+	yyp/sprites/asset_texture_visu_bkg_2/ff2ea190-ec05-4d9d-8f90-66aa050bc69c.png
+	yyp/sprites/asset_texture_visu_bkg_2/ffe3157c-1105-4bd0-a50b-5412371feb08.png
+	yyp/sprites/asset_texture_visu_bkg_2/layers/05d5db64-a74f-4a41-9d56-fbd8c1136b8d/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/0695cee1-d280-41c7-a094-d252f563c18b/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/06b4e221-a088-4ead-b6a2-5acdfb01f71e/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/0b18a30c-0d59-46cc-8eee-25eaeed6729e/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/0e714436-b8c7-4be8-9c91-b1839f7fdad5/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/10cf9712-a1e4-4f7e-b950-72ec9d65c5c7/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/164de06c-30d8-48f7-89a8-202efae3a56b/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/1ad2b3b5-bb21-40bd-aaac-b0d1f7c4e6dc/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/1eac3b3f-3342-47f6-bb97-a000d2e2c54b/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/2002fbdd-4b35-4344-8a74-9d7838f2c804/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/20659b78-d8e2-4030-b501-cf39990bd66f/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/239ec397-3260-47ee-9f09-e7a7173b3df3/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/24b48001-58be-455b-bd14-80c7635340c3/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/28ec83f3-2e2e-4d3c-b203-8a79e11533f5/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/3268316b-3d2f-4a60-b0ea-f734e904bbc5/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/34f6c413-1443-49a6-98f2-0b4a3608f1f4/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/39cc6107-0611-4096-b136-f7be0095f0c0/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/3dc906d4-0f6e-4e5a-b792-a5ff57eea76b/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/3ebb8cb0-bbba-492f-925e-e037de8df175/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/4240ec99-baf4-4a96-aad8-c936f21742d8/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/445e9596-e79e-4d14-b1bf-6a9e9d990618/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/49bff432-06a1-441d-868a-6f347881e909/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/4e966053-8c7b-4cbe-bb4e-dd168940a284/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/518d144d-c84f-4501-88ce-eff7352059e3/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/5320d4e9-d30f-457b-9029-1567a3b03580/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/541fbc20-e049-4ef0-a619-918ce18399a2/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/5762a25d-faa9-48eb-a5c7-1737f510bf1e/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/5a5ebf88-da25-4cab-aa41-c4a3260738d1/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/5a798f13-1e55-445e-93a2-369c4e96d923/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/5f3a60a6-8c3b-4cb7-8817-ebc19215019c/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/6108fa9d-c7f6-41c5-9aef-9488602818f0/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/6b05f09b-1f02-4521-bd63-6e58b2995c03/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/7298b50f-915e-405b-9106-207a161c3fbe/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/73f89e9d-1ddb-413d-9417-dcf4a1eb7658/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/766255b7-1f09-44da-9e95-8f6ab87226d2/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/78546246-6d29-4969-807e-b054c48d6dbc/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/874b1727-2406-4d3f-bfda-a18b1706ce2d/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/893215ef-f429-41a0-b390-f98524b337ea/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/8b1a71be-27ef-479f-a6ef-22e4ea9a5319/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/8f62159c-8b81-44e3-97f2-fbb951f93e9d/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/900ee8e5-cda7-4415-bfa8-4a063e8c879d/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/93c86c6d-2851-4865-b20d-198455266b37/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/98947700-fd2f-417a-a1fe-fcb395049dda/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/989feb57-3cf6-4d47-868d-de86286a3a47/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/996a7357-f212-4b2b-ac71-1d3077d383cd/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/9aad2d9e-cfbd-4b86-905e-1f0f98604793/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/9b1b23c1-9fbc-4f75-8ee2-e64ff7d95cbf/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/9b9ffadf-73b2-49ad-96e1-ac4b29b0d2f8/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/9d9adf11-6288-41f4-be64-993d3375eeda/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/abc095e1-ecdc-421e-912f-872f455ed852/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/b0904a12-b1ad-42a4-b413-fa4cf772c020/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/b8ab5c0d-34ac-4ee8-acfb-daf617e83be6/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/be3d4d8e-d67f-468d-824b-54cf01becb7d/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/cc9bf4b2-5801-4f9d-94d5-146e16a44282/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/ccf34539-df8a-426e-9e38-d918202fe763/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/ce8211a6-9aff-4ee1-8f81-3a44d80fbada/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/cf9762a4-7842-4e09-803b-fdd7e7149efd/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/d542ec2f-b53c-42d2-b4cc-fb031c1768ce/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/d5830892-de1a-4ae2-ba2a-2f3747bb3819/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/d6a04772-6f75-484e-9091-a9748315d792/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/d7efa744-65ec-4bba-a230-4753128bffd7/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/d90efac2-e4e7-4701-9804-a2a7bcbcd908/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/daed64f9-d32c-414f-bbfa-9d4ee87f5c96/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/e39f95db-7607-4705-9166-daf0f2edb76d/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/e54360eb-d17c-430e-938d-f9b8a1ddd105/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/e846b410-18ed-4357-a74c-572db733a00d/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/edb52a62-a80c-4a9d-a05e-b44a91fc0a2c/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/f673a69c-5f2e-4f16-9482-0406c69080f9/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/fcc1cf02-b75e-4c8c-925f-c335e5276fd8/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/fd18aabf-4aa0-45dc-a8df-e99d3b3996b9/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/fe18922c-ff6c-4e4d-9c22-d8041f9d7caa/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/ff2ea190-ec05-4d9d-8f90-66aa050bc69c/
+	yyp/sprites/asset_texture_visu_bkg_2/layers/ffe3157c-1105-4bd0-a50b-5412371feb08/
+	yyp/sprites/asset_texture_visu_bkg_3/057239d8-2297-4669-b8d3-d9618eb8300f.png
+	yyp/sprites/asset_texture_visu_bkg_3/0bc9b060-9770-4813-a846-82493e0be435.png
+	yyp/sprites/asset_texture_visu_bkg_3/0bec21b3-ac4e-4128-835f-ff32148fb49b.png
+	yyp/sprites/asset_texture_visu_bkg_3/324c9971-c6b4-4604-b100-976be8550b3e.png
+	yyp/sprites/asset_texture_visu_bkg_3/36c62944-5a31-44b3-b38c-50b592bcad23.png
+	yyp/sprites/asset_texture_visu_bkg_3/4114abcd-e87e-4c74-8750-2bb1401950bc.png
+	yyp/sprites/asset_texture_visu_bkg_3/44ca7131-85f2-4944-b8b2-ba6f4b202643.png
+	yyp/sprites/asset_texture_visu_bkg_3/47f849f4-4b7f-434b-aa1d-73331c0d8056.png
+	yyp/sprites/asset_texture_visu_bkg_3/48fd7de9-3b41-4284-9639-e9a821fbd98d.png
+	yyp/sprites/asset_texture_visu_bkg_3/4b2de3c2-05ae-4c78-8016-6d0d8d523de9.png
+	yyp/sprites/asset_texture_visu_bkg_3/592cc4ed-6525-486c-94f6-01a09fa44eeb.png
+	yyp/sprites/asset_texture_visu_bkg_3/66dafd56-e505-4dc4-b4f9-9d88b3d553bb.png
+	yyp/sprites/asset_texture_visu_bkg_3/6856f2ec-40ea-4577-ba6f-426d7c101b88.png
+	yyp/sprites/asset_texture_visu_bkg_3/73434504-3c7e-4c43-89b2-afbf265f5510.png
+	yyp/sprites/asset_texture_visu_bkg_3/8dd81ed8-9dd4-4aba-b566-22e3c0185cc4.png
+	yyp/sprites/asset_texture_visu_bkg_3/9503326c-9510-433d-b8a0-b5c37675646b.png
+	yyp/sprites/asset_texture_visu_bkg_3/98f9ccbc-b958-4b98-8596-f5ab9c19c1ad.png
+	yyp/sprites/asset_texture_visu_bkg_3/b2740f40-b4b0-4e34-aa97-c4555cb78a33.png
+	yyp/sprites/asset_texture_visu_bkg_3/bb95f733-6d70-4a6c-97d3-216bdf1e9f3e.png
+	yyp/sprites/asset_texture_visu_bkg_3/c5995878-1a9d-4326-9cb8-0c6cfecba7d4.png
+	yyp/sprites/asset_texture_visu_bkg_3/cca85c56-ea14-4c56-aa33-b3a774700d18.png
+	yyp/sprites/asset_texture_visu_bkg_3/cfa38871-3b3b-4eaf-ab19-69c0fc918d19.png
+	yyp/sprites/asset_texture_visu_bkg_3/d05d28f5-442a-491e-aca0-287bf12b2074.png
+	yyp/sprites/asset_texture_visu_bkg_3/da151eda-2b4f-417c-9d66-cad94e34fea1.png
+	yyp/sprites/asset_texture_visu_bkg_3/layers/057239d8-2297-4669-b8d3-d9618eb8300f/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/0bc9b060-9770-4813-a846-82493e0be435/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/0bec21b3-ac4e-4128-835f-ff32148fb49b/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/324c9971-c6b4-4604-b100-976be8550b3e/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/36c62944-5a31-44b3-b38c-50b592bcad23/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/4114abcd-e87e-4c74-8750-2bb1401950bc/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/44ca7131-85f2-4944-b8b2-ba6f4b202643/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/47f849f4-4b7f-434b-aa1d-73331c0d8056/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/48fd7de9-3b41-4284-9639-e9a821fbd98d/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/4b2de3c2-05ae-4c78-8016-6d0d8d523de9/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/592cc4ed-6525-486c-94f6-01a09fa44eeb/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/66dafd56-e505-4dc4-b4f9-9d88b3d553bb/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/6856f2ec-40ea-4577-ba6f-426d7c101b88/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/73434504-3c7e-4c43-89b2-afbf265f5510/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/8dd81ed8-9dd4-4aba-b566-22e3c0185cc4/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/9503326c-9510-433d-b8a0-b5c37675646b/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/98f9ccbc-b958-4b98-8596-f5ab9c19c1ad/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/b2740f40-b4b0-4e34-aa97-c4555cb78a33/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/bb95f733-6d70-4a6c-97d3-216bdf1e9f3e/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/c5995878-1a9d-4326-9cb8-0c6cfecba7d4/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/cca85c56-ea14-4c56-aa33-b3a774700d18/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/cfa38871-3b3b-4eaf-ab19-69c0fc918d19/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/d05d28f5-442a-491e-aca0-287bf12b2074/
+	yyp/sprites/asset_texture_visu_bkg_3/layers/da151eda-2b4f-417c-9d66-cad94e34fea1/
+	yyp/sprites/asset_texture_visu_bkg_4/122f40a2-8351-465b-9d07-a437f5e02d7a.png
+	yyp/sprites/asset_texture_visu_bkg_4/1305ce16-91a6-4209-982c-71e9167cd159.png
+	yyp/sprites/asset_texture_visu_bkg_4/1502220d-593f-42b2-9df4-055f6c8c595d.png
+	yyp/sprites/asset_texture_visu_bkg_4/24c1043c-1ce0-4f20-a73b-dca513a132c9.png
+	yyp/sprites/asset_texture_visu_bkg_4/25dc9d11-8509-4327-9963-7eaec5afc842.png
+	yyp/sprites/asset_texture_visu_bkg_4/3684f129-afab-4e8c-98dc-578161a13077.png
+	yyp/sprites/asset_texture_visu_bkg_4/375b6f00-bc44-4f40-bffa-b161b3e5403b.png
+	yyp/sprites/asset_texture_visu_bkg_4/3ced34a4-1024-40f9-8e87-b60b0f320e0b.png
+	yyp/sprites/asset_texture_visu_bkg_4/51effdca-85f6-4e7a-a2b7-8f05a101da52.png
+	yyp/sprites/asset_texture_visu_bkg_4/54ceddd3-700b-4164-95c9-2028ec94e885.png
+	yyp/sprites/asset_texture_visu_bkg_4/56528c11-e803-4da7-868c-31b6eadbcbd0.png
+	yyp/sprites/asset_texture_visu_bkg_4/58ff2021-fb43-4e5e-84d3-4e418784ea50.png
+	yyp/sprites/asset_texture_visu_bkg_4/69ba460a-68fb-41eb-870d-b333ca60017a.png
+	yyp/sprites/asset_texture_visu_bkg_4/6c1de892-653e-4f93-956a-6ab2dcc1b2ca.png
+	yyp/sprites/asset_texture_visu_bkg_4/82e61ed8-13fe-40ae-b2ee-d45b0be066bc.png
+	yyp/sprites/asset_texture_visu_bkg_4/8346db30-6e2a-4565-a2b8-439c4c376453.png
+	yyp/sprites/asset_texture_visu_bkg_4/a7cb3813-8606-4eed-abe5-6f7214af3f04.png
+	yyp/sprites/asset_texture_visu_bkg_4/b0f4f124-03d8-410e-93ce-0308a4e19cd1.png
+	yyp/sprites/asset_texture_visu_bkg_4/b37ab2d0-99ca-4476-873d-ecc43497c3f3.png
+	yyp/sprites/asset_texture_visu_bkg_4/bf3e83d5-d4d1-420f-8cc0-ff28d8db93c9.png
+	yyp/sprites/asset_texture_visu_bkg_4/c626e819-79c9-45e0-81c1-40064969ed13.png
+	yyp/sprites/asset_texture_visu_bkg_4/ddd84a04-cce8-4edc-ad99-fbb0c63de164.png
+	yyp/sprites/asset_texture_visu_bkg_4/e286f9b3-0d7e-447b-a0e1-7d082e38bace.png
+	yyp/sprites/asset_texture_visu_bkg_4/f76bf8c3-4857-41ab-a562-5f0e6671bc27.png
+	yyp/sprites/asset_texture_visu_bkg_4/layers/122f40a2-8351-465b-9d07-a437f5e02d7a/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/1305ce16-91a6-4209-982c-71e9167cd159/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/1502220d-593f-42b2-9df4-055f6c8c595d/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/24c1043c-1ce0-4f20-a73b-dca513a132c9/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/25dc9d11-8509-4327-9963-7eaec5afc842/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/3684f129-afab-4e8c-98dc-578161a13077/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/375b6f00-bc44-4f40-bffa-b161b3e5403b/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/3ced34a4-1024-40f9-8e87-b60b0f320e0b/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/51effdca-85f6-4e7a-a2b7-8f05a101da52/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/54ceddd3-700b-4164-95c9-2028ec94e885/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/56528c11-e803-4da7-868c-31b6eadbcbd0/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/58ff2021-fb43-4e5e-84d3-4e418784ea50/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/69ba460a-68fb-41eb-870d-b333ca60017a/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/6c1de892-653e-4f93-956a-6ab2dcc1b2ca/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/82e61ed8-13fe-40ae-b2ee-d45b0be066bc/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/8346db30-6e2a-4565-a2b8-439c4c376453/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/a7cb3813-8606-4eed-abe5-6f7214af3f04/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/b0f4f124-03d8-410e-93ce-0308a4e19cd1/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/b37ab2d0-99ca-4476-873d-ecc43497c3f3/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/bf3e83d5-d4d1-420f-8cc0-ff28d8db93c9/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/c626e819-79c9-45e0-81c1-40064969ed13/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/ddd84a04-cce8-4edc-ad99-fbb0c63de164/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/e286f9b3-0d7e-447b-a0e1-7d082e38bace/
+	yyp/sprites/asset_texture_visu_bkg_4/layers/f76bf8c3-4857-41ab-a562-5f0e6671bc27/
+	yyp/sprites/asset_texture_visu_bkg_6/0eb19254-4653-4584-b34c-916eab265fb6.png
+	yyp/sprites/asset_texture_visu_bkg_6/17049b27-abe5-4b82-877d-694b995ebe03.png
+	yyp/sprites/asset_texture_visu_bkg_6/21c55764-ecec-4048-91ac-2ce454ffb9ac.png
+	yyp/sprites/asset_texture_visu_bkg_6/21d76379-02d4-4a84-873a-2d8dfac974f7.png
+	yyp/sprites/asset_texture_visu_bkg_6/32239750-2356-43f8-8b10-1d84d996758b.png
+	yyp/sprites/asset_texture_visu_bkg_6/4b707133-4e9a-427f-a333-3d712fa097f9.png
+	yyp/sprites/asset_texture_visu_bkg_6/5c67ea30-9591-4fb3-8dd3-cf38f09e7fe7.png
+	yyp/sprites/asset_texture_visu_bkg_6/614accbb-a9de-4ebe-b570-2fe5d46e43f1.png
+	yyp/sprites/asset_texture_visu_bkg_6/682d6204-667f-4924-a944-7768102c98db.png
+	yyp/sprites/asset_texture_visu_bkg_6/77657ed0-af84-4fe5-8c04-02283c5d8e89.png
+	yyp/sprites/asset_texture_visu_bkg_6/7c260c34-f6d8-4f35-bb57-94dc3dd417a8.png
+	yyp/sprites/asset_texture_visu_bkg_6/7d710505-b1da-44a1-9ff9-765d436f4b3f.png
+	yyp/sprites/asset_texture_visu_bkg_6/8e1c9ba3-a11f-4896-a577-2eeeb4ae89a4.png
+	yyp/sprites/asset_texture_visu_bkg_6/97e2dfa8-4b5e-4a7a-aa76-be2ef43f2cce.png
+	yyp/sprites/asset_texture_visu_bkg_6/9acb6537-80a7-4a6f-b9cb-379a531ceb40.png
+	yyp/sprites/asset_texture_visu_bkg_6/a115c025-8cea-484e-8561-00fa1744c458.png
+	yyp/sprites/asset_texture_visu_bkg_6/a631e116-363c-404f-9eec-59cba3932530.png
+	yyp/sprites/asset_texture_visu_bkg_6/a9f49406-695f-49fa-86aa-1ce7f5884bb6.png
+	yyp/sprites/asset_texture_visu_bkg_6/baf16f7d-9f07-47ec-be91-d694469d6a82.png
+	yyp/sprites/asset_texture_visu_bkg_6/c137a819-bbd0-43d1-9703-20a6db29bf3f.png
+	yyp/sprites/asset_texture_visu_bkg_6/cb01912e-5f07-4903-b321-d51cf9c864ca.png
+	yyp/sprites/asset_texture_visu_bkg_6/d171bd87-03e9-4ac2-9373-62d81be57daf.png
+	yyp/sprites/asset_texture_visu_bkg_6/e0c34040-5a90-4d9b-87a8-a18e5c9730f0.png
+	yyp/sprites/asset_texture_visu_bkg_6/e25095ec-0dde-4424-853a-37deca12054f.png
+	yyp/sprites/asset_texture_visu_bkg_6/f42d77f2-1c7c-4db0-8ff2-ce272d16a4e7.png
+	yyp/sprites/asset_texture_visu_bkg_6/f5b830c7-d956-411f-83a7-626654a174f5.png
+	yyp/sprites/asset_texture_visu_bkg_6/layers/0eb19254-4653-4584-b34c-916eab265fb6/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/17049b27-abe5-4b82-877d-694b995ebe03/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/21c55764-ecec-4048-91ac-2ce454ffb9ac/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/21d76379-02d4-4a84-873a-2d8dfac974f7/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/32239750-2356-43f8-8b10-1d84d996758b/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/4b707133-4e9a-427f-a333-3d712fa097f9/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/5c67ea30-9591-4fb3-8dd3-cf38f09e7fe7/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/614accbb-a9de-4ebe-b570-2fe5d46e43f1/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/682d6204-667f-4924-a944-7768102c98db/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/77657ed0-af84-4fe5-8c04-02283c5d8e89/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/7c260c34-f6d8-4f35-bb57-94dc3dd417a8/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/7d710505-b1da-44a1-9ff9-765d436f4b3f/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/8e1c9ba3-a11f-4896-a577-2eeeb4ae89a4/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/97e2dfa8-4b5e-4a7a-aa76-be2ef43f2cce/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/9acb6537-80a7-4a6f-b9cb-379a531ceb40/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/a115c025-8cea-484e-8561-00fa1744c458/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/a631e116-363c-404f-9eec-59cba3932530/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/a9f49406-695f-49fa-86aa-1ce7f5884bb6/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/baf16f7d-9f07-47ec-be91-d694469d6a82/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/c137a819-bbd0-43d1-9703-20a6db29bf3f/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/cb01912e-5f07-4903-b321-d51cf9c864ca/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/d171bd87-03e9-4ac2-9373-62d81be57daf/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/e0c34040-5a90-4d9b-87a8-a18e5c9730f0/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/e25095ec-0dde-4424-853a-37deca12054f/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/f42d77f2-1c7c-4db0-8ff2-ce272d16a4e7/
+	yyp/sprites/asset_texture_visu_bkg_6/layers/f5b830c7-d956-411f-83a7-626654a174f5/
+	yyp/sprites/asset_texture_visu_shroom_01/02989df5-f70c-47ff-9426-f4e6f78e288b.png
+	yyp/sprites/asset_texture_visu_shroom_01/3928b376-7584-462f-aeba-6bb6def7a530.png
+	yyp/sprites/asset_texture_visu_shroom_01/4a2eaf6d-3bb4-4e0a-a6c1-421bfb99177a.png
+	yyp/sprites/asset_texture_visu_shroom_01/a30d7215-1fd4-4608-a47d-3eea6edb5e09.png
+	yyp/sprites/asset_texture_visu_shroom_01/layers/02989df5-f70c-47ff-9426-f4e6f78e288b/
+	yyp/sprites/asset_texture_visu_shroom_01/layers/3928b376-7584-462f-aeba-6bb6def7a530/
+	yyp/sprites/asset_texture_visu_shroom_01/layers/4a2eaf6d-3bb4-4e0a-a6c1-421bfb99177a/
+	yyp/sprites/asset_texture_visu_shroom_01/layers/a30d7215-1fd4-4608-a47d-3eea6edb5e09/
+	yyp/sprites/asset_texture_visu_shroom_02/49ab7016-cc38-4596-8215-60091e41878a.png
+	yyp/sprites/asset_texture_visu_shroom_02/64f355ef-7c31-4d7c-ba31-2f6c2e1d2c5c.png
+	yyp/sprites/asset_texture_visu_shroom_02/689aa719-421c-412f-8e38-7082f10d5cc3.png
+	yyp/sprites/asset_texture_visu_shroom_02/6b058ed8-aa75-4952-a357-61abf1cf1bcf.png
+	yyp/sprites/asset_texture_visu_shroom_02/layers/49ab7016-cc38-4596-8215-60091e41878a/
+	yyp/sprites/asset_texture_visu_shroom_02/layers/64f355ef-7c31-4d7c-ba31-2f6c2e1d2c5c/
+	yyp/sprites/asset_texture_visu_shroom_02/layers/689aa719-421c-412f-8e38-7082f10d5cc3/
+	yyp/sprites/asset_texture_visu_shroom_02/layers/6b058ed8-aa75-4952-a357-61abf1cf1bcf/
+	yyp/sprites/asset_texture_visu_shroom_03/1e2e8beb-8208-4335-ad16-1b165dec6f22.png
+	yyp/sprites/asset_texture_visu_shroom_03/layers/1e2e8beb-8208-4335-ad16-1b165dec6f22/
+	yyp/sprites/asset_texture_visu_shroom_04/12828e69-3a16-4718-a493-40ae64c98cce.png
+	yyp/sprites/asset_texture_visu_shroom_04/1ea72eaa-7ba5-4e00-b6d0-5c7b1122a8a4.png
+	yyp/sprites/asset_texture_visu_shroom_04/395597b5-d2d9-494e-9540-fbc5aafc0604.png
+	yyp/sprites/asset_texture_visu_shroom_04/597b0167-7bb8-415d-85be-e41537ee3e88.png
+	yyp/sprites/asset_texture_visu_shroom_04/a9965135-8e3c-4ebb-a95d-f5c254a09d41.png
+	yyp/sprites/asset_texture_visu_shroom_04/layers/12828e69-3a16-4718-a493-40ae64c98cce/
+	yyp/sprites/asset_texture_visu_shroom_04/layers/1ea72eaa-7ba5-4e00-b6d0-5c7b1122a8a4/
+	yyp/sprites/asset_texture_visu_shroom_04/layers/395597b5-d2d9-494e-9540-fbc5aafc0604/
+	yyp/sprites/asset_texture_visu_shroom_04/layers/a9965135-8e3c-4ebb-a95d-f5c254a09d41/
+	yyp/sprites/asset_texture_visu_shroom_05/8be69992-aa96-40a4-aa35-bfc0d3998bc7.png
+	yyp/sprites/asset_texture_visu_shroom_05/fb4ced15-dd93-4281-b28d-1d65b38eb9b7.png
+	yyp/sprites/asset_texture_visu_shroom_05/layers/8be69992-aa96-40a4-aa35-bfc0d3998bc7/
+	yyp/sprites/asset_texture_visu_shroom_05/layers/fb4ced15-dd93-4281-b28d-1d65b38eb9b7/
+	yyp/sprites/asset_texture_visu_shroom_06/07d28889-04d7-4da6-a561-dfab77b31a11.png
+	yyp/sprites/asset_texture_visu_shroom_06/163d5be2-cd2d-48ec-b6d0-b90c930fcced.png
+	yyp/sprites/asset_texture_visu_shroom_06/22f57746-0001-4065-9b03-54dfe9006c4e.png
+	yyp/sprites/asset_texture_visu_shroom_06/46d6bfc3-6d66-4673-9d7d-26092c365757.png
+	yyp/sprites/asset_texture_visu_shroom_06/76566a8c-7060-4d3c-a182-2025d2b2f109.png
+	yyp/sprites/asset_texture_visu_shroom_06/859da8ff-4add-48bc-9ffa-962075de4f00.png
+	yyp/sprites/asset_texture_visu_shroom_06/a2ed2ee6-9ffd-4b14-bbef-f3cf1b104919.png
+	yyp/sprites/asset_texture_visu_shroom_06/bf468f2a-a343-41b3-b72d-f3f267962f59.png
+	yyp/sprites/asset_texture_visu_shroom_06/ec90fc3f-806d-43fa-a8a1-a744b6bd2915.png
+	yyp/sprites/asset_texture_visu_shroom_06/f2e236dc-23b0-44f0-b1fa-4127f8e11768.png
+	yyp/sprites/asset_texture_visu_shroom_06/layers/07d28889-04d7-4da6-a561-dfab77b31a11/
+	yyp/sprites/asset_texture_visu_shroom_06/layers/163d5be2-cd2d-48ec-b6d0-b90c930fcced/
+	yyp/sprites/asset_texture_visu_shroom_06/layers/22f57746-0001-4065-9b03-54dfe9006c4e/
+	yyp/sprites/asset_texture_visu_shroom_06/layers/46d6bfc3-6d66-4673-9d7d-26092c365757/
+	yyp/sprites/asset_texture_visu_shroom_06/layers/76566a8c-7060-4d3c-a182-2025d2b2f109/
+	yyp/sprites/asset_texture_visu_shroom_06/layers/859da8ff-4add-48bc-9ffa-962075de4f00/
+	yyp/sprites/asset_texture_visu_shroom_06/layers/a2ed2ee6-9ffd-4b14-bbef-f3cf1b104919/
+	yyp/sprites/asset_texture_visu_shroom_06/layers/ec90fc3f-806d-43fa-a8a1-a744b6bd2915/
+	yyp/sprites/asset_texture_visu_shroom_06/layers/f2e236dc-23b0-44f0-b1fa-4127f8e11768/
+	yyp/sprites/asset_texture_visu_shroom_07/e1dd44e1-1ddf-49db-b1e9-450ac241331e.png
+	yyp/sprites/asset_texture_visu_shroom_07/layers/e1dd44e1-1ddf-49db-b1e9-450ac241331e/
+	yyp/sprites/asset_texture_visu_shroom_08/5b09429f-0e60-473f-b758-9df27ea147ef.png
+	yyp/sprites/asset_texture_visu_shroom_08/layers/5b09429f-0e60-473f-b758-9df27ea147ef/
+	yyp/sprites/asset_texture_visu_shroom_09/dcde75b1-ba5d-4895-abfb-0c7b2ce4aa80.png
+	yyp/sprites/asset_texture_visu_shroom_09/layers/dcde75b1-ba5d-4895-abfb-0c7b2ce4aa80/
+	yyp/visu.resource_order
+
+no changes added to commit (use "git add" and/or "git commit -a")

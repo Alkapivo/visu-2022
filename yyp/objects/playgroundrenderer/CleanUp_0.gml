@@ -1,0 +1,5 @@
+///@description cleanUp()
+
+	super()
+	deregisterSceneRenderer();
+	

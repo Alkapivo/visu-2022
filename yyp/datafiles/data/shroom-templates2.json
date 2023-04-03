@@ -1,0 +1,76 @@
+[
+    {
+        "name" : "shroom-01",
+        "texture" : [ "asset_texture_visu_shroom_01" ],
+        "spawnPosition" : [ "left" ],
+        "baseSpeed" : [ 0.004, 0.006, 0.008, 0.010 ],
+        "features" : {
+            "isShooting": true
+        }
+    },
+    {
+        "name" : "shroom-02",
+        "texture" : [ "asset_texture_visu_shroom_02" ],
+        "spawnPosition" : [ "left" ],
+        "baseSpeed" : [ 0.004, 0.006, 0.008, 0.010 ],
+        "features" : {}
+    },
+    {
+        "name" : "shroom-03",
+        "texture" : [ "asset_texture_visu_shroom_03" ],
+        "spawnPosition" : [ "right" ],
+        "baseSpeed" : [ 0.004, 0.006, 0.008, 0.010 ],
+        "features" : {}
+    },
+    {
+        "name" : "shroom-04",
+        "texture" : [ "asset_texture_visu_shroom_04" ],
+        "spawnPosition" : [ "right" ],
+        "baseSpeed" : [ 0.004, 0.006, 0.008, 0.010 ],
+        "features" : {
+            "isShooting": true
+        }
+    },
+    {
+        "name" : "shroom-05",
+        "texture" : [ "asset_texture_visu_shroom_05" ],
+        "spawnPosition" : [ "top" ],
+        "baseSpeed" : [ 0.004, 0.006, 0.008, 0.010 ],
+        "features" : {
+            "isZigzagMovement": true
+        }
+    },
+    {
+        "name" : "shroom-06",
+        "texture" : [ "asset_texture_visu_shroom_06" ],
+        "spawnPosition" : [ "top" ],
+        "baseSpeed" : [ 0.004, 0.006, 0.008, 0.010 ],
+        "features" : {
+            "slideAwayAfterLanding": false
+        }
+    },
+    {
+        "name" : "shroom-07",
+        "texture" : [ "asset_texture_visu_shroom_05" ],
+        "spawnPosition" : [ "top" ],
+        "baseSpeed" : [ 0.004, 0.006, 0.008, 0.010 ],
+        "features" : {
+            "isShooting": true,
+            "bulletFollowPlayer": true,
+            "slideAwayAfterLanding": true
+        }
+    },
+    {
+        "name" : "shroom-08",
+        "texture" : [ "asset_texture_visu_shroom_04" ],
+        "spawnPosition" : [ "top" ],
+        "baseSpeed" : [ 0.004, 0.006, 0.008, 0.010 ],
+        "features" : {
+            "isShooting": true,
+            "isZigzagMovement": true,
+            "bulletFollowPlayer": true,
+            "zigzagAmount": 0.003,
+            "zigzagSpeed": 0.11
+        }
+    }
+]
