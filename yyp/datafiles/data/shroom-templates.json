@@ -64,7 +64,7 @@
     },
     {
         "name" : "shroom-07",
-        "texture" : [ "asset_texture_visu_shroom_01", "asset_texture_visu_shroom_08", "asset_texture_visu_shroom_07" ],
+        "texture" : [ "asset_texture_visu_shroom_01", "asset_texture_visu_shroom_03", "asset_texture_visu_shroom_02" ],
         "spawnPosition" : [ "left" ],
         "baseSpeed" : [ 0.012 ],
         "features" : {
@@ -75,7 +75,7 @@
     },
     {
         "name" : "shroom-08",
-        "texture" : [ "asset_texture_visu_shroom_02", "asset_texture_visu_shroom_08", "asset_texture_visu_shroom_07" ],
+        "texture" : [ "asset_texture_visu_shroom_02", "asset_texture_visu_shroom_03", "asset_texture_visu_shroom_02" ],
         "spawnPosition" : [ "right" ],
         "baseSpeed" : [ 0.012 ],
         "features" : {
@@ -109,7 +109,7 @@
     },
     {
         "name" : "shroom-11",
-        "texture" : [ "asset_texture_visu_shroom_07", "asset_texture_visu_shroom_08", "asset_texture_visu_shroom_07" ],
+        "texture" : [ "asset_texture_visu_shroom_02", "asset_texture_visu_shroom_03", "asset_texture_visu_shroom_02" ],
         "spawnPosition" : [ "left" ],
         "baseSpeed" : [ 0.012, 0.013 ],
         "features" : {
@@ -119,7 +119,7 @@
     },
     {
         "name" : "shroom-12",
-        "texture" : [ "asset_texture_visu_shroom_07", "asset_texture_visu_shroom_08", "asset_texture_visu_shroom_07" ],
+        "texture" : [ "asset_texture_visu_shroom_02", "asset_texture_visu_shroom_03", "asset_texture_visu_shroom_02" ],
         "spawnPosition" : [ "right" ],
         "baseSpeed" : [ 0.012, 0.013 ],
         "features" : {
@@ -129,7 +129,7 @@
     },
     {
         "name" : "shroom-13",
-        "texture" : [ "asset_texture_visu_shroom_02", "asset_texture_visu_shroom_03", "asset_texture_visu_shroom_08"],
+        "texture" : [ "asset_texture_visu_shroom_02", "asset_texture_visu_shroom_03", "asset_texture_visu_shroom_03"],
         "spawnPosition" : [ "bottom" ],
         "baseSpeed" : [ 0.013, 0.014 ],
         "features" : {
@@ -141,7 +141,7 @@
     },
     {
         "name" : "shroom-14",
-        "texture" : [ "asset_texture_visu_shroom_06", "asset_texture_visu_shroom_07", "asset_texture_visu_shroom_08" ],
+        "texture" : [ "asset_texture_visu_shroom_06", "asset_texture_visu_shroom_02", "asset_texture_visu_shroom_03" ],
         "spawnPosition" : [ "bottom" ],
         "baseSpeed" : [ 0.015, 0.016 ],
         "features" : {
