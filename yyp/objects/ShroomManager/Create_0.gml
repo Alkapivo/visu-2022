@@ -231,30 +231,6 @@
 							}
 						}
 						
-						if (isOptionalPresent(getGridRenderer())) {
-							var horizontalSpeed = getValueFromMap(shroomState, "horizontalSpeed", 0);
-							var verticalSpeed = getValueFromMap(shroomState, "verticalSpeed", 0); 
-							var speedValue = getShroomSpeedValue(shroom);
-							var gridSpeed = getInstanceVariable(getGridRenderer(), "separatorSpeed");
-							speedValue = speedValue * 0.33 * (gridSpeed / 0.005);
-							var movedHorizontalPosition = getPositionHorizontal(shroomPosition) + (applyDeltaTime(horizontalSpeed  * (gridSpeed / 0.005)));
-							var movedVerticalPosition = fetchMovedVerticalPositionOnGrid(getPositionVertical(shroomPosition), speedValue) + applyDeltaTime(verticalSpeed);
-							if ((movedVerticalPosition >= -1.5) &&
-								(movedVerticalPosition <= 1.5)) {
-						
-								sendGridElementRenderRequest(shroomGridElement);
-							} else {
-								destroyShrooms = pushArray(destroyShrooms, index);
-							}
-						
-							if ((movedHorizontalPosition <= -1.5) &&
-								(movedHorizontalPosition >= 1.5)) {
-						
-								destroyShrooms = pushArray(destroyShrooms, index);
-							}
-							setPositionHorizontal(shroomPosition, movedHorizontalPosition);
-							setPositionVertical(shroomPosition, movedVerticalPosition);
-						}
 						#endregion
 						
 						if (getPlayerManager().gameplayType == "bullethell") {

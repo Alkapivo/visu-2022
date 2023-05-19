@@ -10,7 +10,7 @@
   "bitRate": 128,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 277.4204,
+  "duration": 155.9249,
   "parent": {
     "name": "audio",
     "path": "folders/asset/com.devhorizon.visu/audio.yy",

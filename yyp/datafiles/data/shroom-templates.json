@@ -2,8 +2,7 @@
     {
         "name" : "shroom-01",
         "texture" : [ "asset_texture_visu_shroom_01" ],
-        "spawnPosition" : [ "top" ],
-        "baseSpeed" : [ 0.009, 0.011 ],
+        "baseSpeed" : [ 0.01 ],
         "features" : {
             "slideAwayAfterLanding": true
         }
@@ -11,8 +10,7 @@
     {
         "name" : "shroom-02",
         "texture" : [ "asset_texture_visu_shroom_02" ],
-        "spawnPosition" : [ "top" ],
-        "baseSpeed" : [ 0.009, 0.011 ],
+        "baseSpeed" : [ 0.01 ],
         "features" : {
             "isShooting": true,
             "shootingInterval": 1

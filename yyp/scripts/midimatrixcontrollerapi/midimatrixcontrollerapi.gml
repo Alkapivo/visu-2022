@@ -882,9 +882,10 @@ function actionSpawnShroom(name) {
 		Core.Collections.Maps.get(SpawnPositionDispatcher, SpawnPosition_DEFAULT)
 	);
 	var spawnPositionData = spawnPositionDispatcher(template);
+	var texture = Core.Assets.Texture.fetch(Core.Collections.Arrays.getRandomValue(template.texture))
 	var config = {
 		name: template.name,
-		texture: Core.Assets.Texture.fetch(Core.Collections.Arrays.getRandomValue(template.texture)),
+		texture: texture,
 		position: spawnPositionData.position,
 		spawnPosition: spawnPosition,
 		horizontalSpeed: spawnPositionData.horizontalSpeed,

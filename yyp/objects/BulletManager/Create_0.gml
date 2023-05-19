@@ -54,14 +54,6 @@
 							var playerGridElement = getVisuPlayerGridElement(player);
 							
 							var isCollision = false;
-							if (isOptionalPresent(getGridRenderer())) {
-								isCollision = checkCirclesCollision(
-									getGridElementPosition(playerGridElement),
-									getVisuPlayerCollisionRadius(player) * 0.81,
-									bulletPosition,
-									getBulletCollisionRadius(bullet)
-								);
-							}
 							
 							if (isOptionalPresent(getPlaygroundController())) {
 								isCollision = checkCollisionBetweenGridElements(playerGridElement, getBulletGridElement(bullet), 2048); 	
@@ -90,17 +82,7 @@
 									getBulletCollisionRadius(bullet)
 								);
 								
-								
 								var isCollision = false;
-								if (isOptionalPresent(getGridRenderer())) {
-									isCollision = checkCirclesCollision(
-										getGridElementPosition(shroomGridElement),
-										getShroomRadius(shroom),
-										bulletPosition,
-										getBulletCollisionRadius(bullet)
-									);
-								}
-							
 								if (isOptionalPresent(getPlaygroundController())) {
 									isCollision = checkCollisionBetweenGridElements(shroomGridElement, getBulletGridElement(bullet), 2048); 	
 								}
@@ -119,15 +101,6 @@
 									var playerBulletRadius = isAnyCollision ? 3.5 : 1.0;
 		
 									var isCollision = false;
-									if (isOptionalPresent(getGridRenderer())) {
-										isCollision = checkCirclesCollision(
-											getGridElementPosition(shroomGridElement),
-											getShroomRadius(shroom),
-											bulletPosition,
-											getBulletCollisionRadius(bullet) * playerBulletRadius
-										);
-									}
-							
 									if (isOptionalPresent(getPlaygroundController())) {
 										isCollision = checkCollisionBetweenGridElements(shroomGridElement, getBulletGridElement(bullet), 2048); 	
 									}
@@ -164,17 +137,6 @@
 						|| positionY < grid.view.y - grid.view.height
 						|| positionY > grid.view.y + grid.view.height + grid.view.height) {
 						
-						destroyBullets = pushArray(destroyBullets, index);
-						isAnyCollision = true;
-					}
-				}
-				
-				if ((!isAnyCollision) && (isOptionalPresent(getGridRenderer()))) {
-					if ((positionY > 1.5) 
-							|| (positionY < -0.5)
-							|| (positionX < -0.5)
-							|| (positionX > 1.5)) {
-							
 						destroyBullets = pushArray(destroyBullets, index);
 						isAnyCollision = true;
 					}

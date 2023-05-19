@@ -84,10 +84,6 @@
 				horizontalPosition = clamp(horizontalPosition, 0.0, grid.width);
 			}
 			
-			if (isOptionalPresent(getGridRenderer())) {
-				 horizontalPosition = clamp(getPositionHorizontal(playerPosition) + horizontalSpeed, 0.0, 1.0);
-			}
-			
 			setPositionHorizontal(playerPosition, horizontalPosition);
 			setVisuPlayerHorizontalSpeed(player, horizontalSpeed);
 		
@@ -109,12 +105,6 @@
 				verticalPosition = clamp(verticalPosition, 0.1, grid.height - 0.1);
 			}
 			
-			if (isOptionalPresent(getGridRenderer())) {
-				
-				var verticalPositionMin = 0.01;
-				var verticalPositionMax = 0.80;
-				verticalPosition = clamp(verticalPosition, verticalPositionMin, verticalPositionMax);
-			}
 			
 			setPositionVertical(playerPosition, verticalPosition);
 			setVisuPlayerVerticalSpeed(player, verticalSpeed);
@@ -313,10 +303,6 @@
 				horizontalPosition = clamp(horizontalPosition, 0.0, grid.width);
 			}
 			
-			if (isOptionalPresent(getGridRenderer())) {
-				 horizontalPosition = clamp(getPositionHorizontal(playerPosition) + horizontalSpeed, 0.0, 1.0);
-			}
-			
 			setPositionHorizontal(playerPosition, horizontalPosition);
 			setVisuPlayerHorizontalSpeed(player, horizontalSpeed);
 			
@@ -338,9 +324,6 @@
 				verticalPositionMax = getPlaygroundController().GMObject.state.grid.height;
 			}
 			
-			if (isOptionalPresent(getGridRenderer())) {
-				verticalPositionMax = 0.80;
-			}
 			
 			verticalSpeed = verticalPosition <= verticalPositionMin ? 0.0 : verticalSpeed;
 			verticalSpeed = verticalPosition >= verticalPositionMax ? 0.0 : verticalSpeed;

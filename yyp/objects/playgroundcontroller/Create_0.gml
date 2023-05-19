@@ -487,7 +487,8 @@
 		}),	
 		renderIntro: method(this, function() {
 
-			if (!isStackEmpty(this.texturesStack)) {
+			var renderStack = true
+			if (renderStack && !isStackEmpty(this.texturesStack)) {
 				var texture = popStack(this.texturesStack);
 				var size = sprite_get_number(texture);
 				for (var index = 0; index < size; index++) {
@@ -507,6 +508,7 @@
 					}
 				}
 			}
+			
 	
 			var __color = draw_get_color();
 			var __alpha = draw_get_alpha();
@@ -895,7 +897,7 @@
 			
 								gpuResetSurfaceTarget();
 							}
-
+							
 							// Render texture
 							
 							gpuSetSurfaceTarget(context.gameSurface);
@@ -935,14 +937,13 @@
 			
 			var renderGrid = function(context) {
 				
+				
 				// clear frame
 				if (context.isGridFrameCleaned) {
-					draw_set_alpha(0.39);
-					draw_rectangle_color(0.0, 0.0, GuiWidth, GuiHeight, c_black, c_black, c_black, c_black, false)
-					draw_set_alpha(1.0)
+					Core.GPU.renderClearColor(GM_COLOR_BLACK, 0.0);
 				} else {
 					draw_set_alpha(0.035);
-					draw_rectangle_color(0.0, 0.0, GuiWidth, GuiHeight, c_black, c_black, c_black, c_black, false)
+					draw_rectangle_color(0.0, 0.0, GuiWidth, GuiHeight, c_white, c_white, c_white, c_white, false)
 					draw_set_alpha(1.0)
 				}
 				
